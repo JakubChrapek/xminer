@@ -65,9 +65,9 @@ module.exports = {
         web: [
           {
             /* Exact name of the font as defined in @font-face CSS rule */
-            name: "Staatliches",
+            name: "Poppins",
             /* URL to the font CSS file with @font-face definition */
-            file: "https://fonts.googleapis.com/css2?family=Staatliches",
+            file: "https://fonts.googleapis.com/css2?family=Poppins",
           },
         ],
       },
