@@ -1,9 +1,10 @@
 import PropTypes from "prop-types"
 import React, { useState } from "react"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import Button from "../Button/Button"
+import { containerTransition, itemTransition } from "../Styles/Animations"
 
 const Chevron = styled(motion.span)`
   display: inline-flex;
@@ -42,7 +43,56 @@ const Chevron = styled(motion.span)`
   }
 `
 
-const Navigation = ({ items }) => {
+const SubnavWrapper = styled(motion.div)`
+  display: flex;
+  position: absolute;
+  top: 103px;
+  padding: 60px 120px 60px 0px;
+  max-width: 740px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--white);
+  justify-content: center;
+  align-items: center;
+  > ul {
+    width: 100%;
+    display: flex;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+  }
+
+  h3 {
+    margin: 0 0 12px 20px;
+    color: var(--nav-dark-bluse);
+    font-size: 20px;
+    line-height: 1.5em;
+    font-weight: 500;
+  }
+`
+
+const StyledColumn = styled(motion.ul)`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important;
+
+  li {
+    margin: 4px 0 0;
+    margin-right: 0 !important;
+    a {
+      padding: 4px 20px;
+      color: var(--gray3);
+      font-size: 14px;
+      line-height: 1.71em;
+      font-weight: 400;
+
+      &:after {
+        background-color: var(--nav-dark-bluse);
+      }
+    }
+  }
+`
+
+const Navigation = () => {
   const [show, setShow] = useState(false)
 
   const handleClick = e => {
@@ -51,40 +101,97 @@ const Navigation = ({ items }) => {
     setShow(!show)
   }
   return (
-    <nav>
-      <Link to="/">
-        <h1>Xminer</h1>
-      </Link>
-      <ul>
-        <li>
-          <Link to="/" activeClassName="active">
-            Strona główna
-          </Link>
-        </li>
-        <li>
-          <Link to="/o-xminer" activeClassName="active">
-            O Xminer
-          </Link>
-        </li>
-        <li>
-          <motion.a href="" onClick={handleClick} activeClassName="active">
-            Oferta <Chevron className={show && "active"} />
-          </motion.a>
-        </li>
-        <li>
-          <Link to="/blog" activeClassName="active">
-            Blog
-          </Link>
-        </li>
-        <Button size="small">Kontakt</Button>
-      </ul>
-    </nav>
+    <>
+      <nav>
+        <Link to="/">
+          <h1>Xminer</h1>
+        </Link>
+        <ul>
+          <motion.li whileTap={{ scale: 0.95 }}>
+            <Link to="/" activeClassName="active">
+              Strona główna
+            </Link>
+          </motion.li>
+          <motion.li whileTap={{ scale: 0.95 }}>
+            <Link to="/o-xminer" activeClassName="active">
+              O Xminer
+            </Link>
+          </motion.li>
+          <motion.li whileTap={{ scale: 0.95 }}>
+            <motion.a
+              href=""
+              whileTap={{ scale: 0.95 }}
+              onClick={handleClick}
+              activeClassName="active"
+              className="without-underline"
+            >
+              Oferta{" "}
+              <Chevron
+                whileHover={{ scale: 1.05, y: 2 }}
+                whileTap={{ scale: 0.9 }}
+                className={show && "active"}
+              />
+            </motion.a>
+          </motion.li>
+          <motion.li whileTap={{ scale: 0.95 }}>
+            <Link to="/blog" activeClassName="active">
+              Blog
+            </Link>
+          </motion.li>
+          <Button size="small">Kontakt</Button>
+        </ul>
+      </nav>
+      <AnimatePresence exitBeforeEnter>
+        {show && (
+          <SubnavWrapper>
+            <motion.ul
+              variants={containerTransition}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <motion.li variants={itemTransition}>
+                <motion.h3>Inwestycja</motion.h3>
+                <StyledColumn>
+                  <motion.li>
+                    <Link to="/sprzedaz">Sprzedaż</Link>
+                  </motion.li>
+                  <motion.li>
+                    <Link to="/serwis-i-kolokacja">Serwis i Kolokacja</Link>
+                  </motion.li>
+                  <motion.li>
+                    <Link to="/uslugi-dodatkowe">Usługi dodatkowe</Link>
+                  </motion.li>
+                </StyledColumn>
+              </motion.li>
+              <motion.li variants={itemTransition}>
+                <motion.h3>Dla początkujących</motion.h3>
+                <StyledColumn>
+                  <motion.li>
+                    <Link to="/dla-poczatkujacych">Oferta</Link>
+                  </motion.li>
+                </StyledColumn>
+              </motion.li>
+              <motion.li variants={itemTransition}>
+                <motion.h3>Dla inwestorów</motion.h3>
+                <StyledColumn>
+                  <motion.li>
+                    <Link to="/dla-inwestorow">Oferta</Link>
+                  </motion.li>
+                </StyledColumn>
+              </motion.li>
+            </motion.ul>
+          </SubnavWrapper>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
 
 const HeaderStyles = styled(motion.header)`
   background-color: var(--nav-dark-bluse);
-
+  display: flex;
+  justify-content: center;
   h1 {
     font-size: 20px;
     line-height: 1em;
@@ -92,6 +199,7 @@ const HeaderStyles = styled(motion.header)`
   }
   nav {
     display: flex;
+    width: 100%;
     max-width: 1440px;
     margin: 0 auto;
     justify-content: space-between;
@@ -105,9 +213,9 @@ const HeaderStyles = styled(motion.header)`
     list-style: none;
   }
   li {
-    padding: 0;
-    margin-right: 60px;
+    margin-right: 20px;
     &:last-child {
+      padding: 0;
       margin-right: 0;
     }
   }
@@ -115,6 +223,7 @@ const HeaderStyles = styled(motion.header)`
     margin-left: 25px;
   }
   a {
+    padding: 8px 20px;
     text-decoration: none;
     color: var(--white);
     display: flex;
@@ -125,23 +234,39 @@ const HeaderStyles = styled(motion.header)`
     &:after {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -3px;
-      background-color: #2ec5ce;
+      left: 20px;
+      bottom: 0px;
+      background-color: var(--primary);
       height: 2px;
-      width: 100%;
+      width: calc(100% - 40px);
       transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
 
-    &.active:after {
-      transform: scaleX(1);
+    &.without-underline:after {
+      content: none;
+    }
+    &:hover,
+    &.active,
+    &:focus,
+    &:active,
+    &[aria-current] {
+      outline: none;
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 6px;
     }
   }
 `
 
 const Header = ({ siteTitle }) => (
   <HeaderStyles>
-    <Navigation items={"Strona główna"} />
+    <Navigation />
   </HeaderStyles>
 )
 

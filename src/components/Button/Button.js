@@ -8,6 +8,15 @@ const ButtonStyles = styled(motion.button)`
   border-radius: 10px;
   border: none;
 
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+  }
+
   ${({ size }) =>
     size === "small"
       ? css`
@@ -27,7 +36,15 @@ const ButtonStyles = styled(motion.button)`
 `
 
 const Button = ({ children, size, fill, gradient, color, bg, type }) => (
-  <ButtonStyles size={size} fill={fill} gradient={gradient} bg={bg} type={type}>
+  <ButtonStyles
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    size={size}
+    fill={fill}
+    gradient={gradient}
+    bg={bg}
+    type={type}
+  >
     {children}
   </ButtonStyles>
 )

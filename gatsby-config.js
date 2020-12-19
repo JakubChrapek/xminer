@@ -93,6 +93,15 @@ module.exports = {
         icon: website.favicon,
       },
     },
+    {
+      resolve: `gatsby-source-datocms`,
+      options: {
+        apiToken: process.env.DATOCMS_READ_API_KEY,
+        environment: `master`,
+        previewMode: false,
+        disableLiveReload: false,
+      },
+    },
     // Must be placed at the end
     "gatsby-plugin-offline",
     "gatsby-plugin-netlify",
