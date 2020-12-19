@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -8,6 +8,15 @@ import GlobalStyles from "./Styles/GlobalStyles"
 import SkipNavLink from "./SkipNavLink/SkipNavLink"
 import { AnimatePresence, motion } from "framer-motion"
 import { useLocation } from "@reach/router"
+import styled from "styled-components"
+
+const StyledMain = styled(motion.main)`
+  position: relative;
+  /* top: -103px; */
+  background: ${({ bg }) => bg};
+  padding-top: 103px;
+  min-height: 100vh;
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -19,8 +28,13 @@ const Layout = ({ children }) => {
       }
     }
   `)
+  const [bg, setBg] = useState("transparent")
+
   let pathname = useLocation().pathname
 
+  useEffect(() => {
+    setBg(pathname === "/o-xminer" ? "transparent" : "var(--main-gradient)")
+  }, [pathname])
   return (
     <>
       <GlobalStyles />
@@ -28,15 +42,16 @@ const Layout = ({ children }) => {
       <SEO />
       <Header />
       <AnimatePresence exitBeforeEnter>
-        <motion.main
+        <StyledMain
           key={pathname}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          bg={bg}
         >
           <p>Main content here</p>
           {children}
-        </motion.main>
+        </StyledMain>
       </AnimatePresence>
       <footer>© {new Date().getFullYear()}</footer>
     </>

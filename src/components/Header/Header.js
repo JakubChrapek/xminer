@@ -1,10 +1,11 @@
 import PropTypes from "prop-types"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import Button from "../Button/Button"
 import { containerTransition, itemTransition } from "../Styles/Animations"
+import { useLocation } from "@reach/router"
 
 const Chevron = styled(motion.span)`
   display: inline-flex;
@@ -46,16 +47,17 @@ const Chevron = styled(motion.span)`
 const SubnavWrapper = styled(motion.div)`
   display: flex;
   position: absolute;
+  z-index: 1;
   top: 103px;
-  padding: 60px 120px 60px 0px;
-  max-width: 740px;
   width: 100%;
-  margin: 0 auto;
   background-color: var(--white);
   justify-content: center;
   align-items: center;
   > ul {
+    padding: 60px 120px 60px 0px;
+    max-width: 740px;
     width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: flex-start !important;
     justify-content: space-between !important;
@@ -143,7 +145,12 @@ const Navigation = () => {
       </nav>
       <AnimatePresence exitBeforeEnter>
         {show && (
-          <SubnavWrapper>
+          <SubnavWrapper
+            variants={containerTransition}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+          >
             <motion.ul
               variants={containerTransition}
               initial="initial"
@@ -189,9 +196,11 @@ const Navigation = () => {
 }
 
 const HeaderStyles = styled(motion.header)`
-  background-color: var(--nav-dark-bluse);
+  background: ${({ bg }) => (bg ? bg : "transparent")};
   display: flex;
   justify-content: center;
+  z-index: 1;
+  transition: background 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   h1 {
     font-size: 20px;
     line-height: 1em;
@@ -202,6 +211,7 @@ const HeaderStyles = styled(motion.header)`
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    z-index: 1;
     justify-content: space-between;
     align-items: center;
     padding: 30px 158px 30px 103px;
@@ -264,11 +274,24 @@ const HeaderStyles = styled(motion.header)`
   }
 `
 
-const Header = ({ siteTitle }) => (
-  <HeaderStyles>
-    <Navigation />
-  </HeaderStyles>
-)
+const Header = () => {
+  const [bg, setBg] = useState("transparent")
+  let pathname = useLocation().pathname
+
+  useEffect(() => {
+    pathname === "/o-xminer"
+      ? setBg("var(--nav-dark-bluse)")
+      : setBg("transparent")
+  }, [pathname])
+  useEffect(() => {
+    console.log("HEADER RENDER")
+  }, [])
+  return (
+    <HeaderStyles bg={bg}>
+      <Navigation />
+    </HeaderStyles>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

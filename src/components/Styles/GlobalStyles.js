@@ -22,6 +22,7 @@ const Global = createGlobalStyle`
     --nav-dark-bluse: #111C3B;
     --dark: #171717;
     --gradient: linear-gradient(93.11deg, #29ABE2 0%, rgba(255, 255, 255, 0) 100%), var(--primary);
+    --main-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);
     font-size: 10px;
   }
   *,
