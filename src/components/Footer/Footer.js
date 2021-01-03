@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 const FooterStyles = styled.footer`
   width: 100%;
   max-width: 1440px;
-  margin: 96px 120px 25px;
+  margin: 96px 122px 25px;
   display: flex;
   flex-direction: column;
 
@@ -40,6 +40,7 @@ const Columns = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: 80px;
   margin: 0 0 102px;
   .gatsby-image-wrapper {
     max-width: 150px;
@@ -55,6 +56,90 @@ const Columns = styled.div`
 
   .socials {
     margin-top: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--white);
+    margin: 0 0 18px 10px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  li {
+    margin: 0 0 4px;
+    font-size: 14px;
+    line-height: 1.71;
+    display: flex;
+    align-items: center;
+    &:last-child {
+      margin: 0;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--gray300);
+      position: relative;
+      padding: 6px 10px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        bottom: 0px;
+        background-color: var(--primary);
+        height: 2px;
+        width: calc(100% - 20px);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
+
+      &.without-underline:after {
+        content: none;
+      }
+      &:hover,
+      &.active,
+      &:focus,
+      &:active,
+      &[aria-current] {
+        outline: none;
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+      &:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 6px;
+      }
+
+      img {
+        margin-right: 8px;
+      }
+    }
+
+    &.wider-gap {
+      margin: 0 0 16px;
+    }
+  }
+`
+
+const Copyrights = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  p,
+  a {
+    display: inline;
   }
 `
 
@@ -75,7 +160,7 @@ const Footer = ({ logo }) => {
             <div className="socials">
               <motion.a
                 whileHover={{
-                  scale: 1.05,
+                  scale: 1.2,
                 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
@@ -87,7 +172,7 @@ const Footer = ({ logo }) => {
                 <FaFacebookF size="14px" color="var(--white)" />
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.95 }}
                 className="icon"
                 href=""
@@ -97,7 +182,7 @@ const Footer = ({ logo }) => {
                 <FaInstagram size="14px" color="var(--white)" />
               </motion.a>
               <motion.a
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.95 }}
                 className="icon"
                 href=""
@@ -148,26 +233,52 @@ const Footer = ({ logo }) => {
           <div>
             <h3>Znajdź nas</h3>
             <ul>
-              <li>
-                <a href="mailto:kontakt@xminer.pl">
+              <motion.li
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                style={{ marginLeft: -5 }}
+                className="wider-gap"
+              >
+                <a
+                  className="without-underline"
+                  href="mailto:kontakt@xminer.pl"
+                >
                   <img src={Email} alt="email icon" /> kontakt@xminer.pl
                 </a>
-              </li>
-              <li>
-                <a href="tel:+48123123123">
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="wider-gap"
+              >
+                <a className="without-underline" href="tel:+48123123123">
                   <img src={Mobile} alt="phone icon" />
                   +48 123 123 123
                 </a>
-              </li>
-              <li>
-                <a href="https://goo.gl/maps/jr67k2fLVoJXvsZZ8">
+              </motion.li>
+              <motion.li
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="wider-gap"
+              >
+                <a
+                  className="without-underline"
+                  href="https://goo.gl/maps/jr67k2fLVoJXvsZZ8"
+                >
                   <img src={Location} alt="location icon" /> Ostrobramska 101A,
                   04-041 Warszawa
                 </a>
-              </li>
+              </motion.li>
             </ul>
           </div>
         </Columns>
+        <Copyrights>
+          <p>&copy; {Date.now()} Xminer. Wszelkie prawa zastrzeżone.</p>
+          <div>
+            <p>Stronę stworzyli Kryptonum Studio & Agatha Design |</p>
+            <Link to="/polityka-prywatnosci">Polityka prywatności</Link>
+          </div>
+        </Copyrights>
       </FooterStyles>
     </Wrapper>
   )
