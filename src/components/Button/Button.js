@@ -35,10 +35,28 @@ const ButtonStyles = styled(motion.button)`
         `}
 `
 
-const Button = ({ children, size, fill, gradient, color, bg, type }) => (
+const Button = ({
+  children,
+  size,
+  fill,
+  gradient,
+  color,
+  bg,
+  type,
+  initial,
+  animate,
+  exit,
+  whileHover,
+  whileTap,
+  whileFocus,
+}) => (
   <ButtonStyles
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
+    initial={initial}
+    animate={animate}
+    exit={exit}
+    whileHover={whileHover}
+    whileTap={whileTap}
+    whileFocus={whileFocus}
     size={size}
     fill={fill}
     gradient={gradient}

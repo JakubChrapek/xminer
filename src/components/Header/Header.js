@@ -6,6 +6,7 @@ import { Link } from "gatsby"
 import Button from "../Button/Button"
 import { containerTransition, itemTransition } from "../Styles/Animations"
 import { useLocation } from "@reach/router"
+import ButtonLink from "../ButtonLink/ButtonLink"
 
 const Chevron = styled(motion.span)`
   display: inline-flex;
@@ -96,12 +97,17 @@ const StyledColumn = styled(motion.ul)`
 
 const Navigation = () => {
   const [show, setShow] = useState(false)
+  const pathname = useLocation().pathname
 
   const handleClick = e => {
     e.preventDefault()
     console.log("Clicked")
     setShow(!show)
   }
+
+  useEffect(() => {
+    setShow(false)
+  }, [pathname])
   return (
     <>
       <nav>
@@ -140,7 +146,15 @@ const Navigation = () => {
               Blog
             </Link>
           </motion.li>
-          <Button size="small">Kontakt</Button>
+          <ButtonLink
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="no-underline"
+            size="small"
+            to="/kontakt"
+          >
+            Kontakt
+          </ButtonLink>
         </ul>
       </nav>
       <AnimatePresence exitBeforeEnter>
@@ -197,9 +211,11 @@ const Navigation = () => {
 
 const HeaderStyles = styled(motion.header)`
   background: ${({ bg }) => (bg ? bg : "transparent")};
+  position: absolute;
   display: flex;
   justify-content: center;
-  z-index: 1;
+  width: 100%;
+  z-index: 2;
   transition: background 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   h1 {
     font-size: 20px;
@@ -210,11 +226,10 @@ const HeaderStyles = styled(motion.header)`
     display: flex;
     width: 100%;
     max-width: 1440px;
-    margin: 0 auto;
-    z-index: 1;
+    z-index: 2;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 158px 30px 103px;
+    margin: 30px 158px 30px 103px;
   }
   ul {
     display: flex;
@@ -278,16 +293,18 @@ const Header = () => {
   const [bg, setBg] = useState("transparent")
   let pathname = useLocation().pathname
 
-  useEffect(() => {
-    pathname === "/o-xminer"
-      ? setBg("var(--nav-dark-bluse)")
-      : setBg("transparent")
-  }, [pathname])
-  useEffect(() => {
-    console.log("HEADER RENDER")
-  }, [])
+  // useEffect(() => {
+  //   pathname === "/o-xminer"
+  //     ? setBg("var(--nav-dark-bluse)")
+  //     : setBg("transparent")
+  // }, [pathname])
+  // useEffect(() => {
+  //   console.log("HEADER RENDER")
+  // }, [])
   return (
-    <HeaderStyles bg={bg}>
+    <HeaderStyles
+      bg={pathname === "/o-xminer" ? "var(--nav-dark-bluse)" : "transparent"}
+    >
       <Navigation />
     </HeaderStyles>
   )

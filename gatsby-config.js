@@ -67,7 +67,8 @@ module.exports = {
             /* Exact name of the font as defined in @font-face CSS rule */
             name: "Poppins",
             /* URL to the font CSS file with @font-face definition */
-            file: "https://fonts.googleapis.com/css2?family=Poppins",
+            file:
+              "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap",
           },
         ],
       },
@@ -97,9 +98,6 @@ module.exports = {
       resolve: `gatsby-source-datocms`,
       options: {
         apiToken: process.env.DATOCMS_READ_API_KEY,
-        environment: `master`,
-        previewMode: false,
-        disableLiveReload: false,
       },
     },
     // Must be placed at the end

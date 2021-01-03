@@ -9,12 +9,12 @@ import SkipNavLink from "./SkipNavLink/SkipNavLink"
 import { AnimatePresence, motion } from "framer-motion"
 import { useLocation } from "@reach/router"
 import styled from "styled-components"
+import Footer from "./Footer/Footer"
 
 const StyledMain = styled(motion.main)`
   position: relative;
   /* top: -103px; */
   background: ${({ bg }) => bg};
-  padding-top: 103px;
   min-height: 100vh;
 `
 
@@ -24,6 +24,13 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+        }
+      }
+      datoCmsHomepage {
+        logo {
+          fluid(maxWidth: 150) {
+            ...GatsbyDatoCmsFluid
+          }
         }
       }
     }
@@ -41,19 +48,12 @@ const Layout = ({ children }) => {
       <SkipNavLink />
       <SEO />
       <Header />
-      <AnimatePresence exitBeforeEnter>
-        <StyledMain
-          key={pathname}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          bg={bg}
-        >
-          <p>Main content here</p>
-          {children}
-        </StyledMain>
-      </AnimatePresence>
-      <footer>© {new Date().getFullYear()}</footer>
+      {/* <AnimatePresence exitBeforeEnter> */}
+      <StyledMain key={pathname} initial={{}} animate={{}} exit={{}} bg={bg}>
+        {children}
+      </StyledMain>
+      {/* </AnimatePresence> */}
+      <Footer logo={data.datoCmsHomepage.logo} />
     </>
   )
 }
