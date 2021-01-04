@@ -79,7 +79,7 @@ const CtaSection = () => {
         </ButtonLink>
         <ul>
           {listItems.map(item => (
-            <li>
+            <li key={item}>
               <img src={CheckmarkIcon} alt="Checkmark icon" />
               {item}
             </li>

@@ -61,6 +61,8 @@ const StyledLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   width: ${({ width }) => (width ? width : "")};
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "")};
+  margin: ${({ margin }) => (margin ? margin : "")};
   &:focus,
   &:active {
     outline: none;
@@ -117,6 +119,8 @@ const ButtonLink = ({
   type,
   to,
   width,
+  maxWidth,
+  margin,
   outlineBg,
   initial,
   animate,
@@ -130,6 +134,8 @@ const ButtonLink = ({
     className={className}
     to={to}
     width={width}
+    maxWidth={maxWidth}
+    margin={margin}
     type={type}
     outlineBg={outlineBg}
   >

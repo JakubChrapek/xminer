@@ -141,6 +141,49 @@ const Copyrights = styled.div`
   a {
     display: inline;
   }
+
+  p,
+  a {
+    font-size: 14px;
+    line-height: 1.71;
+    color: var(--gray300);
+  }
+  a {
+    text-decoration: none;
+    position: relative;
+    padding: 6px 5px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      bottom: 0px;
+      background-color: var(--primary);
+      height: 2px;
+      width: calc(100% - 8px);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    &.without-underline:after {
+      content: none;
+    }
+    &:hover,
+    &.active,
+    &:focus,
+    &:active,
+    &[aria-current] {
+      outline: none;
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+    &:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 6px;
+    }
+  }
 `
 
 const Footer = ({ logo }) => {
@@ -266,6 +309,7 @@ const Footer = ({ logo }) => {
                   href="https://goo.gl/maps/jr67k2fLVoJXvsZZ8"
                 >
                   <img src={Location} alt="location icon" /> Ostrobramska 101A,
+                  <br />
                   04-041 Warszawa
                 </a>
               </motion.li>
@@ -273,9 +317,30 @@ const Footer = ({ logo }) => {
           </div>
         </Columns>
         <Copyrights>
-          <p>&copy; {Date.now()} Xminer. Wszelkie prawa zastrzeżone.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Xminer. Wszelkie prawa
+            zastrzeżone.
+          </p>
           <div>
-            <p>Stronę stworzyli Kryptonum Studio & Agatha Design |</p>
+            <p>
+              Stronę stworzyli{" "}
+              <a
+                href="https://kryptonumstudio.com"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Kryptonum Studio
+              </a>{" "}
+              &
+              <a
+                href="https://agathadesign.co.uk/"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                Agatha Design
+              </a>
+              |
+            </p>
             <Link to="/polityka-prywatnosci">Polityka prywatności</Link>
           </div>
         </Copyrights>

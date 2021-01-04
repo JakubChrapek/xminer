@@ -8,7 +8,7 @@ import GlobalStyles from "./Styles/GlobalStyles"
 import SkipNavLink from "./SkipNavLink/SkipNavLink"
 import { AnimatePresence, motion } from "framer-motion"
 import { useLocation } from "@reach/router"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Footer from "./Footer/Footer"
 
 const StyledMain = styled(motion.main)`
