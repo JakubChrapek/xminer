@@ -17,6 +17,7 @@ const Global = createGlobalStyle`
     --faded-aqua: #F6F9FB;
     --footer-bg: #03002D;
     --white: #fff;
+    --text-white: #f2f2f2;
     --black: #000;
     --link: #5761D7;
     --nav-dark-bluse: #111C3B;

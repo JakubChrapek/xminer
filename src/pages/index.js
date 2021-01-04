@@ -25,7 +25,7 @@ const IndexPage = () => (
     <BeginHereSection />
     <TestimonialsSection />
     <CtaSection />
-    <BlogSection />
+    <BlogSection title="Blog" subtitle="Blog o krypto" />
   </HomeStyles>
 )
 

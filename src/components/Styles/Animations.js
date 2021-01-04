@@ -26,3 +26,9 @@ export const itemTransition = {
   animate: { opacity: 1, transition: { duration: 0.4 } },
   exit: { opacity: 0, transition: { duration: 0.4 } },
 }
+
+export const fadeInUp = {
+  initial: { opacity: 0, y: 2 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.2 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
+}

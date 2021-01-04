@@ -8,6 +8,7 @@ const WrapperStyles = styled.div`
   position: relative;
   z-index: ${({ zIndex }) => (zIndex ? zIndex : "1")};
   margin: ${({ margin }) => (margin ? margin : "60px 122px 100px")};
+  flex-direction: ${({ direction }) => (direction ? direction : "")};
 
   ${({ equal }) =>
     equal &&
@@ -24,13 +25,14 @@ const WrapperStyles = styled.div`
     `}
 `
 
-const Wrapper = ({ maxWidth, margin, zIndex, children, equal }) => {
+const Wrapper = ({ maxWidth, margin, direction, zIndex, children, equal }) => {
   return (
     <WrapperStyles
       equal={equal}
       maxWidth={maxWidth}
       margin={margin}
       zIndex={zIndex}
+      direction={direction}
     >
       {children}
     </WrapperStyles>

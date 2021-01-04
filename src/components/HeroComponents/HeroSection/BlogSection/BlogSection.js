@@ -165,7 +165,7 @@ const Article = ({ article }) => {
   )
 }
 
-const BlogSection = () => {
+const BlogSection = ({ title, subtitle }) => {
   const {
     allDatoCmsPost: { nodes },
     allDatoCmsPost: { totalCount },
@@ -173,8 +173,8 @@ const BlogSection = () => {
   return (
     <WhyStyles>
       <Wrapper>
-        <h2>Wiedza z xminer</h2>
-        <h3>Blog o krypto</h3>
+        {title && <h2>{title}</h2>}
+        {subtitle && <h3>{subtitle}</h3>}
         <ArticlesGrid>
           {nodes.map(article => (
             <Article key={article.id} article={article} />

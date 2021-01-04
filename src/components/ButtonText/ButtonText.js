@@ -45,6 +45,7 @@ const StyledLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   width: ${({ width }) => (width ? width : "")};
+  margin: ${({ margin }) => (margin ? margin : "")};
   &:focus,
   &:active {
     outline: none;
@@ -64,12 +65,19 @@ const ButtonText = ({
   color,
   type,
   to,
+  margin,
   width,
   outlineBg,
   icon,
   className,
 }) => (
-  <StyledLink to={to} width={width} type={type} outlineBg={outlineBg}>
+  <StyledLink
+    margin={margin}
+    to={to}
+    width={width}
+    type={type}
+    outlineBg={outlineBg}
+  >
     <ButtonTextStyles
       whileTap={{ scale: 0.95 }}
       whileHover={{ scale: 1 }}
