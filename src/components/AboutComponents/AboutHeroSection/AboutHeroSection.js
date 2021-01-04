@@ -44,14 +44,14 @@ const AboutHeroSection = () => {
             </Text>
           </div>
           <div style={{ marginTop: "100px" }}>
-            <Text fontSize="18px" lineHeight="1.67">
+            <Text maxWidth="588px" fontSize="18px" lineHeight="1.67">
               Chyba śmiało możemy powiedzieć, że jesteśmy jedną z&nbsp;firm,
               której się udało. Udało zarobić na kryptowalutach, udało wytrwać
               w&nbsp;tym biznesie wiele lat i&nbsp;udało stworzyć markę, która
               z&nbsp;kryptowalut żyje i&nbsp;pracuje z&nbsp;nimi na co dzień.
             </Text>
             <br />
-            <Text fontSize="18px" lineHeight="1.67">
+            <Text maxWidth="588px" fontSize="18px" lineHeight="1.67">
               Nasza kopalnia to dowód na to, że gorączka kryptowalutowego złota
               jest w&nbsp;zasięgu ręki, jest namacalna i&nbsp;jest realna.
               Wiedzą o&nbsp;tym, jak inwestować, dzielimy się od lat.
@@ -61,7 +61,7 @@ const AboutHeroSection = () => {
         </Wrapper>
         <Wrapper>
           <div>
-            <Text fontSize="18px" lineHeight="1.67">
+            <Text maxWidth="588px" fontSize="18px" lineHeight="1.67">
               Oprócz wiedzy dajemy też możliwości. Lokalizacja naszej kopalni
               w&nbsp;bezpośrednim sąsiedztwie biogazowni sprawia, że możemy
               zaproponować naszym klientom prąd za jedyne 32 grosze netto za
@@ -71,11 +71,11 @@ const AboutHeroSection = () => {
               serwisujemy.
             </Text>
             <br />
-            <Text fontSize="18px" lineHeight="1.67">
+            <Text maxWidth="588px" fontSize="18px" lineHeight="1.67">
               I to są rzeczy, za które klienci nas uwielbiają.
             </Text>
             <br />
-            <Text fontSize="18px" lineHeight="1.67">
+            <Text maxWidth="588px" fontSize="18px" lineHeight="1.67">
               W naszej pracy codziennie udowadniamy, że kryptowaluty to jest
               sektor, w&nbsp;który warto zainwestować. Czujesz, że inwestycja
               w&nbsp;nowoczesne technologie to coś, dla Ciebie?

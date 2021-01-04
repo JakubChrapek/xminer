@@ -11,6 +11,10 @@ const StyledText = styled(motion.p)`
   line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "1.67em")};
   color: ${({ color }) => (color ? color : "var(--black)")};
   margin: ${({ margin }) => (margin ? margin : "0")};
+  text-transform: ${({ textTransform }) =>
+    textTransform ? textTransform : ""};
+  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "")};
+  text-align: ${({ textAlign }) => (textAlign ? textAlign : "")};
 `
 
 const Text = ({
@@ -19,6 +23,8 @@ const Text = ({
   fontWeight,
   letterSpacing,
   lineHeight,
+  textTransform,
+  textAlign,
   color,
   margin,
   as,
@@ -27,6 +33,7 @@ const Text = ({
   exit,
   variants,
   children,
+  maxWidth,
 }) => {
   return (
     <StyledText
@@ -35,8 +42,11 @@ const Text = ({
       fontWeight={fontWeight}
       letterSpacing={letterSpacing}
       lineHeight={lineHeight}
+      textTransform={textTransform}
       color={color}
       margin={margin}
+      textAlign={textAlign}
+      maxWidth={maxWidth}
       as={as}
       initial={initial}
       animate={animate}

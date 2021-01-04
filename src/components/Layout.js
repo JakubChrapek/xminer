@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
   let pathname = useLocation().pathname
 
   useEffect(() => {
-    setBg(pathname === "/o-xminer" ? "transparent" : "var(--main-gradient)")
+    setBg(pathname === "/" ? "var(--main-gradient)" : "transparent")
   }, [pathname])
   return (
     <>
@@ -48,11 +48,17 @@ const Layout = ({ children }) => {
       <SkipNavLink />
       <SEO />
       <Header />
-      {/* <AnimatePresence exitBeforeEnter> */}
-      <StyledMain key={pathname} initial={{}} animate={{}} exit={{}} bg={bg}>
-        {children}
-      </StyledMain>
-      {/* </AnimatePresence> */}
+      <AnimatePresence exitBeforeEnter>
+        <StyledMain
+          key={pathname}
+          initial={{}}
+          animate={{}}
+          exit={{ opacity: 0, transition: { duration: 0 } }}
+          bg={bg}
+        >
+          {children}
+        </StyledMain>
+      </AnimatePresence>
       <Footer logo={data.datoCmsHomepage.logo} />
     </>
   )

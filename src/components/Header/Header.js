@@ -49,7 +49,7 @@ const SubnavWrapper = styled(motion.div)`
   display: flex;
   position: absolute;
   z-index: 1;
-  top: 103px;
+  top: 119px;
   width: 100%;
   background-color: var(--white);
   justify-content: center;
@@ -303,7 +303,7 @@ const Header = () => {
   // }, [])
   return (
     <HeaderStyles
-      bg={pathname === "/o-xminer" ? "var(--nav-dark-bluse)" : "transparent"}
+      bg={pathname === "/" ? "transparent" : "var(--nav-dark-bluse)"}
     >
       <Navigation />
     </HeaderStyles>
