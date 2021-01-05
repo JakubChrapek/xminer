@@ -20,8 +20,10 @@ const Global = createGlobalStyle`
     --text-white: #f2f2f2;
     --black: #000;
     --link: #5761D7;
+    --error: #af4c4c;
     --nav-dark-bluse: #111C3B;
     --dark: #171717;
+    --dark-text: #23242A;
     --gradient: linear-gradient(93.11deg, #29ABE2 0%, rgba(255, 255, 255, 0) 100%), var(--primary);
     --home-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);
     --main-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);

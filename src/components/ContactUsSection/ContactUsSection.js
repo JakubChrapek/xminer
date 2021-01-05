@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Container from "../Container/Container"
 import Wrapper from "../Wrapper/Wrapper"
 import Flex from "../Flex/Flex"
@@ -18,13 +18,13 @@ const IconUser = () => (
   >
     <path
       d="M28 29V27C28 25.9391 27.5786 24.9217 26.8284 24.1716C26.0783 23.4214 25.0609 23 24 23H16C14.9391 23 13.9217 23.4214 13.1716 24.1716C12.4214 24.9217 12 25.9391 12 27V29"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M20 19C22.2091 19 24 17.2091 24 15C24 12.7909 22.2091 11 20 11C17.7909 11 16 12.7909 16 15C16 17.2091 17.7909 19 20 19Z"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )
@@ -38,14 +38,10 @@ const IconMail = () => (
   >
     <path
       d="M12 12H28C29.1 12 30 12.9 30 14V26C30 27.1 29.1 28 28 28H12C10.9 28 10 27.1 10 26V14C10 12.9 10.9 12 12 12Z"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
-    <path
-      d="M30 14L20 21L10 14"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+    <path d="M30 14L20 21L10 14" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
@@ -59,13 +55,13 @@ const IconEdit = () => (
   >
     <path
       d="M28 22.66V28C28 28.5304 27.7893 29.0391 27.4142 29.4142C27.0391 29.7893 26.5304 30 26 30H12C11.4696 30 10.9609 29.7893 10.5858 29.4142C10.2107 29.0391 10 28.5304 10 28V14C10 13.4696 10.2107 12.9609 10.5858 12.5858C10.9609 12.2107 11.4696 12 12 12H17.34"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M26 10L30 14L20 24H16V20L26 10Z"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )
@@ -112,16 +108,32 @@ const FormStyles = styled(Form)`
         stroke: var(--primary);
       }
     }
+    &:-webkit-autofill,
+    &:-webkit-autofill {
+      -webkit-text-fill-color: var(--text-white);
+      -webkit-box-shadow: inset 0 0 0px 1000px #465067;
+      background-color: #465067;
+
+      &:hover {
+        -webkit-box-shadow: inset 0 0 0 1px var(--primary),
+          inset 0 0 0 1000px #465067;
+      }
+      &:focus {
+        -webkit-box-shadow: inset 0 0 0 2px var(--primary),
+          inset 0 0 0 1000px #465067;
+      }
+    }
   }
 
   button {
-    margin: 30px 0 0 15px;
+    height: 100%;
   }
 `
 
 const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex: ${({ flex }) => (flex ? flex : "1")};
   position: relative;
   justify-content: center;
   margin: ${({ margin }) => (margin ? margin : "")};
@@ -145,7 +157,7 @@ const FieldWrapper = styled.div`
 
   svg {
     top: 3px;
-    right: 16px;
+    right: 10px;
     stroke: #fff;
     fill: none;
     stroke-width: 1px;
@@ -156,11 +168,27 @@ const FieldWrapper = styled.div`
   p {
     font-size: 12px;
     line-height: normal;
-    color: var(--text-white);
+    color: var(--primary);
+  }
+`
+
+const Message = styled(motion.p)`
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--text-white);
+
+  &.error {
+    color: var(--error);
   }
 `
 
 const ContactUsSection = () => {
+  const [nameError, setNameError] = useState(false)
+  const [emailError, setEmailError] = useState(false)
+  const [messageError, setMessageError] = useState(false)
+  const [feedbackMsg, setFeedbackMsg] = useState(null)
+
   return (
     <Container bg="var(--nav-dark-bluse)">
       <Wrapper equal margin="96px 122px 129px">
@@ -199,14 +227,14 @@ const ContactUsSection = () => {
         </Flex>
         <Flex>
           <Formik
-            initialValues={{ email: "", password: "", message: "" }}
+            initialValues={{ email: "", name: "", message: "" }}
             validate={values => {
               const errors = {}
               if (!values.name) {
                 errors.name = "Jak masz na imię?"
               }
               if (!values.message) {
-                errors.message = "Wprowadź wiadomość?"
+                errors.message = "Wprowadź wiadomość"
               }
               if (!values.email) {
                 errors.email = "Podaj email"
@@ -217,14 +245,19 @@ const ContactUsSection = () => {
               }
               return errors
             }}
-            onSubmit={(values, { setSubmitting }) => {
+            onSubmit={(values, errors, setSubmitting) => {
               setTimeout(() => {
                 alert(JSON.stringify(values, null, 2))
-                setSubmitting(false)
+                // TODO: setSubmitting or own state
+                // setSubmitting(false)
+                errors.name && setNameError(true)
+                errors.email && setEmailError(true)
+                errors.message && setMessageError(true)
+                setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
               }, 400)
             }}
           >
-            {({ isSubmitting, errors }) => (
+            {({ isSubmitting, errors, touched }) => (
               <FormStyles>
                 <Flex width="100%">
                   <FieldWrapper margin="0 15px 0 0">
@@ -234,9 +267,11 @@ const ContactUsSection = () => {
                       type="name"
                       name="name"
                       placeholder="Imię"
+                      autocomplete="off"
+                      className={nameError ? "error" : ""}
                     />
                     <AnimatePresence exitBeforeEnter>
-                      {errors.name && (
+                      {errors.name && touched.name && (
                         <motion.div
                           variants={fadeInUp}
                           initial="initial"
@@ -255,15 +290,17 @@ const ContactUsSection = () => {
                   </FieldWrapper>
 
                   <FieldWrapper margin="0 0 0 15px">
-                    <label htmlFor="name">Imię</label>
+                    <label htmlFor="email">Imię</label>
                     <Field
                       id="email"
                       type="email"
                       name="email"
+                      autocomplete="off"
                       placeholder="E-mail"
+                      className={emailError ? "error" : ""}
                     />
                     <AnimatePresence exitBeforeEnter>
-                      {errors.email && (
+                      {errors.email && touched.email && (
                         <motion.div
                           variants={fadeInUp}
                           initial="initial"
@@ -282,16 +319,17 @@ const ContactUsSection = () => {
                   </FieldWrapper>
                 </Flex>
                 <Flex width="100%">
-                  <FieldWrapper margin="45px 0 0 0">
+                  <FieldWrapper flex="2" margin="45px 15px 0 0">
                     <label htmlFor="message">Twoja wiadomość</label>
                     <Field
                       as="textarea"
                       type="textarea"
                       name="message"
                       placeholder="Twoja wiadomość"
+                      className={messageError ? "error" : ""}
                     />
                     <AnimatePresence exitBeforeEnter>
-                      {errors.message && (
+                      {errors.message && touched.message && (
                         <motion.div
                           variants={fadeInUp}
                           initial="initial"
@@ -306,12 +344,34 @@ const ContactUsSection = () => {
                         </motion.div>
                       )}
                     </AnimatePresence>
-                    <IconMail />
+                    <IconEdit />
                   </FieldWrapper>
-                  <Button type="submit" disabled={isSubmitting}>
-                    Submit
-                  </Button>
+                  <FieldWrapper flex="1" margin="45px 0 0 15px">
+                    <Button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      color="var(--white)"
+                      type="submit"
+                      disabled={isSubmitting}
+                      radius="16px"
+                      bg="linear-gradient(to right, #29abe2, rgba(255, 255, 255, 0)), linear-gradient(to left, var(--primary), var(--primary))"
+                    >
+                      Wyślij
+                    </Button>
+                  </FieldWrapper>
                 </Flex>
+                <AnimatePresence>
+                  {feedbackMsg && (
+                    <Message
+                      variants={fadeInUp}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                    >
+                      {feedbackMsg}
+                    </Message>
+                  )}
+                </AnimatePresence>
               </FormStyles>
             )}
           </Formik>

@@ -9,6 +9,7 @@ const StyledFlex = styled.div`
   align-items: ${({ alignItems }) => (alignItems ? alignItems : "")};
   width: ${({ width }) => (width ? width : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
+  flex: ${({ flex }) => (flex ? flex : "")};
 `
 const Flex = ({
   children,
@@ -17,6 +18,7 @@ const Flex = ({
   alignItems,
   direction,
   margin,
+  flex,
 }) => {
   return (
     <StyledFlex
@@ -25,6 +27,7 @@ const Flex = ({
       width={width}
       direction={direction}
       margin={margin}
+      flex={flex}
     >
       {children}
     </StyledFlex>

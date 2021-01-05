@@ -62,6 +62,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   width: ${({ width }) => (width ? width : "")};
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "")};
+  min-width: ${({ minWidth }) => (minWidth ? minWidth : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
   &:focus,
   &:active {
@@ -75,7 +76,7 @@ const StyledLink = styled(Link)`
     type === "outline" &&
     css`
       position: relative;
-      background: ${({ outlineBg }) => (outlineBg ? outlineBg : "transparent")};
+      background: ${({ outlinebg }) => (outlinebg ? outlinebg : "transparent")};
       background-clip: padding-box;
       border: solid 1px transparent;
       border-radius: 8px;
@@ -100,9 +101,9 @@ const StyledLink = styled(Link)`
 
       &:hover {
         ${
-          "" /* background: ${({ outlineBg }) => (outlineBg ? "var(--gradient)" : "")};
+          "" /* background: ${({ outlinebg }) => (outlinebg ? "var(--gradient)" : "")};
         &:before {
-          background: ${({ outlineBg }) => (outlineBg ? "transparent" : "")};
+          background: ${({ outlinebg }) => (outlinebg ? "transparent" : "")};
         } */
         }
       }
@@ -120,8 +121,9 @@ const ButtonLink = ({
   to,
   width,
   maxWidth,
+  minWidth,
   margin,
-  outlineBg,
+  outlinebg,
   initial,
   animate,
   exit,
@@ -135,9 +137,10 @@ const ButtonLink = ({
     to={to}
     width={width}
     maxWidth={maxWidth}
+    minWidth={minWidth}
     margin={margin}
     type={type}
-    outlineBg={outlineBg}
+    outlinebg={outlinebg}
   >
     <ButtonLinkStyles
       initial={initial}

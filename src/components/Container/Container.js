@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 const ContainerStyles = styled.section`
   display: flex;
-  aligh-items: center;
+  align-items: center;
   flex-direction: column;
   background: ${({ bg }) => (bg ? bg : "")};
   padding: ${({ padding }) => (padding ? padding : "")};

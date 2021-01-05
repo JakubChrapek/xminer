@@ -107,7 +107,7 @@ const HeroSection = () => {
             <ButtonLink
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              outlineBg="var(--nav-dark-bluse)"
+              outlinebg="var(--nav-dark-bluse)"
               type="outline"
               width="204px"
               to="/dla-inwestorow"

@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   max-width: 1440px;
   position: relative;
   z-index: 2;
-  padding: 62px 122px;
+  padding: ${({ padding }) => (padding ? padding : "62px 122px")};
   text-align: center;
 
   .text-no-transform {
@@ -165,14 +165,14 @@ const Article = ({ article }) => {
   )
 }
 
-const BlogSection = ({ title, subtitle }) => {
+const BlogSection = ({ title, subtitle, padding }) => {
   const {
     allDatoCmsPost: { nodes },
     allDatoCmsPost: { totalCount },
   } = useStaticQuery(query)
   return (
     <WhyStyles>
-      <Wrapper>
+      <Wrapper padding={padding}>
         {title && <h2>{title}</h2>}
         {subtitle && <h3>{subtitle}</h3>}
         <ArticlesGrid>
@@ -180,7 +180,15 @@ const BlogSection = ({ title, subtitle }) => {
             <Article key={article.id} article={article} />
           ))}
         </ArticlesGrid>
-        <ButtonText fontSize="14px" color="var(--primary)" to="/blog">
+        <ButtonText
+          smaller
+          fontSize="14px"
+          fontWeight="bold"
+          lineHeight="2.14em"
+          margin="0px 0 0"
+          to="/blog"
+          color="var(--primary)"
+        >
           Wszystkie wpisy
         </ButtonText>
       </Wrapper>

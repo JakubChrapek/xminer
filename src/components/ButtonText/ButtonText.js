@@ -9,12 +9,12 @@ const ButtonTextStyles = styled(motion.span)`
   width: 100%;
   text-align: center;
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "18px")};
-  font-weight: 600;
+  font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : "600")};
   font-stretch: normal;
   font-style: normal;
-  line-height: 0.89;
+  line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "0.89")};
   letter-spacing: normal;
-  text-transform: uppercase;
+  text-transform: ${({ smaller }) => (smaller ? "normal" : "uppercase")};
   display: flex;
   align-items: center;
 
@@ -67,16 +67,17 @@ const ButtonText = ({
   to,
   margin,
   width,
-  outlineBg,
+  outlinebg,
   icon,
   className,
+  smaller,
 }) => (
   <StyledLink
     margin={margin}
     to={to}
     width={width}
     type={type}
-    outlineBg={outlineBg}
+    outlinebg={outlinebg}
   >
     <ButtonTextStyles
       whileTap={{ scale: 0.95 }}
@@ -88,6 +89,7 @@ const ButtonText = ({
       type={type}
       color={color}
       className={className}
+      smaller={smaller}
     >
       {children}
       <BsArrowRight size="26px" color={color} />
