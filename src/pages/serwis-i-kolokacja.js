@@ -18,7 +18,7 @@ const ServicesAndColocation = () => {
       <ServicesDarkSection />
       <BetOnSection />
       <CardsSection />
-      <PackagesSection />
+      <PackagesSection title="Kolokacja koparek" subtitle="Zobacz pakiety" />
       <ServicesCta />
     </>
   )

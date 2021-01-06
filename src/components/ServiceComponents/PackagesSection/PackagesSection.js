@@ -3,7 +3,6 @@ import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
 import Container from "../../Container/Container"
 import Wrapper from "../../Wrapper/Wrapper"
-import CheckmarkIcon from "../../../images/check-icon.svg"
 import Text from "../../Text/Text"
 import Flex from "../../Flex/Flex"
 
@@ -181,7 +180,7 @@ const Package = ({
   </PackageStyles>
 )
 
-const PackagesSection = () => {
+const PackagesSection = ({ title, subtitle }) => {
   return (
     <Container padding="40px 182px 0">
       <Wrapper direction="column">
@@ -198,10 +197,10 @@ const PackagesSection = () => {
             textTransform="uppercase"
             fontWeight="normal"
           >
-            Kolokacja koparek
+            {title}
           </Text>
           <Text fontSize="48px" fontWeight="600" lineHeight="normal">
-            Zobacz pakiety
+            {subtitle}
           </Text>
         </Flex>
         <CardWrapperStyles>
