@@ -26,6 +26,7 @@ const Text = ({
   textTransform,
   textAlign,
   color,
+  dangerously,
   margin,
   as,
   initial,
@@ -35,6 +36,28 @@ const Text = ({
   children,
   maxWidth,
 }) => {
+  if (dangerously) {
+    return (
+      <StyledText
+        fontFamily={family}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+        letterSpacing={letterSpacing}
+        lineHeight={lineHeight}
+        textTransform={textTransform}
+        color={color}
+        margin={margin}
+        textAlign={textAlign}
+        maxWidth={maxWidth}
+        as={as}
+        initial={initial}
+        animate={animate}
+        exit={exit}
+        variants={variants}
+        dangerouslySetInnerHTML={{ __html: dangerously }}
+      />
+    )
+  }
   return (
     <StyledText
       fontFamily={family}

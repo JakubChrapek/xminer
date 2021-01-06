@@ -4,10 +4,13 @@ import { motion } from "framer-motion"
 
 const ButtonStyles = styled(motion.button)`
   color: var(--white);
-  background: var(--gradient);
+  background: ${({ bg }) => (bg ? bg : "var(--gradient)")};
   border-radius: ${({ radius }) => (radius ? radius : "10px")};
   border: none;
   transition: opacity 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+  margin: ${({ margin }) => (margin ? margin : "")};
+  padding: ${({ padding }) => (padding ? padding : "")};
+  width: ${({ width }) => (width ? width : "")};
 
   &:focus,
   &:active {
@@ -58,6 +61,8 @@ const Button = ({
   whileFocus,
   disabled,
   radius,
+  width,
+  margin,
 }) => (
   <ButtonStyles
     initial={initial}
@@ -65,12 +70,14 @@ const Button = ({
     exit={exit}
     whileHover={whileHover}
     whileTap={whileTap}
+    margin={margin}
     whileFocus={whileFocus}
     size={size}
     fill={fill}
     gradient={gradient}
     bg={bg}
     type={type}
+    width={width}
     disabled={disabled}
     radius={radius}
   >

@@ -8,6 +8,7 @@ const ButtonLinkStyles = styled(motion.span)`
   background: ${({ bg }) => (bg ? bg : "var(--gradient)")};
   border-radius: 10px;
   border: none;
+  border: ${({ border }) => (border ? border : "")};
   width: 100%;
   height: 100%;
   text-align: center;
@@ -64,6 +65,7 @@ const StyledLink = styled(Link)`
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "")};
   min-width: ${({ minWidth }) => (minWidth ? minWidth : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
+  border-radius: 10px;
   &:focus,
   &:active {
     outline: none;
@@ -118,6 +120,7 @@ const ButtonLink = ({
   color,
   bg,
   type,
+  border,
   to,
   width,
   maxWidth,
@@ -143,6 +146,7 @@ const ButtonLink = ({
     outlinebg={outlinebg}
   >
     <ButtonLinkStyles
+      border={border}
       initial={initial}
       animate={animate}
       exit={exit}

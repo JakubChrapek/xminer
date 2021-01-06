@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 2;
   padding: ${({ padding }) => (padding ? padding : "62px 122px")};
+  margin: ${({ margin }) => (margin ? margin : "")};
   text-align: center;
 
   .text-no-transform {
@@ -76,7 +77,7 @@ const ArticlesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-gap: 60px;
-  margin: 74px 0 82px;
+  margin: 74px 0 ${({ smaller }) => (smaller ? "37px" : "82px")};
 
   .gatsby-image-wrapper {
     height: 210px;
@@ -165,17 +166,17 @@ const Article = ({ article }) => {
   )
 }
 
-const BlogSection = ({ title, subtitle, padding }) => {
+const BlogSection = ({ margin, title, subtitle, padding, smaller }) => {
   const {
     allDatoCmsPost: { nodes },
     allDatoCmsPost: { totalCount },
   } = useStaticQuery(query)
   return (
     <WhyStyles>
-      <Wrapper padding={padding}>
+      <Wrapper margin={margin} padding={padding}>
         {title && <h2>{title}</h2>}
         {subtitle && <h3>{subtitle}</h3>}
-        <ArticlesGrid>
+        <ArticlesGrid smaller={smaller}>
           {nodes.map(article => (
             <Article key={article.id} article={article} />
           ))}

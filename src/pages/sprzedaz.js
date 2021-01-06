@@ -20,7 +20,15 @@ const Sales = () => {
         title="Blog"
         subtitle="Poczytaj i wybierz koparkę dla siebie"
       />
-      <ContactUsSection />
+      <ContactUsSection
+        title="Już dziś"
+        subtitle="Skontaktuj się z&nbsp;nami!"
+        content="W Xminer codziennie doradzamy, konstruujemy i&nbsp;dowozimy do
+            Klientów maszyny, zdolne wykopać niemal każdą kryptowalutę pod
+            wirtualnym słońcem. Chcesz dołączyć do grona kryptoinwestorów
+            i&nbsp;zacząć zarabiać na nowoczesnych technologiach?"
+        additionalLine="Napisz już dziś!"
+      />
     </>
   )
 }

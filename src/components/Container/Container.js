@@ -7,12 +7,18 @@ const ContainerStyles = styled.section`
   flex-direction: column;
   background: ${({ bg }) => (bg ? bg : "")};
   padding: ${({ padding }) => (padding ? padding : "")};
+  margin: ${({ margin }) => (margin ? margin : "")};
   min-height: ${({ minHeight }) => (minHeight ? minHeight : "")};
 `
 
-const Container = ({ bg, padding, minHeight, children }) => {
+const Container = ({ bg, margin, padding, minHeight, children }) => {
   return (
-    <ContainerStyles bg={bg} padding={padding} minHeight={minHeight}>
+    <ContainerStyles
+      bg={bg}
+      margin={margin}
+      padding={padding}
+      minHeight={minHeight}
+    >
       {children}
     </ContainerStyles>
   )

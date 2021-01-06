@@ -180,15 +180,15 @@ const Package = ({
   </PackageStyles>
 )
 
-const PackagesSection = ({ title, subtitle }) => {
+const PackagesSection = ({ margin, title, subtitle, smaller }) => {
   return (
-    <Container padding="40px 182px 0">
-      <Wrapper direction="column">
+    <Container>
+      <Wrapper margin={margin} padding="40px 122px 0" direction="column">
         <Flex
           width="100%"
           direction="column"
           alignItems="center"
-          margin="0 0 27px"
+          margin={smaller ? "0 0 63px" : "0 0 27px"}
         >
           <Text
             fontSize="10px"
@@ -199,7 +199,12 @@ const PackagesSection = ({ title, subtitle }) => {
           >
             {title}
           </Text>
-          <Text fontSize="48px" fontWeight="600" lineHeight="normal">
+          <Text
+            margin={smaller && "10px 0 0"}
+            fontSize={smaller ? "36px" : "48px"}
+            fontWeight="600"
+            lineHeight="normal"
+          >
             {subtitle}
           </Text>
         </Flex>

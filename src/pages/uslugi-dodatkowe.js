@@ -17,7 +17,20 @@ const AdditionalServices = () => {
       <CtaSection />
       <PackagesSection title="pełna oferta" subtitle="Zobacz pakiety" />
       <FAQSection />
-      <GradientCtaSection />
+      <GradientCtaSection
+        title="koparki kryptowalut"
+        subtitle="Postaw na świadomą inwestycję"
+        content="Kolejność? U nas jest dowolna. Możesz najpierw zamówić szkolenie lub
+            konsultację online, żeby dowiedzieć się, czy koparki to coś dla
+            Ciebie. Możesz zakupić u nas koparki i spróbować
+            przechowywać je w domu, możesz od razu wybrać naszą
+            kolokację - razem z pełnym pakietem lub jako
+            pojedynczą usługą. Cokolwiek potrzebujesz, jesteśmy do dyspozycji."
+        btnText="Kontakt"
+        btnLink="/kontakt"
+        additionalLine="W Xminer masz wybór!"
+        contentWidth="780px"
+      />
     </>
   )
 }

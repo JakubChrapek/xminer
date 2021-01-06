@@ -9,7 +9,11 @@ const StyledFlex = styled.div`
   align-items: ${({ alignItems }) => (alignItems ? alignItems : "")};
   width: ${({ width }) => (width ? width : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
+  padding: ${({ padding }) => (padding ? padding : "")};
+  border-radius: ${({ radius }) => (radius ? radius : "")};
   flex: ${({ flex }) => (flex ? flex : "")};
+  background-color: ${({ bg }) => (bg ? bg : "")};
+  flex-wrap: ${({ flexWrap }) => (flexWrap ? flexWrap : "")};
 `
 const Flex = ({
   children,
@@ -19,6 +23,10 @@ const Flex = ({
   direction,
   margin,
   flex,
+  padding,
+  radius,
+  bg,
+  flexWrap,
 }) => {
   return (
     <StyledFlex
@@ -28,6 +36,10 @@ const Flex = ({
       direction={direction}
       margin={margin}
       flex={flex}
+      bg={bg}
+      padding={padding}
+      radius={radius}
+      flexWrap={flexWrap}
     >
       {children}
     </StyledFlex>
