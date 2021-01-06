@@ -35,7 +35,7 @@ const ButtonTextStyles = styled(motion.span)`
 
   svg {
     margin-left: 8px;
-    transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: transform 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
   }
 `
 

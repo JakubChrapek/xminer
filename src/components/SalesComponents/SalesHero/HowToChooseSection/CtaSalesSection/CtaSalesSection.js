@@ -33,7 +33,7 @@ const CtaSalesSection = () => {
             color="var(--nav-dark-bluse)"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            to="/hosting"
+            to="/uslugi-dodatkowe"
           >
             Zobacz naszą ofertę
           </ButtonLink>

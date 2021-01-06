@@ -80,8 +80,8 @@ const StyledLink = styled(Link)`
       background-clip: padding-box;
       border: solid 1px transparent;
       border-radius: 8px;
-      transition: background 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-        color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      transition: background 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       &:before {
         content: "";
         position: absolute;
@@ -94,8 +94,8 @@ const StyledLink = styled(Link)`
         border-radius: inherit; /* !importanté */
         background: linear-gradient(to right, #29abe2, #2ec5ce);
         ${
-          "" /* transition: background 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-          color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53); */
+          "" /* transition: background 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+          color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98); */
         }
       }
 

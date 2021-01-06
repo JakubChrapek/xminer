@@ -263,7 +263,7 @@ const Footer = ({ logo }) => {
                 <Link to="/serwis-i-kolokacja">Serwis i kolokacja</Link>
               </li>
               <li>
-                <Link to="/hosting">Hosting</Link>
+                <Link to="/uslugi-dodatkowe">Usługi dodatkowe</Link>
               </li>
               <li>
                 <Link to="/dla-poczatkujacych">Dla początkujących</Link>

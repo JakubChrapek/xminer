@@ -7,7 +7,7 @@ const ButtonStyles = styled(motion.button)`
   background: var(--gradient);
   border-radius: ${({ radius }) => (radius ? radius : "10px")};
   border: none;
-  transition: opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: opacity 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
   &:focus,
   &:active {

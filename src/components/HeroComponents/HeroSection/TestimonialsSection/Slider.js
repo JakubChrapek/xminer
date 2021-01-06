@@ -90,7 +90,7 @@ const ProgressStyles = styled.div`
       height: 100%;
       width: 100%;
       transform-origin: left center;
-      transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      transition: transform 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       transform: ${({ barWidth }) =>
         barWidth ? `scaleX(${barWidth})` : "scaleX(0)"};
       background-color: ${({ barFillColor }) =>
@@ -104,7 +104,7 @@ const ProgressStyles = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: opacity 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     &[disabled] {
       opacity: 0.3;
     }

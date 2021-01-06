@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { graphql, useStaticQuery } from "gatsby"
 import React, { useState } from "react"
 import { FaPlusCircle } from "react-icons/fa"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Container from "../../Container/Container"
 import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
@@ -29,13 +29,34 @@ const FaqStyles = styled.ul`
     max-width: 40px;
     max-height: 40px;
     height: 40px;
-    border: 2px solid var(--primary);
+    box-shadow: inset 0 0 0 3px var(--primary);
+    border: none;
     border-radius: 50%;
     background-color: transparent;
     display: flex;
-    transition: box-shadow 0.2 cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: box-shadow 0.2 cubic-bezier(0.04, 0.62, 0.23, 0.98),
+      transform 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     align-self: flex-start;
     margin: 8px 3px 0 0;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 17px;
+      height: 2px;
+      background-color: var(--black);
+      transition: transform 0.2s 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        opacity 0.2s 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+    }
+
+    &:after {
+      transform: rotate(90deg);
+    }
 
     &:focus,
     &:active {
@@ -51,9 +72,10 @@ const FaqStyles = styled.ul`
   span {
     font-size: 36px;
     font-weight: bold;
-    padding: 10px 46px 12px 30px;
+    padding: 10px 46px 0 30px;
     align-self: flex-start;
-    width: 122px;
+    width: 115px;
+    transition: transform 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
   }
 
   h3 {
@@ -61,11 +83,11 @@ const FaqStyles = styled.ul`
     width: 100%;
     font-size: 24px;
     font-weight: 600;
-    padding: 19px 0 0;
+    padding: 19px 0 11px;
   }
 
   section {
-    margin: 0 20px 0 122px;
+    margin: 0 20px 0 115px;
   }
 `
 
@@ -87,8 +109,39 @@ const HeaderStyles = styled(motion.header)`
     background-color: var(--primary);
     transform: ${({ expanded }) => (expanded ? "scaleX(1)" : "scaleX(0.22)")};
     transform-origin: left center;
-    transition: transform 0.5s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+    transition: transform 0.4s cubic-bezier(0.04, 0.62, 0.23, 0.98);
   }
+
+  &:hover {
+    span {
+      transform: translateX(4px);
+    }
+    button {
+      transform: scale(1.05);
+    }
+    &:before {
+      transform: ${({ expanded }) => (expanded ? "scaleX(1)" : "scaleX(0.25)")};
+    }
+  }
+
+  &:active {
+    button {
+      transform: scale(0.95);
+    }
+  }
+  ${({ expanded }) =>
+    expanded &&
+    css`
+      button {
+        transform: scale(1.05);
+        &:after {
+          opacity: 0;
+        }
+      }
+      span {
+        transform: translateX(4px);
+      }
+    `}
 `
 
 const Accordion = ({ i, expanded, setExpanded, faq }) => {
@@ -103,8 +156,8 @@ const Accordion = ({ i, expanded, setExpanded, faq }) => {
         expanded={isOpen}
       >
         <span>0{i + 1}</span>
-        <h3>{faq.faqQuestion}</h3>
-        <motion.button type="button" whileTap={{ scale: 0.95 }} />
+        <h3 dangerouslySetInnerHTML={{ __html: faq.faqQuestion }} />
+        <button type="button" />
       </HeaderStyles>
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -119,7 +172,7 @@ const Accordion = ({ i, expanded, setExpanded, faq }) => {
             }}
             transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
-            <p>{faq.faqAnswer}</p>
+            <p dangerouslySetInnerHTML={{ __html: faq.faqAnswer }} />
           </motion.section>
         )}
       </AnimatePresence>

@@ -23,7 +23,7 @@ const PackageStyles = styled.div`
   border-radius: 12px;
   box-shadow: ${({ focus }) =>
     focus ? "10px 10px 50px 3px rgba(39, 92, 141, 0.1)" : ""};
-  transition: 0.2s box-shadow cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: 0.2s box-shadow cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
   &:hover {
     box-shadow: 10px 10px 50px 3px rgba(39, 92, 141, 0.1);

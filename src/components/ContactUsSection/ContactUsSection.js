@@ -77,8 +77,8 @@ const FormStyles = styled(Form)`
     background-color: rgba(242, 242, 242, 0.24);
     border: rgba(242, 242, 242, 0.24);
     padding: 8px 44px 8px 16px;
-    transition: box-shadow 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-      color 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: box-shadow 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+      color 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     font-size: 18px;
     line-height: 1.76em;
     color: var(--text-white);
@@ -161,8 +161,8 @@ const FieldWrapper = styled.div`
     stroke: #fff;
     fill: none;
     stroke-width: 1px;
-    transition: 0.15s stroke cubic-bezier(0.55, 0.085, 0.68, 0.53) stroke-width
-      0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: 0.15s stroke cubic-bezier(0.04, 0.62, 0.23, 0.98) stroke-width
+      0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98);
   }
 
   p {
