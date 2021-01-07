@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Img from "gatsby-image"
 import { formatDate } from "../utils/DateUtils"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
+import ArticleDetails from "../components/BlogComponents/BlogHeroSection/ArticleDetails"
 
 const PostStyles = styled.article`
   display: flex;
@@ -107,117 +108,6 @@ const FeaturedImage = styled(Img)`
   max-height: 388px;
 `
 
-const DetailsStyles = styled.p`
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0 0;
-  position: relative;
-  font-size: 13px !important;
-  line-height: normal !important;
-  color: var(--gray3) !important;
-  font-weight: 300 !important;
-
-  .logo {
-    width: 20px;
-    margin-right: 15px;
-    background-color: var(--primary);
-    height: 20px;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  .bold {
-    font-weight: bold;
-  }
-
-  .primary {
-    color: var(--primary);
-    text-transform: capitalize;
-    position: relative;
-    margin: 0 0 0 5px;
-
-    &:after {
-      content: "";
-      position: absolute;
-      left: 0px;
-      bottom: 0px;
-      background-color: var(--primary);
-      height: 2px;
-      width: 100%;
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    }
-
-    &:hover,
-    &.active,
-    &:focus,
-    &:active,
-    &[aria-current] {
-      outline: none;
-      &:after {
-        transform: scaleX(1);
-      }
-    }
-    &:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 6px;
-    }
-  }
-
-  .circle {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background-color: var(--gray3);
-    margin: 0 6px 1px 6px;
-  }
-
-  .tag {
-    position: absolute;
-    right: 0;
-    top: -1px;
-    border-radius: 5px;
-    background-color: var(--light-aqua);
-    padding: 4px 9px;
-    color: var(--primary);
-    text-align: center;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-    &:hover {
-      transform: scale(1.05);
-    }
-    &:focus {
-      transform: scale(0.95);
-    }
-  }
-`
-
-const PostDetails = ({ author, category, date, readingTime }) => (
-  <DetailsStyles>
-    <span className="logo" />
-    <span className="author">
-      Autor <span className="bold">{author}</span> w
-    </span>
-    <Link to={`/blog/kategoria/${category}`} className="bold primary">
-      {category}
-    </Link>
-    <span className="circle" />
-    <span>{date}</span>
-    <span className="circle" />
-    <span>{readingTime} min czytania</span>
-    <Link className="tag" to={`/blog/kategoria/${category}`}>
-      {category}
-    </Link>
-  </DetailsStyles>
-)
-
 const ExcerptStyles = styled.p`
   margin: 61px 0 38px;
 `
@@ -253,11 +143,13 @@ const Post = ({ data }) => {
       <PostStyles>
         <h1 style={{ marginTop: "0px" }}>{title}</h1>
         <FeaturedImage fluid={fluid} alt={alt} />
-        <PostDetails
+        <ArticleDetails
+          logo
           author={name}
           category={categoryName}
           date={formatDate(date)}
           readingTime={readingTime}
+          tag
         />
         {excerpt && <Excerpt content={excerpt} />}
         <div dangerouslySetInnerHTML={{ __html: html }} />
