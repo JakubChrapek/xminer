@@ -6,7 +6,7 @@ const ContactPage = () => (
     bg="var(--white)"
     bgForm="var(--nav-dark-bluse)"
     verticalForm
-    margin="246px 0 0"
+    margin="246px 158px 125px 122px"
     title="Kontakt"
     subtitle="Kupujesz, kolokujesz, serwisujesz?"
     content="Możesz na nas polegać!<br/><br/>Skontaktuj się z&nbsp;nami już dziś&nbsp;-&nbsp;telefonicznie, mailowo, messengerowo."

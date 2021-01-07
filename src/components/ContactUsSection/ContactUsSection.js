@@ -22,6 +22,7 @@ const ContactUsSection = ({
           <Text
             fontSize="10px"
             lineHeight="normal"
+            fontWeight="normal"
             textTransform="uppercase"
             color={bg ? "var(--nav-dark-bluse)" : "var(--white)"}
             letterSpacing="1px"
@@ -34,10 +35,12 @@ const ContactUsSection = ({
             lineHeight="normal"
             color={bg ? "var(--black)" : "var(--white)"}
             dangerously={subtitle}
+            maxWidth={verticalForm && "523px"}
           />
           <Text
             fontSize="16px"
             margin="12px 0 0"
+            fontWeight="normal"
             lineHeight="normal"
             color={bg ? "var(--black)" : "var(--white)"}
             maxWidth="465px"

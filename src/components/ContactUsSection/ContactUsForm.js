@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Flex from "../Flex/Flex"
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import Button from "../Button/Button"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { AnimatePresence, motion } from "framer-motion"
 import { fadeInUp } from "../Styles/Animations"
 import { Link } from "gatsby"
@@ -68,6 +68,13 @@ const FormStyles = styled(Form)`
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-bottom: 32px;
+  ${({ vertical }) =>
+    vertical &&
+    css`
+      max-width: 410px;
+      padding-bottom: 8px;
+    `}
 
   input,
   textarea {
@@ -139,21 +146,138 @@ const FieldWrapper = styled.div`
   margin: ${({ margin }) => (margin ? margin : "")};
   width: ${({ width }) => (width ? width : "")};
 
+  ${({ privacy }) =>
+    privacy &&
+    css`
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    `}
+
   label,
   div,
   svg {
     position: absolute;
   }
 
+  input#privacy {
+    /* display: none; */
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:focus + label:after {
+      box-shadow: 0 0 0 2px var(--nav-dark-bluse), 0 0 0 4px var(--primary);
+    }
+
+    &:checked {
+      + label:before {
+        opacity: 1;
+      }
+      + label:after {
+        border-color: var(--primary);
+      }
+    }
+  }
+
   label {
     left: -9999px;
     opacity: 0;
     display: none;
+
+    &.privacy {
+      position: relative;
+      left: unset;
+      opacity: 1;
+      display: inline;
+      color: var(--text-privacy);
+      margin-left: 26px;
+      align-items: center;
+      letter-spacing: 0.25px;
+      font-size: 12px;
+      position: relative;
+      &:hover {
+        &:after {
+          border-color: var(--primary);
+          transform: translateY(-50%) scale(1.1);
+        }
+      }
+
+      &:active {
+        &:after {
+          transform: translateY(-50%) scale(0.9);
+        }
+      }
+
+      &:after,
+      &:before {
+        content: "";
+        position: absolute;
+        transition: opacity 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+          border 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+          transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        left: -26px;
+        top: 50%;
+      }
+
+      &:after {
+        width: 16px;
+        height: 16px;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: 2px solid #b2b3b5;
+        border-radius: 3px;
+      }
+
+      &:before {
+        content: "✓";
+        transform: translate(-50%, -50%);
+        left: -15px;
+        top: calc(50% - 4px);
+        font-size: 22px;
+        opacity: 0;
+        color: var(--primary);
+      }
+
+      a {
+        font-weight: 500;
+        color: #f0f0f0;
+        text-decoration: none;
+        position: relative;
+        padding: 6px 10px 6px 2px;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 1px var(--nav-dark-bluse), 0 0 0 3px var(--primary);
+          border-radius: 4px;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          left: 2px;
+          bottom: 0px;
+          background-color: var(--primary);
+          height: 2px;
+          width: calc(100% - 12px);
+          transform: scaleX(0);
+          transform-origin: left center;
+          transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        }
+        &:hover:after {
+          transform: scaleX(1);
+        }
+      }
+    }
   }
 
   div {
     left: 16px;
     bottom: -24px;
+    &.privacy {
+      left: 26px;
+      bottom: -20px;
+    }
   }
 
   svg {
@@ -174,10 +298,12 @@ const FieldWrapper = styled.div`
 `
 
 const Message = styled(motion.p)`
-  margin-top: 12px;
-  font-size: 14px;
+  /* margin-top: 12px; */
+  font-size: 12px;
   font-weight: normal;
   color: var(--text-white);
+  position: absolute;
+  bottom: ${({ vertical }) => (vertical ? "12px" : "6px")};
 
   &.error {
     color: var(--error);
@@ -196,6 +322,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
       radius={vertical && "20px"}
       bg={bg}
       margin="34px 0 0"
+      flex={vertical && "unset !important"}
     >
       <Formik
         initialValues={{ email: "", name: "", message: "", privacy: false }}
@@ -207,7 +334,11 @@ const ContactUsForm = ({ vertical, bg, width }) => {
           if (!values.message) {
             errors.message = "Wprowadź wiadomość"
           }
-          if (!values.privacy || values.privacy === false) {
+          if (
+            !values.privacy ||
+            values.privacy === "false" ||
+            values.privacy === false
+          ) {
             errors.privacy = "Zgadzasz się?"
           }
 
@@ -233,7 +364,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
           }, 400)
         }}
       >
-        {({ isSubmitting, errors, touched }) => (
+        {({ isSubmitting, errors, values, touched, setFieldTouched }) => (
           <FormStyles vertical={vertical}>
             <Flex width="100%" flexWrap={vertical && "wrap"}>
               <FieldWrapper
@@ -247,7 +378,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   type="name"
                   name="name"
                   placeholder="Imię"
-                  autocomplete="off"
+                  autoComplete="off"
                   className={nameError ? "error" : ""}
                 />
                 <AnimatePresence exitBeforeEnter>
@@ -279,7 +410,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   id="email"
                   type="email"
                   name="email"
-                  autocomplete="off"
+                  autoComplete="off"
                   placeholder="E-mail"
                   className={emailError ? "error" : ""}
                 />
@@ -334,6 +465,45 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                 </AnimatePresence>
                 <IconEdit />
               </FieldWrapper>
+              {vertical && (
+                <FieldWrapper
+                  flex={vertical ? "unset" : "2"}
+                  width={vertical && "100%"}
+                  order={vertical && "1"}
+                  margin={vertical ? "36px 0 0" : "18px 0 0"}
+                  privacy
+                >
+                  <Field
+                    type="checkbox"
+                    name="privacy"
+                    id="privacy"
+                    placeholder="Przeczytałem/łam i zgadzam się z
+              polityką prywatności"
+                    className={privacyError ? "error" : ""}
+                  />
+                  <label className="privacy" htmlFor="privacy">
+                    Przeczytałem/łam i zgadzam się z&nbsp;
+                    <Link to="/polityka-prywatnosci">polityką prywatności</Link>
+                  </label>
+                  <AnimatePresence exitBeforeEnter>
+                    {errors.privacy && touched.privacy && (
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        className="privacy"
+                      >
+                        <ErrorMessage
+                          name="privacy"
+                          component="p"
+                          className="error"
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </FieldWrapper>
+              )}
               <FieldWrapper
                 flex={vertical ? "unset" : "1"}
                 width={vertical && "100%"}
@@ -355,39 +525,45 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                 </Button>
               </FieldWrapper>
             </Flex>
-            <FieldWrapper
-              flex={vertical ? "unset" : "2"}
-              width={vertical && "100%"}
-              margin="12px 0 0"
-            >
-              <Field
-                type="checkbox"
-                name="privacy"
-                placeholder="Przeczytałem/łam i zgadzam się z
+            {!vertical && (
+              <FieldWrapper
+                flex={vertical ? "unset" : "2"}
+                width={vertical && "100%"}
+                order={vertical && "1"}
+                margin="18px 0 0"
+                privacy
+              >
+                <Field
+                  type="checkbox"
+                  name="privacy"
+                  id="privacy"
+                  placeholder="Przeczytałem/łam i zgadzam się z
               polityką prywatności"
-                className={privacyError ? "error" : ""}
-              />
-              <AnimatePresence exitBeforeEnter>
-                {errors.privacy && touched.privacy && (
-                  <motion.div
-                    variants={fadeInUp}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                  >
-                    <ErrorMessage
-                      name="privacy"
-                      component="p"
-                      className="error"
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <label htmlFor="privacy">
-                Przeczytałem/łam i zgadzam się z{" "}
-                <Link to="/polityka-prywatnosci">polityką prywatności</Link>
-              </label>
-            </FieldWrapper>
+                  className={privacyError ? "error" : ""}
+                />
+                <label className="privacy" htmlFor="privacy">
+                  Przeczytałem/łam i zgadzam się z&nbsp;
+                  <Link to="/polityka-prywatnosci">polityką prywatności</Link>
+                </label>
+                <AnimatePresence exitBeforeEnter>
+                  {errors.privacy && touched.privacy && (
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      className="privacy"
+                    >
+                      <ErrorMessage
+                        name="privacy"
+                        component="p"
+                        className="error"
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </FieldWrapper>
+            )}
             <AnimatePresence>
               {feedbackMsg && (
                 <Message
@@ -395,6 +571,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   initial="initial"
                   animate="animate"
                   exit="exit"
+                  vertical={vertical}
                 >
                   {feedbackMsg}
                 </Message>

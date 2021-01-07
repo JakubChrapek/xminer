@@ -111,7 +111,7 @@ const Navigation = () => {
   return (
     <>
       <nav>
-        <Link to="/">
+        <Link style={{ padding: "8px 20px 8px 0" }} to="/">
           <h1>Xminer</h1>
         </Link>
         <ul>
@@ -152,6 +152,8 @@ const Navigation = () => {
             className="no-underline"
             size="small"
             to="/kontakt"
+            padding="8px 0 8px 20px"
+            className="without-padding-right"
           >
             Kontakt
           </ButtonLink>

@@ -18,8 +18,7 @@ const ButtonLinkStyles = styled(motion.span)`
     outline: none;
   }
   &:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 4px;
+    outline: none;
   }
 
   ${({ size }) =>
@@ -65,14 +64,20 @@ const StyledLink = styled(Link)`
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "")};
   min-width: ${({ minWidth }) => (minWidth ? minWidth : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
+  padding: ${({ padding }) => (padding ? padding : "")};
+  &:after {
+    content: none !important;
+  }
+  &.without-padding-right {
+    padding: 8px 0 8px 20px !important;
+  }
   border-radius: 10px;
   &:focus,
   &:active {
     outline: none;
   }
   &:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 4px;
+    outline: none;
   }
   ${({ type }) =>
     type === "outline" &&
@@ -121,6 +126,7 @@ const ButtonLink = ({
   bg,
   type,
   border,
+  padding,
   to,
   width,
   maxWidth,
@@ -142,6 +148,7 @@ const ButtonLink = ({
     maxWidth={maxWidth}
     minWidth={minWidth}
     margin={margin}
+    padding={padding}
     type={type}
     outlinebg={outlinebg}
   >

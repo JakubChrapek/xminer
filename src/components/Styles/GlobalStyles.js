@@ -18,6 +18,7 @@ const Global = createGlobalStyle`
     --footer-bg: #03002D;
     --white: #fff;
     --text-white: #f2f2f2;
+    --text-privacy: #bdbdbd;
     --black: #000;
     --link: #5761D7;
     --error: #af4c4c;

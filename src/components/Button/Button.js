@@ -19,6 +19,7 @@ const ButtonStyles = styled(motion.button)`
   &:focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 4px;
+    border-radius: 4px;
   }
 
   ${({ size }) =>

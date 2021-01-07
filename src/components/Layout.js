@@ -15,7 +15,7 @@ const StyledMain = styled(motion.main)`
   position: relative;
   /* top: -103px; */
   background: ${({ bg }) => bg};
-  min-height: 100vh;
+  /* min-height: 100vh; */
 `
 
 const Layout = ({ children }) => {
