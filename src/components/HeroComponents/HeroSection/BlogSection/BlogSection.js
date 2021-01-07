@@ -1,7 +1,7 @@
-import { motion } from "framer-motion"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { AnimatePresence, motion } from "framer-motion"
+import { Link } from "gatsby"
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Img from "gatsby-image"
 
 import ButtonText from "../../../buttonText/ButtonText"
@@ -49,29 +49,14 @@ const Wrapper = styled.div`
     letter-spacing: normal;
     color: #101b56;
     margin-top: 10px;
-  }
-`
-
-const query = graphql`
-  query blogQuery {
-    allDatoCmsPost(limit: 3) {
-      totalCount
-      nodes {
-        title
-        postCategory {
-          categoryName
-        }
-        date
-        readingTime
-        id
-        slug
-        coverImage {
-          fluid(maxWidth: 360) {
-            ...GatsbyDatoCmsFluid
-          }
-        }
-      }
-    }
+    ${({ similarPosts }) =>
+      similarPosts &&
+      css`
+        align-self: flex-start;
+        font-size: 24px;
+        line-height: 1em;
+        color: var(--black);
+      `}
   }
 `
 
@@ -80,7 +65,8 @@ const ArticlesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-gap: 60px;
-  margin: 74px 0 ${({ smaller }) => (smaller ? "37px" : "82px")};
+  margin: ${({ similarPosts }) => (similarPosts ? "43px" : "74px")} 0
+    ${({ smaller }) => (smaller ? "37px" : "82px")};
 
   .gatsby-image-wrapper {
     height: 210px;
@@ -182,34 +168,47 @@ const Article = ({ article }) => {
   )
 }
 
-const BlogSection = ({ margin, title, subtitle, padding, smaller }) => {
-  const {
-    allDatoCmsPost: { nodes },
-    allDatoCmsPost: { totalCount },
-  } = useStaticQuery(query)
+const BlogSection = ({
+  margin,
+  title,
+  subtitle,
+  padding,
+  smaller,
+  posts,
+  totalCount,
+  similarPosts,
+}) => {
   return (
-    <WhyStyles>
-      <Wrapper margin={margin} padding={padding}>
-        {title && <h2>{title}</h2>}
-        {subtitle && <h3>{subtitle}</h3>}
-        <ArticlesGrid smaller={smaller}>
-          {nodes.map(article => (
-            <Article key={article.id} article={article} />
-          ))}
-        </ArticlesGrid>
-        <ButtonText
-          smaller
-          fontSize="14px"
-          fontWeight="bold"
-          lineHeight="2.14em"
-          margin="0px 0 0"
-          to="/blog"
-          color="var(--primary)"
-        >
-          Wszystkie wpisy
-        </ButtonText>
-      </Wrapper>
-    </WhyStyles>
+    <AnimatePresence exitBeforeEnter>
+      {totalCount > 1 && (
+        <WhyStyles>
+          <Wrapper
+            similarPosts={similarPosts}
+            margin={margin}
+            padding={padding}
+          >
+            {title && <h2>{title}</h2>}
+            {subtitle && <h3>{subtitle}</h3>}
+            <ArticlesGrid similarPosts={similarPosts} smaller={smaller}>
+              {posts.map(article => (
+                <Article key={article.id} article={article} />
+              ))}
+            </ArticlesGrid>
+            <ButtonText
+              smaller
+              fontSize="14px"
+              fontWeight="bold"
+              lineHeight="2.14em"
+              margin="0px 0 0"
+              to="/blog"
+              color="var(--primary)"
+            >
+              Wszystkie wpisy
+            </ButtonText>
+          </Wrapper>
+        </WhyStyles>
+      )}
+    </AnimatePresence>
   )
 }
 

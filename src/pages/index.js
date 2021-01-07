@@ -15,18 +15,49 @@ import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/Bl
 const HomeStyles = styled.div`
   background: var(--home-gradient);
 `
-const IndexPage = () => (
-  <HomeStyles>
-    <SEO title="Xminer" />
-    <HeroSection />
-    <WhySection />
-    <BeforeMiningSection />
-    <InvestorsSection />
-    <BeginHereSection />
-    <TestimonialsSection />
-    <CtaSection />
-    <BlogSection title="Blog" subtitle="Blog o krypto" />
-  </HomeStyles>
-)
-
+const IndexPage = ({ data }) => {
+  const {
+    allDatoCmsPost: { totalCount, nodes: posts },
+  } = data
+  return (
+    <HomeStyles>
+      <SEO title="Xminer" />
+      <HeroSection />
+      <WhySection />
+      <BeforeMiningSection />
+      <InvestorsSection />
+      <BeginHereSection />
+      <TestimonialsSection />
+      <CtaSection />
+      <BlogSection
+        posts={posts}
+        totalCount={totalCount}
+        title="Blog"
+        subtitle="Blog o krypto"
+      />
+    </HomeStyles>
+  )
+}
+export const blogQuery = graphql`
+  query blogQuery {
+    allDatoCmsPost(limit: 3, sort: { fields: date, order: DESC }) {
+      totalCount
+      nodes {
+        title
+        postCategory {
+          categoryName
+        }
+        date
+        readingTime
+        id
+        slug
+        coverImage {
+          fluid(maxWidth: 360) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
+  }
+`
 export default IndexPage

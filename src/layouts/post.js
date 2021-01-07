@@ -3,18 +3,20 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { formatDate } from "../utils/DateUtils"
+import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
 
 const PostStyles = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 119px auto 0;
-  padding: 67px 0 152px;
+  padding: 67px 0 90px;
   max-width: 750px;
 
   img {
     max-width: 100%;
     max-height: 600px;
+    border-radius: 5px;
   }
 
   p {
@@ -26,7 +28,7 @@ const PostStyles = styled.article`
       position: relative;
       left: 50%;
       transform: translateX(-50%);
-      margin-top: 56px;
+      margin: 28px 0;
     }
   }
 
@@ -39,23 +41,29 @@ const PostStyles = styled.article`
   }
 
   h2 {
-    margin-top: 56px;
     font-size: 36px;
     font-weight: 600;
     line-height: normal;
+    margin-top: 28px;
 
     + p {
       margin-top: 6px;
+      > img {
+        margin-top: 32px;
+      }
     }
   }
 
   h3 {
-    margin-top: 44px;
     font-size: 28px;
     font-weight: 500;
     line-height: normal;
+    margin-top: 12px;
     + p {
       margin-top: 6px;
+      > img {
+        margin-top: 26px;
+      }
     }
   }
 
@@ -211,7 +219,7 @@ const PostDetails = ({ author, category, date, readingTime }) => (
 )
 
 const ExcerptStyles = styled.p`
-  margin-top: 61px;
+  margin: 61px 0 38px;
 `
 const Excerpt = ({ content }) => (
   <ExcerptStyles dangerouslySetInnerHTML={{ __html: content }} />
@@ -231,8 +239,14 @@ const Post = ({ data }) => {
       readingTime,
       coverImage: { alt, fluid },
     },
-    similarPosts,
-    newestPosts,
+    similarPosts: {
+      nodes: similarArticles,
+      totalCount: similarArticlesTotalCount,
+    },
+    newestPosts: {
+      nodes: newestArticles,
+      totalCount: newestArticlesTotalCount,
+    },
   } = data
   return (
     <>
@@ -248,6 +262,16 @@ const Post = ({ data }) => {
         {excerpt && <Excerpt content={excerpt} />}
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </PostStyles>
+      <BlogSection
+        subtitle="Podobne wpisy"
+        posts={similarArticlesTotalCount < 2 ? newestArticles : similarArticles}
+        totalCount={
+          similarArticlesTotalCount < 2
+            ? newestArticlesTotalCount
+            : similarArticlesTotalCount
+        }
+        similarPosts
+      />
     </>
   )
 }
@@ -290,6 +314,11 @@ export const postQuery = graphql`
         readingTime
         date
         slug
+        coverImage {
+          fluid(maxWidth: 360) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
       }
     }
     newestPosts: allDatoCmsPost(
@@ -306,6 +335,11 @@ export const postQuery = graphql`
         readingTime
         date
         slug
+        coverImage {
+          fluid(maxWidth: 360) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
       }
     }
   }
