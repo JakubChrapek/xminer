@@ -5,7 +5,7 @@ import ForInvestorsHeroSection from "../components/ForInvestors/ForInvestorsHero
 import WhoWillTeachYouSection from "../components/ForInvestors/ForInvestorsHeroSection/WhoWillTeachYouSection/WhoWillTeachYouSection"
 import WhyInvestingWithUs from "../components/ForInvestors/ForInvestorsHeroSection/WhyInvestingWithUs/WhyInvestingWithUs"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
-import Layout from "../components/Layout"
+
 import SEO from "../components/SEO/SEO"
 import PackagesSection from "../components/ServiceComponents/PackagesSection/PackagesSection"
 

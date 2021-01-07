@@ -1,10 +1,11 @@
 import { motion } from "framer-motion"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 
 import ButtonText from "../../../buttonText/ButtonText"
+import { formatDate } from "../../../../utils/DateUtils"
 
 const WhyStyles = styled.section`
   display: flex;
@@ -57,7 +58,9 @@ const query = graphql`
       totalCount
       nodes {
         title
-        category
+        postCategory {
+          categoryName
+        }
         date
         readingTime
         id
@@ -83,6 +86,7 @@ const ArticlesGrid = styled.div`
     height: 210px;
     border-radius: 5px;
     width: 100%;
+    overflow: hidden;
   }
 `
 
@@ -91,6 +95,22 @@ const ArticleStyles = styled(motion.article)`
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+
+  > a {
+    width: 100%;
+    picture,
+    img {
+      transform: scale(1);
+      transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) !important;
+    }
+
+    &:hover {
+      img,
+      picture {
+        transform: scale(1.1);
+      }
+    }
+  }
 
   .category {
     position: absolute;
@@ -113,6 +133,15 @@ const ArticleStyles = styled(motion.article)`
     color: var(--black);
     margin: 4px 0 0;
     line-height: 1.3em;
+    text-align: left;
+    transition: transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    &:hover {
+      transform: translateX(2px);
+    }
+    a {
+      text-decoration: none;
+      color: var(--black);
+    }
   }
 
   .data {
@@ -135,33 +164,20 @@ const ArticleStyles = styled(motion.article)`
 `
 
 const Article = ({ article }) => {
-  const [year, month, day] = article.date.split("-")
-  const monthMap = {
-    1: "stycznia",
-    2: "lutego",
-    3: "marca",
-    4: "kwietnia",
-    5: "maja",
-    6: "czerwca",
-    7: "lipca",
-    8: "sierpnia",
-    9: "września",
-    10: "paźdzernika",
-    11: "listopada",
-    12: "grudnia",
-  }
-  const parseDay = day => (day[0] === "0" ? day.slice(1) : day)
-
   return (
     <ArticleStyles>
-      <Img fluid={article.coverImage.fluid} alt={article.title} />
-      <p className="category">{article.category}</p>
+      <Link to={`/blog/${article.slug}`}>
+        <Img fluid={article.coverImage.fluid} alt={article.title} />
+      </Link>
+      <p className="category">{article.postCategory.categoryName}</p>
       <p className="data">
-        <span>{`${parseDay(day)} ${monthMap[month]} ${year}`}</span>
+        <span>{`${formatDate(article.date)}`}</span>
         <span className="dot" />
         <span>{`${article.readingTime} min czytania`}</span>
       </p>
-      <p className="title">{article.title}</p>
+      <p className="title">
+        <Link to={`/blog/${article.slug}`}>{article.title}</Link>
+      </p>
     </ArticleStyles>
   )
 }

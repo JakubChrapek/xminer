@@ -214,6 +214,8 @@ const Navigation = () => {
 const HeaderStyles = styled(motion.header)`
   background: ${({ bg }) => (bg ? bg : "transparent")};
   position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   width: 100%;

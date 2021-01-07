@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/Layout"
+
 import SEO from "../components/SEO/SEO"
 import ServicesCta from "../components/ServiceComponents/ServicesCta/ServicesCta"
 import BetOnSection from "../components/ServiceComponents/BetOnSection/BetOnSection"

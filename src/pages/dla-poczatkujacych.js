@@ -3,7 +3,7 @@ import DarkSection from "../components/ForBeginnersComponents/BeginnersDarkSecti
 import BeginnersHero from "../components/ForBeginnersComponents/BeginnersHero/BeginnersHero"
 import WhySection from "../components/ForBeginnersComponents/WhySection/WhySection"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
-import Layout from "../components/Layout"
+
 import SEO from "../components/SEO/SEO"
 
 const ForBeginners = () => {

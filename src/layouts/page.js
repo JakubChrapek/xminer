@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./Header/Header"
-import SEO from "./SEO"
-import GlobalStyles from "./Styles/GlobalStyles"
-import SkipNavLink from "./SkipNavLink/SkipNavLink"
+import Header from "../components/Header/Header"
+import SEO from "../components/SEO"
+import GlobalStyles from "../components/Styles/GlobalStyles"
+import SkipNavLink from "../components/SkipNavLink/SkipNavLink"
 import { AnimatePresence, motion } from "framer-motion"
 import { useLocation } from "@reach/router"
 import styled, { css } from "styled-components"
-import Footer from "./Footer/Footer"
+import Footer from "../components/Footer/Footer"
 
 const StyledMain = styled(motion.main)`
   position: relative;
