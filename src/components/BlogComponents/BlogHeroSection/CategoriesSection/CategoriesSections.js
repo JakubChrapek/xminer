@@ -14,7 +14,7 @@ import { articlesWrapperTransition } from "../../../Styles/Animations"
 const CategoriesStyles = styled.section`
   display: flex;
   justify-content: center;
-  margin: 119px auto 0;
+  margin: ${({ margin }) => (margin ? margin : "119px auto 0")};
   padding: 67px 0 120px;
   > div {
     max-width: 1440px;
@@ -29,7 +29,7 @@ const NavigationStyles = styled.ul`
   padding: 19px 78px;
   border-radius: 5px;
   place-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
   grid-gap: 24px 58px;
   list-style-type: none;
 `
@@ -40,6 +40,7 @@ const ListItemStyles = styled.li`
   justify-content: center;
   align-items: center;
   min-width: 148px;
+  max-width: 180px;
   button {
     width: 100%;
     height: 100%;
@@ -295,8 +296,15 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
   )
 }
 
-const CategoriesSections = ({ categories, articles }) => {
-  const [activeCategory, setActiveCategory] = useState("wszystkie")
+const CategoriesSections = ({
+  categories,
+  articles,
+  defaultActiveCategory,
+  margin,
+}) => {
+  const [activeCategory, setActiveCategory] = useState(
+    defaultActiveCategory ? defaultActiveCategory : "wszystkie"
+  )
   const [filteredCategories, setFilteredCategories] = useState(categories)
 
   useEffect(() => {
@@ -324,7 +332,7 @@ const CategoriesSections = ({ categories, articles }) => {
     setFilteredCategories([...defaultCategories, ...uniqueArticleNames])
   }, [])
   return (
-    <CategoriesStyles>
+    <CategoriesStyles margin={margin}>
       <AnimateSharedLayout>
         <Flex layout width="100%" direction="column">
           <CategoriesNavigation
