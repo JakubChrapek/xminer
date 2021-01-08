@@ -15,6 +15,7 @@ const StyledText = styled(motion.p)`
     textTransform ? textTransform : ""};
   max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "")};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "")};
+  transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 `
 
 const Text = ({

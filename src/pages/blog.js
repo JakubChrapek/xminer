@@ -1,5 +1,6 @@
 import React from "react"
 import BlogHeroSection from "../components/BlogComponents/BlogHeroSection/BlogHeroSection"
+import CategoriesSections from "../components/BlogComponents/BlogHeroSection/CategoriesSection/CategoriesSections"
 
 import SEO from "../components/SEO/SEO"
 const Blog = ({ data }) => {
@@ -11,6 +12,10 @@ const Blog = ({ data }) => {
         featuredArticles={data.featuredArticles.nodes}
         newestArticle={data.newestArticle.nodes}
         categories={data.categories.nodes}
+      />
+      <CategoriesSections
+        categories={data.categories.nodes}
+        articles={data.allArticles.nodes}
       />
     </>
   )
@@ -74,6 +79,7 @@ export const BlogHeroArticlesQuery = graphql`
         date
         id
         slug
+        readingTime
         coverImage {
           alt
           fluid(maxWidth: 358) {

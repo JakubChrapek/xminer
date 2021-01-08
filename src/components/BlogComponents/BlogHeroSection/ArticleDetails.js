@@ -6,7 +6,8 @@ const DetailsStyles = styled.p`
   display: flex;
   align-items: center;
   width: 100%;
-  margin: ${({ featuredArticles }) => (featuredArticles ? "0" : "20px 0 0")};
+  margin: ${({ featuredArticles, margin }) =>
+    featuredArticles ? "0" : margin ? margin : "20px 0 0"};
   position: relative;
   font-size: 13px !important;
   line-height: normal !important;
@@ -71,6 +72,9 @@ const DetailsStyles = styled.p`
     border-radius: 50%;
     background-color: var(--text-privacy);
     margin: 0 6px 1px 6px;
+    &:first-of-type {
+      display: ${({ dateWithoutDot }) => dateWithoutDot && "none"};
+    }
   }
 
   .tag {
@@ -105,10 +109,16 @@ const ArticleDetails = ({
   author,
   category,
   date,
+  dateWithoutDot,
   readingTime,
   tag,
+  margin,
 }) => (
-  <DetailsStyles featuredArticles={featuredArticles}>
+  <DetailsStyles
+    margin={margin}
+    dateWithoutDot={dateWithoutDot}
+    featuredArticles={featuredArticles}
+  >
     {logo && <span className="logo" />}
     {author && (
       <span className="author">

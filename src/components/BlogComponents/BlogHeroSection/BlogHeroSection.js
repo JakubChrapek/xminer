@@ -31,6 +31,43 @@ const FeaturedArticleStyles = styled.article`
     max-height: 388px;
     border-radius: 5px;
   }
+
+  > a {
+    text-decoration: none;
+
+    &:focus-visible {
+      h2 {
+        outline: 2px solid var(--primary);
+        outline-offset: 6px;
+      }
+    }
+
+    &:hover {
+      h2 {
+        color: var(--primary);
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+    }
+    h2 {
+      position: relative;
+      display: inline-block;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: -2px;
+        background-color: var(--primary);
+        height: 2px;
+        width: calc(100%);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
+    }
+  }
 `
 
 const ImageWrapper = styled.div`
@@ -92,16 +129,18 @@ const FeaturedArticle = ({
 
         <Img fluid={image} alt={imageAlt || ""} />
       </ImageWrapper>
-      <Text
-        fontSize="28px"
-        fontWeight="bold"
-        lineHeight="normal"
-        maxWidth="407px"
-        as="h2"
-        margin="16px 0 0"
-      >
-        {title}
-      </Text>
+      <Link to={`/blog/${slug}`}>
+        <Text
+          fontSize="28px"
+          fontWeight="bold"
+          lineHeight="normal"
+          maxWidth="407px"
+          as="h2"
+          margin="16px 0 0"
+        >
+          {title}
+        </Text>
+      </Link>
       <Text
         color="var(--gray3)"
         fontSize="14px"
