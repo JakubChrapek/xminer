@@ -143,7 +143,7 @@ const Package = ({
                 width="128"
                 height="128"
                 filterUnits="userSpaceOnUse"
-                color-interpolation-filters="sRGB"
+                colorInterpolationFilters="sRGB"
               >
                 <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feGaussianBlur in="BackgroundImage" stdDeviation="24" />
@@ -171,8 +171,8 @@ const Package = ({
       to={btnLink}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      minWidth="196px"
-      maxWidth="244px"
+      minwidth="196px"
+      maxwidth="244px"
       margin={focus ? "77px 0 0" : "74px 0 0"}
     >
       {btnText}

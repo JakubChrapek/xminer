@@ -95,7 +95,7 @@ const AboutCeo = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             color="var(--black)"
-            maxWidth="306px"
+            maxwidth="306px"
             to="/kontakt"
             margin="56px 0 0"
             bg="var(--white)"

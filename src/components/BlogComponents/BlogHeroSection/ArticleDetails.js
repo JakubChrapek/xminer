@@ -1,8 +1,9 @@
+import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
-const DetailsStyles = styled.p`
+const DetailsStyles = styled(motion.p)`
   display: flex;
   align-items: center;
   width: 100%;
@@ -113,9 +114,11 @@ const ArticleDetails = ({
   readingTime,
   tag,
   margin,
+  layout,
 }) => (
   <DetailsStyles
     margin={margin}
+    layout={layout}
     dateWithoutDot={dateWithoutDot}
     featuredArticles={featuredArticles}
   >

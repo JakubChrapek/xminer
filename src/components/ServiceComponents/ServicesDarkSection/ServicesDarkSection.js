@@ -32,7 +32,7 @@ const ServicesDarkSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="20px 0 0"
-            maxWidth="707px"
+            maxwidth="707px"
             color="var(--light-blue)"
           >
             O tym, że koparki kryptowalut są wysoce energochłonne,
@@ -47,7 +47,7 @@ const ServicesDarkSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="32px 0 0"
-            maxWidth="707px"
+            maxwidth="707px"
             color="var(--light-blue)"
           >
             Twoja koparka w Xminer jest kolokowana tuż obok biogazowni, więc
@@ -69,7 +69,7 @@ const ServicesDarkSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            maxWidth="286px"
+            maxwidth="286px"
             color="var(--light-blue)"
           >
             Co zyskujesz?
@@ -79,7 +79,7 @@ const ServicesDarkSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="12px 0 0"
-            maxWidth="286px"
+            maxwidth="286px"
             color="var(--light-blue)"
           >
             Tani i pochodzący z&nbsp;OZE prąd, który realnie podnosi Twój zysk

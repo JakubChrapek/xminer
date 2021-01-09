@@ -6,7 +6,7 @@ import Text from "../../../Text/Text"
 const FeatureStyles = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "708px")};
+  max-width: ${({ maxwidth }) => (maxwidth ? maxwidth : "708px")};
   margin: ${({ margin }) => (margin ? margin : "")};
 
   h3 {
@@ -36,10 +36,10 @@ const FeatureParagraph = ({
   title,
   content,
   margin,
-  maxWidth,
+  maxwidth,
 }) => {
   return (
-    <FeatureStyles margin={margin} maxWidth={maxWidth}>
+    <FeatureStyles margin={margin} maxwidth={maxwidth}>
       <Flex alignItems="center" margin="0 0 26px">
         <ImgWrapper iconBg={iconBg}>
           <ImgStyles src={icon} alt={iconAlt} />

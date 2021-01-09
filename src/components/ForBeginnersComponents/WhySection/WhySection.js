@@ -61,7 +61,7 @@ const StepSection = ({
 const WhySection = () => {
   return (
     <Container bg="var(--while)">
-      <Wrapper margin="72px 60px 134px" direction="column" maxWidth="710px">
+      <Wrapper margin="72px 60px 134px" direction="column" maxwidth="710px">
         <Text as="h2" fontSize="36px" fontWeight="600" lineHeight="normal">
           Dlaczego warto zainwestować w&nbsp;koparki kryptowalut?
         </Text>

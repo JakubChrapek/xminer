@@ -61,8 +61,8 @@ const StyledLink = styled(Link)`
   align-items: center;
   text-decoration: none;
   width: ${({ width }) => (width ? width : "")};
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "")};
-  min-width: ${({ minWidth }) => (minWidth ? minWidth : "")};
+  max-width: ${({ maxwidth }) => (maxwidth ? maxwidth : "")};
+  min-width: ${({ minwidth }) => (minwidth ? minwidth : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
   padding: ${({ padding }) => (padding ? padding : "")};
   &:after {
@@ -129,8 +129,8 @@ const ButtonLink = ({
   padding,
   to,
   width,
-  maxWidth,
-  minWidth,
+  maxwidth,
+  minwidth,
   margin,
   outlinebg,
   initial,
@@ -145,8 +145,8 @@ const ButtonLink = ({
     className={className}
     to={to}
     width={width}
-    maxWidth={maxWidth}
-    minWidth={minWidth}
+    maxwidth={maxwidth}
+    minwidth={minwidth}
     margin={margin}
     padding={padding}
     type={type}

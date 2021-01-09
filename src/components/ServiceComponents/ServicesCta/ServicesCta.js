@@ -36,7 +36,7 @@ const ServicesCta = () => {
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
           >
             Kolokacja? To zdecydowanie nie wszystko. Sprawdź naszą ofertę
             serwisu, opieki i&nbsp;zdalnego dostępu do koparek, o&nbsp;który
@@ -84,7 +84,7 @@ const ServicesCta = () => {
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
           >
             Twoje koparki mogą pobierać mniej prądu. Mogą nie zajmować Twojego
             garażu lub nie mieć osobnego biura w Twojej firmie. Mogą też mieć

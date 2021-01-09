@@ -6,7 +6,7 @@ import Wrapper from "../../Wrapper/Wrapper"
 const DarkSection = () => {
   return (
     <Container bg="var(--nav-dark-bluse)">
-      <Wrapper margin="99px 60px 72px" direction="column" maxWidth="710px">
+      <Wrapper margin="99px 60px 72px" direction="column" maxwidth="710px">
         <Text
           fontSize="36px"
           fontWeight="600"

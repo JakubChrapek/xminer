@@ -19,7 +19,7 @@ const WhoWillTeachYouSection = () => {
             letterSpacing="1px"
             textTransform="uppercase"
             textAlign="center"
-            maxWidth="707px"
+            maxwidth="707px"
           >
             Nasi eksperci
           </Text>
@@ -27,7 +27,7 @@ const WhoWillTeachYouSection = () => {
             fontSize="48px"
             fontWeight="600"
             textAlign="center"
-            maxWidth="707px"
+            maxwidth="707px"
             margin="8px 0 0"
           >
             Kto będzie Cię szkolił?
@@ -38,7 +38,7 @@ const WhoWillTeachYouSection = () => {
             lineHeight="1.67em"
             margin="24px 0 0"
             textAlign="center"
-            maxWidth="707px"
+            maxwidth="707px"
           >
             Za szkolenia w Xminer odpowiada Łukasz Botorek - nasz specjalista i
             CEO, który nie tylko posiada ogromną wiedzę o inwestowaniu, ale i

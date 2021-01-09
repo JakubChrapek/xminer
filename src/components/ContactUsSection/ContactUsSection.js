@@ -35,7 +35,7 @@ const ContactUsSection = ({
             lineHeight="normal"
             color={bg ? "var(--black)" : "var(--white)"}
             dangerously={subtitle}
-            maxWidth={verticalForm && "523px"}
+            maxwidth={verticalForm && "523px"}
           />
           <Text
             fontSize="16px"
@@ -43,7 +43,7 @@ const ContactUsSection = ({
             fontWeight="normal"
             lineHeight="normal"
             color={bg ? "var(--black)" : "var(--white)"}
-            maxWidth="465px"
+            maxwidth="465px"
             dangerously={content}
           />
           <Text

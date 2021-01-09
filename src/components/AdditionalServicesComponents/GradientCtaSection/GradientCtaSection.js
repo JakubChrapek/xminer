@@ -42,29 +42,29 @@ const GradientCtaSection = ({
               fontWeight="500"
               lineHeight="normal"
               margin="9px 0 24px"
-              maxWidth="536px"
+              maxwidth="536px"
               textAlign="center"
-              maxWidth={contentWidth}
+              maxwidth={contentWidth}
             >
               {subtitle}
             </Text>
           )}
           {content && (
             <Text
-              maxWidth="780px"
+              maxwidth="780px"
               textAlign="center"
               fontSize="16px"
               lineHeight="normal"
               fontWeight="300"
               color="var(--faded-aqua)"
-              maxWidth={contentWidth}
+              maxwidth={contentWidth}
             >
               {content}
             </Text>
           )}
           {additionalLine && (
             <Text
-              maxWidth="780px"
+              maxwidth="780px"
               textAlign="center"
               fontSize="16px"
               lineHeight="normal"
@@ -82,7 +82,7 @@ const GradientCtaSection = ({
               color="var(--nav-dark-bluse)"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              maxWidth="80vw"
+              maxwidth="80vw"
               width="257px"
               to={btnLink}
             >

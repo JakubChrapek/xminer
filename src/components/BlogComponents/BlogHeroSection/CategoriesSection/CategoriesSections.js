@@ -261,9 +261,9 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <ImageWrapper>
+            <ImageWrapper layout style={{ overflow: "hidden" }}>
               <Link to={`/blog/${item.slug}`}>
-                <motion.span whileHover={{ x: 3 }} whileTap={{ x: 6 }}>
+                <motion.span layout whileHover={{ x: 3 }} whileTap={{ x: 6 }}>
                   <HiArrowNarrowRight size="54px" color="var(--light-aqua)" />
                 </motion.span>
               </Link>
@@ -274,6 +274,7 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
               readingTime={item.readingTime}
               dateWithoutDot
               margin="12px 0 0"
+              layout
             />
             <Link to={`/blog/${item.slug}`}>
               <Text
@@ -282,11 +283,12 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
                 fontWeight="bold"
                 margin="4px 0 0"
                 lineHeight="normal"
+                layout
               >
                 {item.title}
               </Text>
             </Link>
-            <motion.span className="tag">
+            <motion.span layout className="tag">
               {item.postCategory.categoryName}
             </motion.span>
           </motion.article>
@@ -300,11 +302,9 @@ const CategoriesSections = ({
   categories,
   articles,
   defaultActiveCategory,
+  setDefaultActiveCategory,
   margin,
 }) => {
-  const [activeCategory, setActiveCategory] = useState(
-    defaultActiveCategory ? defaultActiveCategory : "wszystkie"
-  )
   const [filteredCategories, setFilteredCategories] = useState(categories)
 
   useEffect(() => {
@@ -337,12 +337,12 @@ const CategoriesSections = ({
         <Flex layout width="100%" direction="column">
           <CategoriesNavigation
             items={filteredCategories}
-            activeCategory={activeCategory}
-            setActiveCategory={setActiveCategory}
+            activeCategory={defaultActiveCategory}
+            setActiveCategory={setDefaultActiveCategory}
           />
           <ActiveCategoryArticles
             items={articles}
-            activeCategory={activeCategory}
+            activeCategory={defaultActiveCategory}
           />
         </Flex>
       </AnimateSharedLayout>

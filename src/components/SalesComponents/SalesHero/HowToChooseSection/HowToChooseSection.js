@@ -36,7 +36,7 @@ const HowToChooseSection = () => {
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
           >
             Wybór właściwej koparki to nie jest bułka z nutellą. Dlatego, jeśli
             masz wątpliwości, chcesz kupić kilka koparek - skontaktuj się
@@ -81,7 +81,7 @@ const HowToChooseSection = () => {
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
           >
             Możesz u&nbsp;nas zamówić koparkę o&nbsp;niemal dowolnych
             parametrach&nbsp;-&nbsp;nasz zespół to specjaliści gotowi tworzyć

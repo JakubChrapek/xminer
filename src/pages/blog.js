@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import BlogHeroSection from "../components/BlogComponents/BlogHeroSection/BlogHeroSection"
 import CategoriesSections from "../components/BlogComponents/BlogHeroSection/CategoriesSection/CategoriesSections"
 
 import SEO from "../components/SEO/SEO"
 const Blog = ({ data }) => {
+  const [defaultActiveCategory, setDefaultActiveCategory] = useState(
+    "wszystkie"
+  )
   return (
     <>
       <SEO title="Blog" />
@@ -16,6 +19,8 @@ const Blog = ({ data }) => {
       <CategoriesSections
         categories={data.categories.nodes}
         articles={data.allArticles.nodes}
+        defaultActiveCategory={defaultActiveCategory}
+        setDefaultActiveCategory={setDefaultActiveCategory}
       />
     </>
   )

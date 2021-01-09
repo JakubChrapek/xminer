@@ -1,22 +1,21 @@
 export const containerTransition = {
   initial: {
     opacity: 0,
+    y: 0,
   },
   animate: {
     opacity: 1,
+    y: 0,
     transition: {
-      duration: 0.7,
-      delayChildren: 0.25,
-      staggerChildren: 0.2,
+      duration: 0.4,
+      // delayChildren: 0.1,
+      staggerChildren: 0.1,
     },
   },
   exit: {
     opacity: 0,
     transition: {
-      staggerChildren: 0.2,
-      duration: 0.7,
-      when: "afterChildren",
-      delay: 0.35,
+      duration: 0.1,
     },
   },
 }
@@ -46,8 +45,8 @@ export const articlesWrapperTransition = {
 
 export const itemTransition = {
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.4 } },
-  exit: { opacity: 0, transition: { duration: 0.4 } },
+  animate: { opacity: 1, transition: { duration: 0.3 } },
+  exit: { opacity: 0, transition: { duration: 0.05 } },
 }
 
 export const fadeInUp = {

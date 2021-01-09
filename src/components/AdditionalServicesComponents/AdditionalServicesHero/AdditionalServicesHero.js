@@ -23,14 +23,14 @@ const AdditionalServicesHero = () => {
             fontSize="48px"
             fontWeight="600"
             lineHeight="normal"
-            maxWidth="480px"
+            maxwidth="480px"
           >
             Serwis, konsultacje i&nbsp;opieka 24/h
           </Text>
         </div>
         <div>
           <Text
-            maxWidth="588px"
+            maxwidth="588px"
             margin="52px 0 0"
             fontSize="18px"
             lineHeight="1.67em"
@@ -44,7 +44,7 @@ const AdditionalServicesHero = () => {
             zdalny dostęp do Twojej inwestycji.
           </Text>
           <Text
-            maxWidth="588px"
+            maxwidth="588px"
             margin="52px 0 0"
             fontSize="18px"
             lineHeight="1.67em"

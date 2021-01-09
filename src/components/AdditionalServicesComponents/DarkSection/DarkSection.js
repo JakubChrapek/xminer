@@ -45,7 +45,7 @@ const CheckMarkIcon = () => (
         width="128"
         height="128"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
         <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feGaussianBlur in="BackgroundImage" stdDeviation="24" />
@@ -85,7 +85,7 @@ const DarkSection = () => {
               lineHeight="1.63em"
               fontWeight="300"
               margin="2px 0 0 15px"
-              maxWidth="707px"
+              maxwidth="707px"
               color="var(--light-blue)"
             >
               Tak, możesz przechowywać swoje koparki u&nbsp;nas i&nbsp;liczyć,
@@ -100,7 +100,7 @@ const DarkSection = () => {
               lineHeight="1.63em"
               fontWeight="300"
               margin="2px 0 0 15px"
-              maxWidth="707px"
+              maxwidth="707px"
               color="var(--light-blue)"
             >
               Tak, możesz liczyć na to, że zakupione przez Ciebie koparki nie
@@ -115,7 +115,7 @@ const DarkSection = () => {
               lineHeight="1.63em"
               fontWeight="300"
               margin="2px 0 0 15px"
-              maxWidth="707px"
+              maxwidth="707px"
               color="var(--light-blue)"
             >
               Tak, możesz mieć dostęp do swojej koparki i&nbsp;sterować nią ze
@@ -130,7 +130,7 @@ const DarkSection = () => {
               lineHeight="1.63em"
               fontWeight="300"
               margin="2px 0 0 15px"
-              maxWidth="707px"
+              maxwidth="707px"
               color="var(--light-blue)"
             >
               Tak, możesz liczyć na to, że przeszkolimy Cię nie tylko w zakresie

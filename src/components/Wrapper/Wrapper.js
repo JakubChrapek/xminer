@@ -4,7 +4,7 @@ import styled, { css } from "styled-components"
 const WrapperStyles = styled.div`
   display: flex;
   width: 100%;
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : "1440px")};
+  max-width: ${({ maxwidth }) => (maxwidth ? maxwidth : "1440px")};
   position: relative;
   z-index: ${({ zIndex }) => (zIndex ? zIndex : "1")};
   margin: ${({ margin }) => (margin ? margin : "60px 122px 100px")};
@@ -27,7 +27,7 @@ const WrapperStyles = styled.div`
 `
 
 const Wrapper = ({
-  maxWidth,
+  maxwidth,
   margin,
   padding,
   direction,
@@ -38,7 +38,7 @@ const Wrapper = ({
   return (
     <WrapperStyles
       equal={equal}
-      maxWidth={maxWidth}
+      maxwidth={maxwidth}
       margin={margin}
       padding={padding}
       zIndex={zIndex}

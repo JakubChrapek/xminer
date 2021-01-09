@@ -33,7 +33,7 @@ const Feature = ({ icon, iconBg, title, content }) => {
           <ImgStyles src={icon} alt={title} />
         </ImgWrapper>
         <Text
-          maxWidth="243px"
+          maxwidth="243px"
           fontSize="22px"
           fontWeight="600"
           lineHeight="normal"
@@ -46,7 +46,7 @@ const Feature = ({ icon, iconBg, title, content }) => {
         fontSize="18px"
         lineHeight="1.67em"
         fontWeight="300"
-        maxWidth="345px"
+        maxwidth="345px"
       >
         {content}
       </Text>

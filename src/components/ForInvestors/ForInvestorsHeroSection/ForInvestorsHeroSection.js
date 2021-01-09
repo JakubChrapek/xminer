@@ -34,7 +34,7 @@ const ForInvestorsHeroSection = () => {
         </div>
         <div>
           <Text
-            maxWidth="588px"
+            maxwidth="588px"
             margin="52px 0 0"
             fontSize="18px"
             lineHeight="1.67em"
@@ -47,7 +47,7 @@ const ForInvestorsHeroSection = () => {
             Twoją firmę w świat kryptowalut.
           </Text>
           <Text
-            maxWidth="588px"
+            maxwidth="588px"
             margin="26px 0 0"
             fontSize="18px"
             lineHeight="1.67em"
@@ -55,7 +55,7 @@ const ForInvestorsHeroSection = () => {
             Wybierz rzetelną wiedzę, wybierz doświadczenie biznesowe.
           </Text>
           <Text
-            maxWidth="588px"
+            maxwidth="588px"
             margin="26px 0 0"
             fontSize="18px"
             lineHeight="1.67em"

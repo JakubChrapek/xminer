@@ -30,7 +30,7 @@ const ParagraphSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="12px 0 0"
-            maxWidth="707px"
+            maxwidth="707px"
           >
             Szum, pole magnetyczne, nadmiar ciepła, wysoki koszt energii
             elektrycznej, problemy z przyłączami - to jedne z
@@ -42,7 +42,7 @@ const ParagraphSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="24px 0 0"
-            maxWidth="707px"
+            maxwidth="707px"
           >
             Nasza propozycja to rozwiązanie tych problemów - koparki umieszczane
             są w specjalnym, zaprojektowanym przez nas kontenerze, z aktywnym
@@ -62,7 +62,7 @@ const ParagraphSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            maxWidth="286px"
+            maxwidth="286px"
           >
             Co zyskujesz?
           </Text>
@@ -71,7 +71,7 @@ const ParagraphSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="12px 0 0"
-            maxWidth="286px"
+            maxwidth="286px"
           >
             Wolne miejsce w domu lub w firmie, całodobowy monitoring
             samopoczucia Twojej koparki i mniejszą awaryjność sprzętu, który

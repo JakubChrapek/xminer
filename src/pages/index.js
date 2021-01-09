@@ -11,6 +11,7 @@ import BeginHereSection from "../components/HeroComponents/HeroSection/BeginHere
 import TestimonialsSection from "../components/HeroComponents/HeroSection/TestimonialsSection/TestimonialsSection"
 import CtaSection from "../components/HeroComponents/HeroSection/CtaSection/CtaSection"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
+import Layout from "../layouts/page"
 
 const HomeStyles = styled.div`
   background: var(--home-gradient);
@@ -20,22 +21,24 @@ const IndexPage = ({ data }) => {
     allDatoCmsPost: { totalCount, nodes: posts },
   } = data
   return (
-    <HomeStyles>
-      <SEO title="Xminer" />
-      <HeroSection />
-      <WhySection />
-      <BeforeMiningSection />
-      <InvestorsSection />
-      <BeginHereSection />
-      <TestimonialsSection />
-      <CtaSection />
-      <BlogSection
-        posts={posts}
-        totalCount={totalCount}
-        title="Blog"
-        subtitle="Blog o krypto"
-      />
-    </HomeStyles>
+    <>
+      <HomeStyles>
+        <SEO title="Xminer" />
+        <HeroSection />
+        <WhySection />
+        <BeforeMiningSection />
+        <InvestorsSection />
+        <BeginHereSection />
+        <TestimonialsSection />
+        <CtaSection />
+        <BlogSection
+          posts={posts}
+          totalCount={totalCount}
+          title="Blog"
+          subtitle="Blog o krypto"
+        />
+      </HomeStyles>
+    </>
   )
 }
 export const blogQuery = graphql`

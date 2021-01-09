@@ -1,6 +1,21 @@
 const path = require(`path`)
 var slugify = require("slugify")
 
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html" || stage === "develop-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /locomotive-scroll/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    })
+  }
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/layouts/post.js`)

@@ -122,11 +122,43 @@ const ArticleStyles = styled(motion.article)`
     text-align: left;
     transition: transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     &:hover {
-      transform: translateX(2px);
+      a {
+        color: var(--primary);
+      }
     }
     a {
       text-decoration: none;
       color: var(--black);
+      transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: -2px;
+        background-color: var(--primary);
+        height: 2px;
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
+
+      &:hover,
+      &.active,
+      &:focus,
+      &:active,
+      &[aria-current] {
+        outline: none;
+        color: var(--primary);
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+      &:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 6px;
+      }
     }
   }
 
@@ -191,7 +223,7 @@ const BlogSection = ({
             {subtitle && <h3>{subtitle}</h3>}
             <ArticlesGrid similarPosts={similarPosts} smaller={smaller}>
               {posts.map(article => (
-                <Article key={article.id} article={article} />
+                <Article key={article.slug} article={article} />
               ))}
             </ArticlesGrid>
             <ButtonText

@@ -36,7 +36,7 @@ const CtaSection = () => {
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
           >
             W tej inwestycji nie musisz być sam. Nie musisz iść w ciemno, nie
             musisz mieć nadzieję i ufać wyłącznie własnej intuicji. Zostawiając
@@ -48,7 +48,7 @@ const CtaSection = () => {
             fontSize="16px"
             margin="20px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
           >
             Skonfigurujemy dla Ciebie zdalny dostęp!
           </Text>
@@ -85,7 +85,7 @@ const CtaSection = () => {
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
           >
             Wybierając pełną obsługę, wybierasz nie tylko świetne warunki dla
             swoich koparek kryptowalut - wybierasz też świadomość, że masz stały
@@ -97,7 +97,7 @@ const CtaSection = () => {
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxWidth="580px"
+            maxwidth="580px"
             margin="20px 0 0"
           >
             To się opłaca!

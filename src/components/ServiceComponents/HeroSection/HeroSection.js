@@ -31,7 +31,7 @@ const HeroSection = () => {
         </div>
         <div>
           <Text
-            maxWidth="588px"
+            maxwidth="588px"
             margin="52px 0 0"
             fontSize="18px"
             lineHeight="1.67em"

@@ -134,7 +134,7 @@ const FeaturedArticle = ({
           fontSize="28px"
           fontWeight="bold"
           lineHeight="normal"
-          maxWidth="407px"
+          maxwidth="407px"
           as="h2"
           margin="16px 0 0"
         >
@@ -146,7 +146,7 @@ const FeaturedArticle = ({
         fontSize="14px"
         lineHeight="normal"
         margin="16px 0 0 "
-        maxWidth="628px"
+        maxwidth="628px"
       >{`${excerpt.substring(0, 180)}${
         excerpt.length > 180 ? "..." : ""
       }`}</Text>
@@ -232,7 +232,7 @@ const RecommendedArticles = ({ articles }) => {
       </Text>
       <ul>
         {articles.map(article => (
-          <li>
+          <li key={article.slug}>
             <ArticleDetails
               featuredArticles
               category={article.postCategory.categoryName}

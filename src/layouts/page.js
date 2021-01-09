@@ -8,8 +8,9 @@ import GlobalStyles from "../components/Styles/GlobalStyles"
 import SkipNavLink from "../components/SkipNavLink/SkipNavLink"
 import { AnimatePresence, motion } from "framer-motion"
 import { useLocation } from "@reach/router"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Footer from "../components/Footer/Footer"
+import Scroll from "../components/locomotiveScroll"
 
 const StyledMain = styled(motion.main)`
   position: relative;
@@ -37,23 +38,24 @@ const Layout = ({ children }) => {
   `)
   const [bg, setBg] = useState("transparent")
 
-  let pathname = useLocation().pathname
+  let location = useLocation()
 
-  useEffect(() => {
-    setBg(pathname === "/" ? "var(--main-gradient)" : "transparent")
-  }, [pathname])
+  // useEffect(() => {
+  //   setBg(pathname === "/" ? "var(--main-gradient)" : "transparent")
+  // }, [pathname])
   return (
     <>
       <GlobalStyles />
-      <SkipNavLink />
+      {/* <Scroll callbacks={location} /> */}
       <SEO />
       <Header />
+      {/* <SkipNavLink /> */}
       <AnimatePresence exitBeforeEnter>
         <StyledMain
-          key={pathname}
-          initial={{}}
-          animate={{}}
-          exit={{ opacity: 0, transition: { duration: 0 } }}
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           bg={bg}
         >
           {children}

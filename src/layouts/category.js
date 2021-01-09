@@ -1,5 +1,6 @@
+import { AnimatePresence } from "framer-motion"
 import { graphql, Link } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import CategoriesSections from "../components/BlogComponents/BlogHeroSection/CategoriesSection/CategoriesSections"
 import Flex from "../components/Flex/Flex"
@@ -18,21 +19,33 @@ const CategoryStyles = styled.section`
 `
 
 const CategoryLayout = ({ data, pageContext }) => {
+  const [defaultActiveCategory, setDefaultActiveCategory] = useState(
+    pageContext.categoryName.toLowerCase()
+  )
   return (
     <>
-      <SEO title={`Xminer Blog | ${pageContext.categoryName}`} />
+      <SEO title={`Xminer Blog | ${defaultActiveCategory}`} />
       <CategoryStyles>
         <Flex width="100%">
           <Flex width="100%" direction="column" flex="2">
-            <Text as="h1" fontSize="36px" fontWeight="600" lineHeight="normal">
-              Blog > {pageContext.categoryName}
+            <Text
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              as="h1"
+              fontSize="36px"
+              fontWeight="600"
+              lineHeight="normal"
+            >
+              Blog | {defaultActiveCategory}
             </Text>
           </Flex>
         </Flex>
       </CategoryStyles>
       <CategoriesSections
         categories={data.categories.nodes}
-        defaultActiveCategory={pageContext.categoryName.toLowerCase()}
+        defaultActiveCategory={defaultActiveCategory}
+        setDefaultActiveCategory={setDefaultActiveCategory}
         articles={data.posts.nodes}
         margin="0 auto"
       />

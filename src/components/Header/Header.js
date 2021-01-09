@@ -48,7 +48,7 @@ const Chevron = styled(motion.span)`
 const SubnavWrapper = styled(motion.div)`
   display: flex;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 119px;
   width: 100%;
   background-color: var(--white);
@@ -101,7 +101,6 @@ const Navigation = () => {
 
   const handleClick = e => {
     e.preventDefault()
-    console.log("Clicked")
     setShow(!show)
   }
 
@@ -167,12 +166,7 @@ const Navigation = () => {
             animate="animate"
             exit="exit"
           >
-            <motion.ul
-              variants={containerTransition}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-            >
+            <motion.ul>
               <motion.li variants={itemTransition}>
                 <motion.h3>Inwestycja</motion.h3>
                 <StyledColumn>
@@ -219,7 +213,7 @@ const HeaderStyles = styled(motion.header)`
   display: flex;
   justify-content: center;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   /* transition: background 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19); */
   h1 {
     font-size: 20px;
@@ -230,7 +224,7 @@ const HeaderStyles = styled(motion.header)`
     display: flex;
     width: 100%;
     max-width: 1440px;
-    z-index: 2;
+    z-index: 3;
     justify-content: space-between;
     align-items: center;
     margin: 30px 158px 30px 103px;

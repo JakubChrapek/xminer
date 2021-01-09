@@ -8,11 +8,11 @@ module.exports = {
   headline: "Xminer - gotowe koparki kryptowalut w różnych konfiguracjach.", // Headline for schema.org JSONLD
   url: "https://www.xminer.pl", // Domain of your site. No trailing slash!
   siteLanguage: "pl", // Language Tag on <html> element
-  logo: "/images/gatsby-astronaut.png", // Used for SEO
+  logo: "src/images/xminer-logo.png", // Used for SEO
   ogLanguage: "pl_PL", // Facebook Language
 
   // JSONLD / Manifest
-  favicon: "/images/favicon.png", // Used for manifest favicon generation
+  favicon: "src/images/favicon.png", // Used for manifest favicon generation
   shortName: "Xminer", // shortname for manifest. MUST be shorter than 12 characters
   author: "Xminer", // Author for schemaORGJSONLD
   themeColor: "#F6F9FB",

@@ -30,7 +30,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="20px 0 0"
-            maxWidth="707px"
+            maxwidth="707px"
           >
             Nasza oferta jest skierowana dla inwestorów z całej Polski.
           </Text>
@@ -39,7 +39,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="32px 0 0"
-            maxWidth="707px"
+            maxwidth="707px"
           >
             Nasze kontenery są zabezpieczone: system alarmowy, montoring wideo i
             zdalny podgląd 24/h zapewnia bezpieczeństwo dla każdej koparki,
@@ -50,7 +50,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="32px 0 0"
-            maxWidth="707px"
+            maxwidth="707px"
           >
             Nieuprawniony dostęp? Patrol interwencyjny na miejscu. Zdarzenia
             losowe? Mamy ubezpieczenie i od kradzieży, i od wypadków.
@@ -68,7 +68,7 @@ const BetOnSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            maxWidth="286px"
+            maxwidth="286px"
           >
             Co zyskujesz?
           </Text>
@@ -77,7 +77,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="12px 0 0"
-            maxWidth="286px"
+            maxwidth="286px"
           >
             Oddając swoją maszynę pod opiekę Xminer, oszczędzasz nie tylko na
             energii elektrycznej, ale i&nbsp;po prostu&nbsp;-&nbsp;zapewniasz
@@ -88,7 +88,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="300"
             margin="32px 0 0"
-            maxWidth="286px"
+            maxwidth="286px"
           >
             A to jest ważne!
           </Text>
