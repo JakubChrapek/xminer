@@ -76,19 +76,19 @@ const Cards = () => {
   ]
   return (
     <>
-      {width > 1200 ? (
-        <CardsStyles>
-          {CardsContent.map(({ icon, title, content, cta }) => (
-            <Card
-              key={title}
-              icon={icon}
-              title={title}
-              content={content}
-              cta={cta}
-            />
-          ))}
-        </CardsStyles>
-      ) : (
+      {/* {width > 1200 ? ( */}
+      <CardsStyles>
+        {CardsContent.map(({ icon, title, content, cta }) => (
+          <Card
+            key={title}
+            icon={icon}
+            title={title}
+            content={content}
+            cta={cta}
+          />
+        ))}
+      </CardsStyles>
+      {/* ) : (
         <DragSlider>
           {CardsContent.map(({ icon, title, content, cta }) => (
             <Card
@@ -100,7 +100,7 @@ const Cards = () => {
             />
           ))}
         </DragSlider>
-      )}
+      )} */}
     </>
   )
 }

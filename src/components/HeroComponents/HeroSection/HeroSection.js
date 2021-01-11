@@ -3,8 +3,9 @@ import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
 import heroIcon from "../../../images/hero-kropki.svg"
+import { motion } from "framer-motion"
 
-const HeroStyles = styled.section`
+const HeroStyles = styled(motion.section)`
   min-height: 60vw;
   padding-top: 108px;
   display: flex;
@@ -25,6 +26,9 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   margin: 98px 30px 50px 193px;
+  @media only screen and (max-width: 1453px) {
+    margin: 80px 30px 50px 103px;
+  }
   div {
     &:first-child {
       flex: 4;
@@ -79,8 +83,12 @@ const ButtonsWrapper = styled.div`
 
 const HeroSection = () => {
   return (
-    <HeroStyles>
-      <BlobStyles src={blob} alt="" />
+    <HeroStyles
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      {/* <BlobStyles src={blob} alt="" /> */}
       <Wrapper>
         <div>
           <p className="claim">
@@ -116,9 +124,7 @@ const HeroSection = () => {
             </ButtonLink>
           </ButtonsWrapper>
         </div>
-        <div>
-          <img src={heroIcon} alt="" />
-        </div>
+        <div>{/* <img src={heroIcon} alt="" /> */}</div>
       </Wrapper>
     </HeroStyles>
   )

@@ -26,6 +26,8 @@ const Global = createGlobalStyle`
     --dark: #171717;
     --dark-text: #23242A;
     --post-text: #333;
+    --headers-color: #0d162c;
+    --body-text: rgba(12, 21, 46, 0.64);
     --gradient: linear-gradient(93.11deg, #29ABE2 0%, rgba(255, 255, 255, 0) 100%), var(--primary);
     --home-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);
     --main-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);

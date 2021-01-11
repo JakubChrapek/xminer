@@ -40,21 +40,21 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <GlobalStyles />
       {/* <Scroll callbacks={location} /> */}
+      <GlobalStyles />
       <SEO />
       <Header />
-      {/* <AnimatePresence exitBeforeEnter> */}
-      <StyledMain
-        key={location.pathname}
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-        {children}
-      </StyledMain>
-      <Footer key="footer" logo={data.datoCmsHomepage.logo} />
-      {/* </AnimatePresence> */}
+      <AnimatePresence exitBeforeEnter>
+        <StyledMain
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {children}
+        </StyledMain>
+        <Footer key="footer" logo={data.datoCmsHomepage.logo} />
+      </AnimatePresence>
     </>
   )
 }
