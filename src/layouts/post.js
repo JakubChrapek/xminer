@@ -1,11 +1,10 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { formatDate } from "../utils/DateUtils"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
 import ArticleDetails from "../components/BlogComponents/BlogHeroSection/ArticleDetails"
-import { motion } from "framer-motion"
 
 const PostStyles = styled.article`
   display: flex;

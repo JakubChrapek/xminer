@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "../components/Header/Header"
 import SEO from "../components/SEO"
 import GlobalStyles from "../components/Styles/GlobalStyles"
-import SkipNavLink from "../components/SkipNavLink/SkipNavLink"
 import { AnimatePresence, motion } from "framer-motion"
 import { useLocation } from "@reach/router"
 import styled from "styled-components"
@@ -36,32 +35,26 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  const [bg, setBg] = useState("transparent")
 
-  let location = useLocation()
+  const location = useLocation()
 
-  // useEffect(() => {
-  //   setBg(pathname === "/" ? "var(--main-gradient)" : "transparent")
-  // }, [pathname])
   return (
     <>
       <GlobalStyles />
       {/* <Scroll callbacks={location} /> */}
       <SEO />
       <Header />
-      {/* <SkipNavLink /> */}
-      <AnimatePresence exitBeforeEnter>
-        <StyledMain
-          key={location.pathname}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          bg={bg}
-        >
-          {children}
-        </StyledMain>
-      </AnimatePresence>
-      <Footer logo={data.datoCmsHomepage.logo} />
+      {/* <AnimatePresence exitBeforeEnter> */}
+      <StyledMain
+        key={location.pathname}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        {children}
+      </StyledMain>
+      <Footer key="footer" logo={data.datoCmsHomepage.logo} />
+      {/* </AnimatePresence> */}
     </>
   )
 }

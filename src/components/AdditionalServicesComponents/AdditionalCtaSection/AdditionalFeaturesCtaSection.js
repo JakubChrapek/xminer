@@ -8,7 +8,7 @@ import Miner from "../../../images/miner.svg"
 import Rig from "../../../images/rig.svg"
 import ButtonText from "../../ButtonText/ButtonText"
 
-const CtaSection = () => {
+const AdditionalCtaSection = () => {
   return (
     <Container>
       <Wrapper equal margin="202px 102px 82px">
@@ -108,4 +108,4 @@ const CtaSection = () => {
   )
 }
 
-export default CtaSection
+export default AdditionalCtaSection

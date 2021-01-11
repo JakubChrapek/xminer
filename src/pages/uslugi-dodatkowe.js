@@ -1,6 +1,6 @@
 import React from "react"
 import AdditionalServicesHero from "../components/AdditionalServicesComponents/AdditionalServicesHero/AdditionalServicesHero"
-import CtaSection from "../components/AdditionalServicesComponents/CtaSection/CtaSection"
+import AdditionalCTASection from "../components/AdditionalServicesComponents/AdditionalCtaSection/AdditionalFeaturesCtaSection"
 import DarkSection from "../components/AdditionalServicesComponents/DarkSection/DarkSection"
 import FAQSection from "../components/AdditionalServicesComponents/FAQSection/FAQSection"
 import GradientCtaSection from "../components/AdditionalServicesComponents/GradientCtaSection/GradientCtaSection"
@@ -14,7 +14,7 @@ const AdditionalServices = () => {
       <SEO title="Usługi dodatkowe" />
       <AdditionalServicesHero />
       <DarkSection />
-      <CtaSection />
+      <AdditionalCTASection />
       <PackagesSection title="pełna oferta" subtitle="Zobacz pakiety" />
       <FAQSection />
       <GradientCtaSection

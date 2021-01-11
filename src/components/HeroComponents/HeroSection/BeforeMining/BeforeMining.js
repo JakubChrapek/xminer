@@ -99,9 +99,9 @@ const BeforeMiningSection = () => {
           </p>
           <p className="description">Zobacz, od czego zacząć.</p>
           <ButtonsWrapper>
-            <ButtonText to="/dla-poczatkujacych" icon={arrowRight}>
+            {/* <ButtonText to="/dla-poczatkujacych" icon={arrowRight}>
               Dla początkujących
-            </ButtonText>
+            </ButtonText> */}
           </ButtonsWrapper>
         </div>
         <div>

@@ -4,7 +4,7 @@ import React from "react"
 import styled, { css } from "styled-components"
 import Img from "gatsby-image"
 
-import ButtonText from "../../../buttonText/ButtonText"
+import ButtonText from "../../../ButtonText/ButtonText"
 import { formatDate } from "../../../../utils/DateUtils"
 
 const WhyStyles = styled.section`

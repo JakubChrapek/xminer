@@ -64,7 +64,13 @@ const Cards = () => {
   return (
     <CardsStyles>
       {CardsContent.map(({ icon, title, content, cta }) => (
-        <Card icon={icon} title={title} content={content} cta={cta} />
+        <Card
+          key={title}
+          icon={icon}
+          title={title}
+          content={content}
+          cta={cta}
+        />
       ))}
     </CardsStyles>
   )

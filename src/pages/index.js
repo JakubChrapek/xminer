@@ -1,7 +1,6 @@
 import React from "react"
 
 import SEO from "../components/SEO/SEO"
-import website from "../../config/website"
 import styled from "styled-components"
 import HeroSection from "../components/HeroComponents/HeroSection/HeroSection"
 import WhySection from "../components/HeroComponents/HeroSection/WhyXminer/WhyXminer"
@@ -11,7 +10,6 @@ import BeginHereSection from "../components/HeroComponents/HeroSection/BeginHere
 import TestimonialsSection from "../components/HeroComponents/HeroSection/TestimonialsSection/TestimonialsSection"
 import CtaSection from "../components/HeroComponents/HeroSection/CtaSection/CtaSection"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
-import Layout from "../layouts/page"
 
 const HomeStyles = styled.div`
   background: var(--home-gradient);

@@ -1,5 +1,4 @@
-import { AnimatePresence } from "framer-motion"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React, { useState } from "react"
 import styled from "styled-components"
 import CategoriesSections from "../components/BlogComponents/BlogHeroSection/CategoriesSection/CategoriesSections"
