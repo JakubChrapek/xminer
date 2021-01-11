@@ -10,6 +10,7 @@ import ButtonLink from "../ButtonLink/ButtonLink"
 import Img from "gatsby-image"
 import Text from "../Text/Text"
 import useWindowSize from "../../utils/UseWindowSize"
+import { FaFacebookF, FaInstagram } from "react-icons/fa"
 
 const Chevron = styled(motion.span)`
   display: inline-flex;
@@ -177,12 +178,18 @@ const ToggleMenuButton = styled(motion.button)`
 
 const MobileNavStyles = styled(motion.ul)`
   display: flex;
+  position: fixed;
   flex-direction: column;
   position: absolute;
   top: 121px;
   padding: 37px 58px;
   background-color: var(--white);
   width: 100%;
+  height: 100vh;
+  @media only screen and (max-width: 560px) {
+    min-height: 100vh;
+  }
+  justify-content: flex-start !important;
   align-items: flex-start !important;
   li {
     margin-top: 10px;
@@ -206,6 +213,23 @@ const MobileNavStyles = styled(motion.ul)`
       color: var(--body-text) !important;
       display: inline-block;
       font-size: 16px !important;
+    }
+  }
+
+  div {
+    > a {
+      background-color: var(--footer-bg);
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      padding: 4px;
+      justify-content: center !important;
+      &:first-of-type {
+        margin-right: 8px;
+      }
+      &:last-of-type {
+        margin-left: 8px;
+      }
     }
   }
 `
@@ -438,6 +462,49 @@ const Navigation = ({ logo }) => {
                   Blog
                 </Link>
               </motion.li>
+              <ButtonLink
+                alignSelf="center"
+                to="/kontakt"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="no-underline"
+                size="small"
+                padding="8px 20px"
+                margin="24px 0"
+              >
+                Kontakt
+              </ButtonLink>
+              <motion.div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <motion.a
+                  whileHover={{
+                    scale: 1.2,
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="icon"
+                  href=""
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <FaFacebookF size="20px" color="var(--white)" />
+                </motion.a>
+                <motion.a
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="icon"
+                  href=""
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  <FaInstagram size="20px" color="var(--white)" />
+                </motion.a>
+              </motion.div>
             </MobileNavStyles>
           )}
         </AnimatePresence>

@@ -65,6 +65,7 @@ const StyledLink = styled(Link)`
   min-width: ${({ minwidth }) => (minwidth ? minwidth : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
   padding: ${({ padding }) => (padding ? padding : "")};
+  align-self: ${({ alignSelf }) => (alignSelf ? alignSelf : "")};
   &:after {
     content: none !important;
   }
@@ -124,12 +125,14 @@ const ButtonLink = ({
   gradient,
   color,
   bg,
+  layout,
   type,
   border,
   padding,
   to,
   width,
   maxwidth,
+  alignSelf,
   minwidth,
   margin,
   outlinebg,
@@ -144,6 +147,7 @@ const ButtonLink = ({
   <StyledLink
     className={className}
     to={to}
+    alignSelf={alignSelf}
     width={width}
     maxwidth={maxwidth}
     minwidth={minwidth}
@@ -151,6 +155,7 @@ const ButtonLink = ({
     padding={padding}
     type={type}
     outlinebg={outlinebg}
+    layout={layout}
   >
     <ButtonLinkStyles
       border={border}
