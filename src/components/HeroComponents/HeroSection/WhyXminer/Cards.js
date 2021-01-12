@@ -5,6 +5,7 @@ import icon1 from "../../../../images/icon01.svg"
 import icon2 from "../../../../images/icon02.svg"
 import icon3 from "../../../../images/icon03.svg"
 import useWindowSize from "../../../../utils/UseWindowSize"
+import { DragSlider } from "../../../DragSlider/DragSlider"
 const CardsStyles = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(3, minmax(340px, 1fr));
@@ -23,6 +24,14 @@ const CardStyles = styled.div`
   margin: 60px 0 110px;
   background: #1e2d6e;
   border-radius: 8px;
+
+  @media only screen and (max-width: 1200px) {
+    width: 283px;
+    margin-right: 23px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
 
   img {
 
@@ -79,24 +88,19 @@ const Cards = () => {
   ]
   return (
     <>
-      {/* {width > 1200 ? ( */}
-      <CardsStyles
-        drag="x"
-        dragConstraints={{ left: -600, right: 0 }}
-        initial={{ x: 0 }}
-        style={{ display: "flex", cursor: "drag" }}
-      >
-        {CardsContent.map(({ icon, title, content, cta }) => (
-          <Card
-            key={title}
-            icon={icon}
-            title={title}
-            content={content}
-            cta={cta}
-          />
-        ))}
-      </CardsStyles>
-      {/* ) : (
+      {width > 1200 ? (
+        <CardsStyles>
+          {CardsContent.map(({ icon, title, content, cta }) => (
+            <Card
+              key={title}
+              icon={icon}
+              title={title}
+              content={content}
+              cta={cta}
+            />
+          ))}
+        </CardsStyles>
+      ) : (
         <DragSlider>
           {CardsContent.map(({ icon, title, content, cta }) => (
             <Card
@@ -108,72 +112,9 @@ const Cards = () => {
             />
           ))}
         </DragSlider>
-      )} */}
+      )}
     </>
   )
-}
-
-const DragSlider = ({
-  children,
-  bounceStiffness = 100, // Affects the stiffness of the bounce spring. Higher values will create more sudden movement.
-  bounceDamping = 10, // affects the damping of the bounce spring. If set to 0, spring will oscillate indefinitely.
-}) => {
-  const ref = useRef(null)
-  const x = useMotionValue(0)
-
-  const [sliderWidth, setSliderWidth] = useState(0)
-  const [sliderChildrenWidth, setSliderChildrenWidth] = useState(0)
-  const [sliderConstraints, setSliderConstraints] = useState(0)
-
-  useEffect(() => {
-    const calcSliderChildrenWidth = () => {
-      setSliderChildrenWidth(
-        Array.from(ref.current.childNodes).reduce(
-          (acc, node) => acc + node.clientWidth,
-          0
-        )
-      )
-    }
-
-    calcSliderChildrenWidth()
-
-    const calcSliderWidth = () => {
-      setSliderWidth(ref.current.clientWidth)
-    }
-
-    calcSliderWidth()
-    window.addEventListener("resize", calcSliderWidth)
-
-    const calcSliderConstraints = () => {
-      setSliderConstraints(sliderChildrenWidth - sliderWidth)
-    }
-
-    calcSliderConstraints()
-    window.addEventListener("resize", calcSliderConstraints)
-  }, [ref, sliderChildrenWidth, sliderWidth])
-
-  const SliderWrap = ({ children }) => {
-    return (
-      <div style={{ overflowX: "hidden" }}>
-        <motion.div
-          ref={ref}
-          drag="x"
-          initial={{ x: 0 }}
-          style={{ x, display: "flex", cursor: "drag" }}
-          // style={{ x: scrollXValue }}
-          dragConstraints={{
-            left: `${-sliderConstraints}`,
-            right: 0,
-          }}
-          dragTransition={{ bounceStiffness, bounceDamping }}
-        >
-          {children}
-        </motion.div>
-      </div>
-    )
-  }
-
-  return <SliderWrap>{children}</SliderWrap>
 }
 
 export default Cards
