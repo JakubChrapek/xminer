@@ -18,6 +18,15 @@ const Wrapper = styled.div`
   z-index: 1;
   margin: 10px 167px 30px;
   text-align: center;
+  @media only screen and (max-width: 1440px) {
+    max-width: 100%;
+    margin: 32px 0px;
+    padding: 0 30px;
+  }
+  @media only screen and (max-width: 600px) {
+    text-align: left;
+    align-items: flex-start;
+  }
 
   h1 {
     font-size: 10px;
@@ -39,6 +48,10 @@ const Wrapper = styled.div`
     letter-spacing: normal;
     color: var(--white);
     margin-top: 10px;
+    @media only screen and (max-width: 600px) {
+      margin-top: 6px;
+      font-size: 24px;
+    }
   }
 
   p {
@@ -47,6 +60,11 @@ const Wrapper = styled.div`
     font-size: 16px;
     font-weight: 400;
     color: var(--white);
+    @media only screen and (max-width: 600px) {
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: normal;
+    }
   }
 `
 
@@ -59,17 +77,18 @@ const WhySection = () => {
         <p>
           Wiemy, jak zarabiać na koparkach kryptowalut. Skąd? Sami kopiemy od
           lat. Więcej! Tworzymy koparki, serwisujemy koparki, hostingujemy
-          koparki, uczymy o koparkach, a nawet śnimy o nich. Czujesz, że z
-          krypto Ci po drodze, chcesz spróbować, zainwestować? W takim razie
-          jesteś dobrym miejscu, zaczynamy! Od konkretów oczywiście. Oferta?
-          Mamy wszystko, czego potrzebujesz.
+          koparki, uczymy o&nbsp;koparkach, a&nbsp;nawet śnimy o&nbsp;nich.
+          Czujesz, że z&nbsp;krypto Ci po drodze, chcesz spróbować,
+          zainwestować? W takim razie jesteś dobrym miejscu, zaczynamy! Od
+          konkretów oczywiście. Oferta? Mamy wszystko, czego potrzebujesz.
         </p>
         <p>
           Niezależnie od tego, czy jesteś zielony jak szczypiorek, czy masz
-          prawdziwą kryptokopalnię - w Xminer mamy coś dla Ciebie. Chcesz kupić,
-          nie masz gdzie trzymać, chcesz oszczędzić na rachunkach, dowiedzieć
-          się wszystkiego, co ważne? Zajmujemy się wszystkim, co dotyczy koparek
-          kryptowalut. A Ty wiesz, że nie musisz szukać już więcej.
+          prawdziwą kryptokopalnię&nbsp;-&nbsp;w&nbsp;Xminer mamy coś dla
+          Ciebie. Chcesz kupić, nie masz gdzie trzymać, chcesz oszczędzić na
+          rachunkach, dowiedzieć się wszystkiego, co ważne? Zajmujemy się
+          wszystkim, co dotyczy koparek kryptowalut.&nbsp;A Ty wiesz, że nie
+          musisz szukać już więcej.
         </p>
         <Cards />
         <ButtonLink

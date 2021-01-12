@@ -5,9 +5,12 @@ import icon1 from "../../../../images/icon01.svg"
 import icon2 from "../../../../images/icon02.svg"
 import icon3 from "../../../../images/icon03.svg"
 import useWindowSize from "../../../../utils/UseWindowSize"
-const CardsStyles = styled.div`
+const CardsStyles = styled(motion.div)`
   display: grid;
   grid-template-columns: repeat(3, minmax(340px, 1fr));
+  @media only screen and (max-width: 973px) {
+    grid-template-columns: repeat(auto-fill, minmax(283px, 1fr));
+  }
   grid-gap: 30px;
 `
 
@@ -77,7 +80,12 @@ const Cards = () => {
   return (
     <>
       {/* {width > 1200 ? ( */}
-      <CardsStyles>
+      <CardsStyles
+        drag="x"
+        dragConstraints={{ left: -600, right: 0 }}
+        initial={{ x: 0 }}
+        style={{ display: "flex", cursor: "drag" }}
+      >
         {CardsContent.map(({ icon, title, content, cta }) => (
           <Card
             key={title}

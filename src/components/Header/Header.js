@@ -185,9 +185,9 @@ const MobileNavStyles = styled(motion.ul)`
   padding: 37px 58px;
   background-color: var(--white);
   width: 100%;
-  height: 100vh;
   @media only screen and (max-width: 560px) {
     min-height: 100vh;
+    padding: 37px 38px;
   }
   justify-content: flex-start !important;
   align-items: flex-start !important;
@@ -583,7 +583,7 @@ const HeaderStyles = styled(motion.header)`
       margin: 27px 60px 27px 40px;
     }
     @media only screen and (max-width: 820px) {
-      margin: 27px 35px 27px 30px;
+      margin: 27px 38px 27px 8px;
     }
   }
   ul {
