@@ -17,11 +17,34 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 3;
   margin: 98px 135px 50px 0;
+  @media only screen and (max-width: 1453px) {
+    margin: 50px 70px 50px 60px;
+    max-width: 100%;
+  }
+  @media only screen and (max-width: 1082px) {
+    margin: 38px;
+  }
+  @media only screen and (max-width: 801px) {
+    margin: 20px 30px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   div {
+    @media only screen and (max-width: 801px) {
+      width: 100%;
+    }
     &:last-child {
       flex: 4;
       margin-left: 70px;
       margin-top: 30px;
+      @media only screen and (max-width: 1453px) {
+        margin-left: 30px;
+        margin-top: 30px;
+      }
+      @media only screen and (max-width: 801px) {
+        order: -1;
+        margin-left: 0;
+      }
 
       .title {
         font-size: 10px;
@@ -37,6 +60,14 @@ const Wrapper = styled.div`
         line-height: normal;
         color: var(--white);
         margin-top: 23px;
+        @media only screen and (max-width: 1256px) {
+          font-size: 40px;
+          margin-top: 12px;
+        }
+        @media only screen and (max-width: 801px) {
+          font-size: 24px;
+          margin-top: 8px;
+        }
       }
 
       .whatfor {
@@ -61,6 +92,18 @@ const Wrapper = styled.div`
         font-weight: 300;
         color: var(--white);
         max-width: 580px;
+        @media only screen and (max-width: 1140px) {
+          margin-top: 18px;
+        }
+        @media only screen and (max-width: 801px) {
+          max-width: unset;
+          &:last-of-type {
+            margin-top: 32px;
+          }
+        }
+        @media only screen and (max-width: 801px) {
+          font-size: 16px;
+        }
       }
     }
 
@@ -69,6 +112,9 @@ const Wrapper = styled.div`
       display: flex;
       align-items: flex-end;
       justify-content: center;
+      @media only screen and (max-width: 1082px) {
+        flex: 2;
+      }
       img {
         width: 60%;
 
@@ -88,6 +134,10 @@ const ButtonsWrapper = styled.div`
   justify-content: flex-start;
   margin: 36px 0 0 !important;
   z-index: 3;
+
+  @media only screen and (max-width: 801px) {
+    margin-top: 12px !important;
+  }
 `
 
 const InvestorsSection = () => {
@@ -100,13 +150,16 @@ const InvestorsSection = () => {
         </div>
         <div>
           <p className="title">Dla profesjonalistów</p>
-          <p className="claim">Inwestycja + opieka? To nasza propozycja!</p>
+          <p className="claim">
+            Inwestycja +&nbsp;opieka? To nasza propozycja!
+          </p>
           <p className="description">
-            Chcesz zainwestować w koparki. Nie wiesz tylko, jak zacząć. Do tego
-            masz wątpliwości i pytania, które chcesz zadać komuś, kto zna się na
-            rzeczy, również (a może przede wszystkim) pod praktycznym kątem
-            biznesowym. Skontaktuj się z nami. Odpowiemy na wszystkie Twoje
-            pytania i pokierujemy inwestycją. Inwestycja w kryptowaluty?
+            Chcesz zainwestować w&nbsp;koparki. Nie wiesz tylko, jak zacząć. Do
+            tego masz wątpliwości i&nbsp;pytania, które chcesz zadać komuś, kto
+            zna się na rzeczy, również (a&nbsp;może przede wszystkim) pod
+            praktycznym kątem biznesowym. Skontaktuj się z&nbsp;nami. Odpowiemy
+            na wszystkie Twoje pytania i&nbsp;pokierujemy inwestycją. Inwestycja
+            w&nbsp;kryptowaluty?
           </p>
           <p className="description">Powiemy Ci jak.</p>
           <ButtonsWrapper>

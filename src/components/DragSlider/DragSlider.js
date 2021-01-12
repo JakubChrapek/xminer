@@ -17,7 +17,6 @@ Slider.defaultProps = {
 
 export const DragSlider = ({
   children,
-  slideApperance, // scale | fadeIn
   bounceStiffness = 60, // Affects the stiffness of the bounce spring. Higher values will create more sudden movement.
   bounceDamping = 10, // affects the damping of the bounce spring. If set to 0, spring will oscillate indefinitely.
 }) => {
@@ -36,8 +35,6 @@ export const DragSlider = ({
           0
         )
       )
-
-      console.log("CHILDREN WIDTH: ", sliderChildrenWidth)
     }
 
     calcSliderChildrenWidth()
