@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import useWindowSize from "../../../../utils/UseWindowSize"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import Cards from "./Cards"
 
@@ -21,6 +22,9 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 1440px) {
     max-width: 100%;
     margin: 32px 0px;
+    padding: 0 60px;
+  }
+  @media only screen and (max-width: 1140px) {
     padding: 0 30px;
   }
   @media only screen and (max-width: 600px) {
@@ -48,6 +52,9 @@ const Wrapper = styled.div`
     letter-spacing: normal;
     color: var(--white);
     margin-top: 10px;
+    @media only screen and (max-width: 1256px) {
+      font-size: 40px;
+    }
     @media only screen and (max-width: 600px) {
       margin-top: 6px;
       font-size: 24px;
@@ -69,6 +76,7 @@ const Wrapper = styled.div`
 `
 
 const WhySection = () => {
+  const width = useWindowSize()
   return (
     <WhyStyles>
       <Wrapper>
@@ -97,6 +105,8 @@ const WhySection = () => {
           color="#101b56"
           bg="var(--white)"
           to="/o-xminer"
+          width={width < 640 ? "240px" : null}
+          alignSelf={width < 640 ? "center" : null}
         >
           Więcej o Xminer
         </ButtonLink>

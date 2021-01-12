@@ -18,7 +18,7 @@ Slider.defaultProps = {
 export const DragSlider = ({
   children,
   slideApperance, // scale | fadeIn
-  bounceStiffness = 100, // Affects the stiffness of the bounce spring. Higher values will create more sudden movement.
+  bounceStiffness = 60, // Affects the stiffness of the bounce spring. Higher values will create more sudden movement.
   bounceDamping = 10, // affects the damping of the bounce spring. If set to 0, spring will oscillate indefinitely.
 }) => {
   const ref = useRef(null)
@@ -36,12 +36,14 @@ export const DragSlider = ({
           0
         )
       )
+
+      console.log("CHILDREN WIDTH: ", sliderChildrenWidth)
     }
 
     calcSliderChildrenWidth()
 
     const calcSliderWidth = () => {
-      setSliderWidth(ref.current.clientWidth)
+      setSliderWidth(ref?.current?.clientWidth)
     }
 
     calcSliderWidth()
@@ -57,14 +59,21 @@ export const DragSlider = ({
 
   const SliderWrap = ({ children }) => {
     return (
-      <div style={{ overflowX: "hidden" }}>
+      <div
+        style={{
+          overflowX: "hidden",
+          maxWidth: "calc(100% + 60px)",
+          paddingLeft: "30px",
+          alignSelf: "center",
+        }}
+      >
         <Slider
           ref={ref}
           drag="x"
           initial={{ x: 0 }}
           style={{ x }}
           dragConstraints={{
-            left: `${-sliderConstraints}`,
+            left: -sliderConstraints - 75,
             right: 0,
           }}
           dragTransition={{ bounceStiffness, bounceDamping }}

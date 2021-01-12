@@ -32,17 +32,17 @@ const Wrapper = styled.div`
   }
   @media only screen and (max-width: 1082px) {
     margin: 38px;
+  }
+  @media only screen and (max-width: 801px) {
+    margin: 20px 24px 32px;
     flex-direction: column;
     align-items: center;
-  }
-  @media only screen and (max-width: 600px) {
-    margin: 20px 24px 32px;
   }
   div {
     &:first-child {
       flex: 4;
       margin-top: 70px;
-      @media only screen and (max-width: 1082px) {
+      @media only screen and (max-width: 801px) {
         margin-top: 30px;
         text-align: center;
         display: flex;
@@ -62,7 +62,10 @@ const Wrapper = styled.div`
         @media only screen and (max-width: 1364px) {
           font-size: 46px;
         }
-        @media only screen and (max-width: 1082px) {
+        @media only screen and (max-width: 912px) {
+          font-size: 38px;
+        }
+        @media only screen and (max-width: 801px) {
           font-size: 24px;
           max-width: 450px;
           line-height: normal;
@@ -91,7 +94,7 @@ const Wrapper = styled.div`
         font-size: 18px;
         font-weight: 300;
         color: var(--faded-aqua);
-        @media only screen and (max-width: 1082px) {
+        @media only screen and (max-width: 801px) {
           margin-top: 22px;
           font-size: 16px;
           max-width: 500px;
@@ -101,6 +104,9 @@ const Wrapper = styled.div`
 
     &:last-child {
       flex: 4;
+      @media only screen and (max-width: 1082px) {
+        flex: 2;
+      }
       img {
         width: 100%;
       }
@@ -117,10 +123,8 @@ const ButtonsWrapper = styled.div`
   @media only screen and (max-width: 1200px) {
     grid-gap: 21px;
   }
-  @media only screen and (max-width: 1082px) {
+  @media only screen and (max-width: 801px) {
     margin-top: 36px;
-  }
-  @media only screen and (max-width: 600px) {
     width: 100%;
     /* max-width: 80%; */
     grid-template-columns: 1fr;
@@ -140,7 +144,7 @@ const HeroSection = () => {
       {/* <BlobStyles src={blob} alt="" /> */}
       <Wrapper>
         <div>
-          {width > 1082 ? (
+          {width > 801 ? (
             <p className="claim">
               Wszystko,
               <br />
@@ -151,7 +155,7 @@ const HeroSection = () => {
               Wszystko, czego potrzebujesz, żeby zacząć wydobywać kryptowaluty.
             </p>
           )}
-          {width > 1082 && (
+          {width > 801 && (
             <h3 className="whatfor">
               Żeby zacząć wydobywać <span>kryptowaluty</span>
             </h3>
