@@ -19,6 +19,8 @@ export const DragSlider = ({
   children,
   bounceStiffness = 60, // Affects the stiffness of the bounce spring. Higher values will create more sudden movement.
   bounceDamping = 10, // affects the damping of the bounce spring. If set to 0, spring will oscillate indefinitely.
+  margin,
+  leftAnchor,
 }) => {
   const ref = useRef(null)
   const x = useMotionValue(0)
@@ -54,14 +56,15 @@ export const DragSlider = ({
     window.addEventListener("resize", calcSliderConstraints)
   }, [ref, sliderChildrenWidth, sliderWidth])
 
-  const SliderWrap = ({ children }) => {
+  const SliderWrap = ({ children, margin, leftAnchor }) => {
     return (
       <div
         style={{
-          overflowX: "hidden",
+          overflow: "hidden",
           maxWidth: "calc(100% + 60px)",
           paddingLeft: "30px",
           alignSelf: "center",
+          margin: margin,
         }}
       >
         <Slider
@@ -70,7 +73,7 @@ export const DragSlider = ({
           initial={{ x: 0 }}
           style={{ x }}
           dragConstraints={{
-            left: -sliderConstraints - 75,
+            left: -sliderConstraints - (leftAnchor || 75),
             right: 0,
           }}
           dragTransition={{ bounceStiffness, bounceDamping }}
@@ -81,5 +84,9 @@ export const DragSlider = ({
     )
   }
 
-  return <SliderWrap>{children}</SliderWrap>
+  return (
+    <SliderWrap leftAnchor={leftAnchor} margin={margin}>
+      {children}
+    </SliderWrap>
+  )
 }

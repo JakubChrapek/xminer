@@ -15,6 +15,8 @@ const ButtonTextStyles = styled(motion.span)`
   line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "0.89")};
   letter-spacing: normal;
   text-transform: ${({ smaller }) => (smaller ? "normal" : "uppercase")};
+  text-transform: ${({ textTransform }) =>
+    textTransform ? textTransform : ""};
   display: flex;
   align-items: center;
 
@@ -71,6 +73,7 @@ const ButtonText = ({
   icon,
   className,
   smaller,
+  textTransform,
 }) => (
   <StyledLink
     margin={margin}
@@ -90,6 +93,7 @@ const ButtonText = ({
       color={color}
       className={className}
       smaller={smaller}
+      textTransform={textTransform}
     >
       {children}
       <BsArrowRight size="26px" color={color} />

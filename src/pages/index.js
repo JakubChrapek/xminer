@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
         <BlogSection
           posts={posts}
           totalCount={totalCount}
-          title="Blog"
+          title="Wiedza z Xminer"
           subtitle="Blog o krypto"
         />
       </HomeStyles>

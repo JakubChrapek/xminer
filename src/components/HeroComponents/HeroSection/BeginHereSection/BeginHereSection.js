@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     padding: 30% 55px 10%;
   }
   @media only screen and (max-width: 640px) {
-    margin: 30% 55px 5%;
+    padding: 30% 55px 5%;
   }
   text-align: center;
 
