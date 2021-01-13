@@ -140,9 +140,7 @@ const BeforeMiningSection = () => {
             </ButtonText>
           </ButtonsWrapper>
         </div>
-        <div>
-          <img src={beforeIcon} alt="" />
-        </div>
+        <div>{/* <img src={beforeIcon} alt="" /> */}</div>
       </Wrapper>
     </BeforeStyles>
   )

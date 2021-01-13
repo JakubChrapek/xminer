@@ -145,8 +145,8 @@ const InvestorsSection = () => {
     <BeforeStyles>
       <Wrapper>
         <div>
-          <img src={investorsIcon} alt="" />
-          <img src={investorsIcon} alt="" />
+          {/* <img src={investorsIcon} alt="" /> */}
+          {/* <img src={investorsIcon} alt="" /> */}
         </div>
         <div>
           <p className="title">Dla profesjonalistów</p>
