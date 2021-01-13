@@ -53,7 +53,7 @@ const Layout = ({ children }) => {
         >
           {children}
         </StyledMain>
-        <Footer key="footer" logo={data.datoCmsHomepage.logo} />
+        <Footer key="footer" />
       </AnimatePresence>
     </>
   )
