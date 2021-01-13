@@ -93,6 +93,7 @@ const ArticlesGrid = styled.div`
   @media only screen and (max-width: 1140px) {
     grid-gap: 50px;
   }
+
   margin: ${({ similarPosts }) => (similarPosts ? "43px" : "74px")} 0
     ${({ smaller }) => (smaller ? "37px" : "82px")};
 
@@ -121,9 +122,19 @@ const ArticleStyles = styled(motion.article)`
       margin-right: 0;
     }
   }
+  @media only screen and (max-width: 660px) {
+    margin-right: 51px;
+  }
+  @media only screen and (max-width: 360px) {
+    margin-right: 41px;
+  }
 
   @media only screen and (max-width: 640px) {
     width: 248px;
+  }
+  @media only screen and (max-width: 360px) {
+    width: 248px;
+    max-width: 75%;
   }
 
   > a {

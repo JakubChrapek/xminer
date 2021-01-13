@@ -95,6 +95,7 @@ const Text = ({
   maxwidth,
   key,
   layout,
+  className,
 }) => {
   if (dangerously) {
     return (
@@ -111,6 +112,7 @@ const Text = ({
         maxwidth={maxwidth}
         as={as}
         initial={initial}
+        className={className}
         animate={animate}
         exit={exit}
         variants={variants}

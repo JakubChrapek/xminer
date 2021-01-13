@@ -12,6 +12,7 @@ const ButtonLinkStyles = styled(motion.span)`
   width: 100%;
   height: 100%;
   text-align: center;
+  line-height: 1.3em;
 
   &:focus,
   &:active {
@@ -25,7 +26,6 @@ const ButtonLinkStyles = styled(motion.span)`
     size === "small"
       ? css`
           font-size: 15px;
-          line-height: 1em;
           letter-spacing: 0.75px;
           font-weight: 600;
           padding: 14px 28px;
@@ -33,7 +33,6 @@ const ButtonLinkStyles = styled(motion.span)`
         `
       : css`
           font-size: 20px;
-          line-height: 1em;
           font-weight: 500;
           padding: 21px 22px;
         `}

@@ -4,18 +4,22 @@ import Text from "../../../Text/Text"
 import Img from "gatsby-image"
 import { useStaticQuery } from "gatsby"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
+import useWindowSize from "../../../../utils/UseWindowSize"
 
 const AboutHero = styled.section`
   display: flex;
-  aligh-items: center;
+  justify-content: center;
   flex-direction: column;
   background: linear-gradient(135deg, #29abe2, rgba(255, 255, 255, 0)),
     linear-gradient(to bottom, var(--primary), var(--primary));
+  @media only screen and (max-width: 1040px) {
+    margin-top: 240px;
+  }
 `
 
 const Wrapper = styled.div`
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   max-width: 1440px;
   position: relative;
   z-index: 1;
@@ -24,6 +28,32 @@ const Wrapper = styled.div`
     max-width: 540px;
     margin-left: 50px;
     margin-top: -217px;
+  }
+  @media only screen and (max-width: 1180px) {
+    margin: 60px 80px 90px;
+
+    h2 {
+      margin-top: 36px;
+      font-size: 48px;
+    }
+  }
+
+  @media only screen and (max-width: 1040px) {
+    flex-direction: column;
+    width: 80vw;
+    max-width: 740px;
+    margin: 60px auto 80px;
+    p {
+      max-width: unset !important;
+    }
+    .gatsby-image-wrapper {
+      margin: -380px 8px 0px;
+    }
+  }
+
+  @media only screen and (max-width: 740px) {
+    width: unset;
+    margin: 60px 30px 80px;
   }
 
   > div {
@@ -34,6 +64,15 @@ const Wrapper = styled.div`
       margin-left: 12px;
     }
     flex: 1;
+    @media only screen and (max-width: 1040px) {
+      &:first-child,
+      &:last-child {
+        margin: 0;
+      }
+      &:first-child {
+        order: 1;
+      }
+    }
   }
 
   p {
@@ -54,6 +93,7 @@ const ceoPhotoQuery = graphql`
 `
 
 const AboutCeo = () => {
+  const width = useWindowSize()
   const data = useStaticQuery(ceoPhotoQuery)
   return (
     <AboutHero>
@@ -75,32 +115,32 @@ const AboutCeo = () => {
             fontWeight="500"
             lineHeight="1.73"
           >
-            Nasz mistrz Yoda, CEO i człowiek, który pojęcia takie jak
-            blockchain, bitcoin i kopanie kryptowalut z powodzeniem tłumaczy
-            nawet przedszkolakom.
+            Nasz mistrz Yoda, CEO i&nbsp;człowiek, który pojęcia takie jak
+            blockchain, bitcoin i&nbsp;kopanie kryptowalut z&nbsp;powodzeniem
+            tłumaczy nawet przedszkolakom.
           </Text>
           <Text
-            margin="48px 0 0"
+            margin={width < 640 ? "40px 0 0" : "48px 0 0"}
             fontSize="18px"
             lineHeight="1.67em"
             color="var(--white)"
           >
-            Wieloletnie doświadczenie w branży inwestycyjnej i energetycznej w
-            połączeniu z pasją do nowej technologii zaowocowało u niego
-            tworzeniem biznesu, o którym wielu tylko marzy. W Xminer zarządza
-            zespołem, szkoli inwestorów i wyznacza trendy na rynku. Warto go
-            poznać!
+            Wieloletnie doświadczenie w&nbsp;branży inwestycyjnej
+            i&nbsp;energetycznej w&nbsp;połączeniu z&nbsp;pasją do nowej
+            technologii zaowocowało u&nbsp;niego tworzeniem biznesu,
+            o&nbsp;którym wielu tylko marzy. W&nbsp;Xminer zarządza zespołem,
+            szkoli inwestorów i&nbsp;wyznacza trendy na rynku. Warto go poznać!
           </Text>
           <ButtonLink
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             color="var(--black)"
-            maxwidth="306px"
+            maxwidth={width < 440 ? "unset" : "306px"}
             to="/kontakt"
-            margin="56px 0 0"
+            margin={width < 440 ? "40px 0 0" : "56px 0 0"}
             bg="var(--white)"
           >
-            skontaktuj się z Łukaszem
+            skontaktuj się z&nbsp;Łukaszem
           </ButtonLink>
         </div>
         <div>

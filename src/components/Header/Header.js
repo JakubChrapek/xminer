@@ -25,7 +25,7 @@ const Chevron = styled(motion.span)`
     content: "";
     position: absolute;
     background-color: var(--white);
-    @media only screen and (max-width: 1180px) {
+    @media only screen and (max-width: 980px) {
       background-color: var(--headers-color);
     }
     width: 7px;
@@ -189,6 +189,9 @@ const MobileNavStyles = styled(motion.ul)`
     min-height: 100vh;
     padding: 37px 38px;
   }
+  @media only screen and (max-width: 400px) {
+    padding: 37px 30px;
+  }
   justify-content: flex-start !important;
   align-items: flex-start !important;
   li {
@@ -315,7 +318,7 @@ const Navigation = ({ logo }) => {
           </Text>
         </LinkStyles>
         <ul>
-          {width > 1180 && (
+          {width > 980 && (
             <>
               <motion.li whileTap={{ scale: 0.95 }}>
                 <Link to="/" activeClassName="active">
@@ -340,7 +343,7 @@ const Navigation = ({ logo }) => {
                     whileHover={{ scale: 1.05, y: 2 }}
                     whileTap={{ scale: 0.9 }}
                     className={show && "active"}
-                    bg={width <= 1180 && "var(--headers-color)"}
+                    bg={width <= 980 && "var(--headers-color)"}
                   />
                 </motion.a>
               </motion.li>
@@ -362,7 +365,7 @@ const Navigation = ({ logo }) => {
               </ButtonLink>
             </>
           )}
-          {width <= 1180 && (
+          {width <= 980 && (
             <ToggleMenuButton
               closed={menuClosed}
               onClick={() => setMenuClosed(!menuClosed)}
@@ -378,7 +381,7 @@ const Navigation = ({ logo }) => {
       </nav>
       <AnimateSharedLayout>
         <AnimatePresence>
-          {width <= 1180 && menuClosed && (
+          {width <= 980 && menuClosed && (
             <MobileNavStyles
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
