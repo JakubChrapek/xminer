@@ -86,14 +86,14 @@ const Global = createGlobalStyle`
     position: absolute;
     right: 0;
     top: 0;
-    width: 11px;
+    width: 15px;
     height: 100vh;
     transform-origin: center right;
     transition: transform 0.3s, opacity 0.3s;
     opacity: 0;
   }
   .c-scrollbar:hover {
-    transform: scaleX(1.45);
+    transform: scaleX(1.6);
   }
   .c-scrollbar:hover,
   .has-scroll-scrolling .c-scrollbar,
@@ -105,10 +105,10 @@ const Global = createGlobalStyle`
     position: absolute;
     top: 0;
     right: 0;
-    background-color: black;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
     opacity: 0.5;
     width: 7px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin: 2px;
     cursor: -webkit-grab;
     cursor: grab;

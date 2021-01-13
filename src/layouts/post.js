@@ -5,6 +5,8 @@ import Img from "gatsby-image"
 import { formatDate } from "../utils/DateUtils"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
 import ArticleDetails from "../components/BlogComponents/BlogHeroSection/ArticleDetails"
+import { motion } from "framer-motion"
+import SEO from "../components/SEO"
 
 const PostStyles = styled.article`
   display: flex;
@@ -140,6 +142,7 @@ const Post = ({ data }) => {
   } = data
   return (
     <>
+      <SEO title={`${title}`} />
       <PostStyles>
         <h1 style={{ marginTop: "0px" }}>{title}</h1>
         <FeaturedImage fluid={fluid} alt={alt} />

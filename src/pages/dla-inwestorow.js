@@ -12,7 +12,7 @@ import PackagesSection from "../components/ServiceComponents/PackagesSection/Pac
 const ForInvestors = () => {
   return (
     <>
-      <SEO title="Usługi dodatkowe" />
+      <SEO title="Dla inwestorów" />
       <ForInvestorsHeroSection />
       <WhyInvestingWithUs />
       <WhoWillTeachYouSection />
