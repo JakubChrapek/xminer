@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import React, { useState } from "react"
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi"
 import styled from "styled-components"
+import useWindowSize from "../../../../utils/UseWindowSize"
 
 const SliderStyles = styled.div`
   display: flex;
@@ -23,6 +24,15 @@ const SliderStyles = styled.div`
     letter-spacing: normal;
     color: var(--white);
     margin-top: 10px;
+    @media only screen and (max-width: 1082px) {
+      font-size: 40px;
+    }
+    @media only screen and (max-width: 801px) {
+      font-size: 30px;
+    }
+    @media only screen and (max-width: 640px) {
+      font-size: 24px;
+    }
   }
 `
 
@@ -31,6 +41,12 @@ const SlidesWrapper = styled.div`
   flex: 1;
   position: relative;
   margin-left: 80px;
+  @media only screen and (max-width: 1082px) {
+    margin-left: 50px;
+  }
+  @media only screen and (max-width: 801px) {
+    margin: 110px 0 0px;
+  }
 `
 
 const SlideStyles = styled(motion.div)`
@@ -39,12 +55,21 @@ const SlideStyles = styled(motion.div)`
     font-weight: 600;
     color: var(--white);
     text-transform: uppercase;
+    @media only screen and (max-width: 801px) {
+      margin-left: 20px;
+    }
+    @media only screen and (max-width: 640px) {
+      font-size: 18px;
+    }
   }
   .business {
     font-size: 14px;
     font-weight: 600;
     color: var(--primary);
     margin-top: 7px;
+    @media only screen and (max-width: 801px) {
+      margin-left: 20px;
+    }
   }
   .recommendation {
     font-size: 18px;
@@ -52,6 +77,10 @@ const SlideStyles = styled(motion.div)`
     color: var(--white);
     margin-top: 23px;
     max-width: 466px;
+    @media only screen and (max-width: 640px) {
+      font-size: 15px;
+      margin-top: 26px;
+    }
   }
 `
 
@@ -73,6 +102,9 @@ const ProgressStyles = styled.div`
   display: flex;
   align-items: center;
   margin-top: 60px;
+  @media only screen and (max-width: 801px) {
+    margin-top: 40px;
+  }
 
   span {
     position: relative;
@@ -80,6 +112,9 @@ const ProgressStyles = styled.div`
     height: 5px;
     border-radius: 5px;
     margin-right: 31px;
+    @media only screen and (max-width: 801px) {
+      margin-right: 26px;
+    }
     background-color: ${({ barBgColor }) =>
       barBgColor ? barBgColor : "var(--white)"};
     &:after {
@@ -107,6 +142,7 @@ const ProgressStyles = styled.div`
     transition: opacity 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     &[disabled] {
       opacity: 0.3;
+      cursor: auto;
     }
 
     &:active,
@@ -157,6 +193,11 @@ const QuoteStyles = styled(motion.svg)`
   position: absolute;
   left: -110px;
   top: -70px;
+  @media only screen and (max-width: 801px) {
+    left: 0;
+    top: -50px;
+    width: 143px !important;
+  }
 `
 
 const Quote = () => (
@@ -179,18 +220,21 @@ const Quote = () => (
 
 const Slider = ({ slides, title, header }) => {
   const [activeSlide, setActiveSlide] = useState(1)
+  const width = useWindowSize()
   return (
     <>
       <SliderStyles>
         <p className="title">{title}</p>
         <p className="question">{header}</p>
-        <Progressbar
-          fillColor="var(--blue)"
-          bgColor="var(--white)"
-          slides={slides}
-          activeSlide={activeSlide}
-          setActiveSlide={setActiveSlide}
-        />
+        {width > 801 && (
+          <Progressbar
+            fillColor="var(--blue)"
+            bgColor="var(--white)"
+            slides={slides}
+            activeSlide={activeSlide}
+            setActiveSlide={setActiveSlide}
+          />
+        )}
       </SliderStyles>
       <SlidesWrapper>
         <Quote />
@@ -207,6 +251,15 @@ const Slider = ({ slides, title, header }) => {
             ))}
         </AnimatePresence>
       </SlidesWrapper>
+      {width <= 801 && (
+        <Progressbar
+          fillColor="var(--blue)"
+          bgColor="var(--white)"
+          slides={slides}
+          activeSlide={activeSlide}
+          setActiveSlide={setActiveSlide}
+        />
+      )}
     </>
   )
 }

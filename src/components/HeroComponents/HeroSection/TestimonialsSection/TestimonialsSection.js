@@ -18,6 +18,17 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 1;
   margin: 98px 130px 80px 130px;
+  @media only screen and (max-width: 1453px) {
+    margin: 80px 70px;
+    max-width: 100%;
+  }
+  @media only screen and (max-width: 1082px) {
+    margin: 70px 60px;
+  }
+  @media only screen and (max-width: 801px) {
+    margin: 0px 30px 50px;
+    flex-direction: column;
+  }
 `
 
 const TestimonialsSection = () => {

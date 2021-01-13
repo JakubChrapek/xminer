@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Button from "../../../Button/Button"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import CheckmarkIcon from "../../../../images/check-icon.svg"
+import useWindowSize from "../../../../utils/UseWindowSize"
 
 const CtaStyles = styled.section`
   display: flex;
@@ -19,7 +20,12 @@ const Wrapper = styled.div`
   z-index: 2;
   text-align: center;
   padding: 80px 165px 102px;
-
+  @media only screen and (max-width: 1146px) {
+    padding: 40px 103px 90px;
+  }
+  @media only screen and (max-width: 640px) {
+    padding: 40px 30px 76px;
+  }
   h2 {
     font-size: 48px;
     font-weight: 600;
@@ -30,6 +36,16 @@ const Wrapper = styled.div`
     color: var(--white);
     margin-top: 10px;
     margin-bottom: 28px;
+    @media only screen and (max-width: 1082px) {
+      font-size: 40px;
+    }
+    @media only screen and (max-width: 802px) {
+      font-size: 30px;
+      margin-bottom: 32px;
+    }
+    @media only screen and (max-width: 640px) {
+      font-size: 24px;
+    }
   }
 
   ul {
@@ -54,6 +70,7 @@ const Wrapper = styled.div`
   }
 `
 const CtaSection = () => {
+  const width = useWindowSize()
   const listItems = [
     "Kolokacja, serwis i więcej!",
     "Potrzebujesz narzędzi? Damy Ci je!",
@@ -63,7 +80,7 @@ const CtaSection = () => {
     <CtaStyles>
       <Wrapper>
         <h2>
-          Chcesz zacząć kopać i zarabiać?
+          Chcesz zacząć kopać i&nbsp;zarabiać?
           <br />
           Dowiedz się jak!
         </h2>
@@ -77,14 +94,16 @@ const CtaSection = () => {
         >
           Kontakt
         </ButtonLink>
-        <ul>
-          {listItems.map(item => (
-            <li key={item}>
-              <img src={CheckmarkIcon} alt="Checkmark icon" />
-              {item}
-            </li>
-          ))}
-        </ul>
+        {width > 1082 && (
+          <ul>
+            {listItems.map(item => (
+              <li key={item}>
+                <img src={CheckmarkIcon} alt="Checkmark icon" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
       </Wrapper>
     </CtaStyles>
   )

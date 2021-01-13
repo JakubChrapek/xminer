@@ -28,6 +28,22 @@ const Wrapper = styled.div`
   padding: 30% 167px 15%;
   @media (max-width: 1440px) {
     padding: 30% 167px 20%;
+    max-width: 100%;
+  }
+  @media (max-width: 1260px) {
+    padding: 30% 103px 20%;
+  }
+  @media (max-width: 1118px) {
+    padding: 30% 60px 10%;
+  }
+  @media only screen and (max-width: 1082px) {
+    padding: 30% 30px 10%;
+  }
+  @media only screen and (max-width: 801px) {
+    padding: 30% 55px 10%;
+  }
+  @media only screen and (max-width: 640px) {
+    margin: 30% 55px 5%;
   }
   text-align: center;
 
@@ -45,7 +61,7 @@ const Wrapper = styled.div`
     line-height: normal;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--secondary);
+    color: var(--primary);
   }
 
   h3 {
@@ -55,16 +71,23 @@ const Wrapper = styled.div`
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #101b56;
+    color: var(--headers-color);
     margin-top: 10px;
+    @media only screen and (max-width: 640px) {
+      margin-top: 6px;
+      font-size: 24px;
+    }
   }
 
   p {
     max-width: 767px;
-    margin-top: 24px;
+    margin-top: 10px;
     font-size: 16px;
     font-weight: 400;
-    color: #101b56;
+    color: var(--body-text);
+    @media only screen and (max-width: 801px) {
+      max-width: unset;
+    }
   }
 `
 
