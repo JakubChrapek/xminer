@@ -8,7 +8,7 @@ import Img from "gatsby-image"
 import ButtonText from "../../ButtonText/ButtonText"
 import { useStaticQuery } from "gatsby"
 
-const MoreWrapperStyles = styled(WrapperStyles)`
+export const MoreWrapperStyles = styled(WrapperStyles)`
   .gatsby-image-wrapper {
     width: 100%;
     border-radius: 12px;
@@ -40,7 +40,7 @@ const MoreWrapperStyles = styled(WrapperStyles)`
   }
 `
 
-const FirstFlex = styled(StyledFlex)`
+export const FirstFlex = styled(StyledFlex)`
   h2,
   h3,
   p,
@@ -89,7 +89,7 @@ const FirstFlex = styled(StyledFlex)`
   }
 `
 
-const SecondFlex = styled(FirstFlex)`
+export const SecondFlex = styled(FirstFlex)`
   h2,
   h3,
   p,

@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import useWindowSize from "../../../utils/UseWindowSize"
 import ButtonText from "../../ButtonText/ButtonText"
 import Container from "../../Container/Container"
-import Flex from "../../Flex/Flex"
+import { StyledFlex } from "../../Flex/Flex"
 import Text from "../../Text/Text"
-import Wrapper from "../../Wrapper/Wrapper"
+import { WrapperStyles } from "../../Wrapper/Wrapper"
 
 const CheckMarkIconStyles = styled.svg`
   fill: none;
@@ -17,6 +18,13 @@ const CheckMarkIconStyles = styled.svg`
 
   #mark {
     stroke: var(--primary);
+  }
+`
+
+const WideStyledFlex = styled(StyledFlex)`
+  @media only screen and (max-width: 740px) {
+    margin: 120px 0 0;
+    text-align: center;
   }
 `
 
@@ -71,14 +79,43 @@ const Grid = styled.div`
   grid-template-rows: 1fr 1fr;
   grid-gap: 60px 35%;
   width: 100%;
+  @media only screen and (max-width: 1600px) {
+    grid-gap: 60px 20%;
+  }
+  @media only screen and (max-width: 1200px) {
+    grid-gap: 60px 100px;
+  }
+  @media only screen and (max-width: 900px) {
+    grid-gap: 40px 70px;
+  }
+  @media only screen and (max-width: 800px) {
+    grid-template-columns: 1fr;
+    grid-gap: 32px;
+  }
+`
+
+const DarkWrapperStyles = styled(WrapperStyles)`
+  @media only screen and (max-width: 1040px) {
+    margin: 120px 90px 70px;
+  }
+  @media only screen and (max-width: 900px) {
+    margin: 100px 60px 70px;
+  }
+  @media only screen and (max-width: 740px) {
+    margin: 80px 30px 60px;
+  }
+  @media only screen and (max-width: 640px) {
+    margin: 50px 30px 140px;
+  }
 `
 
 const DarkSection = () => {
+  const width = useWindowSize()
   return (
     <Container bg="var(--nav-dark-bluse)" padding="0">
-      <Wrapper direction="column" margin="133px 122px 69px">
+      <DarkWrapperStyles direction="column" margin="133px 122px 69px">
         <Grid>
-          <Flex>
+          <StyledFlex>
             <CheckMarkIcon />
             <Text
               fontSize="16px"
@@ -92,8 +129,8 @@ const DarkSection = () => {
               że jeśli coś pójdzie nie tak, naprawa będzie błyskawiczna
               i&nbsp;w&nbsp;abonamencie.
             </Text>
-          </Flex>
-          <Flex justifyContent="flex-end">
+          </StyledFlex>
+          <StyledFlex justifyContent="flex-end">
             <CheckMarkIcon />
             <Text
               fontSize="16px"
@@ -107,8 +144,8 @@ const DarkSection = () => {
               tylko do Ciebie dowieziemy, ale i&nbsp;przeprowadzimy konfigurację
               i&nbsp;połączymy z&nbsp;Twoim telefonem i&nbsp;laptopem.
             </Text>
-          </Flex>
-          <Flex>
+          </StyledFlex>
+          <StyledFlex>
             <CheckMarkIcon />
             <Text
               fontSize="16px"
@@ -122,8 +159,8 @@ const DarkSection = () => {
               swojego domu, z&nbsp;firmy i&nbsp;z&nbsp;Karaibów. Pomożemy Ci
               w&nbsp;synchronizacji i&nbsp;będziemy trzymać nad nią pieczę.
             </Text>
-          </Flex>
-          <Flex justifyContent="flex-end">
+          </StyledFlex>
+          <StyledFlex justifyContent="flex-end">
             <CheckMarkIcon />
             <Text
               fontSize="16px"
@@ -138,9 +175,13 @@ const DarkSection = () => {
               Możemy to zrobić online, możemy przeprowadzić szkolenie dla
               pracowników Twojej firmy. Tak, jak Ci wygodnie!
             </Text>
-          </Flex>
+          </StyledFlex>
         </Grid>
-        <Flex direction="column" alignItems="center" margin="101px 60px 0">
+        <WideStyledFlex
+          direction="column"
+          alignItems="center"
+          margin="101px 60px 0"
+        >
           <Text
             as="h2"
             fontSize="22px"
@@ -148,13 +189,13 @@ const DarkSection = () => {
             fontWeight="normal"
             lineHeight="normal"
           >
-            Xminer? O koparkach wiemy wszystko.
+            Xminer? {width < 740 && <br />}O koparkach wiemy wszystko.
           </Text>
           <ButtonText margin="20px 0 0" to="/kontakt" color="var(--primary)">
             Skontaktuj się z nami
           </ButtonText>
-        </Flex>
-      </Wrapper>
+        </WideStyledFlex>
+      </DarkWrapperStyles>
     </Container>
   )
 }

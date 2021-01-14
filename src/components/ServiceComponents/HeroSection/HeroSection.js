@@ -6,7 +6,7 @@ import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
 
-const HeroWrapperStyles = styled(WrapperStyles)`
+export const HeroWrapperStyles = styled(WrapperStyles)`
   > div {
     &:nth-of-type(2) {
       margin-left: 60px;
@@ -51,7 +51,7 @@ const HeroWrapperStyles = styled(WrapperStyles)`
   }
   @media only screen and (max-width: 760px) {
     width: unset;
-    margin: 65px 30px 40px;
+    margin: 65px 30px 50px;
     h2 {
       font-size: 36px;
     }
