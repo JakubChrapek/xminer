@@ -1,15 +1,21 @@
 import { animate } from "framer-motion"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import Container from "../../Container/Container"
-import Wrapper from "../../Wrapper/Wrapper"
+import { ContainerStyles } from "../../Container/Container"
+import Wrapper, { WrapperStyles } from "../../Wrapper/Wrapper"
 import { useInView } from "react-intersection-observer"
+import { Counter } from "../../Counter/Counter"
+import { IntersectionObserver } from "../../../utils/IntersectionObserver"
 
 const CardWrapperStyles = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    grid-gap: 46px;
+  }
 `
 
 const CardStyles = styled.div`
@@ -24,9 +30,12 @@ const CardStyles = styled.div`
   border-radius: 12px;
   box-shadow: 10px 10px 50px 3px rgba(39, 92, 141, 0.1);
   background-color: #ffffff;
+  @media only screen and (max-width: 1000px) {
+    max-width: 440px;
+  }
 
   p {
-    color: var(--dark-text);
+    color: var(--headers-color);
   }
   .number {
     font-size: 36px;
@@ -37,52 +46,55 @@ const CardStyles = styled.div`
   .content {
     font-size: 18px;
     line-height: 1.67;
-    font-weight: 300;
+    font-weight: 400;
+  }
+
+  @media only screen and (max-width: 340px) {
+    padding: 32px;
+    .number {
+      font-size: 30px;
+    }
+    .content {
+      font-size: 16px;
+    }
   }
 `
 
-const Counter = ({ from, to }) => {
-  const [number, setNumber] = useState(0)
-  const nodeRef = useRef()
-
-  useEffect(() => {
-    const node = nodeRef.current
-    const controls = animate(from, to, {
-      duration: 1,
-      onUpdate(value) {
-        setNumber(value.toFixed(0))
-        // node.textContent = value.toFixed(2)
-      },
-    })
-    return () => controls.stop()
-  }, [from, to])
-
-  return <span ref={nodeRef}>{to}</span>
-}
-
 const Card = ({ number, textAfterNumber, content }) => {
-  const [from, setFrom] = useState(1)
-  const [to, setTo] = useState(100)
-  const [ref, inView, entry] = useInView({ threshold: 0.2 })
-
-  useEffect(() => {
-    inView && setTo(number)
-  }, [inView])
-
   return (
-    <CardStyles ref={ref}>
+    <CardStyles>
       <p className="number">
-        <Counter from={from} to={to} /> {textAfterNumber}
+        <IntersectionObserver reset={true} threshold={0.4}>
+          <Counter valueTo={number} totalDuration={2.2} /> {textAfterNumber}
+        </IntersectionObserver>
       </p>
       <p className="content">{content}</p>
     </CardStyles>
   )
 }
 
+const CardsContainerStyles = styled(ContainerStyles)`
+  @media only screen and (max-width: 1241px) {
+    padding: 40px 103px 0;
+  }
+  @media only screen and (max-width: 1081px) {
+    padding: 40px 60px 0;
+  }
+  @media only screen and (max-width: 640px) {
+    padding: 0 30px;
+  }
+`
+
+const InnerWrapperStyles = styled(WrapperStyles)`
+  @media only screen and (max-width: 640px) {
+    margin: 0 0 50px;
+  }
+`
+
 const CardsSection = () => {
   return (
-    <Container padding="40px 182px 0">
-      <Wrapper>
+    <CardsContainerStyles padding="40px 182px 0">
+      <InnerWrapperStyles margin="40px 0 60px">
         <CardWrapperStyles>
           <Card
             number="320"
@@ -100,8 +112,8 @@ const CardsSection = () => {
             content="Dla koparek kryptowalut naszych Klientów (GPU i&nbsp;ANTMINER!)"
           />
         </CardWrapperStyles>
-      </Wrapper>
-    </Container>
+      </InnerWrapperStyles>
+    </CardsContainerStyles>
   )
 }
 

@@ -1,18 +1,45 @@
-import React from "react"
+import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
 import Container from "../../Container/Container"
-import Wrapper from "../../Wrapper/Wrapper"
+import Wrapper, { WrapperStyles } from "../../Wrapper/Wrapper"
 import Text from "../../Text/Text"
 import Flex from "../../Flex/Flex"
+import useWindowSize from "../../../utils/UseWindowSize"
+import { DragSlider } from "../../DragSlider/DragSlider"
+import { AnimatePresence, motion } from "framer-motion"
+
+const PackageWrapperStyles = styled(WrapperStyles)`
+  @media only screen and (max-width: 1056px) {
+    margin: 50px 0px 80px;
+    h3 {
+      font-size: 40px;
+    }
+  }
+  @media only screen and (max-width: 740px) {
+    padding: 40px 30px;
+    h3 {
+      font-size: 32px;
+    }
+
+    h2,
+    h3 {
+      align-self: flex-start;
+    }
+  }
+`
 
 const CardWrapperStyles = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 30px;
+  position: relative;
+  @media only screen and (max-width: 1056px) {
+    grid-template-columns: 1fr;
+  }
 `
-const PackageStyles = styled.div`
+const PackageStyles = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,11 +50,14 @@ const PackageStyles = styled.div`
   border-radius: 12px;
   box-shadow: ${({ focus }) =>
     focus ? "10px 10px 50px 3px rgba(39, 92, 141, 0.1)" : ""};
-  transition: 0.2s box-shadow cubic-bezier(0.04, 0.62, 0.23, 0.98);
-
-  &:hover {
+  @media only screen and (max-width: 1056px) {
     box-shadow: 10px 10px 50px 3px rgba(39, 92, 141, 0.1);
   }
+  @media only screen and (max-width: 640px) {
+    box-shadow: 0px 10px 20px -5px rgba(39, 92, 141, 0.3);
+    padding: 32px 27px 59px;
+  }
+  transition: 0.2s box-shadow cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
   p,
   h3,
@@ -36,10 +66,10 @@ const PackageStyles = styled.div`
   }
 
   p {
-    color: var(--dark-text);
+    color: var(--headers-color);
   }
   h3 {
-    color: var(--black);
+    color: var(--headers-color);
     text-transform: uppercase;
     font-size: 13px;
     font-weight: 600;
@@ -67,6 +97,10 @@ const PackageStyles = styled.div`
       text-transform: uppercase;
       margin-left: 4px;
     }
+
+    @media only screen and (max-width: 640px) {
+      margin: 8px 0 0;
+    }
   }
 
   ul {
@@ -81,6 +115,7 @@ const PackageStyles = styled.div`
     margin-top: 24px;
     font-size: 16px;
     line-height: normal;
+    color: var(--headers-color);
     &:first-child {
       margin-top: 0;
     }
@@ -89,16 +124,191 @@ const PackageStyles = styled.div`
   svg {
     fill: none;
     margin-right: 16px;
+    min-width: 32px;
     #bg {
       fill: ${({ focus }) =>
         focus ? "var(--light-aqua)" : "rgba(224, 224, 224, 0.48)"};
     }
 
     #mark {
-      stroke: ${({ focus }) => (focus ? "var(--primary)" : "var(--dark-text)")};
+      stroke: ${({ focus }) =>
+        focus ? "var(--primary)" : "var(--headers-color)"};
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    a {
+      margin: 36px 0 0 !important;
     }
   }
 `
+
+const PackagesNavStyles = styled(motion.div)`
+  display: grid;
+  place-content: center;
+  place-items: center;
+  grid-gap: 16px;
+  grid-auto-flow: column;
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
+`
+
+const ListItem = styled(motion.button)`
+  border: none;
+  background-color: ${({ active }) => (active ? "#5a5a5a" : "c4c4c4")};
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  outline: none;
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: 0 0 0 2px transparent, 0 0 0 4px var(--primary);
+  }
+`
+
+const PackagesNavigation = ({ length, activePackage, setActivePackage }) => {
+  if (length < 2) {
+    return null
+  }
+
+  return (
+    <PackagesNavStyles>
+      {Array.from({ length: length }, (v, i) => (
+        <ListItem
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => setActivePackage(i)}
+          active={i === activePackage}
+        />
+      ))}
+    </PackagesNavStyles>
+  )
+}
+
+const CardsSlider = () => {
+  const packages = [
+    {
+      focus: false,
+      type: "ASIC",
+      typeDescription: "Koparka typu Antminer",
+      price: "90",
+      features: [
+        "0,32 zł za kWh",
+        "Wymiary Riga: nie dotyczy",
+        "Jednorazowa opłata instalacyjna:&nbsp;99&nbsp;PLN*",
+      ],
+      btnText: "Na start",
+      btnLink: "/kontakt",
+    },
+    {
+      focus: true,
+      type: "Single rig",
+      typeDescription: "Koparka kryptowalut do 7 kart GPU",
+      price: "140",
+      features: [
+        "0,32 zł za kWh",
+        "Wymiary Riga: 70&nbsp;cm&nbsp;x&nbsp;50&nbsp;cm&nbsp;x&nbsp;40&nbsp;cm",
+        "Jednorazowa opłata instalacyjna:&nbsp;249&nbsp;PLN*",
+      ],
+      btnText: "Najpopularniejszy",
+      btnLink: "/kontakt",
+    },
+    {
+      focus: false,
+      type: "Double rig",
+      typeDescription: "Koparka kryptowalut do 13 kart GPU",
+      price: "180",
+      features: [
+        "0,32 zł za kWh",
+        "Wymiary Riga: 70&nbsp;cm&nbsp;x&nbsp;50&nbsp;cm&nbsp;x&nbsp;40&nbsp;cm",
+        "Jednorazowa opłata instalacyjna:&nbsp;249&nbsp;PLN*",
+      ],
+      btnText: "Dla inwestorów",
+      btnLink: "/kontakt",
+    },
+  ]
+  const cardAmount = packages.length
+  const width = useWindowSize()
+  const [activePackage, setActivePackage] = useState(0)
+  const [dragPosition, setDragPosition] = useState(null)
+
+  const constraintsRef = useRef(null)
+  const handleNext = () => {
+    const cardNumber = activePackage === cardAmount - 1 ? 0 : activePackage + 1
+    setActivePackage(cardNumber)
+  }
+
+  const handlePrev = () => {
+    const cardNumber = activePackage === 0 ? cardAmount - 1 : activePackage - 1
+    setActivePackage(cardNumber)
+  }
+
+  const handleDragStart = (e, info) => {
+    console.log("START: ", info)
+    setDragPosition(info.point.x)
+  }
+
+  const handleDragEnd = (e, info) => {
+    const difference = Math.abs(info.point.x - dragPosition)
+    if (difference >= 12) {
+      info.point.x < dragPosition ? handleNext() : handlePrev()
+    }
+    setDragPosition(info.point.x)
+    console.log("End: ", difference)
+  }
+
+  return (
+    <CardWrapperStyles ref={constraintsRef}>
+      {width > 1056 ? (
+        packages.map(item => (
+          <Package
+            key={item.typeDescription}
+            focus={item.focus}
+            type={item.type}
+            typeDescription={item.typeDescription}
+            price={item.price}
+            features={item.features}
+            btnText={item.btnText}
+            btnLink={item.btnLink}
+          />
+        ))
+      ) : (
+        <AnimatePresence exitBeforeEnter>
+          {packages
+            .filter((pkg, i) => i === activePackage)
+            .map(item => (
+              <Package
+                key={item.typeDescription}
+                focus={item.focus}
+                type={item.type}
+                typeDescription={item.typeDescription}
+                price={item.price}
+                features={item.features}
+                btnText={item.btnText}
+                btnLink={item.btnLink}
+                drag="x"
+                onDragStart={(e, info) => handleDragStart(e, info)}
+                onDragEnd={(e, info) => handleDragEnd(e, info)}
+                dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                dragElastic={0.2}
+              />
+            ))}
+          <PackagesNavigation
+            length={packages?.length || 0}
+            activePackage={activePackage}
+            setActivePackage={setActivePackage}
+          />
+        </AnimatePresence>
+      )}
+    </CardWrapperStyles>
+  )
+}
 
 const Package = ({
   focus,
@@ -108,8 +318,23 @@ const Package = ({
   features,
   btnLink,
   btnText,
+  drag,
+  onDragStart = { onDragStart },
+  onDragEnd = { onDragEnd },
+  dragConstraints = { dragConstraints },
+  dragElastic = { dragElastic },
 }) => (
-  <PackageStyles focus={focus}>
+  <PackageStyles
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    focus={focus}
+    drag={drag}
+    onDragStart={onDragStart}
+    onDragEnd={onDragEnd}
+    dragConstraints={dragConstraints}
+    dragElastic={dragElastic}
+  >
     <h3>{type}</h3>
     <p className="primary">{typeDescription}</p>
     <p className="cost">
@@ -167,13 +392,15 @@ const Package = ({
       ))}
     </ul>
     <ButtonLink
-      bg={focus ? "var(--primary)" : ""}
+      bg={focus ? "var(--primary)" : "transparent"}
+      outlinebg={!focus && "var(--white)"}
+      type={!focus && "outline"}
       to={btnLink}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       minwidth="196px"
       maxwidth="244px"
-      margin={focus ? "77px 0 0" : "74px 0 0"}
+      margin="74px 0 0"
     >
       {btnText}
     </ButtonLink>
@@ -183,7 +410,11 @@ const Package = ({
 const PackagesSection = ({ margin, title, subtitle, smaller }) => {
   return (
     <Container>
-      <Wrapper margin={margin} padding="40px 122px 0" direction="column">
+      <PackageWrapperStyles
+        margin={margin}
+        padding="40px 122px 0"
+        direction="column"
+      >
         <Flex
           width="100%"
           direction="column"
@@ -191,6 +422,7 @@ const PackagesSection = ({ margin, title, subtitle, smaller }) => {
           margin={smaller ? "0 0 63px" : "0 0 27px"}
         >
           <Text
+            as="h2"
             fontSize="10px"
             letterSpacing="1px"
             lineHeight="normal"
@@ -200,6 +432,7 @@ const PackagesSection = ({ margin, title, subtitle, smaller }) => {
             {title}
           </Text>
           <Text
+            as="h3"
             margin={smaller && "10px 0 0"}
             fontSize={smaller ? "36px" : "48px"}
             fontWeight="600"
@@ -208,46 +441,8 @@ const PackagesSection = ({ margin, title, subtitle, smaller }) => {
             {subtitle}
           </Text>
         </Flex>
-        <CardWrapperStyles>
-          <Package
-            type="ASIC"
-            typeDescription="Koparka typu Antminer"
-            price="90"
-            features={[
-              "0,32 zł za kWh",
-              "Wymiary Riga: nie dotyczy",
-              "Jednorazowa opłata instalacyjna:&nbsp;99&nbsp;PLN*",
-            ]}
-            btnText="Na start"
-            btnLink="/kontakt"
-          />
-          <Package
-            focus
-            type="Single rig"
-            typeDescription="Koparka kryptowalut do 7 kart GPU"
-            price="140"
-            features={[
-              "0,32 zł za kWh",
-              "Wymiary Riga: 70&nbsp;cm&nbsp;x&nbsp;50&nbsp;cm&nbsp;x&nbsp;40&nbsp;cm",
-              "Jednorazowa opłata instalacyjna:&nbsp;249&nbsp;PLN*",
-            ]}
-            btnText="Najpopularniejszy"
-            btnLink="/kontakt"
-          />
-          <Package
-            type="Double rig"
-            typeDescription="Koparka kryptowalut do 13 kart GPU"
-            price="180"
-            features={[
-              "0,32 zł za kWh",
-              "Wymiary Riga: 70&nbsp;cm&nbsp;x&nbsp;50&nbsp;cm&nbsp;x&nbsp;40&nbsp;cm",
-              "Jednorazowa opłata instalacyjna:&nbsp;249&nbsp;PLN*",
-            ]}
-            btnText="Dla inwestorów"
-            btnLink="/kontakt"
-          />
-        </CardWrapperStyles>
-      </Wrapper>
+        <CardsSlider />
+      </PackageWrapperStyles>
     </Container>
   )
 }

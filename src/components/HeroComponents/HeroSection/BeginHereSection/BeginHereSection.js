@@ -55,7 +55,7 @@ const Wrapper = styled.div`
 
   h2 {
     font-size: 10px;
-    font-weight: normal;
+    font-weight: 400;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;

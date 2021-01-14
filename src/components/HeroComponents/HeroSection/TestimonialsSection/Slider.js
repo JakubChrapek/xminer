@@ -10,6 +10,7 @@ const SliderStyles = styled.div`
   flex: 1;
   .title {
     font-size: 10px;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--primary);

@@ -1,9 +1,9 @@
 import React from "react"
 import styled, { css } from "styled-components"
 
-const WrapperStyles = styled.div`
+export const WrapperStyles = styled.div`
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   max-width: ${({ maxwidth }) => (maxwidth ? maxwidth : "1440px")};
   position: relative;
   z-index: ${({ zIndex }) => (zIndex ? zIndex : "1")};

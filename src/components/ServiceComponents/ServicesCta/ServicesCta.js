@@ -1,42 +1,189 @@
 import React from "react"
 import styled from "styled-components"
 import Container from "../../Container/Container"
-import Flex from "../../Flex/Flex"
+import { StyledFlex } from "../../Flex/Flex"
 import Text from "../../Text/Text"
-import Wrapper from "../../Wrapper/Wrapper"
-import Miner from "../../../images/miner.svg"
-import Rig from "../../../images/rig.svg"
+import { WrapperStyles } from "../../Wrapper/Wrapper"
+import Img from "gatsby-image"
 import ButtonText from "../../ButtonText/ButtonText"
+import { useStaticQuery } from "gatsby"
+
+const MoreWrapperStyles = styled(WrapperStyles)`
+  .gatsby-image-wrapper {
+    width: 100%;
+    border-radius: 12px;
+    height: 320px;
+    @media only screen and (min-width: 1500px) {
+      height: 360px;
+    }
+
+    align-self: center;
+  }
+  @media only screen and (max-width: 1182px) {
+    margin: 122px 60px 72px;
+    &:nth-of-type(2) {
+      margin-top: 82px;
+    }
+  }
+
+  @media only screen and (max-width: 1080px) {
+    width: 100%;
+    max-width: 640px;
+    flex-direction: column;
+    &:nth-of-type(2) {
+      margin-top: 0px;
+    }
+  }
+  @media only screen and (max-width: 760px) {
+    width: unset;
+    margin: 65px 30px;
+  }
+`
+
+const FirstFlex = styled(StyledFlex)`
+  h2,
+  h3,
+  p,
+  a {
+    margin-right: 40px;
+  }
+
+  @media only screen and (max-width: 1264px) {
+    h3 {
+      font-size: 40px;
+    }
+  }
+  @media only screen and (max-width: 1182px) {
+    h2,
+    h3,
+    p,
+    a {
+      margin-right: 30px;
+    }
+    h3 {
+      font-size: 32px;
+      margin-top: 10px;
+    }
+
+    p {
+      margin-top: 16px;
+    }
+  }
+  @media only screen and (max-width: 1080px) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    h2,
+    h3,
+    p,
+    a {
+      margin-right: 0px;
+    }
+    a {
+      margin-top: 24px !important;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    h3 {
+      font-size: 24px;
+    }
+  }
+`
+
+const SecondFlex = styled(FirstFlex)`
+  h2,
+  h3,
+  p,
+  a {
+    margin-left: 80px;
+    margin-right: 0;
+  }
+  @media only screen and (max-width: 1182px) {
+    h2,
+    h3,
+    p,
+    a {
+      margin-left: 50px;
+    }
+  }
+  @media only screen and (max-width: 1080px) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    order: -1;
+    h2,
+    h3,
+    p,
+    a {
+      margin-left: 0;
+    }
+    a {
+      margin-top: 24px !important;
+    }
+  }
+
+  @media only screen and (max-width: 640px) {
+    h3 {
+      font-size: 24px;
+    }
+  }
+`
+
+const ImageFlex = styled(StyledFlex)`
+  @media only screen and (max-width: 1080px) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 24px !important;
+  }
+`
 
 const ServicesCta = () => {
+  const data = useStaticQuery(graphql`
+    query servicesQuery {
+      datoCmsStronaKolokacja {
+        wantMoreImg {
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        rigMgmtImg {
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <Container>
-      <Wrapper equal margin="202px 102px 82px">
-        <Flex alignItems="flex-start" direction="column">
+      <MoreWrapperStyles equal margin="142px 102px 82px">
+        <FirstFlex alignItems="flex-start" direction="column">
           <Text
             as="h2"
             fontSize="10px"
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
+            fontWeight="400"
+            margin="0 0 0 0"
           >
             Możesz chcieć więcej
           </Text>
           <Text
             as="h3"
-            margin="15px 0 0"
+            margin="15px 0 0 0"
             fontSize="48px"
             fontWeight="600"
+            color="var(--headers-color)"
             lineHeight="normal"
           >
             A my mamy na to odpowiedź
           </Text>
           <Text
             fontSize="16px"
-            margin="25px 0 0"
+            margin="25px 0 0 0"
             lineHeight="normal"
-            maxwidth="580px"
+            color="var(--body-text)"
+            fontWeight="400"
           >
             Kolokacja? To zdecydowanie nie wszystko. Sprawdź naszą ofertę
             serwisu, opieki i&nbsp;zdalnego dostępu do koparek, o&nbsp;który
@@ -47,58 +194,72 @@ const ServicesCta = () => {
           <ButtonText
             to="/uslugi-dodatkowe"
             color="var(--primary)"
-            margin="49px 0 0"
+            margin="49px 0 0 0"
           >
             Sprawdź więcej
           </ButtonText>
-        </Flex>
-        <Flex justifyContent="center">
-          <img src={Miner} alt="Karta graficzna" />
-        </Flex>
-      </Wrapper>
-      <Wrapper equal margin="47px 102px 90px">
-        <Flex justifyContent="center">
-          <img src={Rig} alt="Karta graficzna" />
-        </Flex>
-        <Flex direction="column">
+        </FirstFlex>
+        <ImageFlex justifyContent="center">
+          <Img
+            fluid={data.datoCmsStronaKolokacja.wantMoreImg.fluid}
+            alt={data.datoCmsStronaKolokacja.wantMoreImg.alt}
+          />
+        </ImageFlex>
+      </MoreWrapperStyles>
+      <MoreWrapperStyles equal margin="47px 102px 90px">
+        <ImageFlex justifyContent="center">
+          <Img
+            fluid={data.datoCmsStronaKolokacja.rigMgmtImg.fluid}
+            alt={data.datoCmsStronaKolokacja.rigMgmtImg.alt}
+          />
+        </ImageFlex>
+        <SecondFlex direction="column">
           <Text
             as="h2"
             fontSize="10px"
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            color="var(--nav-dark-bluse)"
+            fontWeight="400"
+            color="var(--headers-color)"
+            margin="0 0 0 0"
           >
             Kolokacja koparek
           </Text>
           <Text
             as="h3"
-            margin="15px 0 0"
+            margin="15px 0 0 0"
             fontSize="48px"
             fontWeight="600"
+            color="var(--headers-color)"
             lineHeight="normal"
           >
-            Wygoda, bezpieczeństwo i niskie koszty
+            Wygoda, bezpieczeństwo i&nbsp;niskie koszty
           </Text>
           <Text
             fontSize="16px"
             margin="25px 0 0"
             lineHeight="normal"
-            maxwidth="580px"
+            fontWeight="400"
+            color="var(--body-text)"
           >
             Twoje koparki mogą pobierać mniej prądu. Mogą nie zajmować Twojego
             garażu lub nie mieć osobnego biura w Twojej firmie. Mogą też mieć
-            lepsze warunki i to takie, nad którymi masz stałą kontrolę. Mogą to
-            wszystko, jeśli wybierz Xminer.
+            lepsze warunki i&nbsp;to takie, nad którymi masz stałą kontrolę.
+            Mogą to wszystko, jeśli wybierz Xminer.
           </Text>
-          <Text margin="24px 0 0">
+          <Text fontWeight="400" color="var(--body-text)" margin="24px 0 0 0">
             Co jeszcze możemy zrobić, żeby ułatwić Ci inwestycję?
           </Text>
-          <ButtonText to="/kontakt" color="var(--primary)" margin="24px 0 0">
-            Skontaktuj się z nami
+          <ButtonText
+            to="/kontakt"
+            color="var(--primary)"
+            margin="24px 0 0 80px"
+          >
+            Skontaktuj się z&nbsp;nami
           </ButtonText>
-        </Flex>
-      </Wrapper>
+        </SecondFlex>
+      </MoreWrapperStyles>
     </Container>
   )
 }

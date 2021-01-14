@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const ContainerStyles = styled.section`
+export const ContainerStyles = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 
       .title {
         font-size: 10px;
-        font-weight: 300;
+        font-weight: 400;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: var(--primary);

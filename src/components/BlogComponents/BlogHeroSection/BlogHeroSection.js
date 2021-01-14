@@ -11,7 +11,9 @@ import { HiArrowNarrowRight } from "react-icons/hi"
 const HeroStyles = styled.section`
   display: flex;
   justify-content: center;
-  margin: 119px auto 0;
+  margin: 0 auto 0;
+  position: relative;
+  top: 119px;
   padding: 67px 0 0;
   > div {
     max-width: 1440px;

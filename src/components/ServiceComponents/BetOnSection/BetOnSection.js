@@ -1,23 +1,82 @@
 import React from "react"
+import styled from "styled-components"
+import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
-import Wrapper from "../../Wrapper/Wrapper"
+import { WrapperStyles } from "../../Wrapper/Wrapper"
+
+const BetWrapperStyles = styled(WrapperStyles)`
+  > div {
+    &:nth-of-type(2) {
+      margin-left: 60px;
+    }
+  }
+
+  @media only screen and (max-width: 1440px) {
+    margin: 95px 80px;
+    > div {
+      &:nth-of-type(2) {
+        margin-left: 50px;
+      }
+    }
+  }
+  @media only screen and (max-width: 1180px) {
+    margin: 88px 60px;
+    > div {
+      &:nth-of-type(1) {
+        margin: 0;
+      }
+      &:nth-of-type(2) {
+        margin-left: 60px;
+      }
+    }
+  }
+  @media only screen and (max-width: 1080px) {
+    width: 100%;
+    max-width: 640px;
+    flex-direction: column;
+    > div {
+      &:nth-of-type(2) {
+        margin: 38px 0 0;
+      }
+    }
+  }
+  @media only screen and (max-width: 760px) {
+    width: unset;
+    margin: 65px 30px;
+  }
+  @media only screen and (max-width: 640px) {
+    margin: 55px 30px;
+    > div {
+      h3 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+`
 
 const BetOnSection = () => {
+  const width = useWindowSize()
   return (
     <Container padding="0">
-      <Wrapper margin="40px 103px 109px">
+      <BetWrapperStyles margin="40px 103px 109px">
         <Flex flex="3" direction="column" margin="0 146px 0 0">
           <Text
+            as="span"
             fontSize="10px"
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
+            fontWeight="400"
           >
             Postaw na
           </Text>
           <Text
+            as="h3"
             fontSize="24px"
             lineHeight="1.33em"
             fontWeight="600"
@@ -28,32 +87,29 @@ const BetOnSection = () => {
           <Text
             fontSize="16px"
             lineHeight="1.63em"
-            fontWeight="300"
+            fontWeight="400"
             margin="20px 0 0"
-            maxwidth="707px"
           >
-            Nasza oferta jest skierowana dla inwestorów z całej Polski.
+            Nasza oferta jest skierowana dla inwestorów z&nbsp;całej Polski.
           </Text>
           <Text
             fontSize="16px"
             lineHeight="1.63em"
-            fontWeight="300"
+            fontWeight="400"
             margin="32px 0 0"
-            maxwidth="707px"
           >
-            Nasze kontenery są zabezpieczone: system alarmowy, montoring wideo i
-            zdalny podgląd 24/h zapewnia bezpieczeństwo dla każdej koparki,
-            która znajduje się w naszych rękach.
+            Nasze kontenery są zabezpieczone: system alarmowy, montoring wideo
+            i&nbsp;zdalny podgląd 24/h zapewnia bezpieczeństwo dla każdej
+            koparki, która znajduje się w&nbsp;naszych rękach.
           </Text>
           <Text
             fontSize="16px"
             lineHeight="1.63em"
-            fontWeight="300"
+            fontWeight="400"
             margin="32px 0 0"
-            maxwidth="707px"
           >
             Nieuprawniony dostęp? Patrol interwencyjny na miejscu. Zdarzenia
-            losowe? Mamy ubezpieczenie i od kradzieży, i od wypadków.
+            losowe? Mamy ubezpieczenie i&nbsp;od kradzieży, i&nbsp;od wypadków.
           </Text>
         </Flex>
         <Flex
@@ -64,20 +120,22 @@ const BetOnSection = () => {
           margin="80px 0 0"
         >
           <Text
+            as="span"
             fontSize="10px"
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
             maxwidth="286px"
+            fontWeight="400"
           >
             Co zyskujesz?
           </Text>
           <Text
             fontSize="16px"
             lineHeight="1.63em"
-            fontWeight="300"
+            fontWeight="400"
             margin="12px 0 0"
-            maxwidth="286px"
+            maxwidth={width > 640 ? "286px" : "unset"}
           >
             Oddając swoją maszynę pod opiekę Xminer, oszczędzasz nie tylko na
             energii elektrycznej, ale i&nbsp;po prostu&nbsp;-&nbsp;zapewniasz
@@ -86,14 +144,14 @@ const BetOnSection = () => {
           <Text
             fontSize="16px"
             lineHeight="1.63em"
-            fontWeight="300"
+            fontWeight="400"
             margin="32px 0 0"
             maxwidth="286px"
           >
             A to jest ważne!
           </Text>
         </Flex>
-      </Wrapper>
+      </BetWrapperStyles>
     </Container>
   )
 }

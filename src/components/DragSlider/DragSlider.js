@@ -21,6 +21,7 @@ export const DragSlider = ({
   bounceDamping = 10, // affects the damping of the bounce spring. If set to 0, spring will oscillate indefinitely.
   margin,
   leftAnchor,
+  padding,
 }) => {
   const ref = useRef(null)
   const x = useMotionValue(0)
@@ -56,7 +57,7 @@ export const DragSlider = ({
     window.addEventListener("resize", calcSliderConstraints)
   }, [ref, sliderChildrenWidth, sliderWidth])
 
-  const SliderWrap = ({ children, margin, leftAnchor }) => {
+  const SliderWrap = ({ children, margin, padding, leftAnchor }) => {
     return (
       <div
         style={{
@@ -65,6 +66,7 @@ export const DragSlider = ({
           paddingLeft: "30px",
           alignSelf: "center",
           margin: margin,
+          padding: padding,
         }}
       >
         <Slider
@@ -85,7 +87,7 @@ export const DragSlider = ({
   }
 
   return (
-    <SliderWrap leftAnchor={leftAnchor} margin={margin}>
+    <SliderWrap leftAnchor={leftAnchor} margin={margin} padding={padding}>
       {children}
     </SliderWrap>
   )

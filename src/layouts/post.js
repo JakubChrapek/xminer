@@ -12,7 +12,9 @@ const PostStyles = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 119px auto 0;
+  margin: 0 auto 0;
+  position: relative;
+  top: 119px;
   padding: 67px 0 90px;
   max-width: 750px;
 
