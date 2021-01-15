@@ -91,6 +91,7 @@ const Text = ({
   animate,
   exit,
   variants,
+  transition,
   children,
   maxwidth,
   key,
@@ -111,6 +112,7 @@ const Text = ({
         textAlign={textAlign}
         maxwidth={maxwidth}
         as={as}
+        transition={transition}
         initial={initial}
         className={className}
         animate={animate}

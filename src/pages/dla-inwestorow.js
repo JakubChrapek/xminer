@@ -9,23 +9,33 @@ import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/Bl
 import SEO from "../components/SEO/SEO"
 import PackagesSection from "../components/ServiceComponents/PackagesSection/PackagesSection"
 
-const ForInvestors = () => {
+const ForInvestors = ({ data }) => {
+  const {
+    allDatoCmsPost: { totalCount, nodes: posts },
+  } = data
   return (
     <>
       <SEO title="Dla inwestorów" />
       <ForInvestorsHeroSection />
       <WhyInvestingWithUs />
       <WhoWillTeachYouSection />
-      <BlogSection title="" subtitle="" padding="15px 122px 0" smaller />
+      <BlogSection
+        posts={posts}
+        totalCount={totalCount}
+        title=""
+        subtitle=""
+        padding="15px 122px 0"
+        smaller
+      />
       <PackagesSection
         title="Od czego zacząć"
-        subtitle="Zacznij inwestować w kryptowaluty"
+        subtitle="Zacznij inwestować w&nbsp;kryptowaluty"
         smaller
         margin="84px 0 0"
       />
       <GradientCtaSection
         title="oferta"
-        subtitle="Koparka + pełna obsługa już od XXX zł netto."
+        subtitle="Koparka + pełna obsługa już&nbsp;od&nbsp;XXX&nbsp;zł&nbsp;netto."
         btnText="Sprawdź pakiety"
         btnLink="/sprzedaz"
         contentWidth="730px"
@@ -41,5 +51,28 @@ const ForInvestors = () => {
     </>
   )
 }
+
+export const forInvestorsQuery = graphql`
+  query forInvestorsQuery {
+    allDatoCmsPost(limit: 3, sort: { fields: date, order: DESC }) {
+      totalCount
+      nodes {
+        title
+        postCategory {
+          categoryName
+        }
+        date
+        readingTime
+        id
+        slug
+        coverImage {
+          fluid(maxWidth: 360) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ForInvestors

@@ -14,17 +14,29 @@ const PackageWrapperStyles = styled(WrapperStyles)`
     margin: 50px 0px 80px;
     h3 {
       font-size: 40px;
+      max-width: 440px;
+      text-align: center;
     }
   }
   @media only screen and (max-width: 740px) {
     padding: 40px 30px;
+    margin: 50px 0 0;
+    > div {
+      margin-bottom: 32px;
+    }
     h3 {
       font-size: 32px;
+      text-align: left;
     }
 
     h2,
     h3 {
       align-self: flex-start;
+    }
+  }
+  @media only screen and (max-width: 640px) {
+    h3 {
+      font-size: 24px;
     }
   }
 `
@@ -428,6 +440,7 @@ const PackagesSection = ({ margin, title, subtitle, smaller }) => {
             lineHeight="normal"
             textTransform="uppercase"
             fontWeight="normal"
+            color="var(--headers-color)"
           >
             {title}
           </Text>
@@ -437,6 +450,7 @@ const PackagesSection = ({ margin, title, subtitle, smaller }) => {
             fontSize={smaller ? "36px" : "48px"}
             fontWeight="600"
             lineHeight="normal"
+            color="var(--headers-color)"
           >
             {subtitle}
           </Text>

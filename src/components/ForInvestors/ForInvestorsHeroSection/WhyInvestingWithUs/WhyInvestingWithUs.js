@@ -1,14 +1,22 @@
 import React from "react"
 import styled from "styled-components"
 import Container from "../../../Container/Container"
-import Flex from "../../../Flex/Flex"
+import Flex, { StyledFlex } from "../../../Flex/Flex"
 import Text from "../../../Text/Text"
-import Wrapper from "../../../Wrapper/Wrapper"
+import { WrapperStyles } from "../../../Wrapper/Wrapper"
 import RocketIcon from "../../../../images/ico-rocket.svg"
 import SupportIcon from "../../../../images/ico-support.svg"
 import LifecycleIcon from "../../../../images/ico-lifecycle.svg"
+import useWindowSize from "../../../../utils/UseWindowSize"
 
-const FeatureStyles = styled(Flex)``
+const FeatureStyles = styled(StyledFlex)`
+  @media only screen and (max-width: 1000px) {
+    margin-top: 0;
+    &:first-of-type {
+      margin-top: 64px;
+    }
+  }
+`
 
 const ImgStyles = styled.img``
 
@@ -33,9 +41,10 @@ const Feature = ({ icon, iconBg, title, content }) => {
           <ImgStyles src={icon} alt={title} />
         </ImgWrapper>
         <Text
-          maxwidth="243px"
+          as="h4"
+          color="var(--headers-color)"
           fontSize="22px"
-          fontWeight="600"
+          fontWeight="500"
           lineHeight="normal"
         >
           {title}
@@ -45,8 +54,8 @@ const Feature = ({ icon, iconBg, title, content }) => {
         margin="29px 0 0"
         fontSize="18px"
         lineHeight="1.67em"
-        fontWeight="300"
-        maxwidth="345px"
+        fontWeight="400"
+        color="var(--body-text)"
       >
         {content}
       </Text>
@@ -59,20 +68,60 @@ const FeatureWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 80px;
   width: 100%;
+  @media only screen and (max-width: 1182px) {
+    grid-gap: 60px;
+  }
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    grid-gap: 70px;
+  }
+  @media only screen and (max-width: 640px) {
+    h4 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+`
+
+const WhyWrapperStyles = styled(WrapperStyles)`
+  @media only screen and (max-width: 1182px) {
+    margin: 0px 60px 40px;
+  }
+  @media only screen and (max-width: 1000px) {
+    width: 100%;
+    max-width: 640px;
+    h3 {
+      font-size: 30px;
+    }
+  }
+  @media only screen and (max-width: 760px) {
+    width: unset;
+    margin: 0 30px 50px;
+  }
+  @media only screen and (max-width: 640px) {
+    h3 {
+      font-size: 24px;
+    }
+  }
 `
 
 const WhyInvestingWithUs = () => {
+  const width = useWindowSize()
   return (
     <Container>
-      <Wrapper margin="43px 122px 0" direction="column">
+      <WhyWrapperStyles margin="43px 122px 0" direction="column">
         <Flex width="100%" direction="column" alignItems="center">
           <Text
-            textAlign="center"
+            as="h3"
+            textAlign={width > 1000 ? "center" : "left"}
             fontSize="36px"
             fontWeight="600"
             lineHeight="normal"
+            color="var(--headers-color)"
           >
-            Dlaczego warto inwestować razem z nami?
+            Dlaczego warto inwestować razem z&nbsp;nami?
           </Text>
           <FeatureWrapper>
             <Feature
@@ -95,7 +144,7 @@ const WhyInvestingWithUs = () => {
             />
           </FeatureWrapper>
         </Flex>
-      </Wrapper>
+      </WhyWrapperStyles>
     </Container>
   )
 }

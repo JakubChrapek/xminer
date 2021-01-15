@@ -16,6 +16,7 @@ const AdditionalServicesHero = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
+            color="var(--headers-color)"
           >
             Wiemy, czego potrzebujesz
           </Text>
@@ -25,6 +26,7 @@ const AdditionalServicesHero = () => {
             fontSize="48px"
             fontWeight="600"
             lineHeight="normal"
+            color="var(--headers-color)"
           >
             Serwis, konsultacje {width > 1336 || (width < 670 && <br />)}
             i&nbsp;opieka 24/h
@@ -37,6 +39,7 @@ const AdditionalServicesHero = () => {
             }
             fontSize="18px"
             lineHeight="1.67em"
+            color="var(--body-text)"
           >
             Twoja koparka może mieć lepsze życie. Ty możesz więcej na niej
             zarabiać. Możesz też spać spokojnie, wiedząc, że spoczywa w dobrych
@@ -51,6 +54,7 @@ const AdditionalServicesHero = () => {
             fontSize="18px"
             lineHeight="1.67em"
             margin="20px 0 0"
+            color="var(--body-text)"
           >
             I&nbsp;to z&nbsp;każdego miejsca na świecie.
           </Text>

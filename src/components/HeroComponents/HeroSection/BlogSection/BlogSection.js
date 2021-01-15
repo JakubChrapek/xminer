@@ -314,6 +314,7 @@ const BlogSection = ({
   subtitle,
   padding,
   smaller,
+  lowercase,
   posts,
   totalCount,
   similarPosts,
@@ -351,7 +352,7 @@ const BlogSection = ({
               margin="0px 0 0"
               to="/blog"
               color="var(--primary)"
-              textTransform="uppercase"
+              textTransform={lowercase ? lowercase : "uppercase"}
             >
               Wszystkie wpisy
             </ButtonText>

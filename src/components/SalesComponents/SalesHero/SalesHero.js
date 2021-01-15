@@ -3,23 +3,82 @@ import styled from "styled-components"
 import Container from "../../Container/Container"
 import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
-import Wrapper from "../../Wrapper/Wrapper"
-import FeatureParagraph from "./FeatureParagraph/FeatureParagraph"
-import IdeaIcon from "../../../images/ico-idea.svg"
-import RocketIcon from "../../../images/ico-rocket.svg"
-import ManualIcon from "../../../images/ico-manual.svg"
-import TapIcon from "../../../images/ico-tap.svg"
-import SearchIcon from "../../../images/ico-search.svg"
+import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSection"
+import {
+  MoreWrapperStyles,
+  ImageFlex,
+  FirstFlex,
+  SecondFlex,
+} from "../../ServiceComponents/ServicesCta/ServicesCta"
+import { graphql, useStaticQuery } from "gatsby"
+import useWindowSize from "../../../utils/UseWindowSize"
+import Img from "gatsby-image"
 
-const SalesWrapper = styled(Wrapper)``
+const SalesWrapper = styled(HeroWrapperStyles)``
+
+const SalesMoreWrapperStyles = styled(MoreWrapperStyles)`
+  margin: 110px 122px;
+  @media only screen and (max-width: 1182px) {
+    margin: 72px 60px;
+  }
+`
 
 const SalesHero = () => {
+  const width = useWindowSize()
+  const data = useStaticQuery(graphql`
+    query salesQuery {
+      datoCmsPageSale {
+        trainingImg {
+          alt
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        minerForYouImg {
+          alt
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        fullPackageImg {
+          alt
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        minedInPolandImg {
+          alt
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        whyIsItWorthItImg {
+          alt
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        howToPickFirstMinerImg {
+          alt
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+        multipleCryptocurrenciesImg {
+          alt
+          fluid {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <Container padding="108px 0 0">
       <SalesWrapper margin="127px 122px" equal>
         <div>
           <Text
-            as="h2"
+            as="span"
             fontSize="10px"
             color="var(--headers-color)"
             textTransform="uppercase"
@@ -34,6 +93,7 @@ const SalesHero = () => {
             fontSize="48px"
             fontWeight="600"
             lineHeight="normal"
+            color="var(--headers-color)"
           >
             Wybierz koparkę
             <br />z metką Xminer
@@ -41,76 +101,203 @@ const SalesHero = () => {
         </div>
         <div>
           <Text
-            maxwidth="588px"
+            color="var(--body-text)"
             margin="52px 0 0"
             fontSize="18px"
             lineHeight="1.67em"
           >
             Dla naszych Klientów tworzymy koparki, którymi sami kopiemy na co
             dzień. Do wyboru masz setki konfiguracji, ale przedstawiamy Ci też
-            kilka gotowych produktów, nad którymi nie musisz się zastanawiać -
-            idealne rozwiązanie, kiedy dopiero zaczynasz lub masz niewielkie
-            doświadczenie w kopaniu. Niski pobór prądu i niska awaryjność, a do
-            tego gwarancja, szkolenie, dowóz i zdalne wsparcie - to wszystko co,
-            otrzymujesz razem z naszymi koparkami.
+            kilka gotowych produktów, nad którymi nie musisz się zastanawiać
+            -&nbsp;idealne rozwiązanie, kiedy dopiero zaczynasz lub masz
+            niewielkie doświadczenie w&nbsp;kopaniu. Niski pobór prądu
+            i&nbsp;niska awaryjność, a&nbsp;do tego gwarancja, szkolenie, dowóz
+            i&nbsp;zdalne wsparcie -&nbsp;to wszystko co, otrzymujesz razem
+            z&nbsp;naszymi koparkami.
           </Text>
-          <Text margin="32px 0 0" fontSize="18px" lineHeight="1.67em">
+          <Text
+            color="var(--body-text)"
+            margin="32px 0 0"
+            fontSize="18px"
+            lineHeight="1.67em"
+          >
             Prawda, że fajnie?
           </Text>
         </div>
       </SalesWrapper>
-      <SalesWrapper margin="0 122px 120px">
-        <Flex width="100%" justifyContent="center" direction="column">
+      <Text
+        textAlign="center"
+        fontSize="36px"
+        lineHeight="normal"
+        fontWeight="600"
+        color="var(--headers-color)"
+      >
+        Dlaczego warto?
+      </Text>
+      <MoreWrapperStyles margin="110px 122px 120px">
+        <FirstFlex
+          marginRight="80px"
+          flex="1"
+          alignItems="flex-start"
+          direction="column"
+        >
           <Text
-            textAlign="center"
-            fontSize="36px"
-            lineHeight="normal"
+            as="h3"
+            margin="15px 0 0 0"
+            fontSize="22px !important"
             fontWeight="600"
+            color="var(--headers-color)"
+            lineHeight="normal"
           >
-            Dlaczego warto?
+            Różne konfiguracje, różne możliwości
           </Text>
-          <FeatureParagraph
-            icon={SearchIcon}
-            iconBg="rgba(197, 242, 220, 0.6)"
-            iconAlt="Ikona lupy"
-            title="Różne konfiguracje, różne możliwości"
-            content="Nowy serwer obliczeniowy, niski pobór prądu i od 6 do nawet 13 kart graficznych w jednej koparce - to najważniejsze zalety naszych maleństw. Płyta główna, nawet 2 zasilacze o dużej mocy (co najmniej 650W!) oraz specjalna, autorska aluminiowa obudowa wraz z riserami - a Ty już wiesz, że jest wybór i są możliwości. Nasze koparki konfigurujemy na Linux (HiveOS)."
-            margin="80px 0 0"
+          <Text
+            fontSize="16px"
+            margin="25px 0 0 0"
+            lineHeight="normal"
+            color="var(--body-text)"
+            fontWeight="400"
+          >
+            Nowy serwer obliczeniowy, niski pobór prądu i od 6 do nawet 13 kart
+            graficznych w jednej koparce - to najważniejsze zalety naszych
+            maleństw. Płyta główna, nawet 2 zasilacze o dużej mocy (co najmniej
+            650W!) oraz specjalna, autorska aluminiowa obudowa wraz z riserami -
+            a Ty już wiesz, że jest wybór i są możliwości. Nasze koparki
+            konfigurujemy na Linux (HiveOS).
+          </Text>
+        </FirstFlex>
+        <ImageFlex flex="1" justifyContent="center">
+          <Img
+            fluid={data.datoCmsPageSale.whyIsItWorthItImg.fluid}
+            alt={data.datoCmsPageSale.whyIsItWorthItImg.alt}
           />
-          <FeatureParagraph
-            icon={IdeaIcon}
-            iconBg="rgba(250, 227, 175, 0.6)"
-            iconAlt="Ikona z wykrzyknikiem"
-            title="Dlaczego? Bo wiemy, że się sprawdza. Koparka z metką „Wykopane w Polsce”"
-            content="Nasze koparki nie tylko tworzone są bezpośrednio przez inżynierów z Xminer, ale i z polskich podzespołów. Nie ma problemu z serwisem, nie ma problemu z importem, nie ma problemu z częściami opisanymi w języku krzaczastym i wątpliwej jakości. Kupując u nas, masz pewność. I wiemy z różnych źródeł, że dla naszych inwestorów to jest zaleta bardzo ważna."
-            margin="104px 0 0 33%"
+        </ImageFlex>
+      </MoreWrapperStyles>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          backgroundColor: "var(--faded-aqua)",
+          width: "100%",
+        }}
+      >
+        <SalesMoreWrapperStyles alignItems="center" equal margin="110px 102px">
+          <ImageFlex justifyContent="center">
+            <Img
+              fluid={data.datoCmsPageSale.minedInPolandImg.fluid}
+              alt={data.datoCmsPageSale.minedInPolandImg.alt}
+            />
+          </ImageFlex>
+          <SecondFlex direction="column">
+            <Text
+              as="h3"
+              margin="15px 0 0 0"
+              fontSize="22px !important"
+              fontWeight="600"
+              color="var(--headers-color)"
+              lineHeight="normal"
+            >
+              Wiemy, że się sprawdza. Z&nbsp;metką „Wykopane w&nbsp;Polsce”
+            </Text>
+            <Text
+              fontSize="16px"
+              margin="25px 0 0"
+              lineHeight="normal"
+              fontWeight="400"
+              color="var(--body-text)"
+            >
+              Nasze koparki nie tylko tworzone są bezpośrednio przez inżynierów
+              z&nbsp;Xminer, ale i&nbsp;z&nbsp;polskich podzespołów. Nie ma
+              problemu z&nbsp;serwisem, nie ma problemu z&nbsp;importem, nie ma
+              problemu z&nbsp;częściami opisanymi w&nbsp;języku krzaczastym
+              i&nbsp;wątpliwej jakości. Kupując u&nbsp;nas, masz pewność.
+              I&nbsp;wiemy z&nbsp;różnych źródeł, że dla naszych inwestorów to
+              jest zaleta bardzo ważna.
+            </Text>
+          </SecondFlex>
+        </SalesMoreWrapperStyles>
+      </div>
+      <SalesMoreWrapperStyles margin="110px 122px 120px">
+        <FirstFlex
+          marginRight="80px"
+          flex="1"
+          alignItems="flex-start"
+          direction="column"
+        >
+          <Text
+            as="h3"
+            margin="15px 0 0 0"
+            fontSize="22px !important"
+            fontWeight="600"
+            color="var(--headers-color)"
+            lineHeight="normal"
+          >
+            W cenie? Pełny pakiet
+          </Text>
+          <Text
+            fontSize="16px"
+            margin="25px 0 0 0"
+            lineHeight="normal"
+            color="var(--body-text)"
+            fontWeight="400"
+          >
+            Cena każdej koparki obejmuje koszt części, budowy, konfiguracji,
+            przeszkolenia, dowozu (do 100 km od Wrocławka bezpłatnie) oraz
+            zdalnego wsparcia przez cały (tak cały!) okres inwestycji. Koparkę
+            możesz nawet zostawić u&nbsp;nas, zasilać u nas i&nbsp;serwisować
+            u&nbsp;nas. Dla nas kompleksowa oferta to zdecydowanie nie jest
+            pusty slogan.
+          </Text>
+        </FirstFlex>
+        <ImageFlex flex="1" justifyContent="center">
+          <Img
+            fluid={data.datoCmsPageSale.fullPackageImg.fluid}
+            alt={data.datoCmsPageSale.fullPackageImg.alt}
           />
-          <FeatureParagraph
-            icon={RocketIcon}
-            iconBg="rgba(197, 215, 242, 0.6)"
-            iconAlt="Ikona rakiety"
-            title="W cenie? Pełny pakiet"
-            content="Cena każdej koparki obejmuje koszt części, budowy, konfiguracji, przeszkolenia, dowozu (do 100km od Wrocławka bezpłatnie) oraz zdalnego wsparcia przez cały (tak cały!) okres inwestycji. Koparkę możesz nawet zostawić u nas, zasilać u nas i serwisować u nas. Dla nas kompleksowa oferta to zdecydowanie nie jest pusty slogan."
-            margin="104px 0 0"
-          />
-          <FeatureParagraph
-            icon={TapIcon}
-            iconBg="rgba(241, 193, 201, 0.6)"
-            iconAlt="Ikona palca wciskającego guzik"
-            title="Wiele walut do wydobycia"
-            content="Na naszym sprzęcie można kopać między innymi Ethereum (ETH), EtherumClassic (ETC), Nicehash, Ravencoin (RVN), GrinCoin (GRIN) czy Bittube (TUBE). Nie wiesz, od czego zacząć, czy inwestować w stary, dobry Bitcoin czy może modne Ethereum? Zapytaj nas o to. Powiemy wszystko, co wiemy!"
-            margin="104px 0 0 33%"
-          />
-          <FeatureParagraph
-            icon={ManualIcon}
-            iconBg="rgba(250, 227, 175, 0.6)"
-            iconAlt="Ikona podręcznika"
-            title="Szkolenie i konfiguracja"
-            content="Niezależnie od tego, czy kupujesz u nas jedną koparkę, czy kilkadziesiąt - możesz zamówić u nas szkolenie: zdalne, indywidualne lub dla całego zespołu. Konfiguracja komputera lub telefonu, żeby kontrolować koparkę na odległość? Nie ma sprawy!"
-            margin="104px 0 0"
-          />
-        </Flex>
-      </SalesWrapper>
+        </ImageFlex>
+      </SalesMoreWrapperStyles>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          backgroundColor: "var(--faded-aqua)",
+          width: "100%",
+        }}
+      >
+        <SalesMoreWrapperStyles alignItems="center" equal margin="110px 102px">
+          <ImageFlex justifyContent="center">
+            <Img
+              fluid={data.datoCmsPageSale.multipleCryptocurrenciesImg.fluid}
+              alt={data.datoCmsPageSale.multipleCryptocurrenciesImg.alt}
+            />
+          </ImageFlex>
+          <SecondFlex direction="column">
+            <Text
+              as="h3"
+              margin="15px 0 0 0"
+              fontSize="22px !important"
+              fontWeight="600"
+              color="var(--headers-color)"
+              lineHeight="normal"
+            >
+              Wiele walut do wydobycia
+            </Text>
+            <Text
+              fontSize="16px"
+              margin="25px 0 0"
+              lineHeight="normal"
+              fontWeight="400"
+              color="var(--body-text)"
+            >
+              Na naszym sprzęcie można kopać między innymi Ethereum (ETH),
+              EtherumClassic (ETC), Nicehash, Ravencoin (RVN), GrinCoin (GRIN)
+              czy Bittube (TUBE). Nie wiesz, od czego zacząć, czy inwestować
+              w&nbsp;stary, dobry Bitcoin czy może modne Ethereum? Zapytaj nas o
+              to. Powiemy wszystko, co wiemy!
+            </Text>
+          </SecondFlex>
+        </SalesMoreWrapperStyles>
+      </div>
     </Container>
   )
 }

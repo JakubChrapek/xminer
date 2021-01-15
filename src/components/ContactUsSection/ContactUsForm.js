@@ -6,6 +6,7 @@ import styled, { css } from "styled-components"
 import { AnimatePresence, motion } from "framer-motion"
 import { fadeInUp } from "../Styles/Animations"
 import { Link } from "gatsby"
+import useWindowSize from "../../utils/UseWindowSize"
 
 const IconUser = () => (
   <svg
@@ -90,13 +91,20 @@ const FormStyles = styled(Form)`
     font-family: "Poppins";
     font-weight: 300;
     &::placeholder {
-      color: var(--gray300);
+      color: var(--text-privacy);
       font-family: "Poppins";
       font-weight: 300;
       opacity: 1;
       letter-spacing: 0;
       font-size: 18px;
       line-height: 1.76em;
+    }
+    @media only screen and (max-width: 740px) {
+      padding: 16px 44px 16px 16px;
+      font-size: 16px;
+      &::placeholder {
+        font-size: 16px;
+      }
     }
 
     :hover {
@@ -136,7 +144,7 @@ const FormStyles = styled(Form)`
   }
 `
 
-const FieldWrapper = styled.div`
+export const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: ${({ flex }) => (flex ? flex : "1")};
@@ -194,6 +202,7 @@ const FieldWrapper = styled.div`
       margin-left: 26px;
       align-items: center;
       letter-spacing: 0.25px;
+      margin-top: 24px;
       font-size: 12px;
       position: relative;
       &:hover {
@@ -283,6 +292,9 @@ const FieldWrapper = styled.div`
   svg {
     top: 3px;
     right: 10px;
+    @media only screen and (max-width: 740px) {
+      top: 10px;
+    }
     stroke: #fff;
     fill: none;
     stroke-width: 1px;
@@ -297,7 +309,7 @@ const FieldWrapper = styled.div`
   }
 `
 
-const Message = styled(motion.p)`
+export const Message = styled(motion.p)`
   /* margin-top: 12px; */
   font-size: 12px;
   font-weight: normal;
@@ -315,7 +327,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
   const [messageError, setMessageError] = useState(false)
   const [privacyError, setPrivacyError] = useState(false)
   const [feedbackMsg, setFeedbackMsg] = useState(null)
-
+  const currentWidth = useWindowSize()
   return (
     <Flex
       padding={vertical && "40px 65px"}
@@ -366,10 +378,20 @@ const ContactUsForm = ({ vertical, bg, width }) => {
       >
         {({ isSubmitting, errors, values, touched, setFieldTouched }) => (
           <FormStyles vertical={vertical}>
-            <Flex width="100%" flexWrap={vertical && "wrap"}>
+            <Flex
+              direction={currentWidth < 640 && "column"}
+              width="100%"
+              flexWrap={vertical && "wrap"}
+            >
               <FieldWrapper
                 width={vertical && "100%"}
-                margin={vertical ? "32px 0 0 0" : "0 15px 0 0"}
+                margin={
+                  currentWidth < 640
+                    ? "0"
+                    : vertical
+                    ? "32px 0 0 0"
+                    : "0 15px 0 0"
+                }
                 flex={vertical && "unset"}
               >
                 <label htmlFor="name">Imię</label>
@@ -402,7 +424,13 @@ const ContactUsForm = ({ vertical, bg, width }) => {
 
               <FieldWrapper
                 width={vertical && "100%"}
-                margin={vertical ? "32px 0 0 0" : "0 0 0 15px"}
+                margin={
+                  currentWidth < 640
+                    ? "40px 0 0"
+                    : vertical
+                    ? "32px 0 0 0"
+                    : "0 0 0 15px"
+                }
                 flex={vertical && "unset"}
               >
                 <label htmlFor="email">Imię</label>
@@ -411,7 +439,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   type="email"
                   name="email"
                   autoComplete="off"
-                  placeholder="E-mail"
+                  placeholder="Email"
                   className={emailError ? "error" : ""}
                 />
                 <AnimatePresence exitBeforeEnter>
@@ -433,18 +461,28 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                 <IconMail />
               </FieldWrapper>
             </Flex>
-            <Flex width="100%" flexWrap={vertical && "wrap"}>
+            <Flex
+              width="100%"
+              flexWrap={currentWidth < 640 || vertical ? "wrap" : ""}
+            >
               <FieldWrapper
-                flex={vertical ? "unset" : "2"}
-                width={vertical && "100%"}
-                margin={vertical ? "32px 0 0 0" : "45px 15px 0 0"}
+                flex={currentWidth < 640 || vertical ? "unset" : "2"}
+                width={currentWidth < 640 || vertical ? "100%" : ""}
+                margin={
+                  currentWidth < 640
+                    ? "40px 0 0"
+                    : vertical
+                    ? "32px 0 0 0"
+                    : "45px 15px 0 0"
+                }
               >
-                <label htmlFor="message">Twoja wiadomość</label>
+                <label htmlFor="message">Wiadomość</label>
                 <Field
                   as="textarea"
                   type="textarea"
                   name="message"
-                  placeholder="Twoja wiadomość"
+                  rows={width < 640 && "4"}
+                  placeholder="Wiadomość"
                   className={messageError ? "error" : ""}
                 />
                 <AnimatePresence exitBeforeEnter>
@@ -465,12 +503,18 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                 </AnimatePresence>
                 <IconEdit />
               </FieldWrapper>
-              {vertical && (
+              {(currentWidth < 640 || vertical) && (
                 <FieldWrapper
                   flex={vertical ? "unset" : "2"}
-                  width={vertical && "100%"}
-                  order={vertical && "1"}
-                  margin={vertical ? "36px 0 0" : "18px 0 0"}
+                  width={currentWidth < 640 || vertical ? "100%" : ""}
+                  order={currentWidth < 640 || vertical ? "1" : ""}
+                  margin={
+                    currentWidth < 640
+                      ? "40px 0 0"
+                      : vertical
+                      ? "36px 0 0"
+                      : "18px 0 0"
+                  }
                   privacy
                 >
                   <Field
@@ -505,10 +549,16 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                 </FieldWrapper>
               )}
               <FieldWrapper
-                flex={vertical ? "unset" : "1"}
-                width={vertical && "100%"}
-                margin={vertical ? "32px 0 0 0" : "45px 0 0 15px"}
-                alignItems={vertical && "center"}
+                flex={currentWidth < 640 || vertical ? "unset" : "1"}
+                width={currentWidth < 640 || vertical ? "100%" : ""}
+                margin={
+                  currentWidth < 640
+                    ? "40px 0 0"
+                    : vertical
+                    ? "32px 0 0 0"
+                    : "45px 0 0 15px"
+                }
+                alignItems={currentWidth < 640 || vertical ? "center" : ""}
               >
                 <Button
                   whileHover={{ scale: 1.05 }}
@@ -518,52 +568,13 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   disabled={isSubmitting}
                   radius="16px"
                   margin={vertical && "38px 0 0"}
-                  width={vertical && "170px"}
+                  width={currentWidth < 640 || vertical ? "170px" : ""}
                   bg="linear-gradient(90deg, rgba(41,171,226,1) 0%, rgba(46,197,206,1) 25%, rgba(123,221,230,1) 50%, rgba(46,197,206,1) 75%, rgba(41,171,226,1) 100%)"
                 >
                   Wyślij
                 </Button>
               </FieldWrapper>
             </Flex>
-            {!vertical && (
-              <FieldWrapper
-                flex={vertical ? "unset" : "2"}
-                width={vertical && "100%"}
-                order={vertical && "1"}
-                margin="18px 0 0"
-                privacy
-              >
-                <Field
-                  type="checkbox"
-                  name="privacy"
-                  id="privacy"
-                  placeholder="Przeczytałem/łam i zgadzam się z
-              polityką prywatności"
-                  className={privacyError ? "error" : ""}
-                />
-                <label className="privacy" htmlFor="privacy">
-                  Przeczytałem/łam i zgadzam się z&nbsp;
-                  <Link to="/polityka-prywatnosci">polityką prywatności</Link>
-                </label>
-                <AnimatePresence exitBeforeEnter>
-                  {errors.privacy && touched.privacy && (
-                    <motion.div
-                      variants={fadeInUp}
-                      initial="initial"
-                      animate="animate"
-                      exit="exit"
-                      className="privacy"
-                    >
-                      <ErrorMessage
-                        name="privacy"
-                        component="p"
-                        className="error"
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </FieldWrapper>
-            )}
             <AnimatePresence>
               {feedbackMsg && (
                 <Message

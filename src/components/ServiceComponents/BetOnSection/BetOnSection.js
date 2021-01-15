@@ -72,6 +72,7 @@ const BetOnSection = () => {
             letterSpacing="1px"
             lineHeight="normal"
             fontWeight="400"
+            color="var(--headers-color)"
           >
             Postaw na
           </Text>
@@ -81,6 +82,7 @@ const BetOnSection = () => {
             lineHeight="1.33em"
             fontWeight="600"
             margin="12px 0 0"
+            color="var(--headers-color)"
           >
             Bezpieczeństwo
           </Text>
@@ -89,6 +91,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="400"
             margin="20px 0 0"
+            color="var(--body-text)"
           >
             Nasza oferta jest skierowana dla inwestorów z&nbsp;całej Polski.
           </Text>
@@ -97,6 +100,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="400"
             margin="32px 0 0"
+            color="var(--body-text)"
           >
             Nasze kontenery są zabezpieczone: system alarmowy, montoring wideo
             i&nbsp;zdalny podgląd 24/h zapewnia bezpieczeństwo dla każdej
@@ -107,6 +111,7 @@ const BetOnSection = () => {
             lineHeight="1.63em"
             fontWeight="400"
             margin="32px 0 0"
+            color="var(--body-text)"
           >
             Nieuprawniony dostęp? Patrol interwencyjny na miejscu. Zdarzenia
             losowe? Mamy ubezpieczenie i&nbsp;od kradzieży, i&nbsp;od wypadków.
@@ -127,6 +132,7 @@ const BetOnSection = () => {
             lineHeight="normal"
             maxwidth="286px"
             fontWeight="400"
+            color="var(--headers-color)"
           >
             Co zyskujesz?
           </Text>
@@ -136,6 +142,7 @@ const BetOnSection = () => {
             fontWeight="400"
             margin="12px 0 0"
             maxwidth={width > 640 ? "286px" : "unset"}
+            color="var(--body-text)"
           >
             Oddając swoją maszynę pod opiekę Xminer, oszczędzasz nie tylko na
             energii elektrycznej, ale i&nbsp;po prostu&nbsp;-&nbsp;zapewniasz
@@ -147,6 +154,7 @@ const BetOnSection = () => {
             fontWeight="400"
             margin="32px 0 0"
             maxwidth="286px"
+            color="var(--body-text)"
           >
             A to jest ważne!
           </Text>

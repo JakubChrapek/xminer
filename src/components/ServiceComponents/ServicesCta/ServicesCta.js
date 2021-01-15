@@ -45,7 +45,7 @@ export const FirstFlex = styled(StyledFlex)`
   h3,
   p,
   a {
-    margin-right: 40px;
+    margin-right: ${({ marginRight }) => (marginRight ? marginRight : "40px")};
   }
 
   @media only screen and (max-width: 1264px) {
@@ -58,7 +58,8 @@ export const FirstFlex = styled(StyledFlex)`
     h3,
     p,
     a {
-      margin-right: 30px;
+      margin-right: ${({ marginRight }) =>
+        marginRight ? marginRight : "40px"};
     }
     h3 {
       font-size: 32px;
@@ -127,7 +128,7 @@ export const SecondFlex = styled(FirstFlex)`
   }
 `
 
-const ImageFlex = styled(StyledFlex)`
+export const ImageFlex = styled(StyledFlex)`
   @media only screen and (max-width: 1080px) {
     margin-left: 0 !important;
     margin-right: 0 !important;

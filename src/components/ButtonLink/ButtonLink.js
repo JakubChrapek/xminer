@@ -33,7 +33,7 @@ const ButtonLinkStyles = styled(motion.span)`
         `
       : css`
           font-size: 20px;
-          font-weight: 500;
+          font-weight: 400;
           padding: 21px 22px;
         `}
 

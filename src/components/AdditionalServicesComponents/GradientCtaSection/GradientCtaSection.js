@@ -10,17 +10,18 @@ import { WrapperStyles } from "../../Wrapper/Wrapper"
 const GradientWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 1182px) {
     margin: 118px 30px 54px;
-    span {
+    h2 {
       font-size: 40px;
     }
   }
   @media only screen and (max-width: 960px) {
-    span {
+    margin: 118px 48px 100px;
+    h2 {
       font-size: 32px;
     }
   }
   @media only screen and (max-width: 640px) {
-    span {
+    h2 {
       font-size: 24px;
     }
 
@@ -29,7 +30,7 @@ const GradientWrapperStyles = styled(WrapperStyles)`
     }
   }
   @media only screen and (max-width: 360px) {
-    span {
+    h2 {
       margin: 6px -15px 20px;
     }
   }
@@ -51,7 +52,7 @@ const GradientCtaSection = ({
       margin={margin}
       bg="linear-gradient(135deg, #29abe2, rgba(255, 255, 255, 0)), linear-gradient(to bottom, var(--primary), var(--primary))"
     >
-      <GradientWrapperStyles margin="64px 40px 44px">
+      <GradientWrapperStyles margin="109px 40px 50px">
         <Flex width="100%" direction="column" alignItems="center">
           {title && (
             <Text
@@ -66,7 +67,7 @@ const GradientCtaSection = ({
           )}
           {subtitle && (
             <Text
-              as="span"
+              as="h2"
               color="var(--faded-aqua)"
               fontSize="48px"
               fontWeight="500"
@@ -109,7 +110,7 @@ const GradientCtaSection = ({
             <ButtonLink
               margin={btnMargin ? btnMargin : "30px 0 0"}
               bg="var(--white)"
-              color="var(--nav-dark-bluse)"
+              color="var(--headers-color)"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               maxwidth="80vw"

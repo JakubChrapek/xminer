@@ -3,14 +3,34 @@ import Container from "../../../Container/Container"
 import Flex from "../../../Flex/Flex"
 import Text from "../../../Text/Text"
 import Button from "../../../Button/Button"
-import Wrapper from "../../../Wrapper/Wrapper"
+import { WrapperStyles } from "../../../Wrapper/Wrapper"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
+import styled from "styled-components"
+import useWindowSize from "../../../../utils/UseWindowSize"
+
+const WhoWrapperStyles = styled(WrapperStyles)`
+  margin: 120px 122px 0;
+  @media only screen and (max-width: 1182px) {
+    margin: 90px 122px 0;
+  }
+  @media only screen and (max-width: 740px) {
+    margin: 50px 30px 0;
+  }
+  @media only screen and (max-width: 740px) {
+    margin: 21px 30px 0;
+  }
+`
 
 const WhoWillTeachYouSection = () => {
+  const width = useWindowSize()
   return (
     <Container>
-      <Wrapper margin="60px 122px 0">
-        <Flex width="100%" alignItems="center" direction="column">
+      <WhoWrapperStyles margin="60px 122px 0">
+        <Flex
+          width="100%"
+          alignItems={width > 740 ? "center" : "flex-start"}
+          direction="column"
+        >
           <Text
             fontSize="10px"
             fontWeight="normal"
@@ -18,16 +38,14 @@ const WhoWillTeachYouSection = () => {
             lineHeight="normal"
             letterSpacing="1px"
             textTransform="uppercase"
-            textAlign="center"
-            maxwidth="707px"
+            textAlign={width > 740 ? "center" : "left"}
           >
             Nasi eksperci
           </Text>
           <Text
-            fontSize="48px"
+            fontSize={width > 1182 ? "48px" : width > 740 ? "40px" : "24px"}
             fontWeight="600"
-            textAlign="center"
-            maxwidth="707px"
+            textAlign={width > 740 ? "center" : "left"}
             margin="8px 0 0"
           >
             Kto będzie Cię szkolił?
@@ -37,22 +55,28 @@ const WhoWillTeachYouSection = () => {
             fontWeight="300"
             lineHeight="1.67em"
             margin="24px 0 0"
-            textAlign="center"
-            maxwidth="707px"
+            textAlign={width > 740 ? "center" : "left"}
+            color="var(--body-text)"
           >
-            Za szkolenia w Xminer odpowiada Łukasz Botorek - nasz specjalista i
-            CEO, który nie tylko posiada ogromną wiedzę o inwestowaniu, ale i
-            potrafi ją przekazać nawet opornym. Ostrzegamy lojalnie, że
-            spotkanie z tym człowiekiem zazwyczaj kończy się olśnieniem i
-            kryptowalutową zajawką, która trwa latami. Masz ochotę na próbkę?
-            Zapraszamy na naszego bloga!
+            Za szkolenia w&nbsp;Xminer odpowiada Łukasz Botorek -&nbsp;nasz
+            specjalista i&nbsp;CEO, który nie tylko posiada ogromną wiedzę
+            o&nbsp;inwestowaniu, ale i&nbsp;potrafi ją przekazać nawet opornym.
+            Ostrzegamy lojalnie, że spotkanie z&nbsp;tym człowiekiem zazwyczaj
+            kończy się olśnieniem i&nbsp;kryptowalutową zajawką, która trwa
+            latami. Masz ochotę na próbkę? Zapraszamy na naszego bloga!
           </Text>
-          <Flex margin="50px 0 0">
+          <Flex
+            margin="50px 0 0"
+            width="100%"
+            justifyContent="center"
+            alignItems={width > 640 ? "" : "center"}
+            direction={width > 640 ? "row" : "column"}
+          >
             <ButtonLink
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               bg="var(--primary)"
-              margin="0 10px 0 0"
+              margin={width > 640 ? "0 10px 0 0" : "0"}
               to="/blog"
               width="200px"
             >
@@ -64,7 +88,7 @@ const WhoWillTeachYouSection = () => {
               bg="transparent"
               color="var(--primary)"
               border="1px solid var(--primary)"
-              margin="0 0px 0 10px"
+              margin={width > 640 ? "0 0px 0 10px" : "30px 0 0"}
               to="/o-xminer"
               width="200px"
             >
@@ -72,7 +96,7 @@ const WhoWillTeachYouSection = () => {
             </ButtonLink>
           </Flex>
         </Flex>
-      </Wrapper>
+      </WhoWrapperStyles>
     </Container>
   )
 }

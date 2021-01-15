@@ -44,11 +44,22 @@ const FeatureParagraph = ({
         <ImgWrapper iconBg={iconBg}>
           <ImgStyles src={icon} alt={iconAlt} />
         </ImgWrapper>
-        <Text as="h3" fontSize="22px" lineHeight="normal" fontWeight="600">
+        <Text
+          color="var(--headers-color)"
+          as="h3"
+          fontSize="22px"
+          lineHeight="normal"
+          fontWeight="600"
+        >
           {title}
         </Text>
       </Flex>
-      <Text margin="0 0 0 2px" fontSize="18px" lineHeight="1.67em">
+      <Text
+        color="var(--body-text)"
+        margin="0 0 0 2px"
+        fontSize="18px"
+        lineHeight="1.67em"
+      >
         {content}
       </Text>
     </FeatureStyles>
