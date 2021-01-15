@@ -42,7 +42,7 @@ const DetailsStyles = styled(motion.p)`
       position: absolute;
       left: 0px;
       bottom: 0px;
-      background-color: var(--primary);
+      background-color: var(--secondary);
       height: 2px;
       width: 100%;
       transform: scaleX(0);
@@ -56,13 +56,13 @@ const DetailsStyles = styled(motion.p)`
     &:active,
     &[aria-current] {
       outline: none;
-      color: var(--primary);
+      color: var(--secondary);
       &:after {
         transform: scaleX(1);
       }
     }
     &:focus-visible {
-      outline: 2px solid var(--primary);
+      outline: 2px solid var(--secondary);
       outline-offset: 6px;
     }
   }

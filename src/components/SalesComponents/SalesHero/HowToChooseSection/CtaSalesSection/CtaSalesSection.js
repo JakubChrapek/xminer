@@ -30,7 +30,7 @@ const CtaSalesSection = () => {
           </Text>
           <ButtonLink
             bg="var(--white)"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             to="/uslugi-dodatkowe"

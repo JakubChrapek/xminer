@@ -21,7 +21,7 @@ const SalesHero = () => {
           <Text
             as="h2"
             fontSize="10px"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"

@@ -150,13 +150,14 @@ const Columns = styled.div`
       position: relative;
       padding: 6px 10px;
       font-weight: 300;
+      transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
       &:after {
         content: "";
         position: absolute;
         left: 10px;
         bottom: 0px;
-        background-color: var(--primary);
+        background-color: var(--secondary);
         height: 2px;
         width: calc(100% - 20px);
         transform: scaleX(0);
@@ -168,17 +169,21 @@ const Columns = styled.div`
         content: none;
       }
       &:hover,
-      &.active,
       &:focus,
       &:active,
+      &.active,
       &[aria-current] {
         outline: none;
         &:after {
           transform: scaleX(1);
         }
       }
+      &.active,
+      &[aria-current] {
+        color: var(--secondary);
+      }
       &:focus-visible {
-        outline: 2px solid var(--primary);
+        outline: 2px solid var(--secondary);
         outline-offset: 6px;
       }
 
@@ -238,7 +243,7 @@ const Copyrights = styled.div`
       position: absolute;
       left: 4px;
       bottom: 0px;
-      background-color: var(--primary);
+      background-color: var(--secondary);
       height: 2px;
       width: calc(100% - 8px);
       transform: scaleX(0);
@@ -260,7 +265,7 @@ const Copyrights = styled.div`
       }
     }
     &:focus-visible {
-      outline: 2px solid var(--primary);
+      outline: 2px solid var(--secondary);
       outline-offset: 6px;
     }
   }

@@ -47,13 +47,15 @@ const AdditionalCtaSection = () => {
   const width = useWindowSize()
   const data = useStaticQuery(graphql`
     query additionalServicesQuery {
-      datoCmsStronaKolokacja {
-        wantMoreImg {
+      datoCmsPageAdditionalService {
+        allInOfferImg {
+          alt
           fluid {
             ...GatsbyDatoCmsFluid
           }
         }
-        rigMgmtImg {
+        contactWithSpecialistImg {
+          alt
           fluid {
             ...GatsbyDatoCmsFluid
           }
@@ -108,16 +110,18 @@ const AdditionalCtaSection = () => {
         </FirstFlex>
         <ImageFlex justifyContent="center">
           <Img
-            fluid={data.datoCmsStronaKolokacja.wantMoreImg.fluid}
-            alt={data.datoCmsStronaKolokacja.wantMoreImg.alt}
+            fluid={data.datoCmsPageAdditionalService.allInOfferImg.fluid}
+            alt={data.datoCmsPageAdditionalService.allInOfferImg.alt}
           />
         </ImageFlex>
       </MoreWrapperStyles>
       <AdditionalWrapperStyles equal margin="47px 102px 0">
         <ImageFlex justifyContent="center">
           <Img
-            fluid={data.datoCmsStronaKolokacja.rigMgmtImg.fluid}
-            alt={data.datoCmsStronaKolokacja.rigMgmtImg.alt}
+            fluid={
+              data.datoCmsPageAdditionalService.contactWithSpecialistImg.fluid
+            }
+            alt={data.datoCmsPageAdditionalService.contactWithSpecialistImg.alt}
           />
         </ImageFlex>
         <SecondFlex direction="column">

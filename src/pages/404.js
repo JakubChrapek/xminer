@@ -1421,7 +1421,7 @@ const FourOFourPage = () => {
               lineHeight="normal"
               fontWeight="normal"
               textTransform="uppercase"
-              color={"var(--nav-dark-bluse)"}
+              color={"var(--headers-color)"}
               letterSpacing="1px"
             >
               O nie!

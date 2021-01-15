@@ -6,7 +6,10 @@ import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/Bl
 
 import SEO from "../components/SEO/SEO"
 
-const ForBeginners = () => {
+const ForBeginners = ({ data }) => {
+  const {
+    allDatoCmsPost: { totalCount, nodes: posts },
+  } = data
   return (
     <>
       <SEO title="Dla początkujących" />
@@ -14,6 +17,8 @@ const ForBeginners = () => {
       <DarkSection />
       <WhySection />
       <BlogSection
+        posts={posts}
+        totalCount={totalCount}
         title="Blog"
         subtitle="Więcej znajdziesz tutaj"
         padding="0 122px 65px"
@@ -21,5 +26,28 @@ const ForBeginners = () => {
     </>
   )
 }
+
+export const forBeginnersQuery = graphql`
+  query forBeginnersQuery {
+    allDatoCmsPost(limit: 3, sort: { fields: date, order: DESC }) {
+      totalCount
+      nodes {
+        title
+        postCategory {
+          categoryName
+        }
+        date
+        readingTime
+        id
+        slug
+        coverImage {
+          fluid(maxWidth: 360) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
+  }
+`
 
 export default ForBeginners

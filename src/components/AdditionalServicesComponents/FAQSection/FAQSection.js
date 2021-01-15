@@ -19,12 +19,12 @@ const FaqWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 640px) {
     margin: 70px 30px 100px;
     h3 {
-      font-size: 32px;
+      font-size: 24px;
     }
 
     span,
     h3 {
-      align-self: center;
+      align-self: flex-start;
     }
   }
 `
@@ -138,6 +138,10 @@ const FaqStyles = styled.ul`
         color: var(--body-text);
         margin-bottom: 20px;
       }
+    }
+    span,
+    h3 {
+      align-self: center;
     }
   }
 `
@@ -281,7 +285,7 @@ const FAQSection = () => {
             lineHeight="normal"
             textTransform="uppercase"
             fontWeight="normal"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
           >
             Masz pytania?
           </Text>
@@ -291,6 +295,7 @@ const FAQSection = () => {
             fontWeight="600"
             lineHeight="normal"
             margin="10px 0 0"
+            color="var(--headers-color)"
           >
             Sprawdź nasze FAQ
           </Text>

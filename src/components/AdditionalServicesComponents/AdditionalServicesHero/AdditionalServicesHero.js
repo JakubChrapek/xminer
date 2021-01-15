@@ -12,7 +12,7 @@ const AdditionalServicesHero = () => {
         <div>
           <Text
             fontSize="10px"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"

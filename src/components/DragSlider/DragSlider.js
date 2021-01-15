@@ -72,11 +72,11 @@ export const DragSlider = ({
         <Slider
           ref={ref}
           drag="x"
-          initial={{ x: 0 }}
+          initial={{ x: 30 }}
           style={{ x }}
           dragConstraints={{
             left: -sliderConstraints - (leftAnchor || 75),
-            right: 0,
+            right: 30,
           }}
           dragTransition={{ bounceStiffness, bounceDamping }}
         >

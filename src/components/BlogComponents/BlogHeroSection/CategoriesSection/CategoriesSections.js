@@ -140,14 +140,14 @@ const ActiveArticlesStyles = styled(motion.div)`
 
       &:focus-visible {
         h3 {
-          outline: 2px solid var(--primary);
+          outline: 2px solid var(--secondary);
           outline-offset: 6px;
         }
       }
 
       &:hover {
         h3 {
-          color: var(--primary);
+          color: var(--secondary);
           &:after {
             transform: scaleX(1);
           }
@@ -162,7 +162,7 @@ const ActiveArticlesStyles = styled(motion.div)`
           position: absolute;
           left: 0px;
           bottom: -2px;
-          background-color: var(--primary);
+          background-color: var(--secondary);
           height: 2px;
           width: calc(100%);
           transform: scaleX(0);

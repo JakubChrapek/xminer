@@ -24,7 +24,7 @@ const ContactUsSection = ({
             lineHeight="normal"
             fontWeight="normal"
             textTransform="uppercase"
-            color={bg ? "var(--nav-dark-bluse)" : "var(--white)"}
+            color={bg ? "var(--headers-color)" : "var(--white)"}
             letterSpacing="1px"
           >
             {title}

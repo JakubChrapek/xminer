@@ -39,14 +39,14 @@ const FeaturedArticleStyles = styled.article`
 
     &:focus-visible {
       h2 {
-        outline: 2px solid var(--primary);
+        outline: 2px solid var(--secondary);
         outline-offset: 6px;
       }
     }
 
     &:hover {
       h2 {
-        color: var(--primary);
+        color: var(--secondary);
         &:after {
           transform: scaleX(1);
         }
@@ -61,7 +61,7 @@ const FeaturedArticleStyles = styled.article`
         position: absolute;
         left: 0px;
         bottom: -2px;
-        background-color: var(--primary);
+        background-color: var(--secondary);
         height: 2px;
         width: calc(100%);
         transform: scaleX(0);
@@ -192,7 +192,7 @@ const RecommendedArticlesStyles = styled.div`
         position: absolute;
         left: 0px;
         bottom: -2px;
-        background-color: var(--primary);
+        background-color: var(--secondary);
         height: 2px;
         width: 100%;
         transform: scaleX(0);
@@ -206,17 +206,17 @@ const RecommendedArticlesStyles = styled.div`
       &:active,
       &[aria-current] {
         outline: none;
-        color: var(--primary);
+        color: var(--secondary);
         &:after {
           transform: scaleX(1);
         }
       }
       &:focus-visible {
-        outline: 2px solid var(--primary);
+        outline: 2px solid var(--secondary);
         outline-offset: 6px;
       }
       &:hover p {
-        color: var(--primary);
+        color: var(--secondary);
       }
       p {
         display: inline-block;

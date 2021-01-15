@@ -14,7 +14,7 @@ const WhoWillTeachYouSection = () => {
           <Text
             fontSize="10px"
             fontWeight="normal"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
             lineHeight="normal"
             letterSpacing="1px"
             textTransform="uppercase"

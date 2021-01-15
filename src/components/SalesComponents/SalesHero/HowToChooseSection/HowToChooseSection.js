@@ -19,7 +19,7 @@ const HowToChooseSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
           >
             Sprawdź
           </Text>
@@ -64,7 +64,7 @@ const HowToChooseSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
           >
             Twoja kryptokoparka
           </Text>

@@ -4,7 +4,7 @@ import ContactUsSection from "../components/ContactUsSection/ContactUsSection"
 const ContactPage = () => (
   <ContactUsSection
     bg="var(--white)"
-    bgForm="var(--nav-dark-bluse)"
+    bgForm="var(--headers-color)"
     verticalForm="vertical"
     margin="246px 158px 125px 122px"
     title="Kontakt"

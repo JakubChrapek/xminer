@@ -18,7 +18,7 @@ const PrivacyPolicySection = ({ bg, margin, title, subtitle, content }) => {
             letterSpacing="1px"
             dangerously={title}
             textAlign="left"
-            color="var(--nav-dark-bluse)"
+            color="var(--headers-color)"
             style={{ alignSelf: "flex-start" }}
           />
           <Text

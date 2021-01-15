@@ -73,7 +73,7 @@ const SubnavWrapper = styled(motion.div)`
 
   h3 {
     margin: 0 0 12px 20px;
-    color: var(--nav-dark-bluse);
+    color: var(--headers-color);
     font-size: 20px;
     line-height: 1.5em;
     font-weight: 500;
@@ -96,7 +96,7 @@ const StyledColumn = styled(motion.ul)`
       font-weight: 400;
 
       &:after {
-        background-color: var(--nav-dark-bluse);
+        background-color: var(--secondary);
       }
     }
   }
@@ -613,13 +613,14 @@ const HeaderStyles = styled(motion.header)`
     justify-content: center;
     align-items: center;
     position: relative;
+    transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
     &:after {
       content: "";
       position: absolute;
       left: 20px;
       bottom: 0px;
-      background-color: var(--primary);
+      background-color: var(--secondary);
       height: 2px;
       width: calc(100% - 40px);
       transform: scaleX(0);
@@ -631,17 +632,24 @@ const HeaderStyles = styled(motion.header)`
       content: none;
     }
     &:hover,
-    &.active,
     &:focus,
     &:active,
+    &.active,
     &[aria-current] {
       outline: none;
       &:after {
         transform: scaleX(1);
       }
     }
+    &.active,
+    &[aria-current] {
+      color: var(--secondary);
+      &:after {
+        transform: scaleX(1);
+      }
+    }
     &:focus-visible {
-      outline: 2px solid var(--primary);
+      outline: 2px solid var(--secondary);
       outline-offset: 6px;
     }
   }

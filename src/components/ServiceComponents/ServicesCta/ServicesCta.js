@@ -140,11 +140,13 @@ const ServicesCta = () => {
     query servicesQuery {
       datoCmsStronaKolokacja {
         wantMoreImg {
+          alt
           fluid {
             ...GatsbyDatoCmsFluid
           }
         }
         rigMgmtImg {
+          alt
           fluid {
             ...GatsbyDatoCmsFluid
           }
