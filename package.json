@@ -34,7 +34,8 @@
     "react-intersection-observer": "^8.31.0",
     "react-use": "^15.3.8",
     "slugify": "^1.4.6",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "yup": "^0.32.8"
   },
   "devDependencies": {
     "gatsby-omni-font-loader": "^1.1.2",
