@@ -1,7 +1,8 @@
+import { motion } from "framer-motion"
 import React from "react"
 import styled from "styled-components"
 
-export const StyledFlex = styled.div`
+export const StyledFlex = styled(motion.div)`
   display: flex;
   flex-direction: ${({ direction }) => (direction ? direction : "")};
   justify-content: ${({ justifyContent }) =>
@@ -24,6 +25,7 @@ const Flex = ({
   margin,
   flex,
   padding,
+  layout,
   radius,
   bg,
   flexWrap,
@@ -35,6 +37,7 @@ const Flex = ({
       width={width}
       direction={direction}
       margin={margin}
+      layout={layout}
       flex={flex}
       bg={bg}
       padding={padding}

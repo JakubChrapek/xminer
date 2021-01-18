@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import Container from "../../../Container/Container"
 import { StyledFlex } from "../../../Flex/Flex"
@@ -6,7 +6,7 @@ import Text from "../../../Text/Text"
 import { WrapperStyles } from "../../../Wrapper/Wrapper"
 import TapIcon from "../../../../images/ico-tap.svg"
 import LifecycleIcon from "../../../../images/ico-lifecycle.svg"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion"
 import * as Yup from "yup"
 import { Formik, Form, useField, useFormikContext } from "formik"
 
@@ -14,18 +14,22 @@ import Button from "../../../Button/Button"
 import { Step1, Step2, Step3, Step4 } from "./Steps"
 import { staggerContainer, textFadeInUp } from "../../../Styles/Animations"
 import { graphql, useStaticQuery } from "gatsby"
+import useWindowSize from "../../../../utils/UseWindowSize"
 
 const RocketStyles = styled(motion.svg)`
   fill: var(--primary);
-  width: 150px;
-  height: 150px;
+  width: 80px;
+  height: 80px;
+  position: absolute;
 `
 
-const RocketIcon = () => (
+const RocketIcon = ({ setReset, handleReset }) => (
   <RocketStyles
-    initial={{ opacity: 0, x: -500, y: 300 }}
-    animate={{ opacity: 1, x: 0, y: 0 }}
-    exit={{ opacity: 0, x: 500, y: -300 }}
+    initial={{ opacity: 0, x: -120, y: 260 }}
+    animate={{ opacity: [0, 1, 0], x: [-120, 120, 360], y: [500, 100, -300] }}
+    exit={{ opacity: 0, x: 320, y: -60 }}
+    transition={{ duration: 2.6, ease: [0.6, 0.01, -0.05, 0.9] }}
+    onAnimationComplete={() => setTimeout(() => handleReset(), 2000)}
     width="36"
     height="37"
     viewBox="0 0 36 37"
@@ -61,18 +65,36 @@ const ConfiguratorWrapperStyles = styled(WrapperStyles)`
   padding: 126px 204px 220px 102px;
   width: 100%;
 
+  @media only screen and (max-width: 1423px) {
+    padding: 120px 130px 200px 80px;
+  }
+  @media only screen and (max-width: 1002px) {
+    padding: 80px 30px 180px;
+  }
+
   .top-line {
     background-color: var(--light-aqua);
     width: calc(100% - 7px);
     height: 1px;
     margin: 36px 0 0 7px;
     opacity: 0.2;
+    @media only screen and (max-width: 1002px) {
+      width: calc(100% + 60px);
+      position: relative;
+      margin: 40px 0 0;
+      left: -30px;
+    }
   }
 
   .grid {
     display: grid;
     grid-template-columns: 286px 1fr;
     width: 100%;
+    position: relative;
+    @media only screen and (max-width: 1002px) {
+      grid-template-columns: 1fr;
+      margin-top: -10px;
+    }
   }
 `
 
@@ -85,6 +107,7 @@ const StepsStyles = styled(motion.ul)`
   flex-direction: column;
   padding-top: 9px;
   border-right: 1px solid rgba(205, 239, 241, 0.2);
+
   li {
     display: flex;
     align-items: center;
@@ -110,6 +133,25 @@ const StepsStyles = styled(motion.ul)`
       background-color: var(--primary);
     }
   }
+  @media only screen and (max-width: 1002px) {
+    flex-direction: row;
+    justify-content: space-between;
+    border-right: none;
+
+    li {
+      padding: 0;
+      &:after {
+        left: 0;
+        right: unset;
+        width: 20px;
+        height: 20px;
+      }
+      &:last-of-type {
+        right: 14px;
+        left: unset;
+      }
+    }
+  }
 `
 
 const ImgWrapper = styled(motion.span)`
@@ -126,23 +168,30 @@ const ImgWrapper = styled(motion.span)`
   }
 `
 
-const StepsColumn = ({ items, activeStep, setActiveStep }) => (
-  <StepsStyles>
-    {items.map((item, i) => (
-      <li className={activeStep === i ? "active" : ""}>
-        <div>
-          <Text fontSize="18px" fontWeight="bold">
-            {item.stepTitle}
-          </Text>{" "}
-          <Text margin="12px 0 0" fontSize="13px" fontWeight="300">
-            {item.stepSubtitle}
-          </Text>
-        </div>
-        <ImgWrapper>{item.stepIcon}</ImgWrapper>
-      </li>
-    ))}
-  </StepsStyles>
-)
+const StepsColumn = ({ items, activeStep, setActiveStep }) => {
+  const width = useWindowSize()
+  return (
+    <StepsStyles>
+      {items.map((item, i) => (
+        <li className={activeStep === i ? "active" : ""}>
+          {width > 1002 && (
+            <>
+              <div>
+                <Text fontSize="18px" fontWeight="bold">
+                  {item.stepTitle}
+                </Text>{" "}
+                <Text margin="12px 0 0" fontSize="13px" fontWeight="300">
+                  {item.stepSubtitle}
+                </Text>
+              </div>
+              <ImgWrapper>{item.stepIcon}</ImgWrapper>
+            </>
+          )}
+        </li>
+      ))}
+    </StepsStyles>
+  )
+}
 
 const ActiveStepStyles = styled(motion.div)`
   padding: 38px 0 0 55px;
@@ -159,11 +208,27 @@ const ActiveStepStyles = styled(motion.div)`
     height: 100%;
     flex: 1;
     justify-content: space-between;
+    min-height: 312px;
+  }
+
+  @media only screen and (max-width: 1002px) {
+    padding: 30px 0 0;
+    > div:first-of-type {
+      padding-bottom: 32px;
+      border-bottom: none;
+    }
+    > div:last-of-type {
+      padding-top: 23px;
+      min-height: 551px;
+    }
   }
 `
 
 const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
+  const width = useWindowSize()
   const [success, setSuccess] = useState(false)
+  const [reset, setReset] = useState(false)
+  const formRef = useRef()
   const handleSubmit = (e, props) => {
     e.preventDefault()
     props.setSubmitting(true)
@@ -172,12 +237,15 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       console.log("PROPS: ", props)
       setSuccess(true)
       props.resetForm()
-      setTimeout(() => {
-        setActiveStep(0)
-        setSuccess(false)
-      }, 2000)
-    }, 2000)
+    }, 1000)
   }
+
+  const handleReset = () => {
+    setActiveStep(0)
+    setSuccess(false)
+    setReset(false)
+  }
+
   return (
     <Formik
       initialValues={{
@@ -213,7 +281,6 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       onSubmit={async (e, values, { setSubmitting }) => {
         // await new Promise(r => setTimeout(r, 500))
         e.preventDefault()
-        console.log("FORMIKOWY SUBMIT")
         setSubmitting(true)
         setTimeout(() => {
           setSubmitting(false)
@@ -221,126 +288,160 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       }}
     >
       {props => (
-        <form onReset={props.handleReset}>
+        <form ref={formRef} onReset={handleReset}>
           <ActiveStepStyles>
-            <StyledFlex direction="column">
-              <AnimatePresence exitBeforeEnter>
-                <Text
-                  margin="25px 0 0"
-                  fontSize="10px"
-                  textTransform="uppercase"
-                  fontWeight="400"
-                  letterSpacing="1px"
-                  color="var(--white)"
-                  variants={textFadeInUp}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  key={`step-${activeStep + 1}`}
-                >
-                  Krok <motion.span>{activeStep + 1}</motion.span>/
-                  {steps.length}
-                </Text>
-                <Text
-                  margin="19px 0 0"
-                  fontSize="24px"
-                  lineHeight="1.25em"
-                  fontWeight="600"
-                  color="var(--white)"
-                  variants={textFadeInUp}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  key={`firstline-${activeStep + 1}`}
-                >
-                  {steps[activeStep].firstLine}
-                </Text>
-                <Text
-                  margin="7px 0 0"
-                  fontSize="13px"
-                  lineHeight="normal"
-                  fontWeight="300"
-                  color="var(--white)"
-                  variants={textFadeInUp}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  key={`helperText-${activeStep + 1}`}
-                >
-                  {steps[activeStep].helperText}
-                </Text>
-              </AnimatePresence>
-            </StyledFlex>
-            <StyledFlex direction="column">
-              <AnimatePresence exitBeforeEnter>
-                {!success && (
+            <AnimateSharedLayout>
+              <StyledFlex layout key="flex-1" direction="column">
+                <AnimatePresence exitBeforeEnter>
+                  <Text
+                    margin="25px 0 0"
+                    fontSize="10px"
+                    textTransform="uppercase"
+                    fontWeight="400"
+                    letterSpacing="1px"
+                    color="var(--white)"
+                    variants={textFadeInUp}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    key={`step-${activeStep + 1}`}
+                  >
+                    Krok <motion.span>{activeStep + 1}</motion.span>/
+                    {steps.length}
+                  </Text>
+                  <Text
+                    margin="19px 0 0"
+                    fontSize="24px"
+                    lineHeight="1.25em"
+                    fontWeight={width > 1002 ? "600" : "500"}
+                    color="var(--white)"
+                    variants={textFadeInUp}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    key={`firstline-${activeStep + 1}`}
+                    dangerously={steps[activeStep].firstLine}
+                  />
+                  <Text
+                    margin="7px 0 0"
+                    fontSize="13px"
+                    lineHeight="normal"
+                    fontWeight="300"
+                    color="var(--white)"
+                    variants={textFadeInUp}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    key={`helperText-${activeStep + 1}`}
+                    dangerously={steps[activeStep].helperText}
+                  />
+                </AnimatePresence>
+              </StyledFlex>
+              <StyledFlex layout key="flex-2" direction="column">
+                <AnimatePresence exitBeforeEnter>
+                  {!success && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      key={`content-${activeStep}`}
+                    >
+                      {steps[activeStep].content}
+                    </motion.div>
+                  )}
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    key={`content-${activeStep}`}
+                    exit={reset && { opacity: 0 }}
+                    key={`content-success-rocket`}
                   >
-                    {steps[activeStep].content}
+                    {success && !reset && (
+                      <RocketIcon
+                        setReset={setReset}
+                        handleReset={handleReset}
+                      />
+                    )}
+                    {success && !reset && (
+                      <Text
+                        variants={textFadeInUp}
+                        initial="initial"
+                        animate="animate"
+                        exit="exit"
+                        color="var(--white)"
+                      >
+                        Dziękujemy za wysłanie wiadomości. Skontaktujemy się
+                        z&nbsp;Tobą możliwie szybko!
+                      </Text>
+                    )}
                   </motion.div>
-                )}
-              </AnimatePresence>
+                </AnimatePresence>
 
-              <StyledFlex
-                margin="54px 0 0"
-                width="100%"
-                justifyContent="flex-end"
-              >
-                <AnimatePresence>
-                  {activeStep > 0 && (
+                <StyledFlex
+                  margin="54px 0 0"
+                  width="100%"
+                  key="flex-buttons"
+                  layout
+                  justifyContent={width > 1002 ? "flex-end" : "center"}
+                  alignItems={width <= 1002 && "center"}
+                  direction={width <= 1002 && "column"}
+                >
+                  <AnimatePresence>
+                    {activeStep > 0 && (
+                      <Button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        bg="transparent"
+                        color="var(--primary)"
+                        border="1px solid var(--primary)"
+                        width="176px"
+                        layout
+                        margin={width > 1002 ? "0 12px 0 0" : "24px 0 0"}
+                        onClick={() => setActiveStep(activeStep - 1)}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1, transition: { duration: 0.4 } }}
+                        exit={{ opacity: 0, transition: { duration: 0.4 } }}
+                        key="back"
+                        type="button"
+                        disabled={props.isSubmitting || reset || success}
+                      >
+                        &larr; &nbsp;&nbsp;Wróć
+                      </Button>
+                    )}
                     <Button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      bg="transparent"
-                      color="var(--primary)"
-                      border="1px solid var(--primary)"
                       width="176px"
-                      margin="0 12px 0 0"
-                      onClick={() => setActiveStep(activeStep - 1)}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1, transition: { duration: 0.4 } }}
-                      exit={{ opacity: 0, transition: { duration: 0.4 } }}
-                      key="back"
-                      type="button"
+                      border="1px solid transparent"
+                      layout
+                      order={width <= 1002 && "-1"}
+                      margin={width > 1002 ? "0 0 0 12px" : "0"}
+                      type={activeStep < steps.length - 1 ? "button" : "submit"}
+                      onClick={
+                        activeStep < steps.length - 1
+                          ? () => {
+                              setActiveStep(activeStep + 1)
+                              props.setSubmitting(true)
+                              setTimeout(() => {
+                                props.setSubmitting(false)
+                              }, 50)
+                            }
+                          : e => {
+                              handleSubmit(e, props)
+                            }
+                      }
+                      disabled={
+                        (activeStep === steps.length - 1 && !props.isValid) ||
+                        props.isSubmitting ||
+                        reset ||
+                        success
+                      }
                     >
-                      &larr; &nbsp;&nbsp;Wróć
+                      {activeStep < steps.length - 1 ? "Dalej" : "Wyślij"}
                     </Button>
-                  )}
-                  <Button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    width="176px"
-                    border="1px solid transparent"
-                    margin="0 0 0 12px"
-                    type={activeStep < steps.length - 1 ? "button" : "submit"}
-                    onClick={
-                      activeStep < steps.length - 1
-                        ? () => {
-                            setActiveStep(activeStep + 1)
-                            props.setSubmitting(true)
-                            setTimeout(() => {
-                              props.setSubmitting(false)
-                            }, 50)
-                          }
-                        : e => {
-                            handleSubmit(e, props)
-                          }
-                    }
-                    disabled={
-                      (activeStep === steps.length - 1 && !props.isValid) ||
-                      props.isSubmitting
-                    }
-                  >
-                    {activeStep < steps.length - 1 ? "Dalej" : "Wyślij"}
-                  </Button>
-                </AnimatePresence>
+                  </AnimatePresence>
+                </StyledFlex>
               </StyledFlex>
-            </StyledFlex>
-            <AnimatePresence>{success && <RocketIcon />}</AnimatePresence>
+            </AnimateSharedLayout>
           </ActiveStepStyles>
         </form>
       )}
@@ -353,6 +454,7 @@ const Configurator = ({ vendors }) => {
   const [activeModel, setActiveModel] = useState(0)
   const [activeCard, setActiveCard] = useState(0)
   const [activeStep, setActiveStep] = useState(0)
+
   const models = {
     amd: [
       { name: "RX 5700" },
@@ -371,7 +473,7 @@ const Configurator = ({ vendors }) => {
     {
       stepTitle: "Producent kart",
       stepSubtitle: "Przeglądaj i wybierz",
-      stepIcon: <RocketIcon />,
+      stepIcon: <SearchIcon />,
       firstLine: "Wybierz producenta karty",
       helperText: "Tekst pomocniczy na temat karty",
       content: (
@@ -400,8 +502,9 @@ const Configurator = ({ vendors }) => {
       stepTitle: "Liczba kart",
       stepSubtitle: "Wybierz liczbę kart",
       stepIcon: <SearchIcon />,
-      firstLine: "Wybierz liczbę kart w Twojej koparce",
-      helperText: "Sprawdzone przez nas i sugerowane liczby to 6, 8, 12",
+      firstLine: "Wybierz liczbę kart w&nbsp;Twojej koparce",
+      helperText:
+        "Sprawdzone przez nas i&nbsp;sugerowane liczby to&nbsp;6,&nbsp;8,&nbsp;12",
       content: <Step3 activeCard={activeCard} setActiveCard={setActiveCard} />,
     },
     {

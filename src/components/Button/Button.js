@@ -11,6 +11,7 @@ const ButtonStyles = styled(motion.button)`
   margin: ${({ margin }) => (margin ? margin : "")};
   padding: ${({ padding }) => (padding ? padding : "")};
   width: ${({ width }) => (width ? width : "")};
+  order: ${({ order }) => (order ? order : "")};
 
   &:focus,
   &:active {
@@ -54,10 +55,12 @@ const Button = ({
   color,
   bg,
   type,
+  order,
   initial,
   animate,
   exit,
   whileHover,
+  layout,
   whileTap,
   border,
   whileFocus,
@@ -75,10 +78,12 @@ const Button = ({
     whileTap={whileTap}
     margin={margin}
     whileFocus={whileFocus}
+    order={order}
     color={color}
     size={size}
     fill={fill}
     border={border}
+    layout={layout}
     gradient={gradient}
     bg={bg}
     type={type}

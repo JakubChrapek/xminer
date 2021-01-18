@@ -15,14 +15,28 @@ const ImgWrapper = styled(motion.div)`
   width: 209px;
   background-color: var(--white);
   border-radius: 15px;
-  transition: box-shadow 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: box-shadow 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+    background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  &:hover {
+    background-color: var(--light-aqua);
+  }
 
   &.active {
-    box-shadow: 0 0 0 5px var(--primary);
+    box-shadow: inset 0 0 0 5px var(--primary);
   }
 
   &:first-of-type {
     margin-right: 50px;
+    @media only screen and (max-width: 1002px) {
+      margin: 0;
+    }
+  }
+
+  &:last-of-type {
+    @media only screen and (max-width: 1002px) {
+      margin-top: 26px;
+    }
   }
   .gatsby-image-wrapper {
     width: 100% !important;
@@ -39,6 +53,10 @@ const ImgWrapper = styled(motion.div)`
 
 const Grid = styled(motion.div)`
   display: flex;
+  @media only screen and (max-width: 1002px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
@@ -53,7 +71,7 @@ export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
           whileHover={{
             cursor: "pointer",
           }}
-          whileTap={{ scale: 0.98 }}
+          whileTap={{ scale: 0.98, backgroundColor: "var(--light-aqua)" }}
           onClick={() => {
             setActiveVendor(i)
             setFieldValue("vendor", vendors[i].name)
@@ -88,8 +106,9 @@ export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
 
 const ModelGridStyles = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 32px;
+
   span {
     padding: 64px 12px;
     text-transform: uppercase;
@@ -100,8 +119,27 @@ const ModelGridStyles = styled(motion.div)`
     text-align: center;
     background-color: var(--white);
     border-radius: 15px;
+
     &.active {
-      box-shadow: 0 0 0 5px var(--primary);
+      box-shadow: inset 0 0 0 5px var(--primary);
+    }
+  }
+  @media only screen and (max-width: 1423px) {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-gap: 24px;
+
+    span {
+      padding: 44px 10px;
+    }
+  }
+  @media only screen and (max-width: 1002px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 32px;
+  }
+  @media only screen and (max-width: 368px) {
+    grid-gap: 20px;
+    span {
+      padding: 34px 8px;
     }
   }
 `
@@ -159,7 +197,7 @@ export const Step2 = ({ models, activeModel, setActiveModel }) => {
 
 const GraphicsGrid = styled(motion.ul)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(121px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(121px, 1fr));
   grid-gap: 14px 10px;
   width: 100%;
   list-style-type: none;
@@ -180,9 +218,16 @@ const GraphicsGrid = styled(motion.ul)`
     }
 
     &.active {
-      box-shadow: 0 0 0 5px var(--primary);
+      box-shadow: inset 0 0 0 5px var(--primary);
       color: var(--primary);
     }
+  }
+
+  @media only screen and (max-width: 1002px) {
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  }
+  @media only screen and (max-width: 378px) {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
   }
 `
 
@@ -241,6 +286,9 @@ const LastStyles = styled(motion.div)`
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  @media only screen and (max-width: 1002px) {
+    flex-direction: column;
+  }
   svg {
     position: absolute;
     left: 50%;
@@ -254,6 +302,9 @@ const LastStyles = styled(motion.div)`
     background-color: rgba(242, 242, 242, 0.24);
     border: rgba(242, 242, 242, 0.24);
     padding: 8px 44px 8px 16px;
+    @media only screen and (max-width: 1002px) {
+      padding: 20px 44px 20px 16px;
+    }
     transition: box-shadow 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98),
       color 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     font-size: 18px;
@@ -318,6 +369,14 @@ const NameWrapper = styled.div`
   position: relative;
   label {
     position: absolute;
+  }
+
+  @media only screen and (max-width: 1002px) {
+    margin: 0;
+
+    &:nth-of-type(2) {
+      margin-top: 40px;
+    }
   }
 
   .error {
@@ -491,8 +550,10 @@ const MyCheckbox = ({ children, ...props }) => {
     <CheckboxWrapper>
       <input id={field.name} {...field} {...props} type="checkbox" />
       <label className="checkbox" htmlFor={field.name}>
-        Przeczytałem/łam i zgadzam się z&nbsp;
-        <Link to="/polityka-prywatnosci">polityką prywatności</Link>
+        Przeczytałem/łam i&nbsp;zgadzam się z&nbsp;
+        <a href="/polityka-prywatnosci" target="_blank">
+          polityką prywatności
+        </a>
       </label>
       <AnimatePresence>
         {meta.touched && meta.error ? (
