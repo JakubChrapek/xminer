@@ -8,8 +8,16 @@ import Graphics from "../images/404-graphics.svg"
 import ButtonLink from "../components/ButtonLink/ButtonLink"
 import { motion } from "framer-motion"
 import styled from "styled-components"
+import {
+  staggerContainer,
+  staggerItemFade,
+} from "../components/Styles/Animations"
 
-const SvgStyles = styled(motion.svg)``
+const SvgStyles = styled(motion.svg)`
+  #test {
+    fill: red;
+  }
+`
 const Icon = () => (
   <SvgStyles
     width="676"
@@ -19,20 +27,36 @@ const Icon = () => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <g clip-path="url(#clip0)">
-      <path
+      <motion.path
+        variants={staggerItemFade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         id="test"
         d="M578.43 323.39C579.48 324 581.19 324 582.24 323.39C583.29 322.78 583.29 321.8 582.24 321.19C581.19 320.58 579.48 320.58 578.43 321.19C577.38 321.79 577.38 322.78 578.43 323.39Z"
         fill="#42E8E0"
       />
-      <path
+      <motion.path
+        variants={staggerItemFade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         d="M501.701 318.43C502.751 319.04 504.461 319.04 505.511 318.43C506.561 317.82 506.561 316.84 505.511 316.23C504.461 315.62 502.751 315.62 501.701 316.23C500.641 316.84 500.641 317.82 501.701 318.43Z"
         fill="#42E8E0"
       />
-      <path
+      <motion.path
+        variants={staggerItemFade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         d="M467.381 337.32C468.431 337.93 470.141 337.93 471.191 337.32C472.241 336.71 472.241 335.73 471.191 335.12C470.141 334.51 468.431 334.51 467.381 335.12C466.321 335.73 466.321 336.71 467.381 337.32Z"
         fill="#42E8E0"
       />
-      <path
+      <motion.path
+        variants={staggerItemFade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         d="M621.631 257.23C622.681 257.84 624.391 257.84 625.441 257.23C626.491 256.62 626.491 255.64 625.441 255.03C624.391 254.42 622.681 254.42 621.631 255.03C620.571 255.64 620.571 256.62 621.631 257.23Z"
         fill="#42E8E0"
       />
@@ -1460,11 +1484,7 @@ const FourOFourPage = () => {
             </ButtonLink>
           </Flex>
           <Flex flex="3" justifyContent="center">
-            <img
-              style={{ width: "calc(100% + 120px", marginLeft: "-120px" }}
-              src={Graphics}
-              alt=""
-            />
+            <Icon />
           </Flex>
         </Wrapper>
       </Container>

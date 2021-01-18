@@ -328,7 +328,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
   const [feedbackMsg, setFeedbackMsg] = useState(null)
   const currentWidth = useWindowSize()
 
-  const handleClick = (e, setSubmitting, resetForm) => {
+  const handleClick = (e, values, setSubmitting, resetForm) => {
     e.preventDefault()
     setSubmitting(true)
     setTimeout(() => {
@@ -340,13 +340,14 @@ const ContactUsForm = ({ vertical, bg, width }) => {
 
   return (
     <Flex
-      padding={vertical && "40px 65px"}
+      padding={vertical ? (width > 640 ? "40px 65px" : "40px 30px") : ""}
       radius={vertical && "20px"}
       bg={bg}
       margin="34px 0 0"
       flex={vertical && "unset !important"}
     >
       <Formik
+        validateOnMount
         initialValues={{ email: "", name: "", message: "", privacy: false }}
         validate={values => {
           const errors = {}
@@ -522,7 +523,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
               </FieldWrapper>
               {currentWidth < 640 && (
                 <FieldWrapper
-                  flex={vertical ? "unset" : "2"}
+                  flex={vertical ? "unset" : ""}
                   width={currentWidth < 640 || vertical ? "100%" : ""}
                   order={currentWidth < 640 || vertical ? "1" : ""}
                   margin={
@@ -544,7 +545,13 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   />
                   <label className="privacy" htmlFor="privacy">
                     Przeczytałem/łam i zgadzam się z&nbsp;
-                    <Link to="/polityka-prywatnosci">polityką prywatności</Link>
+                    <a
+                      href="/polityka-prywatnosci"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      polityką prywatności
+                    </a>
                   </label>
                   <AnimatePresence exitBeforeEnter>
                     {errors.privacy && touched.privacy && (
@@ -583,7 +590,9 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   color="var(--white)"
                   type="submit"
                   disabled={!isValid || isSubmitting}
-                  onClick={e => handleClick(e, setSubmitting, resetForm)}
+                  onClick={e =>
+                    handleClick(e, values, setSubmitting, resetForm)
+                  }
                   radius="16px"
                   margin={vertical && "38px 0 0"}
                   width={currentWidth < 640 || vertical ? "170px" : ""}
@@ -596,7 +605,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
             </Flex>
             {currentWidth >= 640 && (
               <FieldWrapper
-                flex={vertical ? "unset" : "2"}
+                flex={vertical ? "unset" : ""}
                 width={currentWidth < 640 || vertical ? "100%" : ""}
                 order={currentWidth < 640 || vertical ? "1" : ""}
                 margin={
@@ -618,7 +627,13 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                 />
                 <label className="privacy" htmlFor="privacy">
                   Przeczytałem/łam i zgadzam się z&nbsp;
-                  <Link to="/polityka-prywatnosci">polityką prywatności</Link>
+                  <a
+                    href="/polityka-prywatnosci"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    polityką prywatności
+                  </a>
                 </label>
                 <AnimatePresence exitBeforeEnter>
                   {errors.privacy && touched.privacy && (

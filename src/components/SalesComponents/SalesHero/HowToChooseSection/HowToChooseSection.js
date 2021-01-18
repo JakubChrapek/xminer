@@ -10,6 +10,7 @@ import {
   SecondFlex,
   ImageFlex,
 } from "../../../ServiceComponents/ServicesCta/ServicesCta"
+import styled from "styled-components"
 
 const HowToChooseSection = () => {
   const data = useStaticQuery(graphql`
@@ -30,6 +31,14 @@ const HowToChooseSection = () => {
       }
     }
   `)
+
+  const HowMoreWrapperStyles = styled(MoreWrapperStyles)`
+    @media only screen and (max-width: 640px) {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  `
 
   return (
     <Container>
@@ -68,16 +77,16 @@ const HowToChooseSection = () => {
         </FirstFlex>
         <ImageFlex justifyContent="center">
           <Img
-            fluid={data.datoCmsPageSale.minerForYouImg.fluid}
-            alt={data.datoCmsPageSale.minerForYouImg.alt}
+            fluid={data.datoCmsPageSale.howToPickFirstMinerImg.fluid}
+            alt={data.datoCmsPageSale.howToPickFirstMinerImg.alt}
           />
         </ImageFlex>
       </MoreWrapperStyles>
-      <MoreWrapperStyles equal margin="47px 102px 90px">
+      <HowMoreWrapperStyles equal margin="47px 102px 90px">
         <ImageFlex justifyContent="center">
           <Img
-            fluid={data.datoCmsPageSale.howToPickFirstMinerImg.fluid}
-            alt={data.datoCmsPageSale.howToPickFirstMinerImg.alt}
+            fluid={data.datoCmsPageSale.minerForYouImg.fluid}
+            alt={data.datoCmsPageSale.minerForYouImg.alt}
           />
         </ImageFlex>
         <SecondFlex direction="column">
@@ -114,7 +123,7 @@ const HowToChooseSection = () => {
             Zamawiam indywidualnie
           </ButtonText>
         </SecondFlex>
-      </MoreWrapperStyles>
+      </HowMoreWrapperStyles>
     </Container>
   )
 }

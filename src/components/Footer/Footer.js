@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   background-color: var(--nav-dark-bluse);
+  margin-top: -1px;
 `
 
 const FooterStyles = styled.footer`
@@ -448,9 +449,9 @@ const Footer = () => {
                 </a>
               </motion.li>
               <motion.li whileTap={{ scale: 0.95 }} className="wider-gap">
-                <a href="tel:+48123123123">
+                <a href="tel:+48537787240">
                   <img src={Mobile} alt="phone icon" />
-                  +48 123 123 123
+                  +48 537 787 240
                 </a>
               </motion.li>
               <motion.li whileTap={{ scale: 0.95 }} className="wider-gap">

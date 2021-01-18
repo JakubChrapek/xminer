@@ -352,7 +352,13 @@ const BlogSection = ({
               margin="0px 0 0"
               to="/blog"
               color="var(--primary)"
-              textTransform={lowercase ? lowercase : "uppercase"}
+              textTransform={
+                lowercase
+                  ? width > 640
+                    ? lowercase
+                    : "uppercase"
+                  : "uppercase"
+              }
             >
               Wszystkie wpisy
             </ButtonText>

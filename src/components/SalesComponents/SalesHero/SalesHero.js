@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Container from "../../Container/Container"
+import { ContainerStyles } from "../../Container/Container"
 import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
 import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSection"
@@ -14,12 +14,36 @@ import { graphql, useStaticQuery } from "gatsby"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Img from "gatsby-image"
 
-const SalesWrapper = styled(HeroWrapperStyles)``
+const SalesWrapper = styled(HeroWrapperStyles)`
+  @media only screen and (max-width: 640px) {
+    h3 {
+      font-size: 36px;
+    }
+  }
+`
+
+const MinedImgFlex = styled(ImageFlex)`
+  @media only screen and (max-width: 640px) {
+    margin-top: 0 !important;
+    .gatsby-image-wrapper {
+      margin-top: 0 !important;
+    }
+  }
+`
 
 const SalesMoreWrapperStyles = styled(MoreWrapperStyles)`
   margin: 110px 122px;
   @media only screen and (max-width: 1182px) {
     margin: 72px 60px;
+  }
+  @media only screen and (max-width: 640px) {
+    margin: 67px 30px;
+  }
+`
+
+const StyledContainer = styled(ContainerStyles)`
+  @media only screen and (max-width: 640px) {
+    align-items: flex-start;
   }
 `
 
@@ -74,7 +98,7 @@ const SalesHero = () => {
     }
   `)
   return (
-    <Container padding="108px 0 0">
+    <StyledContainer padding="108px 0 0">
       <SalesWrapper margin="127px 122px" equal>
         <div>
           <Text
@@ -102,9 +126,10 @@ const SalesHero = () => {
         <div>
           <Text
             color="var(--body-text)"
-            margin="52px 0 0"
+            margin={width > 640 ? "52px 0 0" : "30px 0 0"}
             fontSize="18px"
             lineHeight="1.67em"
+            fontWeight="400"
           >
             Dla naszych Klientów tworzymy koparki, którymi sami kopiemy na co
             dzień. Do wyboru masz setki konfiguracji, ale przedstawiamy Ci też
@@ -117,17 +142,19 @@ const SalesHero = () => {
           </Text>
           <Text
             color="var(--body-text)"
-            margin="32px 0 0"
+            margin={width > 640 ? "32px 0 0" : "24px 0 0"}
             fontSize="18px"
             lineHeight="1.67em"
+            fontWeight="400"
           >
             Prawda, że fajnie?
           </Text>
         </div>
       </SalesWrapper>
       <Text
-        textAlign="center"
-        fontSize="36px"
+        textAlign={width > 640 ? "center" : "left"}
+        fontSize={width > 640 ? "36px" : "24px"}
+        margin={width <= 640 && "0 0 -16px 30px"}
         lineHeight="normal"
         fontWeight="600"
         color="var(--headers-color)"
@@ -138,32 +165,34 @@ const SalesHero = () => {
         <FirstFlex
           marginRight="80px"
           flex="1"
+          order={width < 640 && "1"}
           alignItems="flex-start"
           direction="column"
         >
           <Text
             as="h3"
-            margin="15px 0 0 0"
-            fontSize="22px !important"
-            fontWeight="600"
+            margin={width > 640 ? "15px 0 0 0" : "32px 0 0 !important"}
+            fontSize={width > 640 ? "22px !important" : "18px !important"}
+            fontWeight={width > 640 ? "600" : "500"}
             color="var(--headers-color)"
             lineHeight="normal"
           >
-            Różne konfiguracje, różne możliwości
+            Różne konfiguracje, {width < 640 && <br />}różne możliwości
           </Text>
           <Text
             fontSize="16px"
-            margin="25px 0 0 0"
+            margin={width > 640 ? "25px 0 0 0" : "10px 0 0 !important"}
             lineHeight="normal"
             color="var(--body-text)"
             fontWeight="400"
           >
-            Nowy serwer obliczeniowy, niski pobór prądu i od 6 do nawet 13 kart
-            graficznych w jednej koparce - to najważniejsze zalety naszych
-            maleństw. Płyta główna, nawet 2 zasilacze o dużej mocy (co najmniej
-            650W!) oraz specjalna, autorska aluminiowa obudowa wraz z riserami -
-            a Ty już wiesz, że jest wybór i są możliwości. Nasze koparki
-            konfigurujemy na Linux (HiveOS).
+            Nowy serwer obliczeniowy, niski pobór prądu i&nbsp;od 6 do nawet 13
+            kart graficznych w&nbsp;jednej koparce -&nbsp;to najważniejsze
+            zalety naszych maleństw. Płyta główna, nawet 2&nbsp;zasilacze
+            o&nbsp;dużej mocy (co najmniej 650W!) oraz specjalna, autorska
+            aluminiowa obudowa wraz z&nbsp;riserami -&nbsp;a&nbsp;Ty już wiesz,
+            że jest wybór i&nbsp;są możliwości. Nasze koparki konfigurujemy na
+            Linux (HiveOS).
           </Text>
         </FirstFlex>
         <ImageFlex flex="1" justifyContent="center">
@@ -182,22 +211,23 @@ const SalesHero = () => {
         }}
       >
         <SalesMoreWrapperStyles alignItems="center" equal margin="110px 102px">
-          <ImageFlex justifyContent="center">
+          <MinedImgFlex justifyContent="center">
             <Img
               fluid={data.datoCmsPageSale.minedInPolandImg.fluid}
               alt={data.datoCmsPageSale.minedInPolandImg.alt}
             />
-          </ImageFlex>
-          <SecondFlex direction="column">
+          </MinedImgFlex>
+          <SecondFlex order={width < 640 && "1 !important"} direction="column">
             <Text
               as="h3"
-              margin="15px 0 0 0"
-              fontSize="22px !important"
-              fontWeight="600"
+              margin={width > 640 ? "15px 0 0 0" : "32px 0 0 !important"}
+              fontSize={width > 640 ? "22px !important" : "18px !important"}
+              fontWeight={width > 640 ? "600" : "500"}
               color="var(--headers-color)"
               lineHeight="normal"
             >
-              Wiemy, że się sprawdza. Z&nbsp;metką „Wykopane w&nbsp;Polsce”
+              Wiemy, że się sprawdza.{width < 640 && <br />}Z&nbsp;metką
+              „Wykopane w&nbsp;Polsce”
             </Text>
             <Text
               fontSize="16px"
@@ -223,12 +253,13 @@ const SalesHero = () => {
           flex="1"
           alignItems="flex-start"
           direction="column"
+          order={width < 640 && "1 !important"}
         >
           <Text
             as="h3"
-            margin="15px 0 0 0"
-            fontSize="22px !important"
-            fontWeight="600"
+            margin={width > 640 ? "15px 0 0 0" : "32px 0 0 !important"}
+            fontSize={width > 640 ? "22px !important" : "18px !important"}
+            fontWeight={width > 640 ? "600" : "500"}
             color="var(--headers-color)"
             lineHeight="normal"
           >
@@ -249,12 +280,12 @@ const SalesHero = () => {
             pusty slogan.
           </Text>
         </FirstFlex>
-        <ImageFlex flex="1" justifyContent="center">
+        <MinedImgFlex flex="1" justifyContent="center">
           <Img
             fluid={data.datoCmsPageSale.fullPackageImg.fluid}
             alt={data.datoCmsPageSale.fullPackageImg.alt}
           />
-        </ImageFlex>
+        </MinedImgFlex>
       </SalesMoreWrapperStyles>
       <div
         style={{
@@ -265,18 +296,18 @@ const SalesHero = () => {
         }}
       >
         <SalesMoreWrapperStyles alignItems="center" equal margin="110px 102px">
-          <ImageFlex justifyContent="center">
+          <MinedImgFlex justifyContent="center">
             <Img
               fluid={data.datoCmsPageSale.multipleCryptocurrenciesImg.fluid}
               alt={data.datoCmsPageSale.multipleCryptocurrenciesImg.alt}
             />
-          </ImageFlex>
-          <SecondFlex direction="column">
+          </MinedImgFlex>
+          <SecondFlex order={width < 640 && "1 !important"} direction="column">
             <Text
               as="h3"
-              margin="15px 0 0 0"
-              fontSize="22px !important"
-              fontWeight="600"
+              margin={width > 640 ? "15px 0 0 0" : "32px 0 0 !important"}
+              fontSize={width > 640 ? "22px !important" : "18px !important"}
+              fontWeight={width > 640 ? "600" : "500"}
               color="var(--headers-color)"
               lineHeight="normal"
             >
@@ -298,7 +329,45 @@ const SalesHero = () => {
           </SecondFlex>
         </SalesMoreWrapperStyles>
       </div>
-    </Container>
+      <SalesMoreWrapperStyles margin="110px 122px 120px">
+        <FirstFlex
+          marginRight="80px"
+          flex="1"
+          alignItems="flex-start"
+          direction="column"
+          order={width < 640 && "1 !important"}
+        >
+          <Text
+            as="h3"
+            margin={width > 640 ? "15px 0 0 0" : "32px 0 0 !important"}
+            fontSize={width > 640 ? "22px !important" : "18px !important"}
+            fontWeight={width > 640 ? "600" : "500"}
+            color="var(--headers-color)"
+            lineHeight="normal"
+          >
+            Szkolenie i konfiguracja
+          </Text>
+          <Text
+            fontSize="16px"
+            margin="25px 0 0 0"
+            lineHeight="normal"
+            color="var(--body-text)"
+            fontWeight="400"
+          >
+            Niezależnie od tego, czy kupujesz u&nbsp;nas jedną koparkę, czy
+            kilkadziesiąt -&nbsp;możesz zamówić u&nbsp;nas szkolenie: zdalne,
+            indywidualne lub dla całego zespołu. Konfiguracja komputera lub
+            telefonu, żeby kontrolować koparkę na odległość? Nie ma sprawy!
+          </Text>
+        </FirstFlex>
+        <MinedImgFlex flex="1" justifyContent="center">
+          <Img
+            fluid={data.datoCmsPageSale.trainingImg.fluid}
+            alt={data.datoCmsPageSale.trainingImg.alt}
+          />
+        </MinedImgFlex>
+      </SalesMoreWrapperStyles>
+    </StyledContainer>
   )
 }
 

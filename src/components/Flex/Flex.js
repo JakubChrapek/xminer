@@ -13,6 +13,7 @@ export const StyledFlex = styled(motion.div)`
   padding: ${({ padding }) => (padding ? padding : "")};
   border-radius: ${({ radius }) => (radius ? radius : "")};
   flex: ${({ flex }) => (flex ? flex : "")};
+  order: ${({ order }) => (order ? order : "")};
   background-color: ${({ bg }) => (bg ? bg : "")};
   flex-wrap: ${({ flexWrap }) => (flexWrap ? flexWrap : "")};
 `
@@ -27,6 +28,7 @@ const Flex = ({
   padding,
   layout,
   radius,
+  order,
   bg,
   flexWrap,
 }) => {
@@ -40,6 +42,7 @@ const Flex = ({
       layout={layout}
       flex={flex}
       bg={bg}
+      order={order}
       padding={padding}
       radius={radius}
       flexWrap={flexWrap}

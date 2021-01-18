@@ -134,6 +134,19 @@ export const ImageFlex = styled(StyledFlex)`
     margin-right: 0 !important;
     margin-top: 24px !important;
   }
+  @media only screen and (max-width: 640px) {
+    .gatsby-image-wrapper {
+      width: calc(100% + 60px);
+      margin: 27px -30px 0;
+      border-radius: 0;
+      height: 260px;
+    }
+  }
+  @media only screen and (max-width: 440px) {
+    .gatsby-image-wrapper {
+      height: 200px;
+    }
+  }
 `
 
 const ServicesCta = () => {

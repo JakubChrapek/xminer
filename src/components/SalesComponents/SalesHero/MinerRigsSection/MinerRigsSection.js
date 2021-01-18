@@ -222,6 +222,11 @@ const ActiveStepStyles = styled(motion.div)`
       min-height: 551px;
     }
   }
+  @media only screen and (max-width: 640px) {
+    > div:last-of-type {
+      min-height: 451px;
+    }
+  }
 `
 
 const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
@@ -290,158 +295,155 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       {props => (
         <form ref={formRef} onReset={handleReset}>
           <ActiveStepStyles>
-            <AnimateSharedLayout>
-              <StyledFlex layout key="flex-1" direction="column">
-                <AnimatePresence exitBeforeEnter>
-                  <Text
-                    margin="25px 0 0"
-                    fontSize="10px"
-                    textTransform="uppercase"
-                    fontWeight="400"
-                    letterSpacing="1px"
-                    color="var(--white)"
-                    variants={textFadeInUp}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    key={`step-${activeStep + 1}`}
-                  >
-                    Krok <motion.span>{activeStep + 1}</motion.span>/
-                    {steps.length}
-                  </Text>
-                  <Text
-                    margin="19px 0 0"
-                    fontSize="24px"
-                    lineHeight="1.25em"
-                    fontWeight={width > 1002 ? "600" : "500"}
-                    color="var(--white)"
-                    variants={textFadeInUp}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    key={`firstline-${activeStep + 1}`}
-                    dangerously={steps[activeStep].firstLine}
-                  />
-                  <Text
-                    margin="7px 0 0"
-                    fontSize="13px"
-                    lineHeight="normal"
-                    fontWeight="300"
-                    color="var(--white)"
-                    variants={textFadeInUp}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    key={`helperText-${activeStep + 1}`}
-                    dangerously={steps[activeStep].helperText}
-                  />
-                </AnimatePresence>
-              </StyledFlex>
-              <StyledFlex layout key="flex-2" direction="column">
-                <AnimatePresence exitBeforeEnter>
-                  {!success && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      key={`content-${activeStep}`}
-                    >
-                      {steps[activeStep].content}
-                    </motion.div>
-                  )}
+            {/* <AnimateSharedLayout> */}
+            <StyledFlex layout key="flex-1" direction="column">
+              <AnimatePresence exitBeforeEnter>
+                <Text
+                  margin="25px 0 0"
+                  fontSize="10px"
+                  textTransform="uppercase"
+                  fontWeight="400"
+                  letterSpacing="1px"
+                  color="var(--white)"
+                  variants={textFadeInUp}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  key={`step-${activeStep + 1}`}
+                >
+                  Krok <motion.span>{activeStep + 1}</motion.span>/
+                  {steps.length}
+                </Text>
+                <Text
+                  margin="19px 0 0"
+                  fontSize={width > 640 ? "24px" : "18"}
+                  lineHeight="1.25em"
+                  fontWeight={width > 1002 ? "600" : "500"}
+                  color="var(--white)"
+                  variants={textFadeInUp}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  key={`firstline-${activeStep + 1}`}
+                  dangerously={steps[activeStep].firstLine}
+                />
+                <Text
+                  margin="7px 0 0"
+                  fontSize="13px"
+                  lineHeight="normal"
+                  fontWeight="300"
+                  color="var(--white)"
+                  variants={textFadeInUp}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  key={`helperText-${activeStep + 1}`}
+                  dangerously={steps[activeStep].helperText}
+                />
+              </AnimatePresence>
+            </StyledFlex>
+            <StyledFlex key="flex-2" direction="column">
+              <AnimatePresence exitBeforeEnter>
+                {!success && (
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={reset && { opacity: 0 }}
-                    key={`content-success-rocket`}
+                    exit={{ opacity: 0 }}
+                    key={`content-${activeStep}`}
                   >
-                    {success && !reset && (
-                      <RocketIcon
-                        setReset={setReset}
-                        handleReset={handleReset}
-                      />
-                    )}
-                    {success && !reset && (
-                      <Text
-                        variants={textFadeInUp}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        color="var(--white)"
-                      >
-                        Dziękujemy za wysłanie wiadomości. Skontaktujemy się
-                        z&nbsp;Tobą możliwie szybko!
-                      </Text>
-                    )}
+                    {steps[activeStep].content}
                   </motion.div>
-                </AnimatePresence>
-
-                <StyledFlex
-                  margin="54px 0 0"
-                  width="100%"
-                  key="flex-buttons"
-                  layout
-                  justifyContent={width > 1002 ? "flex-end" : "center"}
-                  alignItems={width <= 1002 && "center"}
-                  direction={width <= 1002 && "column"}
+                )}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={reset && { opacity: 0 }}
+                  key={`content-success-rocket`}
                 >
-                  <AnimatePresence>
-                    {activeStep > 0 && (
-                      <Button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        bg="transparent"
-                        color="var(--primary)"
-                        border="1px solid var(--primary)"
-                        width="176px"
-                        layout
-                        margin={width > 1002 ? "0 12px 0 0" : "24px 0 0"}
-                        onClick={() => setActiveStep(activeStep - 1)}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, transition: { duration: 0.4 } }}
-                        exit={{ opacity: 0, transition: { duration: 0.4 } }}
-                        key="back"
-                        type="button"
-                        disabled={props.isSubmitting || reset || success}
-                      >
-                        &larr; &nbsp;&nbsp;Wróć
-                      </Button>
-                    )}
+                  {success && !reset && (
+                    <RocketIcon setReset={setReset} handleReset={handleReset} />
+                  )}
+                  {success && !reset && (
+                    <Text
+                      variants={textFadeInUp}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      color="var(--white)"
+                    >
+                      Dziękujemy za wysłanie wiadomości. Skontaktujemy się
+                      z&nbsp;Tobą możliwie szybko!
+                    </Text>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+
+              <StyledFlex
+                margin="54px 0 0"
+                width="100%"
+                key="flex-buttons"
+                justifyContent={width > 1002 ? "flex-end" : "center"}
+                alignItems={width <= 1002 && "center"}
+                direction={width <= 1002 && "column"}
+              >
+                <AnimatePresence>
+                  {activeStep > 0 && (
                     <Button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      bg="transparent"
+                      color="var(--primary)"
+                      border="1px solid var(--primary)"
                       width="176px"
-                      border="1px solid transparent"
-                      layout
-                      order={width <= 1002 && "-1"}
-                      margin={width > 1002 ? "0 0 0 12px" : "0"}
-                      type={activeStep < steps.length - 1 ? "button" : "submit"}
-                      onClick={
-                        activeStep < steps.length - 1
-                          ? () => {
-                              setActiveStep(activeStep + 1)
-                              props.setSubmitting(true)
-                              setTimeout(() => {
-                                props.setSubmitting(false)
-                              }, 50)
-                            }
-                          : e => {
-                              handleSubmit(e, props)
-                            }
-                      }
-                      disabled={
-                        (activeStep === steps.length - 1 && !props.isValid) ||
-                        props.isSubmitting ||
-                        reset ||
-                        success
-                      }
+                      margin={width > 1002 ? "0 12px 0 0" : "24px 0 0"}
+                      onClick={() => setActiveStep(activeStep - 1)}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1, transition: { duration: 0.4 } }}
+                      exit={{ opacity: 0, transition: { duration: 0.4 } }}
+                      key="back"
+                      type="button"
+                      disabled={props.isSubmitting || reset || success}
                     >
-                      {activeStep < steps.length - 1 ? "Dalej" : "Wyślij"}
+                      &larr; &nbsp;&nbsp;Wróć
                     </Button>
-                  </AnimatePresence>
-                </StyledFlex>
+                  )}
+                  <Button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    width="176px"
+                    border="1px solid transparent"
+                    order={width <= 1002 && "-1"}
+                    margin={width > 1002 ? "0 0 0 12px" : "0"}
+                    type={activeStep < steps.length - 1 ? "button" : "submit"}
+                    loading={
+                      activeStep === steps.length - 1 && props.isSubmitting
+                    }
+                    onClick={
+                      activeStep < steps.length - 1
+                        ? () => {
+                            setActiveStep(activeStep + 1)
+                            props.setSubmitting(true)
+                            setTimeout(() => {
+                              props.setSubmitting(false)
+                            }, 50)
+                          }
+                        : e => {
+                            handleSubmit(e, props)
+                          }
+                    }
+                    disabled={
+                      (activeStep === steps.length - 1 && !props.isValid) ||
+                      props.isSubmitting ||
+                      reset ||
+                      success
+                    }
+                  >
+                    {activeStep < steps.length - 1 ? "Dalej" : "Wyślij"}
+                  </Button>
+                </AnimatePresence>
               </StyledFlex>
-            </AnimateSharedLayout>
+            </StyledFlex>
+            {/* </AnimateShared> */}
           </ActiveStepStyles>
         </form>
       )}
@@ -555,6 +557,7 @@ const MinerRigsSection = () => {
   const {
     datoCmsPageSale: { amdLogoImg, nvidiaLogoImg },
   } = data
+  const width = useWindowSize()
   return (
     <Container bg="var(--nav-dark-bluse)">
       <ConfiguratorWrapperStyles direction="column">
@@ -576,7 +579,7 @@ const MinerRigsSection = () => {
           <Text
             color="var(--white)"
             as="h3"
-            fontSize="48px"
+            fontSize={width > 640 ? "48px" : "24px"}
             lineHeight="normal"
             fontWeight="600"
           >

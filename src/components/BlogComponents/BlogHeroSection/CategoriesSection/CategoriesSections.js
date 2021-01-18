@@ -22,7 +22,7 @@ const CategoriesStyles = styled.section`
   }
 `
 
-const NavigationStyles = styled.ul`
+const NavigationStyles = styled(motion.ul)`
   display: grid;
   width: 100%;
   background-color: var(--light-blue);
@@ -34,7 +34,7 @@ const NavigationStyles = styled.ul`
   list-style-type: none;
 `
 
-const ListItemStyles = styled.li`
+const ListItemStyles = styled(motion.li)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,7 +80,7 @@ const ListItemStyles = styled.li`
 
 const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
   return (
-    <NavigationStyles>
+    <NavigationStyles layout>
       {items.map(item => {
         const categoryIcon =
           icons[item.categoryName] === undefined
@@ -88,12 +88,14 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
             : icons[item.categoryName]
         return (
           <ListItemStyles
+            layout
             active={activeCategory === item.categoryName}
             key={item.categoryName}
           >
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(item.categoryName)}
+              layout
             >
               {categoryIcon}
               <Text
@@ -337,6 +339,7 @@ const CategoriesSections = ({
         <Flex layout width="100%" direction="column">
           <CategoriesNavigation
             items={filteredCategories}
+            layout
             activeCategory={defaultActiveCategory}
             setActiveCategory={setDefaultActiveCategory}
           />

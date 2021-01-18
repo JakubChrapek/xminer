@@ -9,8 +9,8 @@ import Text from "../components/Text/Text"
 const CategoryStyles = styled.section`
   display: flex;
   justify-content: center;
-  margin: 119px auto 0;
-  padding: 67px 0 0;
+  margin: 0 auto;
+  padding: 186px 0 0;
   > div {
     max-width: 1440px;
     margin: 0 102px;
