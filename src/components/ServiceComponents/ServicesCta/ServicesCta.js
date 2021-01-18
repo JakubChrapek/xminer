@@ -1,12 +1,12 @@
 import React from "react"
 import styled from "styled-components"
+import Img from "gatsby-image"
+import { useStaticQuery } from "gatsby"
 import Container from "../../Container/Container"
 import { StyledFlex } from "../../Flex/Flex"
+import ButtonText from "../../ButtonText/ButtonText"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
-import Img from "gatsby-image"
-import ButtonText from "../../ButtonText/ButtonText"
-import { useStaticQuery } from "gatsby"
 
 export const MoreWrapperStyles = styled(WrapperStyles)`
   .gatsby-image-wrapper {

@@ -1,18 +1,40 @@
 import React from "react"
-import styled from "styled-components"
+import Img from "gatsby-image"
+import { useStaticQuery } from "gatsby"
 import Container from "../../../Container/Container"
-import Flex from "../../../Flex/Flex"
 import Text from "../../../Text/Text"
-import Wrapper from "../../../Wrapper/Wrapper"
-import Miner from "../../../../images/miner.svg"
-import Rig from "../../../../images/rig.svg"
 import ButtonText from "../../../ButtonText/ButtonText"
+import {
+  MoreWrapperStyles,
+  FirstFlex,
+  SecondFlex,
+  ImageFlex,
+} from "../../../ServiceComponents/ServicesCta/ServicesCta"
 
 const HowToChooseSection = () => {
+  const data = useStaticQuery(graphql`
+    query salesLastSection {
+      datoCmsPageSale {
+        minerForYouImg {
+          fluid {
+            src
+          }
+          alt
+        }
+        howToPickFirstMinerImg {
+          fluid {
+            src
+          }
+          alt
+        }
+      }
+    }
+  `)
+
   return (
     <Container>
-      <Wrapper equal margin="192px 102px 90px">
-        <Flex alignItems="flex-start" direction="column">
+      <MoreWrapperStyles equal margin="142px 102px 82px">
+        <FirstFlex alignItems="flex-start" direction="column">
           <Text
             as="h2"
             fontSize="10px"
@@ -32,12 +54,7 @@ const HowToChooseSection = () => {
           >
             Jak wybrać pierwszą koparkę?
           </Text>
-          <Text
-            fontSize="16px"
-            margin="25px 0 0"
-            lineHeight="normal"
-            maxwidth="580px"
-          >
+          <Text fontSize="16px" margin="25px 0 0" lineHeight="normal">
             Wybór właściwej koparki to nie jest bułka z nutellą. Dlatego, jeśli
             masz wątpliwości, chcesz kupić kilka koparek - skontaktuj się
             z&nbsp;nami, opisz potrzeby, napisz, jaki masz budżet.&nbsp;A my?
@@ -48,16 +65,22 @@ const HowToChooseSection = () => {
           <ButtonText to="/kontakt" color="var(--primary)" margin="24px 0 0">
             No to piszę!
           </ButtonText>
-        </Flex>
-        <Flex justifyContent="center">
-          <img src={Miner} alt="Karta graficzna" />
-        </Flex>
-      </Wrapper>
-      <Wrapper equal margin="47px 102px 90px">
-        <Flex justifyContent="center">
-          <img src={Rig} alt="Karta graficzna" />
-        </Flex>
-        <Flex direction="column">
+        </FirstFlex>
+        <ImageFlex justifyContent="center">
+          <Img
+            fluid={data.datoCmsPageSale.minerForYouImg.fluid}
+            alt={data.datoCmsPageSale.minerForYouImg.alt}
+          />
+        </ImageFlex>
+      </MoreWrapperStyles>
+      <MoreWrapperStyles equal margin="47px 102px 90px">
+        <ImageFlex justifyContent="center">
+          <Img
+            fluid={data.datoCmsPageSale.howToPickFirstMinerImg.fluid}
+            alt={data.datoCmsPageSale.howToPickFirstMinerImg.alt}
+          />
+        </ImageFlex>
+        <SecondFlex direction="column">
           <Text
             as="h2"
             fontSize="10px"
@@ -77,12 +100,7 @@ const HowToChooseSection = () => {
           >
             Koparka stworzona dla Ciebie
           </Text>
-          <Text
-            fontSize="16px"
-            margin="25px 0 0"
-            lineHeight="normal"
-            maxwidth="580px"
-          >
+          <Text fontSize="16px" margin="25px 0 0" lineHeight="normal">
             Możesz u&nbsp;nas zamówić koparkę o&nbsp;niemal dowolnych
             parametrach&nbsp;-&nbsp;nasz zespół to specjaliści gotowi tworzyć
             maszyny o&nbsp;ogromnych możliwościach obliczeniowych. Szukasz
@@ -95,8 +113,8 @@ const HowToChooseSection = () => {
           <ButtonText to="/kontakt" color="var(--primary)" margin="24px 0 0">
             Zamawiam indywidualnie
           </ButtonText>
-        </Flex>
-      </Wrapper>
+        </SecondFlex>
+      </MoreWrapperStyles>
     </Container>
   )
 }

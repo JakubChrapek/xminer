@@ -12,6 +12,7 @@ const ButtonStyles = styled(motion.button)`
   padding: ${({ padding }) => (padding ? padding : "")};
   width: ${({ width }) => (width ? width : "")};
   order: ${({ order }) => (order ? order : "")};
+  position: relative;
 
   &:focus,
   &:active {
@@ -47,6 +48,19 @@ const ButtonStyles = styled(motion.button)`
     `}
 `
 
+const LoaderStyles = styled(motion.span)`
+  position: absolute;
+  left: calc(50% - 12px);
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  border-radius: 100%;
+  border-top: 3px solid var(--white);
+  border-left: 3px solid var(--white);
+  border-bottom: 3px solid var(--white);
+`
+
 const Button = ({
   children,
   size,
@@ -69,6 +83,7 @@ const Button = ({
   width,
   margin,
   onClick,
+  loading,
 }) => (
   <ButtonStyles
     initial={initial}
@@ -91,8 +106,17 @@ const Button = ({
     disabled={disabled}
     radius={radius}
     onClick={onClick}
+    loading={loading}
   >
     {children}
+    {loading && (
+      <LoaderStyles
+        initial={{ rotate: 0 }}
+        animate={{ rotate: 360 }}
+        exit={{ opacity: 0, scale: 0 }}
+        transition={{ duration: 0.8, repeat: Infinity }}
+      />
+    )}
   </ButtonStyles>
 )
 

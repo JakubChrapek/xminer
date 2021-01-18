@@ -8,7 +8,10 @@ import MinerRigsSection from "../components/SalesComponents/SalesHero/MinerRigsS
 import SalesHero from "../components/SalesComponents/SalesHero/SalesHero"
 import SEO from "../components/SEO/SEO"
 
-const Sales = () => {
+const Sales = ({ data }) => {
+  const {
+    allDatoCmsPost: { totalCount, nodes: posts },
+  } = data
   return (
     <>
       <SEO title="Sprzedaż" />
@@ -17,8 +20,12 @@ const Sales = () => {
       <HowToChooseSection />
       <CtaSalesSection />
       <BlogSection
+        posts={posts}
+        totalCount={totalCount}
         title="Blog"
         subtitle="Poczytaj i wybierz koparkę dla siebie"
+        lowercase="normal"
+        margin="0 0 60px"
       />
       <ContactUsSection
         title="Już dziś"
@@ -32,5 +39,26 @@ const Sales = () => {
     </>
   )
 }
-
+export const blogQuery = graphql`
+  query salesBlogQuery {
+    allDatoCmsPost(limit: 3, sort: { fields: date, order: DESC }) {
+      totalCount
+      nodes {
+        title
+        postCategory {
+          categoryName
+        }
+        date
+        readingTime
+        id
+        slug
+        coverImage {
+          fluid(maxWidth: 360) {
+            ...GatsbyDatoCmsFluid
+          }
+        }
+      }
+    }
+  }
+`
 export default Sales
