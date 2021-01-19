@@ -118,6 +118,16 @@ const LinkStyles = styled(Link)`
   h1 {
     margin-left: 7px;
   }
+  @media only screen and (max-width: 640px) {
+    svg {
+      width: 38px;
+      height: 38px;
+    }
+    h1 {
+      font-size: 20px;
+      margin-left: 8px;
+    }
+  }
 `
 
 const ToggleMenuButton = styled(motion.button)`

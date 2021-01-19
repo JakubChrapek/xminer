@@ -7,6 +7,7 @@ import ArticleDetails from "./ArticleDetails"
 import { formatDate } from "../../../utils/DateUtils"
 import { Link } from "gatsby"
 import { HiArrowNarrowRight } from "react-icons/hi"
+import useWindowSize from "../../../utils/UseWindowSize"
 
 const HeroStyles = styled.section`
   display: flex;
@@ -19,6 +20,23 @@ const HeroStyles = styled.section`
     max-width: 1440px;
     margin: 0 102px;
   }
+
+  @media only screen and (max-width: 1182px) {
+    > div {
+      margin: 0 60px;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    padding-top: 52px;
+    > div {
+      flex-direction: column;
+    }
+  }
+  @media only screen and (max-width: 820px) {
+    > div {
+      margin: 0 30px;
+    }
+  }
 `
 
 const FeaturedArticleStyles = styled.article`
@@ -27,11 +45,28 @@ const FeaturedArticleStyles = styled.article`
   width: 100%;
   margin-top: 29px;
   position: relative;
+  @media only screen and (max-width: 992px) {
+    margin-top: 52px;
+  }
 
   .gatsby-image-wrapper {
     max-width: 750px;
     max-height: 388px;
     border-radius: 5px;
+    @media only screen and (max-width: 1182px) {
+      max-height: 320px;
+    }
+    @media only screen and (max-width: 992px) {
+      max-width: 100%;
+      max-height: 360px;
+    }
+    @media only screen and (max-width: 640px) {
+      max-height: 260px;
+    }
+
+    @media only screen and (max-width: 520px) {
+      max-height: 178px;
+    }
   }
 
   > a {
@@ -55,6 +90,11 @@ const FeaturedArticleStyles = styled.article`
     h2 {
       position: relative;
       display: inline-block;
+      @media only screen and (max-width: 740px) {
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 6px;
+      }
 
       &:after {
         content: "";
@@ -77,6 +117,20 @@ const ImageWrapper = styled.div`
   display: flex;
   max-width: 750px;
   max-height: 388px;
+
+  @media only screen and (max-width: 1182px) {
+    max-height: 320px;
+  }
+  @media only screen and (max-width: 992px) {
+    max-width: 100%;
+    max-height: 360px;
+  }
+  @media only screen and (max-width: 640px) {
+    max-height: 260px;
+  }
+  @media only screen and (max-width: 520px) {
+    max-height: 178px;
+  }
   border-radius: 5px;
   overflow: hidden;
 
@@ -122,6 +176,7 @@ const FeaturedArticle = ({
   readingTime,
   slug,
 }) => {
+  const width = useWindowSize()
   return (
     <FeaturedArticleStyles>
       <ImageWrapper>
@@ -139,19 +194,22 @@ const FeaturedArticle = ({
           maxwidth="407px"
           as="h2"
           margin="16px 0 0"
+          color="var(--headers-color)"
         >
           {title}
         </Text>
       </Link>
-      <Text
-        color="var(--gray3)"
-        fontSize="14px"
-        lineHeight="normal"
-        margin="16px 0 0 "
-        maxwidth="628px"
-      >{`${excerpt.substring(0, 180)}${
-        excerpt.length > 180 ? "..." : ""
-      }`}</Text>
+      {width >= 992 && (
+        <Text
+          color="var(--body-text)"
+          fontSize="14px"
+          lineHeight="normal"
+          margin="16px 0 0 "
+          maxwidth="628px"
+        >{`${excerpt.substring(0, 180)}${
+          excerpt.length > 180 ? "..." : ""
+        }`}</Text>
+      )}
       <ArticleDetails
         author={author}
         category={category}
@@ -176,6 +234,12 @@ const RecommendedArticlesStyles = styled.div`
     list-style-type: none;
   }
 
+  > p {
+    @media only screen and (max-width: 640px) {
+      font-size: 15px;
+    }
+  }
+
   li {
     margin: 11px 0 0;
     padding: 13px 0 0;
@@ -184,9 +248,19 @@ const RecommendedArticlesStyles = styled.div`
     &:first-of-type {
       padding: 25px 0 0;
     }
+    @media only screen and (max-width: 740px) {
+      &:first-of-type {
+        padding: 13px 0 0;
+      }
+    }
     > a {
       text-decoration: none;
       position: relative;
+      @media only screen and (max-width: 740px) {
+        p {
+          font-size: 15px;
+        }
+      }
       &:after {
         content: "";
         position: absolute;
@@ -229,7 +303,12 @@ const RecommendedArticlesStyles = styled.div`
 const RecommendedArticles = ({ articles }) => {
   return (
     <RecommendedArticlesStyles>
-      <Text fontSize="18px" lineHeight="normal" fontWeight="600">
+      <Text
+        fontSize="18px"
+        lineHeight="normal"
+        fontWeight="600"
+        color="var(--headers-color)"
+      >
         Polecane wpisy
       </Text>
       <ul>
@@ -247,6 +326,7 @@ const RecommendedArticles = ({ articles }) => {
                 fontWeight="bold"
                 lineHeight="normal"
                 margin="12px 0 0"
+                color="var(--headers-color)"
               >
                 {article.title}
               </Text>
@@ -264,11 +344,18 @@ const BlogHeroSection = ({
   newestArticle,
   categories,
 }) => {
+  const width = useWindowSize()
   return (
     <HeroStyles>
       <Flex width="100%">
-        <Flex width="100%" direction="column" flex="2">
-          <Text as="h1" fontSize="36px" fontWeight="600" lineHeight="normal">
+        <Flex width="100%" direction="column" flex={width > 1520 ? "2" : "3"}>
+          <Text
+            as="h1"
+            fontSize="36px"
+            fontWeight="600"
+            lineHeight="normal"
+            color="var(--headers-color)"
+          >
             Blog
           </Text>
           <FeaturedArticle
@@ -283,7 +370,17 @@ const BlogHeroSection = ({
             slug={newestArticle[0].slug}
           />
         </Flex>
-        <Flex margin="84px 0 0 0" direction="column" flex="1">
+        <Flex
+          margin={
+            width > 1520
+              ? "84px 0 0 0"
+              : width > 992
+              ? "84px 0 0 60px"
+              : "35px 0 0"
+          }
+          direction="column"
+          flex={width > 1520 ? "1" : "2"}
+        >
           <RecommendedArticles articles={featuredArticles} />
         </Flex>
       </Flex>

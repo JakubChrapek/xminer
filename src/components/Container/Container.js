@@ -9,6 +9,7 @@ export const ContainerStyles = styled.section`
   padding: ${({ padding }) => (padding ? padding : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
   min-height: ${({ minHeight }) => (minHeight ? minHeight : "")};
+  overflow: hidden;
 `
 
 const Container = ({ bg, margin, padding, minHeight, children }) => {

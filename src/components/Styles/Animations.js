@@ -77,3 +77,5 @@ export const textFadeInUp = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   exit: { opacity: 0, y: -8, transition: { duration: 0.4 } },
 }
+
+export const transition = { duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }

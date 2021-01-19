@@ -226,7 +226,7 @@ const SalesHero = () => {
               color="var(--headers-color)"
               lineHeight="normal"
             >
-              Wiemy, że się sprawdza.{width < 640 && <br />}Z&nbsp;metką
+              Wiemy, że się sprawdza. {width < 640 && <br />}Z&nbsp;metką
               „Wykopane w&nbsp;Polsce”
             </Text>
             <Text

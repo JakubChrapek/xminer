@@ -9,7 +9,10 @@ import { icons } from "./catogoriesData"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { HiArrowNarrowRight } from "react-icons/hi"
-import { articlesWrapperTransition } from "../../../Styles/Animations"
+import {
+  articlesWrapperTransition,
+  transition,
+} from "../../../Styles/Animations"
 
 const CategoriesStyles = styled.section`
   display: flex;
@@ -247,7 +250,7 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
     }
   }, [activeCategory, items])
   return (
-    <AnimatePresence type="crossfade">
+    <AnimatePresence>
       <ActiveArticlesStyles
         layout
         variants={articlesWrapperTransition}
@@ -262,10 +265,11 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={transition}
           >
             <ImageWrapper layout style={{ overflow: "hidden" }}>
               <Link to={`/blog/${item.slug}`}>
-                <motion.span layout whileHover={{ x: 3 }} whileTap={{ x: 6 }}>
+                <motion.span whileHover={{ x: 3 }} whileTap={{ x: 6 }}>
                   <HiArrowNarrowRight size="54px" color="var(--light-aqua)" />
                 </motion.span>
               </Link>
@@ -278,14 +282,13 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
               margin="12px 0 0"
               layout
             />
-            <Link to={`/blog/${item.slug}`}>
+            <Link layout to={`/blog/${item.slug}`}>
               <Text
                 as="h3"
                 fontSize="18px"
                 fontWeight="bold"
                 margin="4px 0 0"
                 lineHeight="normal"
-                layout
               >
                 {item.title}
               </Text>
@@ -335,7 +338,7 @@ const CategoriesSections = ({
   }, [])
   return (
     <CategoriesStyles margin={margin}>
-      <AnimateSharedLayout>
+      <AnimateSharedLayout type="crossfade">
         <Flex layout width="100%" direction="column">
           <CategoriesNavigation
             items={filteredCategories}
