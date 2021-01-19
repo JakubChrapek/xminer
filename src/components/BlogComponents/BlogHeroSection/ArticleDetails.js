@@ -25,8 +25,8 @@ const DetailsStyles = styled(motion.p)`
       featuredArticles ? "0" : margin ? margin : "27px 0 0"};
   }
   @media only screen and (max-width: 640px) {
-    font-size: ${({ featuredArticles }) =>
-      featuredArticles && "11px !important"};
+    font-size: ${({ featuredArticles, smaller }) =>
+      (smaller || featuredArticles) && "11px !important"};
   }
   line-height: normal !important;
   color: var(--text-privacy) !important;
@@ -135,12 +135,14 @@ const ArticleDetails = ({
   tag,
   margin,
   layout,
+  smaller,
 }) => (
   <DetailsStyles
     margin={margin}
     layout={layout}
     dateWithoutDot={dateWithoutDot}
     featuredArticles={featuredArticles}
+    smaller={smaller}
   >
     {logo && (
       <LogoStyles

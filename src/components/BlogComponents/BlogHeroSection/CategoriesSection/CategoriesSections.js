@@ -13,6 +13,8 @@ import {
   articlesWrapperTransition,
   transition,
 } from "../../../Styles/Animations"
+import useWindowSize from "../../../../utils/UseWindowSize"
+import { DragSlider } from "../../../DragSlider/DragSlider"
 
 const CategoriesStyles = styled.section`
   display: flex;
@@ -22,6 +24,17 @@ const CategoriesStyles = styled.section`
   > div {
     max-width: 1440px;
     margin: 0 122px;
+  }
+  @media only screen and (max-width: 1182px) {
+    > div {
+      margin: 0 60px;
+    }
+  }
+  @media only screen and (max-width: 820px) {
+    > div {
+      margin: 0;
+      padding: 0 30px;
+    }
   }
 `
 
@@ -35,6 +48,10 @@ const NavigationStyles = styled(motion.ul)`
   grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
   grid-gap: 24px 58px;
   list-style-type: none;
+  @media only screen and (max-width: 1182px) {
+    padding: 19px 32px;
+    grid-gap: 24px 32px;
+  }
 `
 
 const ListItemStyles = styled(motion.li)`
@@ -44,6 +61,12 @@ const ListItemStyles = styled(motion.li)`
   align-items: center;
   min-width: 148px;
   max-width: 180px;
+
+  @media only screen and (max-width: 874px) {
+    max-width: unset;
+    width: 200px;
+    margin-right: 50px;
+  }
   button {
     width: 100%;
     height: 100%;
@@ -82,44 +105,94 @@ const ListItemStyles = styled(motion.li)`
 `
 
 const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
+  const width = useWindowSize()
   return (
-    <NavigationStyles layout>
-      {items.map(item => {
-        const categoryIcon =
-          icons[item.categoryName] === undefined
-            ? Object.values(icons)[0]
-            : icons[item.categoryName]
-        return (
-          <ListItemStyles
-            layout
-            active={activeCategory === item.categoryName}
-            key={item.categoryName}
-          >
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveCategory(item.categoryName)}
-              layout
-            >
-              {categoryIcon}
-              <Text
-                fontSize="16px"
-                fontWeight="bold"
-                lineHeight="normal"
-                margin="13px 0 0"
-                textTransform="capitalize"
-                color={
-                  activeCategory === item.categoryName
-                    ? "var(--blue)"
-                    : "var(--black)"
-                }
+    <>
+      {width < 874 ? (
+        <DragSlider
+          bounceDamping="100"
+          bounceStiffness="200"
+          padding="19px 32px"
+          bg="var(--light-blue)"
+          layout
+          leftAnchor={125}
+        >
+          {items.map(item => {
+            const categoryIcon =
+              icons[item.categoryName] === undefined
+                ? Object.values(icons)[0]
+                : icons[item.categoryName]
+            return (
+              <ListItemStyles
+                layout
+                active={activeCategory === item.categoryName}
+                key={item.categoryName}
               >
-                {item.categoryName.split(" ")[0]}
-              </Text>
-            </motion.button>
-          </ListItemStyles>
-        )
-      })}
-    </NavigationStyles>
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveCategory(item.categoryName)}
+                  layout
+                >
+                  {categoryIcon}
+                  <Text
+                    fontSize="16px"
+                    fontWeight="bold"
+                    lineHeight="normal"
+                    margin="13px 0 0"
+                    textTransform="capitalize"
+                    color={
+                      activeCategory === item.categoryName
+                        ? "var(--blue)"
+                        : "var(--black)"
+                    }
+                  >
+                    {item.categoryName.split(" ")[0]}
+                  </Text>
+                </motion.button>
+              </ListItemStyles>
+            )
+          })}
+        </DragSlider>
+      ) : (
+        <NavigationStyles layout>
+          {items.map(item => {
+            const categoryIcon =
+              icons[item.categoryName] === undefined
+                ? Object.values(icons)[0]
+                : icons[item.categoryName]
+            return (
+              <ListItemStyles
+                layout
+                active={activeCategory === item.categoryName}
+                key={item.categoryName}
+              >
+                <motion.button
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveCategory(item.categoryName)}
+                  layout
+                >
+                  {categoryIcon}
+                  <Text
+                    fontSize="16px"
+                    fontWeight="bold"
+                    lineHeight="normal"
+                    margin="13px 0 0"
+                    textTransform="capitalize"
+                    color={
+                      activeCategory === item.categoryName
+                        ? "var(--blue)"
+                        : "var(--black)"
+                    }
+                  >
+                    {item.categoryName.split(" ")[0]}
+                  </Text>
+                </motion.button>
+              </ListItemStyles>
+            )
+          })}
+        </NavigationStyles>
+      )}
+    </>
   )
 }
 
@@ -127,19 +200,27 @@ const ActiveArticlesStyles = styled(motion.div)`
   width: 100%;
   margin-top: 49px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 43px 61px;
 
   .gatsby-image-wrapper {
     height: 216px;
     border-radius: 5px;
   }
+  @media only screen and (max-width: 1328px) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    .gatsby-image-wrapper {
+      height: 189px;
+    }
+  }
 
   > article {
     position: relative;
     width: 100%;
     max-width: 440px;
-
+    @media only screen and (max-width: 662px) {
+      max-width: 100%;
+    }
     > a {
       text-decoration: none;
 
@@ -249,6 +330,8 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
       )
     }
   }, [activeCategory, items])
+
+  const width = useWindowSize()
   return (
     <AnimatePresence>
       <ActiveArticlesStyles
@@ -281,11 +364,12 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
               dateWithoutDot
               margin="12px 0 0"
               layout
+              smaller
             />
             <Link layout to={`/blog/${item.slug}`}>
               <Text
                 as="h3"
-                fontSize="18px"
+                fontSize={width < 740 ? "15px !important" : "18px"}
                 fontWeight="bold"
                 margin="4px 0 0"
                 lineHeight="normal"

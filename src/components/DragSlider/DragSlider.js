@@ -22,6 +22,8 @@ export const DragSlider = ({
   margin,
   leftAnchor,
   padding,
+  bg,
+  initial,
 }) => {
   const ref = useRef(null)
   const x = useMotionValue(0)
@@ -59,7 +61,8 @@ export const DragSlider = ({
 
   const SliderWrap = ({ children, margin, padding, leftAnchor }) => {
     return (
-      <div
+      <motion.div
+        layout
         style={{
           overflow: "hidden",
           maxWidth: "calc(100% + 60px)",
@@ -67,22 +70,26 @@ export const DragSlider = ({
           alignSelf: "center",
           margin: margin,
           padding: padding,
+          width: "100%",
+          backgroundColor: bg,
         }}
       >
         <Slider
           ref={ref}
           drag="x"
-          initial={{ x: 30 }}
+          // initial={initial ? { x: 0 } : { x: 30 }}
+          initial={{ x: 0 }}
           style={{ x }}
           dragConstraints={{
             left: -sliderConstraints - (leftAnchor || 75),
-            right: 30,
+            // right: initial ? 0 : 30,
+            right: 0,
           }}
           dragTransition={{ bounceStiffness, bounceDamping }}
         >
           {children}
         </Slider>
-      </div>
+      </motion.div>
     )
   }
 
