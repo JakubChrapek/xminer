@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
-import beforeIcon from "../../../../images/dla-poczatkujacych-klocek.svg"
+import beforeIcon from "../../../../images/dla-poczatkujacych-icon.svg"
+import blocksIcon from "../../../../images/double-columns-icon.svg"
 import ButtonText from "../../../ButtonText/ButtonText"
 import arrowRight from "../../../../images/right-arrow.svg"
 
@@ -140,7 +141,9 @@ const BeforeMiningSection = () => {
             </ButtonText>
           </ButtonsWrapper>
         </div>
-        <div>{/* <img src={beforeIcon} alt="" /> */}</div>
+        <div>
+          <img src={beforeIcon} alt="" />
+        </div>
       </Wrapper>
     </BeforeStyles>
   )

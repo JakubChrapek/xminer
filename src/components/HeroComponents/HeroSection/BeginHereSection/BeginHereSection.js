@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import BeginCards from "./BeginCards"
-import blob from "../../../../images/white-blob.svg"
+import blob from "../../../../images/column-blog-icon.svg"
 import investorsIcon from "../../../../images/dla-biznesu.svg"
 
 const WhyStyles = styled.section`
@@ -11,9 +11,16 @@ const WhyStyles = styled.section`
   background: url(${blob});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  margin-top: -80px;
+  background-position: center top;
+  margin-top: -350px;
+  @media (max-width: 1600px) {
+    margin-top: -300px;
+  }
+  @media (max-width: 1405px) {
+    background-size: contain;
+  }
   z-index: 2;
+  position: relative;
 `
 
 const Wrapper = styled.div`
@@ -23,9 +30,8 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1440px;
   position: relative;
-  top: -140px;
   z-index: 2;
-  padding: 30% 167px 15%;
+  padding: 520px 167px 250px;
   @media (max-width: 1440px) {
     padding: 30% 167px 20%;
     max-width: 100%;

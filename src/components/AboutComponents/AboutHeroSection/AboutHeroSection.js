@@ -4,23 +4,28 @@ import Text from "../../Text/Text"
 import AboutCeo from "./AboutCeo/AboutCeo"
 
 const AboutHero = styled.section`
-  min-height: 60vw;
   padding-top: 108px;
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
 `
 
 const Wrapper = styled.div`
   display: flex;
-  /* width: 100%; */
+  width: 100%;
   max-width: 1440px;
   position: relative;
   z-index: 1;
   margin: 120px 122px 30px;
+  @media only screen and (max-width: 1600px) {
+    width: 90%;
+    max-width: 1360px;
+  }
 
   @media only screen and (max-width: 1180px) {
     margin: 100px 80px 30px;
+    width: 100%;
+    max-width: 960px;
 
     &:last-of-type {
       margin: 40px 80px 30px;
@@ -124,7 +129,7 @@ const AboutHeroSection = () => {
           <div>
             <Text
               color="var(--body-text)"
-              maxwidth="588px"
+              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
             >
@@ -136,7 +141,7 @@ const AboutHeroSection = () => {
             <br />
             <Text
               color="var(--body-text)"
-              maxwidth="588px"
+              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
             >
@@ -151,7 +156,7 @@ const AboutHeroSection = () => {
           <div>
             <Text
               color="var(--body-text)"
-              maxwidth="588px"
+              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
             >
@@ -166,7 +171,7 @@ const AboutHeroSection = () => {
             <br />
             <Text
               color="var(--body-text)"
-              maxwidth="588px"
+              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
             >
@@ -175,7 +180,7 @@ const AboutHeroSection = () => {
             <br />
             <Text
               color="var(--body-text)"
-              maxwidth="588px"
+              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
             >

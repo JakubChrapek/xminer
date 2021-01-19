@@ -2,23 +2,28 @@ import React from "react"
 import styled from "styled-components"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import investorsIcon from "../../../../images/dla-biznesu.svg"
+import blocksIcon from "../../../../images/double-columns-icon.svg"
 import ButtonText from "../../../ButtonText/ButtonText"
 import arrowRight from "../../../../images/right-arrow.svg"
 
 const BeforeStyles = styled.section`
   display: flex;
   justify-content: center;
+  position: relative;
+  background: url(${blocksIcon});
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: left bottom;
 `
 
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
   max-width: 1440px;
-  position: relative;
   z-index: 3;
   margin: 98px 135px 50px 0;
   @media only screen and (max-width: 1453px) {
-    margin: 50px 70px 50px 60px;
+    margin: 50px 70px 50px 0px;
     max-width: 100%;
   }
   @media only screen and (max-width: 1082px) {
@@ -111,19 +116,14 @@ const Wrapper = styled.div`
       flex: 4;
       display: flex;
       align-items: flex-end;
-      justify-content: center;
+      justify-content: flex-start;
       @media only screen and (max-width: 1082px) {
         flex: 2;
       }
-      img {
-        width: 60%;
 
-        &:first-child {
-          position: absolute;
-          left: -7.5%;
-          bottom: 20%;
-          width: 30%;
-        }
+      img {
+        position: absolute;
+        left: 0;
       }
     }
   }
@@ -144,10 +144,7 @@ const InvestorsSection = () => {
   return (
     <BeforeStyles>
       <Wrapper>
-        <div>
-          {/* <img src={investorsIcon} alt="" /> */}
-          {/* <img src={investorsIcon} alt="" /> */}
-        </div>
+        <div>{/* <img src={blocksIcon} alt="" /> */}</div>
         <div>
           <p className="title">Dla profesjonalistów</p>
           <p className="claim">

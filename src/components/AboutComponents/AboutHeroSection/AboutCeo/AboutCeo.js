@@ -9,6 +9,7 @@ import useWindowSize from "../../../../utils/UseWindowSize"
 const AboutHero = styled.section`
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   background: linear-gradient(135deg, #29abe2, rgba(255, 255, 255, 0)),
     linear-gradient(to bottom, var(--primary), var(--primary));
@@ -19,7 +20,7 @@ const AboutHero = styled.section`
 
 const Wrapper = styled.div`
   display: flex;
-  /* width: 100%; */
+  width: 100%;
   max-width: 1440px;
   position: relative;
   z-index: 1;
@@ -29,8 +30,15 @@ const Wrapper = styled.div`
     margin-left: 50px;
     margin-top: -217px;
   }
+  @media only screen and (max-width: 1600px) {
+    width: 90%;
+    max-width: 1360px;
+  }
+
   @media only screen and (max-width: 1180px) {
     margin: 60px 80px 90px;
+    width: 100%;
+    max-width: 960px;
 
     h2 {
       margin-top: 36px;
