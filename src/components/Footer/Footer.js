@@ -109,6 +109,9 @@ const Columns = styled.div`
     font-weight: 300;
     width: 100%;
     max-width: 325px;
+    @media only screen and (max-width: 898px) {
+      padding-left: 0;
+    }
     @media only screen and (max-width: 640px) {
       width: 85%;
     }
@@ -124,6 +127,9 @@ const Columns = styled.div`
     line-height: 1.5;
     color: var(--white);
     margin: 0 0 18px 10px;
+    @media only screen and (max-width: 898px) {
+      margin-left: 0;
+    }
   }
 
   ul {
@@ -152,6 +158,9 @@ const Columns = styled.div`
       padding: 6px 10px;
       font-weight: 300;
       transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      @media only screen and (max-width: 898px) {
+        margin-left: -10px;
+      }
 
       &:after {
         content: "";
@@ -500,7 +509,12 @@ const Footer = () => {
                   </a>
                   |
                 </p>
-                <Link to="/polityka-prywatnosci">Polityka prywatności</Link>
+                <Link
+                  style={{ display: "inline-flex" }}
+                  to="/polityka-prywatnosci"
+                >
+                  Polityka prywatności
+                </Link>
               </div>
             </>
           ) : (
@@ -508,7 +522,12 @@ const Footer = () => {
               <p style={{ marginTop: "14px" }}>
                 &copy; {new Date().getFullYear()} Xminer. Wszelkie prawa
                 zastrzeżone. |
-                <Link to="/polityka-prywatnosci">Polityka prywatności</Link>
+                <Link
+                  style={{ display: "inline-flex" }}
+                  to="/polityka-prywatnosci"
+                >
+                  Polityka prywatności
+                </Link>
               </p>
 
               <div>

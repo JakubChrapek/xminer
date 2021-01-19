@@ -9,6 +9,14 @@ import useWindowSize from "../../utils/UseWindowSize"
 
 const ContactWrapperStyles = styled(WrapperStyles)`
   margin: 127px 123px 90px;
+  @media only screen and (min-width: 1182px) {
+    width: 100%;
+    margin: 127px 0 90px;
+    padding: 0 123px;
+    > div:first-child {
+      padding-right: 60px;
+    }
+  }
   @media only screen and (max-width: 1282px) {
     h2 {
       font-size: 40px;

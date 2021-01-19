@@ -7,6 +7,7 @@ import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/Bl
 import ArticleDetails from "../components/BlogComponents/BlogHeroSection/ArticleDetails"
 import { motion } from "framer-motion"
 import SEO from "../components/SEO"
+import useWindowSize from "../utils/UseWindowSize"
 
 const PostStyles = styled.article`
   display: flex;
@@ -18,6 +19,24 @@ const PostStyles = styled.article`
   padding: 67px 0 90px;
   max-width: 750px;
 
+  ul {
+    margin-top: 16px;
+  }
+
+  li {
+    list-style-position: inside;
+    color: var(--body-text);
+  }
+
+  @media only screen and (max-width: 750px) {
+    max-width: 100%;
+    margin: 0 30px;
+  }
+  @media only screen and (max-width: 640px) {
+    padding: 45px 0 70px;
+    align-items: flex-start;
+  }
+
   img {
     max-width: 100%;
     max-height: 600px;
@@ -28,7 +47,10 @@ const PostStyles = styled.article`
     font-size: 18px;
     line-height: 1.67em;
     font-weight: normal;
-    color: var(--post-text);
+    color: var(--body-text);
+    @media only screen and (max-width: 640px) {
+      font-size: 16px;
+    }
     > img {
       position: relative;
       left: 50%;
@@ -43,6 +65,12 @@ const PostStyles = styled.article`
     font-weight: bold;
     max-width: 500px;
     text-align: center;
+    color: var(--headers-color);
+    @media only screen and (max-width: 640px) {
+      text-align: left;
+      font-size: 30px;
+      font-weight: 500;
+    }
   }
 
   h2 {
@@ -50,12 +78,18 @@ const PostStyles = styled.article`
     font-weight: 600;
     line-height: normal;
     margin-top: 28px;
+    color: var(--headers-color);
 
     + p {
       margin-top: 6px;
       > img {
         margin-top: 32px;
       }
+    }
+
+    @media only screen and (max-width: 640px) {
+      font-size: 22px;
+      font-weight: 500;
     }
   }
 
@@ -64,6 +98,12 @@ const PostStyles = styled.article`
     font-weight: 500;
     line-height: normal;
     margin-top: 12px;
+    color: var(--headers-color);
+    @media only screen and (max-width: 640px) {
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 24px;
+    }
     + p {
       margin-top: 6px;
       > img {
@@ -114,6 +154,9 @@ const FeaturedImage = styled(Img)`
 
 const ExcerptStyles = styled.p`
   margin: 61px 0 38px;
+  @media only screen and (max-width: 640px) {
+    margin: 46px 0 12px;
+  }
 `
 const Excerpt = ({ content }) => (
   <ExcerptStyles dangerouslySetInnerHTML={{ __html: content }} />
@@ -142,6 +185,7 @@ const Post = ({ data }) => {
       totalCount: newestArticlesTotalCount,
     },
   } = data
+  const width = useWindowSize()
   return (
     <>
       <SEO title={`${title}`} />
@@ -154,7 +198,7 @@ const Post = ({ data }) => {
           category={categoryName}
           date={formatDate(date)}
           readingTime={readingTime}
-          tag
+          tag={width > 740}
         />
         {excerpt && <Excerpt content={excerpt} />}
         <div dangerouslySetInnerHTML={{ __html: html }} />
@@ -168,6 +212,7 @@ const Post = ({ data }) => {
             : similarArticlesTotalCount
         }
         similarPosts
+        margin="60px 0 0"
       />
     </>
   )
@@ -220,7 +265,7 @@ export const postQuery = graphql`
     }
     newestPosts: allDatoCmsPost(
       limit: 3
-      filter: { postCategory: { categoryName: { ne: $name } }, id: { ne: $id } }
+      filter: { id: { ne: $id } }
       sort: { fields: date, order: DESC }
     ) {
       totalCount

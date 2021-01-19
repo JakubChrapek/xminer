@@ -40,21 +40,21 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Scroll callbacks={location} />
+      {/* <Scroll callbacks={location} /> */}
       <GlobalStyles />
       <SEO />
       <Header />
-      <AnimatePresence exitBeforeEnter>
-        <StyledMain
-          key={location.pathname}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {children}
-        </StyledMain>
-        <Footer key="footer" />
-      </AnimatePresence>
+      {/* <AnimatePresence exitBeforeEnter> */}
+      <StyledMain
+        key={location.pathname}
+        // initial={{ opacity: 0 }}
+        // animate={{ opacity: 1 }}
+        // exit={{ opacity: 0 }}
+      >
+        {children}
+      </StyledMain>
+      <Footer key="footer" />
+      {/* </AnimatePresence> */}
     </>
   )
 }

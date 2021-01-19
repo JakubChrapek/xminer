@@ -24,6 +24,7 @@ export const DragSlider = ({
   padding,
   bg,
   initial,
+  radius,
 }) => {
   const ref = useRef(null)
   const x = useMotionValue(0)
@@ -72,6 +73,7 @@ export const DragSlider = ({
           padding: padding,
           width: "100%",
           backgroundColor: bg,
+          borderRadius: radius,
         }}
       >
         <Slider

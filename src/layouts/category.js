@@ -15,6 +15,18 @@ const CategoryStyles = styled.section`
     max-width: 1440px;
     margin: 0 102px;
   }
+  @media only screen and (max-width: 1182px) {
+    padding: 150px 0 0;
+    > div {
+      margin: 0 60px;
+    }
+  }
+  @media only screen and (max-width: 820px) {
+    > div {
+      margin: 0;
+      padding: 0 30px;
+    }
+  }
 `
 
 const CategoryLayout = ({ data, pageContext }) => {
@@ -31,12 +43,27 @@ const CategoryLayout = ({ data, pageContext }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              fontSize="10px"
+              letterSpacing="1px"
+              fontWeight="400"
+              textTransform="uppercase"
+              color="var(--headers-color)"
+            >
+              Przeglądasz
+            </Text>
+            <Text
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               as="h1"
               fontSize="36px"
               fontWeight="600"
               lineHeight="normal"
+              color="var(--headers-color)"
             >
-              Blog | {defaultActiveCategory}
+              Blog{" "}
+              {defaultActiveCategory !== "wszystkie" &&
+                `/ ${defaultActiveCategory}`}
             </Text>
           </Flex>
         </Flex>

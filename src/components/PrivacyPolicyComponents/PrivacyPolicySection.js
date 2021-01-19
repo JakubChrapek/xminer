@@ -1,16 +1,65 @@
 import React, { useState } from "react"
 import Container from "../Container/Container"
-import Wrapper from "../Wrapper/Wrapper"
+import { WrapperStyles } from "../Wrapper/Wrapper"
 import Flex from "../Flex/Flex"
 import Text from "../Text/Text"
 import styled from "styled-components"
 
+const PrivacyWrapperStyles = styled(WrapperStyles)`
+  p {
+    color: var(--body-text);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--headers-color);
+  }
+  @media only screen and (max-width: 1182px) {
+    margin: 200px 60px 140px;
+    h1 {
+      font-size: 36px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 22px;
+    }
+  }
+  @media only screen and (max-width: 820px) {
+    margin: 172px 30px 120px;
+    h1 {
+      margin: 16px 0 32px;
+      font-weight: 500;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 32px 0 8px;
+    }
+    h3 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+  @media only screen and (max-width: 820px) {
+    h1 {
+      font-size: 24px;
+    }
+  }
+`
+
 const PrivacyPolicySection = ({ bg, margin, title, subtitle, content }) => {
   return (
     <Container>
-      <Wrapper margin={margin ? margin : "96px 122px 129px"}>
+      <PrivacyWrapperStyles margin={margin ? margin : "96px 122px 129px"}>
         <Flex alignItems="flex-start" direction="column">
           <Text
+            as="span"
             fontSize="10px"
             lineHeight="normal"
             fontWeight="normal"
@@ -29,6 +78,7 @@ const PrivacyPolicySection = ({ bg, margin, title, subtitle, content }) => {
             dangerously={subtitle}
             textAlign="left"
             margin="20px 0 56px"
+            color="var(--headers-color)"
           />
           <Text
             fontSize="18px"
@@ -38,7 +88,7 @@ const PrivacyPolicySection = ({ bg, margin, title, subtitle, content }) => {
             dangerously={content}
           />
         </Flex>
-      </Wrapper>
+      </PrivacyWrapperStyles>
     </Container>
   )
 }

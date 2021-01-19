@@ -116,6 +116,7 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
           bg="var(--light-blue)"
           layout
           leftAnchor={125}
+          radius="5px"
         >
           {items.map(item => {
             const categoryIcon =

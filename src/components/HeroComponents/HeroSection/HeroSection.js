@@ -2,7 +2,7 @@ import React from "react"
 import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
-import heroIcon from "../../../images/hero-kropki.svg"
+import heroIcon from "../../../images/home-icon-min.svg"
 import { motion } from "framer-motion"
 import useWindowSize from "../../../utils/UseWindowSize"
 
@@ -136,11 +136,7 @@ const ButtonsWrapper = styled.div`
 const HeroSection = () => {
   const width = useWindowSize()
   return (
-    <HeroStyles
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <HeroStyles>
       {/* <BlobStyles src={blob} alt="" /> */}
       <Wrapper>
         <div>
