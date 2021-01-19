@@ -7,14 +7,17 @@ import { motion } from "framer-motion"
 import useWindowSize from "../../../utils/UseWindowSize"
 
 const HeroStyles = styled(motion.section)`
-  min-height: 60vw;
+  min-height: 80vh;
   padding-top: 108px;
   display: flex;
   justify-content: center;
+  position: relative;
+  @media only screen and (max-width: 1082px) {
+    min-height: 60vh;
+  }
 `
 
 const BlobStyles = styled.img`
-  width: 70%;
   position: absolute;
   left: 0;
   top: 0;
@@ -137,7 +140,7 @@ const HeroSection = () => {
   const width = useWindowSize()
   return (
     <HeroStyles>
-      {/* <BlobStyles src={blob} alt="" /> */}
+      {width > 1082 && <BlobStyles src={blob} alt="" />}
       <Wrapper>
         <div>
           {width > 801 ? (
