@@ -100,10 +100,8 @@ const WhySection = () => {
         </p>
         <Cards />
         <ButtonLink
-          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          color="#101b56"
-          bg="var(--white)"
+          type="tertiary"
           to="/o-xminer"
           width={width < 640 ? "240px" : null}
           alignSelf={width < 640 ? "center" : null}

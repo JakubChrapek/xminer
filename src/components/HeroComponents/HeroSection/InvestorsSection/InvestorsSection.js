@@ -1,19 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import ButtonLink from "../../../ButtonLink/ButtonLink"
-import investorsIcon from "../../../../images/dla-biznesu.svg"
-import blocksIcon from "../../../../images/double-columns-icon.svg"
 import ButtonText from "../../../ButtonText/ButtonText"
 import arrowRight from "../../../../images/right-arrow.svg"
-
 const BeforeStyles = styled.section`
   display: flex;
   justify-content: center;
   position: relative;
-  background: url(${blocksIcon});
-  background-size: 40%;
-  background-repeat: no-repeat;
-  background-position: left bottom;
 `
 
 const Wrapper = styled.div`
@@ -45,6 +37,14 @@ const Wrapper = styled.div`
       @media only screen and (max-width: 1453px) {
         margin-left: 30px;
         margin-top: 30px;
+      }
+      @media only screen and (max-width: 1118px) {
+        margin-left: 103px;
+        margin-right: 30px;
+      }
+      @media only screen and (max-width: 1082px) {
+        margin-left: 0;
+        margin-right: 0;
       }
       @media only screen and (max-width: 801px) {
         order: -1;
@@ -117,8 +117,8 @@ const Wrapper = styled.div`
       display: flex;
       align-items: flex-end;
       justify-content: flex-start;
-      @media only screen and (max-width: 1082px) {
-        flex: 2;
+      @media only screen and (max-width: 1118px) {
+        display: none;
       }
 
       img {
@@ -144,7 +144,7 @@ const InvestorsSection = () => {
   return (
     <BeforeStyles>
       <Wrapper>
-        <div>{/* <img src={blocksIcon} alt="" /> */}</div>
+        <div></div>
         <div>
           <p className="title">Dla profesjonalistów</p>
           <p className="claim">
@@ -155,10 +155,11 @@ const InvestorsSection = () => {
             tego masz wątpliwości i&nbsp;pytania, które chcesz zadać komuś, kto
             zna się na rzeczy, również (a&nbsp;może przede wszystkim) pod
             praktycznym kątem biznesowym. Skontaktuj się z&nbsp;nami. Odpowiemy
-            na wszystkie Twoje pytania i&nbsp;pokierujemy inwestycją. Inwestycja
-            w&nbsp;kryptowaluty?
+            na wszystkie Twoje pytania i&nbsp;pokierujemy inwestycją.
           </p>
-          <p className="description">Powiemy Ci jak.</p>
+          <p className="description">
+            Inwestycja w&nbsp;kryptowaluty? Powiemy Ci jak.
+          </p>
           <ButtonsWrapper>
             <ButtonText
               color="var(--primary)"

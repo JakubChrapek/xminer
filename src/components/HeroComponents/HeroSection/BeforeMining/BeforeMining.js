@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import beforeIcon from "../../../../images/dla-poczatkujacych-icon.svg"
-import blocksIcon from "../../../../images/double-columns-icon.svg"
 import ButtonText from "../../../ButtonText/ButtonText"
 import arrowRight from "../../../../images/right-arrow.svg"
 

@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi"
 import styled from "styled-components"
 import useWindowSize from "../../../../utils/UseWindowSize"
+import { staggerContainer, staggerItemFade } from "../../../Styles/Animations"
 
 const SliderStyles = styled.div`
   display: flex;
@@ -88,13 +89,38 @@ const SlideStyles = styled(motion.div)`
 const Slide = ({ name, businessName, recommendation }) => {
   return (
     <SlideStyles
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
+      variants={staggerContainer}
+      initial="initial"
+      animate="animate"
+      exit="exit"
     >
-      <motion.p className="name">{name}</motion.p>
-      <motion.p className="business">{businessName}</motion.p>
-      <motion.p className="recommendation">{recommendation}</motion.p>
+      <motion.p
+        variants={staggerItemFade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="name"
+      >
+        {name}
+      </motion.p>
+      <motion.p
+        variants={staggerItemFade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="business"
+      >
+        {businessName}
+      </motion.p>
+      <motion.p
+        variants={staggerItemFade}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="recommendation"
+      >
+        {recommendation}
+      </motion.p>
     </SlideStyles>
   )
 }
@@ -137,6 +163,7 @@ const ProgressStyles = styled.div`
   button {
     background-color: transparent;
     border: none;
+    border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,6 +176,11 @@ const ProgressStyles = styled.div`
     &:active,
     &:focus {
       outline: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--secondary);
     }
   }
 `
@@ -169,6 +201,7 @@ const Progressbar = ({
     <motion.button
       whileHover={activeSlide <= 1 ? {} : { x: -2 }}
       whileTap={activeSlide <= 1 ? {} : { x: -4 }}
+      whileFocus={{ scale: 1.1 }}
       type="button"
       style={{ marginRight: "16px" }}
       onClick={() => setActiveSlide(Math.max(activeSlide - 1, 1))}
@@ -178,6 +211,7 @@ const Progressbar = ({
     </motion.button>
     <motion.button
       whileHover={activeSlide >= slides.length ? {} : { x: 2 }}
+      whileFocus={{ scale: 1.1 }}
       whileTap={activeSlide >= slides.length ? {} : { x: 4 }}
       type="button"
       style={{ marginLeft: "16px" }}

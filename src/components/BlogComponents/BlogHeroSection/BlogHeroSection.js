@@ -74,8 +74,11 @@ const FeaturedArticleStyles = styled.article`
 
     &:focus-visible {
       h2 {
-        outline: 2px solid var(--secondary);
-        outline-offset: 6px;
+        box-shadow: 0 0 0 2px var(--secondary);
+        outline: none;
+        &:after {
+          content: none !important;
+        }
       }
     }
 
@@ -286,8 +289,11 @@ const RecommendedArticlesStyles = styled.div`
         }
       }
       &:focus-visible {
-        outline: 2px solid var(--secondary);
-        outline-offset: 6px;
+        box-shadow: 0 0 0 2px var(--secondary);
+        outline: none;
+        &:after {
+          content: none !important;
+        }
       }
       &:hover p {
         color: var(--secondary);

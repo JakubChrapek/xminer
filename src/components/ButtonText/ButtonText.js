@@ -11,6 +11,7 @@ const ButtonTextStyles = styled(motion.span)`
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "18px")};
   font-weight: ${({ fontWeight }) => (fontWeight ? fontWeight : "600")};
   font-stretch: normal;
+  border-radius: 8px;
   font-style: normal;
   line-height: ${({ lineHeight }) => (lineHeight ? lineHeight : "0.89")};
   letter-spacing: normal;
@@ -25,8 +26,7 @@ const ButtonTextStyles = styled(motion.span)`
     outline: none;
   }
   &:focus-visible {
-    outline: 2px solid ${({ color }) => (color ? color : "var(--link)")};
-    outline-offset: 4px;
+    outline: none !important;
   }
 
   &:hover {
@@ -46,15 +46,22 @@ const StyledLink = styled(Link)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  border-radius: 8px;
   width: ${({ width }) => (width ? width : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
+  margin-left: -8px;
+  padding: 4px 8px;
+  transition: box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
   &:focus,
   &:active {
     outline: none;
   }
   &:focus-visible {
-    outline: 2px solid ${({ color }) => (color ? color : "var(--link)")};
-    outline-offset: 4px;
+    outline: none !important;
+    box-shadow: ${({ size }) =>
+      size === "small"
+        ? "inset 0 0 0 2px var(--secondary) !important"
+        : "inset 0 0 0 3px var(--secondary) !important"};
   }
 `
 

@@ -72,8 +72,11 @@ const DetailsStyles = styled(motion.p)`
       }
     }
     &:focus-visible {
-      outline: 2px solid var(--secondary);
-      outline-offset: 6px;
+      box-shadow: 0 0 0 2px var(--secondary);
+      outline: none;
+      &:after {
+        content: none !important;
+      }
     }
   }
 

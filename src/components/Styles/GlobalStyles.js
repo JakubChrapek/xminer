@@ -29,6 +29,7 @@ const Global = createGlobalStyle`
     --headers-color: #0d162c;
     --body-text: rgba(12, 21, 46, 0.64);
     --gradient: linear-gradient(93.11deg, #29ABE2 0%, rgba(255, 255, 255, 0) 100%), var(--primary);
+    --gradient-hover: linear-gradient(180deg, rgba(45,31,132,1) 0%, rgba(43,112,151,1) 100%);
     --home-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);
     --main-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);
     font-size: 10px;

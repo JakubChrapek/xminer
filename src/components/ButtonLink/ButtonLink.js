@@ -4,15 +4,8 @@ import { motion } from "framer-motion"
 import { Link } from "gatsby"
 
 const ButtonLinkStyles = styled(motion.span)`
-  color: ${({ color }) => (color ? color : "var(--white)")};
-  background: ${({ bg }) => (bg ? bg : "var(--gradient)")};
-  border-radius: 10px;
-  border: none;
-  border: ${({ border }) => (border ? border : "")};
   width: 100%;
   height: 100%;
-  text-align: center;
-  line-height: 1.3em;
 
   &:focus,
   &:active {
@@ -22,22 +15,7 @@ const ButtonLinkStyles = styled(motion.span)`
     outline: none;
   }
 
-  ${({ size }) =>
-    size === "small"
-      ? css`
-          font-size: 15px;
-          letter-spacing: 0.75px;
-          font-weight: 600;
-          padding: 14px 28px;
-          min-width: 114px;
-        `
-      : css`
-          font-size: 20px;
-          font-weight: 400;
-          padding: 21px 22px;
-        `}
-
-  ${({ type }) =>
+  /* ${({ type }) =>
     type === "outline" &&
     css`
       background: transparent;
@@ -52,33 +30,71 @@ const ButtonLinkStyles = styled(motion.span)`
       background-clip: text;
       -webkit-text-fill-color: transparent;
     `}
+
+    ${({ type }) => type === "tertiary" && css``} */
 `
 
 const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
+  color: var(--white) !important;
   align-items: center;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.3em;
+  border: none;
   text-decoration: none;
   width: ${({ width }) => (width ? width : "")};
+  cursor: ${({ cursor }) => (cursor ? cursor : "")};
   max-width: ${({ maxwidth }) => (maxwidth ? maxwidth : "")};
   min-width: ${({ minwidth }) => (minwidth ? minwidth : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
   padding: ${({ padding }) => (padding ? padding : "")};
   align-self: ${({ alignSelf }) => (alignSelf ? alignSelf : "")};
+  background-image: linear-gradient(0deg, #2ec5ce, #29abe2, #2b7097, #2d1f84);
+  background-size: auto 200%;
+  background-position: 0 100%;
+  transition: background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+
+  &:hover {
+    background-position: 0 0;
+  }
+
   &:after {
     content: none !important;
   }
-  &.without-padding-right {
+  /* &.without-padding-right {
     padding: 8px 0 8px 20px !important;
-  }
-  border-radius: 10px;
+  } */
+  border-radius: 8px;
   &:focus,
   &:active {
-    outline: none;
+    outline: none !important;
   }
   &:focus-visible {
-    outline: none;
+    outline: none !important;
+    box-shadow: ${({ size }) =>
+      size === "small"
+        ? "inset 0 0 0 2px var(--faded-aqua) !important"
+        : "inset 0 0 0 4px var(--faded-aqua) !important"};
   }
+
+  ${({ size }) =>
+    size === "small"
+      ? css`
+          font-size: 15px;
+          letter-spacing: 0.75px;
+          font-weight: 600;
+          padding: 14px 28px;
+          min-width: 114px;
+        `
+      : css`
+          font-size: 20px;
+          font-weight: 500;
+          padding: 16px 22px;
+        `}
+
   ${({ type }) =>
     type === "outline" &&
     css`
@@ -86,9 +102,11 @@ const StyledLink = styled(Link)`
       background: ${({ outlinebg }) => (outlinebg ? outlinebg : "transparent")};
       background-clip: padding-box;
       border: solid 1px transparent;
+      color: var(--primary) !important;
       border-radius: 8px;
-      transition: background 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
-        color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+      transition: background 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        color 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       &:before {
         content: "";
         position: absolute;
@@ -99,22 +117,64 @@ const StyledLink = styled(Link)`
         z-index: -1;
         margin: -1px; /* !importanté */
         border-radius: inherit; /* !importanté */
-        background: linear-gradient(to right, #29abe2, #2ec5ce);
-        ${
-          "" /* transition: background 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
-          color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98); */
-        }
+        background-image: linear-gradient(
+          0deg,
+          #2ec5ce,
+          #29abe2,
+          #2b7097,
+          #2d1f84
+        );
+        background-size: auto 200%;
+        background-position: 0 100%;
+        transition: background-position 0.3s
+            cubic-bezier(0.04, 0.62, 0.23, 0.98),
+          box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+      }
+      &:hover:before {
+        background-position: 0 0;
       }
 
-      &:hover {
-        ${
-          "" /* background: ${({ outlinebg }) => (outlinebg ? "var(--gradient)" : "")};
-        &:before {
-          background: ${({ outlinebg }) => (outlinebg ? "transparent" : "")};
-        } */
-        }
+      &:focus-visible {
+        outline: none !important;
+        box-shadow: ${({ size }) =>
+          size === "small"
+            ? "inset 0 0 0 1px var(--primary) !important"
+            : "inset 0 0 0 3px var(--primary) !important"};
       }
     `}
+    ${({ type }) =>
+    type === "tertiary" &&
+    css`
+      position: relative;
+      background-image: none;
+      background-color: var(--white);
+      color: var(--headers-color) !important;
+      transition: background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+
+      &:hover {
+        background-color: var(--headers-color) !important;
+        color: var(--white) !important;
+      }
+
+      &:focus-visible {
+        outline: none !important;
+        box-shadow: ${({ size }) =>
+          size === "small"
+            ? "inset 0 0 0 2px var(--secondary) !important"
+            : "inset 0 0 0 4px var(--secondary) !important"};
+      }
+    `}
+`
+
+const SpanStyles = styled(motion.span)`
+  align-self: ${({ alignSelf }) => (alignSelf ? alignSelf : "")};
+  a {
+    span {
+      color: ${({ type }) => !type && "var(--white) !important"};
+    }
+  }
 `
 
 const ButtonLink = ({
@@ -123,6 +183,7 @@ const ButtonLink = ({
   fill,
   gradient,
   color,
+  cursor,
   bg,
   layout,
   type,
@@ -142,38 +203,44 @@ const ButtonLink = ({
   whileTap,
   whileFocus,
   className,
+  onClick,
 }) => (
-  <StyledLink
-    className={className}
-    to={to}
-    alignSelf={alignSelf}
-    width={width}
-    maxwidth={maxwidth}
-    minwidth={minwidth}
-    margin={margin}
-    padding={padding}
-    type={type}
-    outlinebg={outlinebg}
-    layout={layout}
-  >
-    <ButtonLinkStyles
+  <SpanStyles type={type} alignSelf={alignSelf} layout={layout}>
+    <StyledLink
+      className={className}
+      to={to}
+      cursor={cursor}
+      alignSelf={alignSelf}
+      width={width}
+      maxwidth={maxwidth}
+      minwidth={minwidth}
+      margin={margin}
+      padding={padding}
+      type={type}
+      outlinebg={outlinebg}
       border={border}
-      initial={initial}
-      animate={animate}
-      exit={exit}
-      whileHover={whileHover}
-      whileTap={whileTap}
-      whileFocus={whileFocus}
       size={size}
       fill={fill}
       gradient={gradient}
       bg={bg}
       type={type}
       color={color}
+      layout={layout}
     >
-      {children}
-    </ButtonLinkStyles>
-  </StyledLink>
+      <ButtonLinkStyles
+        initial={initial}
+        animate={animate}
+        onClick={onClick}
+        exit={exit}
+        whileHover={whileHover}
+        whileTap={whileTap}
+        whileFocus={whileFocus}
+        layout={layout}
+      >
+        {children}
+      </ButtonLinkStyles>
+    </StyledLink>
+  </SpanStyles>
 )
 
 export default ButtonLink

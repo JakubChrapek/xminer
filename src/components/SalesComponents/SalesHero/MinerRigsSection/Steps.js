@@ -7,7 +7,7 @@ import { fadeInUp, textFadeInUp } from "../../../Styles/Animations"
 import { useField, useFormikContext } from "formik"
 import { Link } from "gatsby"
 
-const ImgWrapper = styled(motion.div)`
+const ImgWrapper = styled(motion.button)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,7 @@ const ImgWrapper = styled(motion.div)`
   width: 209px;
   background-color: var(--white);
   border-radius: 15px;
+  border: none;
   transition: box-shadow 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
     background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
@@ -24,6 +25,14 @@ const ImgWrapper = styled(motion.div)`
 
   &.active {
     box-shadow: inset 0 0 0 5px var(--primary);
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  &:focus-visible {
+    outline: none !important;
+    box-shadow: inset 0 0 0 3px var(--primary);
   }
 
   &:first-of-type {

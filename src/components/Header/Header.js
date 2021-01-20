@@ -247,7 +247,7 @@ const MobileNavStyles = styled(motion.ul)`
   }
 `
 
-const Navigation = ({ logo }) => {
+const Navigation = () => {
   const [show, setShow] = useState(false)
   const [menuClosed, setMenuClosed] = useState(false)
   const [offerOpened, setOfferOpened] = useState(false)
@@ -363,13 +363,9 @@ const Navigation = ({ logo }) => {
                 </Link>
               </motion.li>
               <ButtonLink
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="no-underline"
                 size="small"
                 to="/kontakt"
-                padding="8px 0 8px 20px"
-                className="without-padding-right"
+                className="no-underline without-padding-right"
               >
                 Kontakt
               </ButtonLink>
@@ -424,7 +420,7 @@ const Navigation = ({ logo }) => {
                   <Chevron
                     whileHover={{ scale: 1.05, y: 2 }}
                     whileTap={{ scale: 0.9 }}
-                    // layout
+                    layout
                     className={show && "active"}
                     onClick={() => setOfferOpened(!offerOpened)}
                     style={offerOpened && { rotate: 180, y: 2 }}
@@ -471,23 +467,24 @@ const Navigation = ({ logo }) => {
                 )}
               </motion.li>
               <motion.li layout whileTap={{ scale: 0.95 }}>
-                <Link to="/blog" activeClassName="active">
+                <Link layout to="/blog" activeClassName="active">
                   Blog
                 </Link>
               </motion.li>
               <ButtonLink
                 alignSelf="center"
                 to="/kontakt"
-                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="no-underline"
                 size="small"
                 padding="8px 20px"
                 margin="24px 0"
+                layout
               >
                 Kontakt
               </ButtonLink>
               <motion.div
+                layout
                 style={{
                   width: "100%",
                   display: "flex",
@@ -619,11 +616,17 @@ const HeaderStyles = styled(motion.header)`
     padding: 8px 20px;
     text-decoration: none;
     color: var(--white);
+    border-radius: 8px;
     display: flex;
+    @media only screen and (max-width: 820px) {
+      display: inline-flex;
+    }
     justify-content: center;
     align-items: center;
     position: relative;
-    transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+      background-position 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+      box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
     &:after {
       content: "";
@@ -659,8 +662,11 @@ const HeaderStyles = styled(motion.header)`
       }
     }
     &:focus-visible {
-      outline: 2px solid var(--secondary);
-      outline-offset: 6px;
+      box-shadow: 0 0 0 2px var(--secondary);
+      outline: none;
+      &:after {
+        content: none !important;
+      }
     }
   }
 `
@@ -668,17 +674,6 @@ const HeaderStyles = styled(motion.header)`
 const Header = () => {
   const [bg, setBg] = useState("transparent")
   let pathname = useLocation().pathname
-  const data = useStaticQuery(graphql`
-    query headerQuery {
-      datoCmsHomepage {
-        logo {
-          fluid {
-            ...GatsbyDatoCmsFluid
-          }
-        }
-      }
-    }
-  `)
   // useEffect(() => {
   //   pathname === "/o-xminer"
   //     ? setBg("var(--nav-dark-bluse)")
@@ -691,7 +686,7 @@ const Header = () => {
     <HeaderStyles
       bg={pathname === "/" ? "transparent" : "var(--nav-dark-bluse)"}
     >
-      <Navigation logo={data} />
+      <Navigation />
     </HeaderStyles>
   )
 }

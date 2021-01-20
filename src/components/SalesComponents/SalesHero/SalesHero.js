@@ -54,43 +54,43 @@ const SalesHero = () => {
       datoCmsPageSale {
         trainingImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         minerForYouImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         fullPackageImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         minedInPolandImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         whyIsItWorthItImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         howToPickFirstMinerImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         multipleCryptocurrenciesImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }

@@ -2,25 +2,48 @@ import React from "react"
 import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
-import heroIcon from "../../../images/home-icon-min.svg"
+// import heroIcon from "../../../images/home-icon-min.svg"
+import { HeroIcon } from "../../SvgIcons/XminerIcons"
 import { motion } from "framer-motion"
 import useWindowSize from "../../../utils/UseWindowSize"
 
 const HeroStyles = styled(motion.section)`
   min-height: 80vh;
+  min-height: max(80vh, 800px);
   padding-top: 108px;
   display: flex;
   justify-content: center;
   position: relative;
-  @media only screen and (max-width: 1082px) {
-    min-height: 60vh;
-  }
+  /* background: url(${blob});
+  background-repeat: no-repeat;
+  background-size: contain;
+  @media only screen and (max-width: 800px) {
+    min-height: 70vh;
+    background-size: cover;
+  } */
 `
 
 const BlobStyles = styled.img`
   position: absolute;
   left: 0;
-  top: 0;
+  top: -40%;
+  width: 73%;
+  @media only screen and (max-width: 2200px) {
+    top: -50%;
+    width: 80%;
+  }
+  @media only screen and (max-width: 1720px) {
+    top: -35%;
+    width: 82%;
+  }
+  @media only screen and (max-width: 1600px) {
+    top: -25%;
+    width: 80%;
+  }
+  @media only screen and (max-width: 1400px) {
+    top: -10%;
+    width: 80%;
+  }
 `
 
 const Wrapper = styled.div`
@@ -45,6 +68,9 @@ const Wrapper = styled.div`
     &:first-child {
       flex: 4;
       margin-top: 70px;
+      @media only screen and (max-width: 1440px) {
+        margin-top: 30px;
+      }
       @media only screen and (max-width: 801px) {
         margin-top: 30px;
         text-align: center;
@@ -165,27 +191,25 @@ const HeroSection = () => {
             (i&nbsp;wydobywać!) z&nbsp;Xminer.
           </p>
           <ButtonsWrapper>
-            <ButtonLink
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              to="/dla-poczatkujacych"
-            >
+            <ButtonLink whileTap={{ scale: 0.95 }} to="/dla-poczatkujacych">
               Dla początkujących
             </ButtonLink>
             <ButtonLink
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              outlinebg="#182549"
+              outlinebg="var(--nav-dark-bluse)"
               bg="transparent"
               type="outline"
               width="204px"
               to="/dla-inwestorow"
+              whileTap={{ scale: 0.95 }}
             >
               Dla inwestorów
             </ButtonLink>
           </ButtonsWrapper>
         </div>
-        <div>{/* <img src={heroIcon} alt="" /> */}</div>
+        <div>
+          {/* <HeroIcon /> */}
+          {/* <img src={heroIcon} alt="" /> */}
+        </div>
       </Wrapper>
     </HeroStyles>
   )

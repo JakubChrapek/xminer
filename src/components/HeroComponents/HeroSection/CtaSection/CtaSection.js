@@ -84,14 +84,7 @@ const CtaSection = () => {
           <br />
           Dowiedz się jak!
         </h2>
-        <ButtonLink
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          color="#101B56"
-          width="196px"
-          to="/kontakt"
-          bg="var(--white)"
-        >
+        <ButtonLink type="tertiary" width="196px" to="/kontakt">
           Kontakt
         </ButtonLink>
         {width > 1082 && (

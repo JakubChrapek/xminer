@@ -1,8 +1,19 @@
 import React from "react"
 import { motion } from "framer-motion"
+import styled from "styled-components"
+
+const SvgStyles = styled.svg`
+  position: absolute;
+  right: 0;
+`
 
 export const HeroIcon = () => (
-  <svg width="550" height="427" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <SvgStyles
+    width="550"
+    height="427"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g id="âÃÃÃ_1">
       <path
         id="Vector"
@@ -770,7 +781,10 @@ export const HeroIcon = () => (
           opacity=".9"
           d="M295.323 46.612a1.488 1.488 0 00.677.908 1.473 1.473 0 002.024-.518 1.493 1.493 0 00.161-1.123 1.428 1.428 0 00-.661-.91 1.43 1.43 0 00-1.114-.152 1.424 1.424 0 00-.932.66 1.43 1.43 0 00-.155 1.135z"
         />
-        <path
+        <motion.clipPath
+          initial={{ x: 0, y: 0, opacity: 1 }}
+          animate={{ x: [-8, 0, 8], y: [30, 0 - 70], opacity: [1, 1, 0.2] }}
+          transition={{ repeat: Infinity, duration: 2 }}
           id="g1"
           opacity=".9"
           d="M291.33 79.998a1.438 1.438 0 001.193 1.03 1.43 1.43 0 001.612-1.493 1.435 1.435 0 00-1.746-1.332 1.424 1.424 0 00-.915.669 1.444 1.444 0 00-.144 1.126z"
@@ -8235,5 +8249,5 @@ export const HeroIcon = () => (
         <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
     </defs>
-  </svg>
+  </SvgStyles>
 )

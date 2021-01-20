@@ -12,11 +12,9 @@ const CardsStyles = styled.div`
   @media only screen and (max-width: 1326px) {
     grid-gap: 60px;
   }
-  @media only screen and (max-width: 1082px) {
+  @media only screen and (max-width: 1118px) {
+    margin-top: 30px;
     grid-gap: 40px;
-    margin-top: 60px;
-  }
-  @media only screen and (max-width: 801px) {
     grid-template-columns: 1fr;
   }
   @media only screen and (max-width: 640px) {

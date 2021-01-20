@@ -110,12 +110,12 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
     <>
       {width < 874 ? (
         <DragSlider
-          bounceDamping="100"
-          bounceStiffness="200"
+          bounceStiffness={200}
+          bounceDamping={30}
           padding="19px 32px"
           bg="var(--light-blue)"
           layout
-          leftAnchor={125}
+          leftAnchor={150}
           radius="5px"
         >
           {items.map(item => {
@@ -227,8 +227,11 @@ const ActiveArticlesStyles = styled(motion.div)`
 
       &:focus-visible {
         h3 {
-          outline: 2px solid var(--secondary);
-          outline-offset: 6px;
+          box-shadow: 0 0 0 2px var(--secondary);
+          outline: none;
+          &:after {
+            content: none !important;
+          }
         }
       }
 

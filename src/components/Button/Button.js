@@ -3,7 +3,8 @@ import styled, { css } from "styled-components"
 import { motion } from "framer-motion"
 
 const ButtonStyles = styled(motion.button)`
-  color: ${({ color }) => (color ? color : "var(--white)")};
+  color: ${({ color, loading }) =>
+    loading ? "transparent" : color ? color : "var(--white)"};
   background: ${({ bg }) => (bg ? bg : "var(--gradient)")};
   border-radius: ${({ radius }) => (radius ? radius : "10px")};
   border: ${({ border }) => (border ? border : "none")};
@@ -13,15 +14,28 @@ const ButtonStyles = styled(motion.button)`
   width: ${({ width }) => (width ? width : "")};
   order: ${({ order }) => (order ? order : "")};
   position: relative;
+  background-image: linear-gradient(0deg, #2ec5ce, #29abe2, #2b7097, #2d1f84);
+  background-size: auto 200%;
+  background-position: 0 100%;
+  transition: background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+  &:hover {
+    background-position: 0 0;
+  }
 
+  &:after {
+    content: none !important;
+  }
   &:focus,
   &:active {
     outline: none;
   }
   &:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 4px;
-    border-radius: 4px;
+    outline: none !important;
+    box-shadow: ${({ size }) =>
+      size === "small"
+        ? "inset 0 0 0 2px var(--faded-aqua) !important"
+        : "inset 0 0 0 4px var(--faded-aqua) !important"};
   }
 
   ${({ size }) =>
@@ -44,7 +58,7 @@ const ButtonStyles = styled(motion.button)`
     disabled &&
     css`
       pointer-events: none;
-      opacity: 0.6;
+      opacity: 0.5;
     `}
 `
 

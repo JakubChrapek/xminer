@@ -120,7 +120,12 @@ const Cards = () => {
           ))}
         </CardsStyles>
       ) : (
-        <DragSlider leftAnchor={75}>
+        <DragSlider
+          bounceStiffness={200}
+          bounceDamping={30}
+          margin="0 0 0 30px"
+          leftAnchor={46}
+        >
           {CardsContent.map(({ icon, title, content, cta }) => (
             <Card
               key={title}

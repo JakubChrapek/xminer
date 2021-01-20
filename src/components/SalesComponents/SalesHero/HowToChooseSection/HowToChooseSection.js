@@ -17,13 +17,13 @@ const HowToChooseSection = () => {
     query salesLastSection {
       datoCmsPageSale {
         minerForYouImg {
-          fluid {
+          fluid(maxWidth: 770) {
             src
           }
           alt
         }
         howToPickFirstMinerImg {
-          fluid {
+          fluid(maxWidth: 770) {
             src
           }
           alt

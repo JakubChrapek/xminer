@@ -56,20 +56,23 @@ export const fadeInUp = {
 }
 
 export const staggerContainer = {
-  initial: {},
   animate: {
     transition: {
-      staggerChildren: 0.3,
+      staggerChildren: 0.15,
     },
   },
-  exit: {},
 }
 
 export const staggerItemFade = {
-  initial: { opacity: 0, scale: 0 },
-  animate: { opacity: 1, scale: 5 },
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: [0.6, 0.05, -0.01, 0.9],
+    },
+  },
   exit: { opacity: 0 },
-  transition: { repeat: Infinity, duration: 2, repeatDelay: 0.2 },
 }
 
 export const textFadeInUp = {

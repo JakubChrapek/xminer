@@ -50,13 +50,13 @@ const AdditionalCtaSection = () => {
       datoCmsPageAdditionalService {
         allInOfferImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         contactWithSpecialistImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }

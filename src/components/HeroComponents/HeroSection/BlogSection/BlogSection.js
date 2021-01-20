@@ -125,16 +125,14 @@ const ArticleStyles = styled(motion.article)`
   @media only screen and (max-width: 660px) {
     margin-right: 51px;
   }
-  @media only screen and (max-width: 360px) {
-    margin-right: 41px;
-  }
 
   @media only screen and (max-width: 640px) {
     width: 248px;
   }
   @media only screen and (max-width: 360px) {
     width: 248px;
-    max-width: 75%;
+    max-width: 80%;
+    margin-right: 32px;
   }
 
   > a {
@@ -338,7 +336,12 @@ const BlogSection = ({
                 ))}
               </ArticlesGrid>
             ) : (
-              <DragSlider leftAnchor={150} margin="60px 0 90px">
+              <DragSlider
+                leftAnchor={width < 660 ? 102 : width < 360 ? 64 : 122}
+                margin="60px 0 90px 30px"
+                bounceStiffness={200}
+                bounceDamping={30}
+              >
                 {posts.map(article => (
                   <Article key={article.slug} article={article} />
                 ))}

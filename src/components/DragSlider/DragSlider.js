@@ -32,32 +32,43 @@ export const DragSlider = ({
   const [sliderWidth, setSliderWidth] = useState(0)
   const [sliderChildrenWidth, setSliderChildrenWidth] = useState(0)
   const [sliderConstraints, setSliderConstraints] = useState(0)
+  const calcSliderChildrenWidth = () => {
+    setSliderChildrenWidth(
+      Array.from(ref.current.childNodes).reduce(
+        (acc, node) => acc + node.clientWidth,
+        0
+      )
+    )
+  }
+  const calcSliderWidth = () => {
+    setSliderWidth(ref?.current?.clientWidth)
+  }
+
+  const calcSliderConstraints = () => {
+    setSliderConstraints(sliderChildrenWidth - sliderWidth)
+  }
 
   useEffect(() => {
-    const calcSliderChildrenWidth = () => {
-      setSliderChildrenWidth(
-        Array.from(ref.current.childNodes).reduce(
-          (acc, node) => acc + node.clientWidth,
-          0
-        )
-      )
-    }
-
     calcSliderChildrenWidth()
-
-    const calcSliderWidth = () => {
-      setSliderWidth(ref?.current?.clientWidth)
-    }
-
     calcSliderWidth()
-    window.addEventListener("resize", calcSliderWidth)
+    calcSliderConstraints()
+    let timeoutId = null
+    const resizeListener = () => {
+      clearTimeout(timeoutId)
 
-    const calcSliderConstraints = () => {
-      setSliderConstraints(sliderChildrenWidth - sliderWidth)
+      timeoutId = setTimeout(() => {
+        calcSliderChildrenWidth()
+        calcSliderWidth()
+        calcSliderConstraints()
+        console.log("COMPUTED")
+      }, 100)
     }
 
-    calcSliderConstraints()
-    window.addEventListener("resize", calcSliderConstraints)
+    window.addEventListener("resize", resizeListener)
+
+    return () => {
+      window.removeEventListener("resize", resizeListener)
+    }
   }, [ref, sliderChildrenWidth, sliderWidth])
 
   const SliderWrap = ({ children, margin, padding, leftAnchor }) => {
@@ -71,7 +82,7 @@ export const DragSlider = ({
           alignSelf: "center",
           margin: margin,
           padding: padding,
-          width: "100%",
+          width: "calc(100% + 30px)",
           backgroundColor: bg,
           borderRadius: radius,
         }}
@@ -83,7 +94,7 @@ export const DragSlider = ({
           initial={{ x: 0 }}
           style={{ x }}
           dragConstraints={{
-            left: -sliderConstraints - (leftAnchor || 75),
+            left: -sliderConstraints - (leftAnchor || 75) - 30,
             // right: initial ? 0 : 30,
             right: 0,
           }}

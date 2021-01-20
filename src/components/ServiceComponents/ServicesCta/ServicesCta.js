@@ -155,13 +155,13 @@ const ServicesCta = () => {
       datoCmsStronaKolokacja {
         wantMoreImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
         rigMgmtImg {
           alt
-          fluid {
+          fluid(maxWidth: 770) {
             ...GatsbyDatoCmsFluid
           }
         }
