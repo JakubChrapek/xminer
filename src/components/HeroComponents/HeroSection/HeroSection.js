@@ -2,10 +2,9 @@ import React from "react"
 import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
-import heroIcon from "../../../images/hero-icon-min.svg"
-import { HeroIcon } from "../../SvgIcons/XminerIcons"
 import { motion } from "framer-motion"
 import useWindowSize from "../../../utils/UseWindowSize"
+import Img from "gatsby-image"
 
 const HeroStyles = styled(motion.section)`
   min-height: 80vh;
@@ -131,6 +130,17 @@ const Wrapper = styled.div`
       }
     }
 
+    .gatsby-image-wrapper {
+      > div {
+        margin-top: 0;
+      }
+      margin-top: 0;
+      picture,
+      img {
+        object-fit: contain !important;
+      }
+    }
+
     &:last-child {
       flex: 4;
       @media only screen and (max-width: 1082px) {
@@ -162,7 +172,12 @@ const ButtonsWrapper = styled.div`
   }
 `
 
-const HeroSection = () => {
+const StyledImg = styled(Img)`
+  width: 100%;
+  margin-top: 0;
+`
+
+const HeroSection = ({ heroIcon }) => {
   const width = useWindowSize()
   return (
     <HeroStyles>
@@ -208,7 +223,7 @@ const HeroSection = () => {
         </div>
         <div>
           {/* <HeroIcon /> */}
-          <img src={heroIcon} alt="" />
+          <StyledImg fluid={heroIcon.fluid} alt={heroIcon.alt} />
         </div>
       </Wrapper>
     </HeroStyles>

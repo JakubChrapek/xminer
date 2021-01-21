@@ -17,14 +17,15 @@ const HomeStyles = styled.div`
 const IndexPage = ({ data }) => {
   const {
     allDatoCmsPost: { totalCount, nodes: posts },
+    datoCmsHomepage: { heroIkona: heroIcon, beforeYouStartImg: beforeIcon },
   } = data
   return (
     <>
       <HomeStyles>
         <SEO title="Xminer" />
-        <HeroSection />
+        <HeroSection heroIcon={heroIcon} />
         <WhySection />
-        <BeforeMiningSection />
+        <BeforeMiningSection beforeIcon={beforeIcon} />
         <InvestorsSection />
         <BeginHereSection />
         <TestimonialsSection />
@@ -56,6 +57,20 @@ export const blogQuery = graphql`
           fluid(maxWidth: 360) {
             ...GatsbyDatoCmsFluid
           }
+        }
+      }
+    }
+    datoCmsHomepage {
+      heroIkona {
+        alt
+        fluid {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      beforeYouStartImg {
+        alt
+        fluid {
+          ...GatsbyDatoCmsFluid
         }
       }
     }

@@ -6,6 +6,10 @@ import { Link } from "gatsby"
 const ButtonLinkStyles = styled(motion.span)`
   width: 100%;
   height: 100%;
+  transition: color 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    background-color 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
   &:focus,
   &:active {
@@ -54,7 +58,9 @@ const StyledLink = styled(Link)`
   background-image: linear-gradient(0deg, #2ec5ce, #29abe2, #2b7097, #2d1f84);
   background-size: auto 200%;
   background-position: 0 100%;
-  transition: background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+  transition: color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
     box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
   &:hover {
@@ -104,8 +110,10 @@ const StyledLink = styled(Link)`
       border: solid 1px transparent;
       color: var(--primary) !important;
       border-radius: 8px;
-      transition: background 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
-        color 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+
+      transition: color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
         box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       &:before {
         content: "";
@@ -126,8 +134,10 @@ const StyledLink = styled(Link)`
         );
         background-size: auto 200%;
         background-position: 0 100%;
-        transition: background-position 0.3s
-            cubic-bezier(0.04, 0.62, 0.23, 0.98),
+
+        transition: color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+          background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+          background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
           box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       }
       &:hover:before {
@@ -149,8 +159,10 @@ const StyledLink = styled(Link)`
       background-image: none;
       background-color: var(--white);
       color: var(--headers-color) !important;
-      transition: background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
-        color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+
+      transition: color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
         box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
       &:hover {

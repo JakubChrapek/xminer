@@ -4,6 +4,7 @@ import ButtonLink from "../../../ButtonLink/ButtonLink"
 import beforeIcon from "../../../../images/dla-poczatkujacych-icon.svg"
 import ButtonText from "../../../ButtonText/ButtonText"
 import arrowRight from "../../../../images/right-arrow.svg"
+import Img from "gatsby-image"
 
 const BeforeStyles = styled.section`
   display: flex;
@@ -31,7 +32,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
   }
-  div {
+  > div {
     @media only screen and (max-width: 801px) {
       width: 100%;
     }
@@ -88,6 +89,16 @@ const Wrapper = styled.div`
         }
       }
     }
+    .gatsby-image-wrapper {
+      > div {
+        margin-top: 0;
+      }
+      margin-top: 0;
+      picture,
+      img {
+        object-fit: contain !important;
+      }
+    }
 
     &:last-child {
       flex: 4;
@@ -97,9 +108,6 @@ const Wrapper = styled.div`
       img {
         width: 100%;
       }
-    }
-    &:last-of-type {
-      margin-top: 50px;
     }
   }
 `
@@ -113,8 +121,12 @@ const ButtonsWrapper = styled.div`
     margin-top: 22px !important;
   }
 `
+const StyledImg = styled(Img)`
+  width: 100%;
+  margin-top: 0;
+`
 
-const BeforeMiningSection = () => {
+const BeforeMiningSection = ({ beforeIcon }) => {
   return (
     <BeforeStyles>
       <Wrapper>
@@ -141,7 +153,7 @@ const BeforeMiningSection = () => {
           </ButtonsWrapper>
         </div>
         <div>
-          <img src={beforeIcon} alt="" />
+          <StyledImg fluid={beforeIcon.fluid} alt={beforeIcon.alt} />
         </div>
       </Wrapper>
     </BeforeStyles>

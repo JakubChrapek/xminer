@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {/* <Scroll callbacks={location} /> */}
+      <Scroll callbacks={location} />
       <GlobalStyles />
       <SEO />
       <Header />

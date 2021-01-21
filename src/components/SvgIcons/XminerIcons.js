@@ -33,6 +33,8 @@ const moveCircleAnimation = keyframes`
 `
 
 const SvgStyles = styled.svg`
+  /* Don't know why css animations slow down the rendering so much. 
+Because of that we've switched to the optimisec .png version of this icon. */
   /* #g1,
   #g2,
   #g3,
@@ -53,6 +55,7 @@ const SvgStyles = styled.svg`
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
+    will-change: transform, opacty;
   }
   #g2 {
     animation-delay: 250ms;
