@@ -339,7 +339,7 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
   return (
     <AnimatePresence>
       <ActiveArticlesStyles
-        layout
+        layout="true"
         variants={articlesWrapperTransition}
         initial="initial"
         animate="animate"
@@ -347,14 +347,14 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
       >
         {filteredArticles.map(item => (
           <motion.article
-            key={item.id}
-            layout
+            key={item.title}
+            layout="true"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={transition}
           >
-            <ImageWrapper layout style={{ overflow: "hidden" }}>
+            <ImageWrapper layout="true" style={{ overflow: "hidden" }}>
               <Link to={`/blog/${item.slug}`}>
                 <motion.span whileHover={{ x: 3 }} whileTap={{ x: 6 }}>
                   <HiArrowNarrowRight size="54px" color="var(--light-aqua)" />
@@ -367,10 +367,10 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
               readingTime={item.readingTime}
               dateWithoutDot
               margin="12px 0 0"
-              layout
+              layout="true"
               smaller
             />
-            <Link layout to={`/blog/${item.slug}`}>
+            <Link layout="true" to={`/blog/${item.slug}`}>
               <Text
                 as="h3"
                 fontSize={width < 740 ? "15px !important" : "18px"}
@@ -381,7 +381,7 @@ const ActiveCategoryArticles = ({ activeCategory, items }) => {
                 {item.title}
               </Text>
             </Link>
-            <motion.span layout className="tag">
+            <motion.span layout="true" className="tag">
               {item.postCategory.categoryName}
             </motion.span>
           </motion.article>
@@ -427,10 +427,10 @@ const CategoriesSections = ({
   return (
     <CategoriesStyles margin={margin}>
       <AnimateSharedLayout type="crossfade">
-        <Flex layout width="100%" direction="column">
+        <Flex layout="true" width="100%" direction="column">
           <CategoriesNavigation
             items={filteredCategories}
-            layout
+            layout="true"
             activeCategory={defaultActiveCategory}
             setActiveCategory={setDefaultActiveCategory}
           />

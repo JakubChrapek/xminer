@@ -2,12 +2,10 @@ import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion"
 import styled, { css } from "styled-components"
-import { Link, useStaticQuery } from "gatsby"
-import Button from "../Button/Button"
+import { Link } from "gatsby"
 import { containerTransition, itemTransition } from "../Styles/Animations"
 import { useLocation } from "@reach/router"
 import ButtonLink from "../ButtonLink/ButtonLink"
-import Img from "gatsby-image"
 import Text from "../Text/Text"
 import useWindowSize from "../../utils/UseWindowSize"
 import { FaFacebookF, FaInstagram } from "react-icons/fa"
@@ -312,8 +310,8 @@ const Navigation = () => {
                 y2="167.787"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#29ABE2" />
-                <stop offset=".994" stop-color="#1FADAD" />
+                <stop stopColor="#29ABE2" />
+                <stop offset=".994" stopColor="#1FADAD" />
               </linearGradient>
             </defs>
           </svg>
@@ -472,7 +470,7 @@ const Navigation = () => {
                 </Link>
               </motion.li>
               <ButtonLink
-                alignSelf="center"
+                alignself="center"
                 to="/kontakt"
                 whileTap={{ scale: 0.95 }}
                 className="no-underline"
@@ -674,14 +672,6 @@ const HeaderStyles = styled(motion.header)`
 const Header = () => {
   const [bg, setBg] = useState("transparent")
   let pathname = useLocation().pathname
-  // useEffect(() => {
-  //   pathname === "/o-xminer"
-  //     ? setBg("var(--nav-dark-bluse)")
-  //     : setBg("transparent")
-  // }, [pathname])
-  // useEffect(() => {
-  //   console.log("HEADER RENDER")
-  // }, [])
   return (
     <HeaderStyles
       bg={pathname === "/" ? "transparent" : "var(--nav-dark-bluse)"}

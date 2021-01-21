@@ -4,7 +4,7 @@ import React from "react"
 import styled from "styled-components"
 import XminerLogo from "../../../images/xminer-logo-poly.svg"
 
-const DetailsStyles = styled(motion.p)`
+const DetailsStyles = styled(motion.div)`
   display: flex;
   /* flex-wrap: wrap; */
   align-items: center;
@@ -14,7 +14,7 @@ const DetailsStyles = styled(motion.p)`
   position: relative;
   font-size: 13px !important;
 
-  > div {
+  > p {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -142,7 +142,7 @@ const ArticleDetails = ({
 }) => (
   <DetailsStyles
     margin={margin}
-    layout={layout}
+    layout={layout ? true : false}
     dateWithoutDot={dateWithoutDot}
     featuredArticles={featuredArticles}
     smaller={smaller}
@@ -161,26 +161,26 @@ const ArticleDetails = ({
         />
         <path
           stroke="#fff"
-          stroke-miterlimit="10"
-          stroke-width="7"
+          strokeMiterlimit="10"
+          strokeWidth="7"
           d="M91.132 57.86l15.52 19.99 16.41-21.5h23.21l-28.15 36.9 41.54 54.66H51.272V57.95"
         />
         <path
           stroke="#fff"
-          stroke-miterlimit="10"
-          stroke-width="7"
+          strokeMiterlimit="10"
+          strokeWidth="7"
           d="M162.132 119.36l.11-79.91H53.862l41.53 54.65-28.15 36.91h23.22l16.41-21.51 14.89 19.73"
         />
         <path
           stroke="#fff"
-          stroke-miterlimit="10"
-          stroke-width="7"
+          strokeMiterlimit="10"
+          strokeWidth="7"
           d="M60.873 70.76l-9.46-14.23-8.71 14.23"
         />
         <path
           stroke="#fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
           d="M162.292 128.97c2.762 0 5-2.239 5-5s-2.238-5-5-5c-2.761 0-5 2.239-5 5s2.239 5 5 5zM88.272 59.95c2.762 0 5-2.239 5-5s-2.238-5-5-5c-2.761 0-5 2.239-5 5s2.239 5 5 5zM124.283 137.98c2.761 0 5-2.239 5-5s-2.239-5-5-5c-2.762 0-5 2.239-5 5s2.238 5 5 5z"
         />
         <defs>
@@ -192,13 +192,13 @@ const ArticleDetails = ({
             y2="167.787"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#29ABE2" />
-            <stop offset=".994" stop-color="#1FADAD" />
+            <stop stopColor="#29ABE2" />
+            <stop offset=".994" stopColor="#1FADAD" />
           </linearGradient>
         </defs>
       </LogoStyles>
     )}
-    <div>
+    <p>
       {author && (
         <span className="author">
           Autor <span className="bold">{author}</span> w
@@ -218,7 +218,7 @@ const ArticleDetails = ({
           {category}
         </Link>
       )}
-    </div>
+    </p>
   </DetailsStyles>
 )
 

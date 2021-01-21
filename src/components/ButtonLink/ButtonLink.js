@@ -54,7 +54,7 @@ const StyledLink = styled(Link)`
   min-width: ${({ minwidth }) => (minwidth ? minwidth : "")};
   margin: ${({ margin }) => (margin ? margin : "")};
   padding: ${({ padding }) => (padding ? padding : "")};
-  align-self: ${({ alignSelf }) => (alignSelf ? alignSelf : "")};
+  align-self: ${({ alignself }) => (alignself ? alignself : "")};
   background-image: linear-gradient(0deg, #2ec5ce, #29abe2, #2b7097, #2d1f84);
   background-size: auto 200%;
   background-position: 0 100%;
@@ -181,7 +181,7 @@ const StyledLink = styled(Link)`
 `
 
 const SpanStyles = styled(motion.span)`
-  align-self: ${({ alignSelf }) => (alignSelf ? alignSelf : "")};
+  align-self: ${({ alignself }) => (alignself ? alignself : "")};
   a {
     span {
       color: ${({ type }) => !type && "var(--white) !important"};
@@ -204,7 +204,7 @@ const ButtonLink = ({
   to,
   width,
   maxwidth,
-  alignSelf,
+  alignself,
   minwidth,
   margin,
   outlinebg,
@@ -217,12 +217,12 @@ const ButtonLink = ({
   className,
   onClick,
 }) => (
-  <SpanStyles type={type} alignSelf={alignSelf} layout={layout}>
+  <SpanStyles type={type} alignself={alignself} layout={layout}>
     <StyledLink
       className={className}
       to={to}
       cursor={cursor}
-      alignSelf={alignSelf}
+      alignself={alignself}
       width={width}
       maxwidth={maxwidth}
       minwidth={minwidth}

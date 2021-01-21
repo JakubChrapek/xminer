@@ -6308,13 +6308,13 @@ export const HeroIcon = () => (
         y2="189.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -6324,8 +6324,8 @@ export const HeroIcon = () => (
         y2="234.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint2_linear"
@@ -6335,14 +6335,14 @@ export const HeroIcon = () => (
         y2="211.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint3_linear"
@@ -6352,13 +6352,13 @@ export const HeroIcon = () => (
         y2="4756.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint4_linear"
@@ -6368,8 +6368,8 @@ export const HeroIcon = () => (
         y2="6663.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint5_linear"
@@ -6379,14 +6379,14 @@ export const HeroIcon = () => (
         y2="5338"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint6_linear"
@@ -6396,13 +6396,13 @@ export const HeroIcon = () => (
         y2="8748.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint7_linear"
@@ -6412,13 +6412,13 @@ export const HeroIcon = () => (
         y2="3113.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint8_linear"
@@ -6428,8 +6428,8 @@ export const HeroIcon = () => (
         y2="6097.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint9_linear"
@@ -6439,14 +6439,14 @@ export const HeroIcon = () => (
         y2="4737.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint10_linear"
@@ -6456,13 +6456,13 @@ export const HeroIcon = () => (
         y2="2913.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint11_linear"
@@ -6472,8 +6472,8 @@ export const HeroIcon = () => (
         y2="5462.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint12_linear"
@@ -6483,14 +6483,14 @@ export const HeroIcon = () => (
         y2="4136.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint13_linear"
@@ -6500,13 +6500,13 @@ export const HeroIcon = () => (
         y2="6905.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint14_linear"
@@ -6516,13 +6516,13 @@ export const HeroIcon = () => (
         y2="1681"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint15_linear"
@@ -6532,8 +6532,8 @@ export const HeroIcon = () => (
         y2="4896.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint16_linear"
@@ -6543,14 +6543,14 @@ export const HeroIcon = () => (
         y2="3534"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint17_linear"
@@ -6560,13 +6560,13 @@ export const HeroIcon = () => (
         y2="1068"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint18_linear"
@@ -6576,8 +6576,8 @@ export const HeroIcon = () => (
         y2="4260.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint19_linear"
@@ -6587,14 +6587,14 @@ export const HeroIcon = () => (
         y2="2934.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint20_linear"
@@ -6604,13 +6604,13 @@ export const HeroIcon = () => (
         y2="5059.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint21_linear"
@@ -6620,13 +6620,13 @@ export const HeroIcon = () => (
         y2="248"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint22_linear"
@@ -6636,8 +6636,8 @@ export const HeroIcon = () => (
         y2="3695.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint23_linear"
@@ -6647,14 +6647,14 @@ export const HeroIcon = () => (
         y2="2334.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint24_linear"
@@ -6664,13 +6664,13 @@ export const HeroIcon = () => (
         y2="-777.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint25_linear"
@@ -6680,8 +6680,8 @@ export const HeroIcon = () => (
         y2="3059"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint26_linear"
@@ -6691,14 +6691,14 @@ export const HeroIcon = () => (
         y2="1733.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint27_linear"
@@ -6708,13 +6708,13 @@ export const HeroIcon = () => (
         y2="3214.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint28_linear"
@@ -6724,13 +6724,13 @@ export const HeroIcon = () => (
         y2="17.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint29_linear"
@@ -6740,13 +6740,13 @@ export const HeroIcon = () => (
         y2="6283.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint30_linear"
@@ -6756,8 +6756,8 @@ export const HeroIcon = () => (
         y2="8755.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint31_linear"
@@ -6767,14 +6767,14 @@ export const HeroIcon = () => (
         y2="7393.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint32_linear"
@@ -6784,13 +6784,13 @@ export const HeroIcon = () => (
         y2="6992.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint33_linear"
@@ -6800,8 +6800,8 @@ export const HeroIcon = () => (
         y2="8117.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint34_linear"
@@ -6811,14 +6811,14 @@ export const HeroIcon = () => (
         y2="6792.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint35_linear"
@@ -6828,13 +6828,13 @@ export const HeroIcon = () => (
         y2="10983.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint36_linear"
@@ -6844,13 +6844,13 @@ export const HeroIcon = () => (
         y2="4847.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint37_linear"
@@ -6860,8 +6860,8 @@ export const HeroIcon = () => (
         y2="7554.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint38_linear"
@@ -6871,14 +6871,14 @@ export const HeroIcon = () => (
         y2="6191.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint39_linear"
@@ -6888,13 +6888,13 @@ export const HeroIcon = () => (
         y2="5147.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint40_linear"
@@ -6904,8 +6904,8 @@ export const HeroIcon = () => (
         y2="6916.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint41_linear"
@@ -6915,14 +6915,14 @@ export const HeroIcon = () => (
         y2="5590.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint42_linear"
@@ -6932,13 +6932,13 @@ export const HeroIcon = () => (
         y2="9138.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint43_linear"
@@ -6948,13 +6948,13 @@ export const HeroIcon = () => (
         y2="3417.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint44_linear"
@@ -6964,8 +6964,8 @@ export const HeroIcon = () => (
         y2="6352.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint45_linear"
@@ -6975,14 +6975,14 @@ export const HeroIcon = () => (
         y2="4990.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint46_linear"
@@ -6992,13 +6992,13 @@ export const HeroIcon = () => (
         y2="3301.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint47_linear"
@@ -7008,8 +7008,8 @@ export const HeroIcon = () => (
         y2="5714.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint48_linear"
@@ -7019,14 +7019,14 @@ export const HeroIcon = () => (
         y2="4389.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint49_linear"
@@ -7036,13 +7036,13 @@ export const HeroIcon = () => (
         y2="7293.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint50_linear"
@@ -7052,13 +7052,13 @@ export const HeroIcon = () => (
         y2="1983.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint51_linear"
@@ -7068,8 +7068,8 @@ export const HeroIcon = () => (
         y2="5151.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint52_linear"
@@ -7079,14 +7079,14 @@ export const HeroIcon = () => (
         y2="3788.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint53_linear"
@@ -7096,13 +7096,13 @@ export const HeroIcon = () => (
         y2="1455.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint54_linear"
@@ -7112,8 +7112,8 @@ export const HeroIcon = () => (
         y2="4513"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint55_linear"
@@ -7123,14 +7123,14 @@ export const HeroIcon = () => (
         y2="3187.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint56_linear"
@@ -7140,13 +7140,13 @@ export const HeroIcon = () => (
         y2="5446.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint57_linear"
@@ -7156,13 +7156,13 @@ export const HeroIcon = () => (
         y2="3979.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint58_linear"
@@ -7172,13 +7172,13 @@ export const HeroIcon = () => (
         y2="6282.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint59_linear"
@@ -7188,8 +7188,8 @@ export const HeroIcon = () => (
         y2="8755.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint60_linear"
@@ -7199,14 +7199,14 @@ export const HeroIcon = () => (
         y2="7393.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint61_linear"
@@ -7216,13 +7216,13 @@ export const HeroIcon = () => (
         y2="6991.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint62_linear"
@@ -7232,8 +7232,8 @@ export const HeroIcon = () => (
         y2="8117.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint63_linear"
@@ -7243,14 +7243,14 @@ export const HeroIcon = () => (
         y2="6792.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint64_linear"
@@ -7260,13 +7260,13 @@ export const HeroIcon = () => (
         y2="10983.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint65_linear"
@@ -7276,13 +7276,13 @@ export const HeroIcon = () => (
         y2="4846.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint66_linear"
@@ -7292,8 +7292,8 @@ export const HeroIcon = () => (
         y2="7554.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint67_linear"
@@ -7303,14 +7303,14 @@ export const HeroIcon = () => (
         y2="6191.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint68_linear"
@@ -7320,13 +7320,13 @@ export const HeroIcon = () => (
         y2="5146.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint69_linear"
@@ -7336,8 +7336,8 @@ export const HeroIcon = () => (
         y2="6916.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint70_linear"
@@ -7347,14 +7347,14 @@ export const HeroIcon = () => (
         y2="5590.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint71_linear"
@@ -7364,13 +7364,13 @@ export const HeroIcon = () => (
         y2="9138.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint72_linear"
@@ -7380,13 +7380,13 @@ export const HeroIcon = () => (
         y2="3416.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint73_linear"
@@ -7396,8 +7396,8 @@ export const HeroIcon = () => (
         y2="6352.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint74_linear"
@@ -7407,14 +7407,14 @@ export const HeroIcon = () => (
         y2="4990.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint75_linear"
@@ -7424,13 +7424,13 @@ export const HeroIcon = () => (
         y2="3301.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint76_linear"
@@ -7440,8 +7440,8 @@ export const HeroIcon = () => (
         y2="5714.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint77_linear"
@@ -7451,14 +7451,14 @@ export const HeroIcon = () => (
         y2="4389.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint78_linear"
@@ -7468,13 +7468,13 @@ export const HeroIcon = () => (
         y2="7293.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint79_linear"
@@ -7484,13 +7484,13 @@ export const HeroIcon = () => (
         y2="1983"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint80_linear"
@@ -7500,8 +7500,8 @@ export const HeroIcon = () => (
         y2="5151.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint81_linear"
@@ -7511,14 +7511,14 @@ export const HeroIcon = () => (
         y2="3788.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint82_linear"
@@ -7528,13 +7528,13 @@ export const HeroIcon = () => (
         y2="1454.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint83_linear"
@@ -7544,8 +7544,8 @@ export const HeroIcon = () => (
         y2="4513"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint84_linear"
@@ -7555,14 +7555,14 @@ export const HeroIcon = () => (
         y2="3187.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint85_linear"
@@ -7572,13 +7572,13 @@ export const HeroIcon = () => (
         y2="5446.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint86_linear"
@@ -7588,13 +7588,13 @@ export const HeroIcon = () => (
         y2="3979.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint87_linear"
@@ -7604,13 +7604,13 @@ export const HeroIcon = () => (
         y2="7859.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint88_linear"
@@ -7620,8 +7620,8 @@ export const HeroIcon = () => (
         y2="10076.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint89_linear"
@@ -7631,14 +7631,14 @@ export const HeroIcon = () => (
         y2="8717.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint90_linear"
@@ -7648,13 +7648,13 @@ export const HeroIcon = () => (
         y2="9025.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint91_linear"
@@ -7664,8 +7664,8 @@ export const HeroIcon = () => (
         y2="9442"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint92_linear"
@@ -7675,14 +7675,14 @@ export const HeroIcon = () => (
         y2="8116.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint93_linear"
@@ -7692,13 +7692,13 @@ export const HeroIcon = () => (
         y2="13017.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint94_linear"
@@ -7708,13 +7708,13 @@ export const HeroIcon = () => (
         y2="6426.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint95_linear"
@@ -7724,8 +7724,8 @@ export const HeroIcon = () => (
         y2="8878.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint96_linear"
@@ -7735,14 +7735,14 @@ export const HeroIcon = () => (
         y2="7516.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint97_linear"
@@ -7752,13 +7752,13 @@ export const HeroIcon = () => (
         y2="7180.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint98_linear"
@@ -7768,8 +7768,8 @@ export const HeroIcon = () => (
         y2="8240.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint99_linear"
@@ -7779,14 +7779,14 @@ export const HeroIcon = () => (
         y2="6915"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint100_linear"
@@ -7796,13 +7796,13 @@ export const HeroIcon = () => (
         y2="11171.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint101_linear"
@@ -7812,13 +7812,13 @@ export const HeroIcon = () => (
         y2="4996.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint102_linear"
@@ -7828,8 +7828,8 @@ export const HeroIcon = () => (
         y2="7676.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint103_linear"
@@ -7839,14 +7839,14 @@ export const HeroIcon = () => (
         y2="6314.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint104_linear"
@@ -7856,13 +7856,13 @@ export const HeroIcon = () => (
         y2="5334.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint105_linear"
@@ -7872,8 +7872,8 @@ export const HeroIcon = () => (
         y2="7038.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint106_linear"
@@ -7883,14 +7883,14 @@ export const HeroIcon = () => (
         y2="5713.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint107_linear"
@@ -7900,13 +7900,13 @@ export const HeroIcon = () => (
         y2="9326.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint108_linear"
@@ -7916,13 +7916,13 @@ export const HeroIcon = () => (
         y2="3561"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint109_linear"
@@ -7932,8 +7932,8 @@ export const HeroIcon = () => (
         y2="6475.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint110_linear"
@@ -7943,14 +7943,14 @@ export const HeroIcon = () => (
         y2="5112.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint111_linear"
@@ -7960,13 +7960,13 @@ export const HeroIcon = () => (
         y2="3489.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint112_linear"
@@ -7976,8 +7976,8 @@ export const HeroIcon = () => (
         y2="5837.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint113_linear"
@@ -7987,14 +7987,14 @@ export const HeroIcon = () => (
         y2="4511.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1560" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".3" stop-color="#1F3372" />
-        <stop offset=".4" stop-color="#22447C" />
-        <stop offset=".6" stop-color="#2B7097" />
-        <stop offset=".8" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1560" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".3" stopColor="#1F3372" />
+        <stop offset=".4" stopColor="#22447C" />
+        <stop offset=".6" stopColor="#2B7097" />
+        <stop offset=".8" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint114_linear"
@@ -8004,13 +8004,13 @@ export const HeroIcon = () => (
         y2="7481.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset=".1" stop-color="#1A1660" />
-        <stop offset=".3" stop-color="#1E2D6E" />
-        <stop offset=".4" stop-color="#255385" />
-        <stop offset=".7" stop-color="#2F87A5" />
-        <stop offset=".9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset=".1" stopColor="#1A1660" />
+        <stop offset=".3" stopColor="#1E2D6E" />
+        <stop offset=".4" stopColor="#255385" />
+        <stop offset=".7" stopColor="#2F87A5" />
+        <stop offset=".9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint115_linear"
@@ -8020,13 +8020,13 @@ export const HeroIcon = () => (
         y2="6618.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint116_linear"
@@ -8036,13 +8036,13 @@ export const HeroIcon = () => (
         y2="6832.4"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint117_linear"
@@ -8052,8 +8052,8 @@ export const HeroIcon = () => (
         y2="6834.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint118_linear"
@@ -8063,13 +8063,13 @@ export const HeroIcon = () => (
         y2="7166.9"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint119_linear"
@@ -8079,13 +8079,13 @@ export const HeroIcon = () => (
         y2="7169.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint120_linear"
@@ -8095,13 +8095,13 @@ export const HeroIcon = () => (
         y2="1884.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint121_linear"
@@ -8111,13 +8111,13 @@ export const HeroIcon = () => (
         y2="9107.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint122_linear"
@@ -8127,8 +8127,8 @@ export const HeroIcon = () => (
         y2="9115.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint123_linear"
@@ -8138,13 +8138,13 @@ export const HeroIcon = () => (
         y2="9670.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint124_linear"
@@ -8154,13 +8154,13 @@ export const HeroIcon = () => (
         y2="9674.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint125_linear"
@@ -8170,13 +8170,13 @@ export const HeroIcon = () => (
         y2="3260.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint126_linear"
@@ -8186,13 +8186,13 @@ export const HeroIcon = () => (
         y2="12192.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint127_linear"
@@ -8202,8 +8202,8 @@ export const HeroIcon = () => (
         y2="12193.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint128_linear"
@@ -8213,13 +8213,13 @@ export const HeroIcon = () => (
         y2="13069.8"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint129_linear"
@@ -8229,13 +8229,13 @@ export const HeroIcon = () => (
         y2="13087.6"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint130_linear"
@@ -8245,13 +8245,13 @@ export const HeroIcon = () => (
         y2="5135.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint131_linear"
@@ -8261,13 +8261,13 @@ export const HeroIcon = () => (
         y2="9107.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint132_linear"
@@ -8277,8 +8277,8 @@ export const HeroIcon = () => (
         y2="9115.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint133_linear"
@@ -8288,13 +8288,13 @@ export const HeroIcon = () => (
         y2="9670.3"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint134_linear"
@@ -8304,13 +8304,13 @@ export const HeroIcon = () => (
         y2="9674.2"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint135_linear"
@@ -8320,13 +8320,13 @@ export const HeroIcon = () => (
         y2="3260.7"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset=".1" stop-color="#3CCACE" />
-        <stop offset=".3" stop-color="#2F87A5" />
-        <stop offset=".6" stop-color="#255385" />
-        <stop offset=".8" stop-color="#1E2D6E" />
-        <stop offset=".9" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset=".1" stopColor="#3CCACE" />
+        <stop offset=".3" stopColor="#2F87A5" />
+        <stop offset=".6" stopColor="#255385" />
+        <stop offset=".8" stopColor="#1E2D6E" />
+        <stop offset=".9" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
     </defs>
   </SvgStyles>

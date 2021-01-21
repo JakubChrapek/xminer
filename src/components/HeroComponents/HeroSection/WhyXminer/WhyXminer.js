@@ -104,7 +104,7 @@ const WhySection = () => {
           type="tertiary"
           to="/o-xminer"
           width={width < 640 ? "240px" : null}
-          alignSelf={width < 640 ? "center" : null}
+          alignself={width < 640 ? "center" : null}
         >
           Więcej o Xminer
         </ButtonLink>

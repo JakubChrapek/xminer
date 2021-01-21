@@ -262,7 +262,6 @@ const CardsSlider = () => {
   }
 
   const handleDragStart = (e, info) => {
-    console.log("START: ", info)
     setDragPosition(info.point.x)
   }
 
@@ -272,7 +271,6 @@ const CardsSlider = () => {
       info.point.x < dragPosition ? handleNext() : handlePrev()
     }
     setDragPosition(info.point.x)
-    console.log("End: ", difference)
   }
 
   return (
@@ -405,10 +403,9 @@ const Package = ({
     </ul>
     <ButtonLink
       bg={focus ? "var(--primary)" : "transparent"}
-      outlinebg={!focus && "var(--white)"}
-      type={!focus && "outline"}
+      outlinebg={!focus ? "var(--white)" : ""}
+      type={!focus ? "outline" : ""}
       to={btnLink}
-      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       minwidth="196px"
       maxwidth="244px"

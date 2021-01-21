@@ -77,6 +77,7 @@ export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
     <Grid>
       {vendors.map((vendor, i) => (
         <ImgWrapper
+          key={vendor.name}
           whileHover={{
             cursor: "pointer",
           }}

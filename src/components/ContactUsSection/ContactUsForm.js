@@ -297,8 +297,8 @@ export const FieldWrapper = styled.div`
     }
     stroke: #fff;
     fill: none;
-    stroke-width: 1px;
-    transition: 0.15s stroke cubic-bezier(0.04, 0.62, 0.23, 0.98) stroke-width
+    strokewidth: 1px;
+    transition: 0.15s stroke cubic-bezier(0.04, 0.62, 0.23, 0.98) strokeWidth
       0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98);
   }
 
@@ -395,11 +395,12 @@ const ContactUsForm = ({ vertical, bg, width }) => {
           resetForm,
           isValid,
           touched,
+          dirty,
           setFieldTouched,
         }) => (
           <FormStyles vertical={vertical}>
             <Flex
-              direction={currentWidth < 640 && "column"}
+              direction={currentWidth < 640 ? "column" : ""}
               width="100%"
               flexWrap={vertical && "wrap"}
             >
@@ -499,7 +500,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   as="textarea"
                   type="textarea"
                   name="message"
-                  rows={width < 640 && "4"}
+                  rows={width < 640 ? "4" : "2"}
                   placeholder="Wiadomość"
                   className={messageError ? "error" : ""}
                 />
@@ -589,7 +590,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   whileTap={{ scale: 0.95 }}
                   color="var(--white)"
                   type="submit"
-                  disabled={!isValid || isSubmitting}
+                  disabled={!isValid || isSubmitting || (!dirty && isValid)}
                   onClick={e =>
                     handleClick(e, values, setSubmitting, resetForm)
                   }
@@ -597,7 +598,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   margin={vertical && "38px 0 0"}
                   width={currentWidth < 640 || vertical ? "170px" : ""}
                   bg="linear-gradient(90deg, rgba(41,171,226,1) 0%, rgba(46,197,206,1) 25%, rgba(123,221,230,1) 50%, rgba(46,197,206,1) 75%, rgba(41,171,226,1) 100%)"
-                  loading={isSubmitting}
+                  loading={isSubmitting ? true : false}
                 >
                   Wyślij
                 </Button>

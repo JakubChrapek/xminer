@@ -109,9 +109,7 @@ const GradientCtaSection = ({
           {btnText && (
             <ButtonLink
               margin={btnMargin ? btnMargin : "30px 0 0"}
-              bg="var(--white)"
-              color="var(--headers-color)"
-              whileHover={{ scale: 1.05 }}
+              type="tertiary"
               whileTap={{ scale: 0.95 }}
               maxwidth="80vw"
               width="257px"

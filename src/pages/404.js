@@ -1062,14 +1062,14 @@ const Icon = () => (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(366.885 184.502) scale(45.5152)"
       >
-        <stop stop-color="#03002D" />
-        <stop offset="0.1597" stop-color="#413F61" />
-        <stop offset="0.3263" stop-color="#7A7890" />
-        <stop offset="0.4878" stop-color="#AAA9B8" />
-        <stop offset="0.6398" stop-color="#CFCED7" />
-        <stop offset="0.78" stop-color="#E9E9ED" />
-        <stop offset="0.9044" stop-color="#F9F9FA" />
-        <stop offset="1" stop-color="white" />
+        <stop stopColor="#03002D" />
+        <stop offset="0.1597" stopColor="#413F61" />
+        <stop offset="0.3263" stopColor="#7A7890" />
+        <stop offset="0.4878" stopColor="#AAA9B8" />
+        <stop offset="0.6398" stopColor="#CFCED7" />
+        <stop offset="0.78" stopColor="#E9E9ED" />
+        <stop offset="0.9044" stopColor="#F9F9FA" />
+        <stop offset="1" stopColor="white" />
       </radialGradient>
       <linearGradient
         id="paint1_linear"
@@ -1079,12 +1079,12 @@ const Icon = () => (
         y2="199.842"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint2_linear"
@@ -1094,13 +1094,13 @@ const Icon = () => (
         y2="183.004"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1507" stop-color="#43E3E0" />
-        <stop offset="0.3285" stop-color="#45D5DF" />
-        <stop offset="0.5199" stop-color="#49BDDD" />
-        <stop offset="0.7209" stop-color="#4E9CDB" />
-        <stop offset="0.9274" stop-color="#5472D8" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1507" stopColor="#43E3E0" />
+        <stop offset="0.3285" stopColor="#45D5DF" />
+        <stop offset="0.5199" stopColor="#49BDDD" />
+        <stop offset="0.7209" stopColor="#4E9CDB" />
+        <stop offset="0.9274" stopColor="#5472D8" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint3_linear"
@@ -1110,13 +1110,13 @@ const Icon = () => (
         y2="169.486"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1507" stop-color="#43E3E0" />
-        <stop offset="0.3285" stop-color="#45D5DF" />
-        <stop offset="0.5199" stop-color="#49BDDD" />
-        <stop offset="0.7209" stop-color="#4E9CDB" />
-        <stop offset="0.9274" stop-color="#5472D8" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1507" stopColor="#43E3E0" />
+        <stop offset="0.3285" stopColor="#45D5DF" />
+        <stop offset="0.5199" stopColor="#49BDDD" />
+        <stop offset="0.7209" stopColor="#4E9CDB" />
+        <stop offset="0.9274" stopColor="#5472D8" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint4_linear"
@@ -1126,13 +1126,13 @@ const Icon = () => (
         y2="169.486"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1507" stop-color="#43E3E0" />
-        <stop offset="0.3285" stop-color="#45D5DF" />
-        <stop offset="0.5199" stop-color="#49BDDD" />
-        <stop offset="0.7209" stop-color="#4E9CDB" />
-        <stop offset="0.9274" stop-color="#5472D8" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1507" stopColor="#43E3E0" />
+        <stop offset="0.3285" stopColor="#45D5DF" />
+        <stop offset="0.5199" stopColor="#49BDDD" />
+        <stop offset="0.7209" stopColor="#4E9CDB" />
+        <stop offset="0.9274" stopColor="#5472D8" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint5_linear"
@@ -1142,13 +1142,13 @@ const Icon = () => (
         y2="177.559"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1507" stop-color="#43E3E0" />
-        <stop offset="0.3285" stop-color="#45D5DF" />
-        <stop offset="0.5199" stop-color="#49BDDD" />
-        <stop offset="0.7209" stop-color="#4E9CDB" />
-        <stop offset="0.9274" stop-color="#5472D8" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1507" stopColor="#43E3E0" />
+        <stop offset="0.3285" stopColor="#45D5DF" />
+        <stop offset="0.5199" stopColor="#49BDDD" />
+        <stop offset="0.7209" stopColor="#4E9CDB" />
+        <stop offset="0.9274" stopColor="#5472D8" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint6_linear"
@@ -1158,13 +1158,13 @@ const Icon = () => (
         y2="191.077"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1507" stop-color="#43E3E0" />
-        <stop offset="0.3285" stop-color="#45D5DF" />
-        <stop offset="0.5199" stop-color="#49BDDD" />
-        <stop offset="0.7209" stop-color="#4E9CDB" />
-        <stop offset="0.9274" stop-color="#5472D8" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1507" stopColor="#43E3E0" />
+        <stop offset="0.3285" stopColor="#45D5DF" />
+        <stop offset="0.5199" stopColor="#49BDDD" />
+        <stop offset="0.7209" stopColor="#4E9CDB" />
+        <stop offset="0.9274" stopColor="#5472D8" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint7_linear"
@@ -1174,13 +1174,13 @@ const Icon = () => (
         y2="191.077"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1507" stop-color="#43E3E0" />
-        <stop offset="0.3285" stop-color="#45D5DF" />
-        <stop offset="0.5199" stop-color="#49BDDD" />
-        <stop offset="0.7209" stop-color="#4E9CDB" />
-        <stop offset="0.9274" stop-color="#5472D8" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1507" stopColor="#43E3E0" />
+        <stop offset="0.3285" stopColor="#45D5DF" />
+        <stop offset="0.5199" stopColor="#49BDDD" />
+        <stop offset="0.7209" stopColor="#4E9CDB" />
+        <stop offset="0.9274" stopColor="#5472D8" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint8_linear"
@@ -1190,13 +1190,13 @@ const Icon = () => (
         y2="179.532"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1507" stop-color="#43E3E0" />
-        <stop offset="0.3285" stop-color="#45D5DF" />
-        <stop offset="0.5199" stop-color="#49BDDD" />
-        <stop offset="0.7209" stop-color="#4E9CDB" />
-        <stop offset="0.9274" stop-color="#5472D8" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1507" stopColor="#43E3E0" />
+        <stop offset="0.3285" stopColor="#45D5DF" />
+        <stop offset="0.5199" stopColor="#49BDDD" />
+        <stop offset="0.7209" stopColor="#4E9CDB" />
+        <stop offset="0.9274" stopColor="#5472D8" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint9_linear"
@@ -1206,12 +1206,12 @@ const Icon = () => (
         y2="176.718"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint10_linear"
@@ -1221,12 +1221,12 @@ const Icon = () => (
         y2="176.718"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint11_linear"
@@ -1236,12 +1236,12 @@ const Icon = () => (
         y2="170.599"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint12_linear"
@@ -1251,12 +1251,12 @@ const Icon = () => (
         y2="193.925"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint13_linear"
@@ -1266,12 +1266,12 @@ const Icon = () => (
         y2="165.462"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint14_linear"
@@ -1281,12 +1281,12 @@ const Icon = () => (
         y2="165.462"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint15_linear"
@@ -1296,12 +1296,12 @@ const Icon = () => (
         y2="159.343"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint16_linear"
@@ -1311,12 +1311,12 @@ const Icon = () => (
         y2="182.669"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint17_linear"
@@ -1326,12 +1326,12 @@ const Icon = () => (
         y2="154.206"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint18_linear"
@@ -1341,12 +1341,12 @@ const Icon = () => (
         y2="154.206"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint19_linear"
@@ -1356,12 +1356,12 @@ const Icon = () => (
         y2="148.086"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint20_linear"
@@ -1371,12 +1371,12 @@ const Icon = () => (
         y2="171.412"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint21_linear"
@@ -1386,12 +1386,12 @@ const Icon = () => (
         y2="142.949"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint22_linear"
@@ -1401,12 +1401,12 @@ const Icon = () => (
         y2="142.949"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <linearGradient
         id="paint23_linear"
@@ -1416,12 +1416,12 @@ const Icon = () => (
         y2="136.83"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#BCBEFF" />
-        <stop offset="0.1659" stop-color="#B6B8FC" />
-        <stop offset="0.3956" stop-color="#A4A8F5" />
-        <stop offset="0.6625" stop-color="#868DEA" />
-        <stop offset="0.9554" stop-color="#5E67DA" />
-        <stop offset="1" stop-color="#5761D7" />
+        <stop stopColor="#BCBEFF" />
+        <stop offset="0.1659" stopColor="#B6B8FC" />
+        <stop offset="0.3956" stopColor="#A4A8F5" />
+        <stop offset="0.6625" stopColor="#868DEA" />
+        <stop offset="0.9554" stopColor="#5E67DA" />
+        <stop offset="1" stopColor="#5761D7" />
       </linearGradient>
       <linearGradient
         id="paint24_linear"
@@ -1431,12 +1431,12 @@ const Icon = () => (
         y2="160.156"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#706EC4" />
-        <stop offset="0.0222" stop-color="#6D6BC2" />
-        <stop offset="0.2509" stop-color="#5651AC" />
-        <stop offset="0.4865" stop-color="#463F9D" />
-        <stop offset="0.7314" stop-color="#3C3494" />
-        <stop offset="1" stop-color="#393091" />
+        <stop stopColor="#706EC4" />
+        <stop offset="0.0222" stopColor="#6D6BC2" />
+        <stop offset="0.2509" stopColor="#5651AC" />
+        <stop offset="0.4865" stopColor="#463F9D" />
+        <stop offset="0.7314" stopColor="#3C3494" />
+        <stop offset="1" stopColor="#393091" />
       </linearGradient>
       <clipPath id="clip0">
         <rect width="675.29" height="373.17" fill="white" />

@@ -60,7 +60,6 @@ export const DragSlider = ({
         calcSliderChildrenWidth()
         calcSliderWidth()
         calcSliderConstraints()
-        console.log("COMPUTED")
       }, 100)
     }
 
@@ -79,7 +78,7 @@ export const DragSlider = ({
           overflow: "hidden",
           maxWidth: "calc(100% + 60px)",
           paddingLeft: "30px",
-          alignSelf: "center",
+          alignself: "center",
           margin: margin,
           padding: padding,
           width: "calc(100% + 30px)",

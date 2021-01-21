@@ -295,7 +295,6 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
     props.setSubmitting(true)
     setTimeout(() => {
       props.setSubmitting(false)
-      console.log("PROPS: ", props)
       setSuccess(true)
       props.resetForm()
     }, 1000)
@@ -444,8 +443,8 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                   width="100%"
                   key="flex-buttons"
                   justifyContent={width > 1002 ? "flex-end" : "center"}
-                  alignItems={width <= 1002 && "center"}
-                  direction={width <= 1002 && "column"}
+                  alignItems={width <= 1002 ? "center" : ""}
+                  direction={width <= 1002 ? "column" : ""}
                 >
                   <AnimatePresence>
                     {activeStep > 0 && (
@@ -475,7 +474,9 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                       margin={width > 1002 ? "0 0 0 12px" : "0"}
                       type={activeStep < steps.length - 1 ? "button" : "submit"}
                       loading={
-                        activeStep === steps.length - 1 && props.isSubmitting
+                        activeStep === steps.length - 1
+                          ? props.isSubmitting
+                          : undefined
                       }
                       onClick={
                         activeStep < steps.length - 1

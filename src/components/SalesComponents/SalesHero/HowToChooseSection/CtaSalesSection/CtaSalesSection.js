@@ -45,9 +45,7 @@ const CtaSalesSection = () => {
             Hosting, serwis, kolokacja
           </Text>
           <ButtonLink
-            bg="var(--white)"
-            color="var(--headers-color)"
-            whileHover={{ scale: 1.05 }}
+            type="tertiary"
             whileTap={{ scale: 0.95 }}
             to="/uslugi-dodatkowe"
           >

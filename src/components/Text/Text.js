@@ -91,11 +91,10 @@ const Text = ({
   animate,
   exit,
   variants,
-  onAnimationComplete,
   transition,
   children,
   maxwidth,
-  key,
+  key: textKey,
   layout,
   className,
 }) => {
@@ -114,13 +113,12 @@ const Text = ({
         maxwidth={maxwidth}
         as={as}
         transition={transition}
-        onAnimationComplete={onAnimationComplete}
         initial={initial}
         className={className}
         animate={animate}
         exit={exit}
         variants={variants}
-        key={key}
+        textKey={textKey}
         layout={layout}
         dangerouslySetInnerHTML={{ __html: dangerously }}
       />

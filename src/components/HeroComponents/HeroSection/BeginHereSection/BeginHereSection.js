@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import BeginCards from "./BeginCards"
-import BlocksIcon from "../../../../images/kolumna-ksztalt-min.svg"
+import BlocksIcon from "../../../../images/kolumna-ksztalt-min.png"
 import investorsIcon from "../../../../images/dla-biznesu.svg"
 import useWindowSize from "../../../../utils/UseWindowSize"
 
@@ -741,13 +741,13 @@ const InvestorsIcon = () => (
         y2="-372968"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint1_linear"
@@ -757,13 +757,13 @@ const InvestorsIcon = () => (
         y2="-353211"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint2_linear"
@@ -773,13 +773,13 @@ const InvestorsIcon = () => (
         y2="7412.31"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint3_linear"
@@ -789,8 +789,8 @@ const InvestorsIcon = () => (
         y2="422.103"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint4_linear"
@@ -800,14 +800,14 @@ const InvestorsIcon = () => (
         y2="365.109"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.1" stop-color="#1A1560" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.28" stop-color="#1F3372" />
-        <stop offset="0.38" stop-color="#22447C" />
-        <stop offset="0.57" stop-color="#2B7097" />
-        <stop offset="0.83" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.1" stopColor="#1A1560" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.28" stopColor="#1F3372" />
+        <stop offset="0.38" stopColor="#22447C" />
+        <stop offset="0.57" stopColor="#2B7097" />
+        <stop offset="0.83" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint5_linear"
@@ -817,13 +817,13 @@ const InvestorsIcon = () => (
         y2="-271.922"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint6_linear"
@@ -833,8 +833,8 @@ const InvestorsIcon = () => (
         y2="5931.21"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#2B237C" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#2B237C" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint7_linear"
@@ -844,14 +844,14 @@ const InvestorsIcon = () => (
         y2="3319.21"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.1" stop-color="#1A1560" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.28" stop-color="#1F3372" />
-        <stop offset="0.38" stop-color="#22447C" />
-        <stop offset="0.57" stop-color="#2B7097" />
-        <stop offset="0.83" stop-color="#39B7C2" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.1" stopColor="#1A1560" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.28" stopColor="#1F3372" />
+        <stop offset="0.38" stopColor="#22447C" />
+        <stop offset="0.57" stopColor="#2B7097" />
+        <stop offset="0.83" stopColor="#39B7C2" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint8_linear"
@@ -861,13 +861,13 @@ const InvestorsIcon = () => (
         y2="5071.61"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint9_linear"
@@ -877,13 +877,13 @@ const InvestorsIcon = () => (
         y2="18180.1"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint10_linear"
@@ -893,13 +893,13 @@ const InvestorsIcon = () => (
         y2="19600.5"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint11_linear"
@@ -909,13 +909,13 @@ const InvestorsIcon = () => (
         y2="6502.92"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#180D5B" />
-        <stop offset="0.09" stop-color="#1A1660" />
-        <stop offset="0.25" stop-color="#1E2D6E" />
-        <stop offset="0.44" stop-color="#255385" />
-        <stop offset="0.66" stop-color="#2F87A5" />
-        <stop offset="0.9" stop-color="#3CCACE" />
-        <stop offset="1" stop-color="#42E8E0" />
+        <stop stopColor="#180D5B" />
+        <stop offset="0.09" stopColor="#1A1660" />
+        <stop offset="0.25" stopColor="#1E2D6E" />
+        <stop offset="0.44" stopColor="#255385" />
+        <stop offset="0.66" stopColor="#2F87A5" />
+        <stop offset="0.9" stopColor="#3CCACE" />
+        <stop offset="1" stopColor="#42E8E0" />
       </linearGradient>
       <linearGradient
         id="paint12_linear"
@@ -925,13 +925,13 @@ const InvestorsIcon = () => (
         y2="0"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1" stop-color="#3CCACE" />
-        <stop offset="0.34" stop-color="#2F87A5" />
-        <stop offset="0.56" stop-color="#255385" />
-        <stop offset="0.75" stop-color="#1E2D6E" />
-        <stop offset="0.91" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1" stopColor="#3CCACE" />
+        <stop offset="0.34" stopColor="#2F87A5" />
+        <stop offset="0.56" stopColor="#255385" />
+        <stop offset="0.75" stopColor="#1E2D6E" />
+        <stop offset="0.91" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <linearGradient
         id="paint13_linear"
@@ -941,13 +941,13 @@ const InvestorsIcon = () => (
         y2="0"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#42E8E0" />
-        <stop offset="0.1" stop-color="#3CCACE" />
-        <stop offset="0.34" stop-color="#2F87A5" />
-        <stop offset="0.56" stop-color="#255385" />
-        <stop offset="0.75" stop-color="#1E2D6E" />
-        <stop offset="0.91" stop-color="#1A1660" />
-        <stop offset="1" stop-color="#180D5B" />
+        <stop stopColor="#42E8E0" />
+        <stop offset="0.1" stopColor="#3CCACE" />
+        <stop offset="0.34" stopColor="#2F87A5" />
+        <stop offset="0.56" stopColor="#255385" />
+        <stop offset="0.75" stopColor="#1E2D6E" />
+        <stop offset="0.91" stopColor="#1A1660" />
+        <stop offset="1" stopColor="#180D5B" />
       </linearGradient>
       <clipPath id="clip0">
         <rect

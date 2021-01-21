@@ -12,10 +12,19 @@ const ContactWrapperStyles = styled(WrapperStyles)`
   @media only screen and (min-width: 1182px) {
     width: 100%;
     margin: 127px 0 90px;
-    padding: 0 123px;
+    /* padding: 0 123px; */
     > div:first-child {
       padding-right: 60px;
     }
+  }
+  @media only screen and (max-width: 1600px) {
+    padding: 0 80px;
+  }
+  @media only screen and (max-width: 1440px) {
+    padding: 0 126px;
+  }
+  @media only screen and (max-width: 1182px) {
+    padding: 0 30px;
   }
   @media only screen and (max-width: 1282px) {
     h2 {
@@ -39,7 +48,8 @@ const ContactWrapperStyles = styled(WrapperStyles)`
   }
   @media only screen and (max-width: 740px) {
     width: unset;
-    margin: 80px 30px 30px;
+    max-width: 100%;
+    margin: 80px 0px 30px;
     h2 {
       font-size: 24px;
     }

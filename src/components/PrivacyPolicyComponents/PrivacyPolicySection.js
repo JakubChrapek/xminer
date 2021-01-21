@@ -68,7 +68,7 @@ const PrivacyPolicySection = ({ bg, margin, title, subtitle, content }) => {
             dangerously={title}
             textAlign="left"
             color="var(--headers-color)"
-            style={{ alignSelf: "flex-start" }}
+            style={{ alignself: "flex-start" }}
           />
           <Text
             as="h1"

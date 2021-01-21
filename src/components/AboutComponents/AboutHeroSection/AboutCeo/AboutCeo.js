@@ -140,13 +140,11 @@ const AboutCeo = () => {
             szkoli inwestorów i&nbsp;wyznacza trendy na rynku. Warto go poznać!
           </Text>
           <ButtonLink
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            color="var(--black)"
+            type="tertiary"
             maxwidth={width < 440 ? "unset" : "306px"}
             to="/kontakt"
             margin={width < 440 ? "40px 0 0" : "56px 0 0"}
-            bg="var(--white)"
           >
             skontaktuj się z&nbsp;Łukaszem
           </ButtonLink>

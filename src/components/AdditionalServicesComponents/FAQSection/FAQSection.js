@@ -250,6 +250,7 @@ const FaqList = ({ faqs }) => {
     <FaqStyles>
       {faqs.map((faq, i) => (
         <Accordion
+          key={faq.id}
           i={i}
           faq={faq}
           expanded={expanded}

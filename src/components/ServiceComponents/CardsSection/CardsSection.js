@@ -63,11 +63,11 @@ const CardStyles = styled.div`
 const Card = ({ number, textAfterNumber, content }) => {
   return (
     <CardStyles>
-      <p className="number">
-        <IntersectionObserver reset={true} threshold={0.4}>
+      <IntersectionObserver reset={true} threshold={0.4}>
+        <p className="number">
           <Counter valueTo={number} totalDuration={2.2} /> {textAfterNumber}
-        </IntersectionObserver>
-      </p>
+        </p>
+      </IntersectionObserver>
       <p className="content">{content}</p>
     </CardStyles>
   )

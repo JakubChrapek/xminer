@@ -85,9 +85,9 @@ const WhoWillTeachYouSection = () => {
             <ButtonLink
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              outlinebg="var(--white)"
               bg="transparent"
-              color="var(--primary)"
-              border="1px solid var(--primary)"
+              type="outline"
               margin={width > 640 ? "0 0px 0 10px" : "30px 0 0"}
               to="/o-xminer"
               width="200px"
