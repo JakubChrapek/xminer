@@ -2,7 +2,7 @@ import React from "react"
 import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
-// import heroIcon from "../../../images/home-icon-min.svg"
+import heroIcon from "../../../images/hero-icon-min.svg"
 import { HeroIcon } from "../../SvgIcons/XminerIcons"
 import { motion } from "framer-motion"
 import useWindowSize from "../../../utils/UseWindowSize"
@@ -207,8 +207,8 @@ const HeroSection = () => {
           </ButtonsWrapper>
         </div>
         <div>
-          <HeroIcon />
-          {/* <img src={heroIcon} alt="" /> */}
+          {/* <HeroIcon /> */}
+          <img src={heroIcon} alt="" />
         </div>
       </Wrapper>
     </HeroStyles>
