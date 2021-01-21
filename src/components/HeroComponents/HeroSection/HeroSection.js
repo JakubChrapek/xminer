@@ -207,7 +207,7 @@ const HeroSection = () => {
           </ButtonsWrapper>
         </div>
         <div>
-          {/* <HeroIcon /> */}
+          <HeroIcon />
           {/* <img src={heroIcon} alt="" /> */}
         </div>
       </Wrapper>
