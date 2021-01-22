@@ -20,9 +20,9 @@ const ButtonStyles = styled(motion.button)`
   background-position: 0 100%;
   transition: background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
     box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
-  &:hover {
+  /* &:hover {
     background-position: 0 0;
-  }
+  } */
 
   &:after {
     content: none !important;
@@ -78,9 +78,9 @@ const ButtonStyles = styled(motion.button)`
           background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
           box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       }
-      &:hover:before {
+      ${"" /* &:hover:before {
         background-position: 0 0;
-      }
+      } */}
 
       &:focus-visible {
         outline: none !important;
@@ -213,12 +213,28 @@ const Button = ({
         dispatch({
           type: "CHANGE_CURSOR_TYPE",
           cursorType:
-            type !== "outline" && type !== "onlyOutline" ? "outline" : "full",
+            type === "full"
+              ? "full"
+              : type === "tertiary"
+              ? "light"
+              : type === "outline"
+              ? "outline"
+              : type === "onlyOutline"
+              ? "outline"
+              : "full",
+        })
+        dispatch({
+          type: "CHANGE_CURSOR_SIZE",
+          cursorSize: size === "small" ? "small" : "big",
         })
       }}
-      onMouseLeave={() =>
+      onMouseLeave={() => {
         dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
-      }
+        dispatch({
+          type: "CHANGE_CURSOR_TYPE",
+          cursorType: "full",
+        })
+      }}
     >
       {children}
       {loading && (

@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { fadeInUp, textFadeInUp } from "../Styles/Animations"
 import { Link } from "gatsby"
 import useWindowSize from "../../utils/UseWindowSize"
+import { useGlobalDispatchContext } from "../../utils/cursorContext"
 
 const IconUser = () => (
   <svg
@@ -330,10 +331,15 @@ const ContactUsForm = ({ vertical, bg, width }) => {
   const [privacyError, setPrivacyError] = useState(false)
   const [feedbackMsg, setFeedbackMsg] = useState(null)
   const currentWidth = useWindowSize()
+  const dispatch = useGlobalDispatchContext()
 
   const handleClick = (e, values, setSubmitting, resetForm) => {
     e.preventDefault()
     setSubmitting(true)
+    dispatch({
+      type: "TOGGLE_CURSOR",
+      cursorShow: false,
+    })
     setTimeout(() => {
       setSubmitting(false)
       setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
@@ -597,9 +603,13 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   color="var(--white)"
                   type="submit"
                   disabled={!isValid || isSubmitting || (!dirty && isValid)}
-                  onClick={e =>
+                  onClick={e => {
                     handleClick(e, values, setSubmitting, resetForm)
-                  }
+                    dispatch({
+                      type: "TOGGLE_CURSOR",
+                      cursorShow: false,
+                    })
+                  }}
                   radius="16px"
                   margin={vertical && "38px 0 0"}
                   width={currentWidth < 640 || vertical ? "170px" : ""}

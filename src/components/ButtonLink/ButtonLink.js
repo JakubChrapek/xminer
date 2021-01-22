@@ -59,7 +59,7 @@ const StyledLink = styled(Link)`
   margin: ${({ margin }) => (margin ? margin : "")};
   padding: ${({ padding }) => (padding ? padding : "")};
   align-self: ${({ alignself }) => (alignself ? alignself : "")};
-  background-image: linear-gradient(0deg, #2ec5ce, #29abe2, #2b7097, #2d1f84);
+  background-image: var(--gradient);
   background-size: auto 200%;
   background-position: 0 100%;
   transition: color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
@@ -256,7 +256,7 @@ const ButtonLink = ({
   cursor,
   bg,
   layout,
-  type,
+  type = "full",
   border,
   padding,
   to,
@@ -289,7 +289,15 @@ const ButtonLink = ({
         dispatch({
           type: "CHANGE_CURSOR_TYPE",
           cursorType:
-            type !== "outline" && type !== "onlyOutline" ? "outline" : "full",
+            type === "full"
+              ? "full"
+              : type === "tertiary"
+              ? "light"
+              : type === "outline"
+              ? "outline"
+              : type === "onlyOutline"
+              ? "outline"
+              : "full",
         })
         dispatch({
           type: "CHANGE_CURSOR_SIZE",
@@ -298,6 +306,10 @@ const ButtonLink = ({
       }}
       onMouseLeave={() => {
         dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+        dispatch({
+          type: "CHANGE_CURSOR_TYPE",
+          cursorType: "full",
+        })
       }}
       alignself={alignself}
       layout={layout ? true : false}

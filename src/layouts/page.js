@@ -54,7 +54,9 @@ const Layout = ({ children }) => {
           className={`${
             cursorType === "full"
               ? "cursor cursor--full"
-              : "cursor cursor--outline"
+              : cursorType === "outline"
+              ? "cursor cursor--outline"
+              : "cursor cursor--light"
           } ${cursorSize === "small" ? "cursor--smaller" : ""}`}
         />
       )}

@@ -14,6 +14,7 @@ import { staggerContainer, textFadeInUp } from "../../../Styles/Animations"
 import { graphql, useStaticQuery } from "gatsby"
 import useWindowSize from "../../../../utils/UseWindowSize"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
+import { useGlobalDispatchContext } from "../../../../utils/cursorContext"
 
 const RocketStyles = styled(motion.svg)`
   fill: var(--primary);
@@ -290,8 +291,14 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
   const [success, setSuccess] = useState(false)
   const [reset, setReset] = useState(false)
   const formRef = useRef()
+  const dispatch = useGlobalDispatchContext()
+
   const handleSubmit = (e, props) => {
     e.preventDefault()
+    dispatch({
+      type: "TOGGLE_CURSOR",
+      cursorShow: false,
+    })
     props.setSubmitting(true)
     setTimeout(() => {
       props.setSubmitting(false)
@@ -458,6 +465,10 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                         onClick={e => {
                           e.preventDefault()
                           setActiveStep(activeStep - 1)
+                          dispatch({
+                            type: "TOGGLE_CURSOR",
+                            cursorShow: false,
+                          })
                         }}
                         initial={{ opacity: 1 }}
                         animate={{ opacity: 1, transition: { duration: 0.4 } }}
@@ -491,6 +502,10 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                               setTimeout(() => {
                                 props.setSubmitting(false)
                               }, 50)
+                              dispatch({
+                                type: "TOGGLE_CURSOR",
+                                cursorShow: false,
+                              })
                             }
                           : e => {
                               handleSubmit(e, props)
@@ -601,6 +616,7 @@ const Configurator = ({ vendors }) => {
 }
 
 const MinerRigsSection = () => {
+  const dispatch = useGlobalDispatchContext()
   const data = useStaticQuery(graphql`
     query minerConfiguratorQuery {
       datoCmsPageSale {

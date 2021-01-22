@@ -548,12 +548,20 @@ const Footer = ({ dispatch }) => {
                     href="https://kryptonumstudio.com"
                     target="_blank"
                     rel="noreferrer noopener"
-                    onMouseEnter={() =>
+                    onMouseEnter={() => {
                       dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
-                    }
-                    onMouseLeave={() =>
+                      dispatch({
+                        type: "CHANGE_CURSOR_TYPE",
+                        cursorType: "outline",
+                      })
+                    }}
+                    onMouseLeave={() => {
                       dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
-                    }
+                      dispatch({
+                        type: "CHANGE_CURSOR_TYPE",
+                        cursorType: "full",
+                      })
+                    }}
                   >
                     Kryptonum Studio
                   </a>{" "}
@@ -562,12 +570,20 @@ const Footer = ({ dispatch }) => {
                     href="https://agathadesign.co.uk/"
                     target="_blank"
                     rel="noreferrer noopener"
-                    onMouseEnter={() =>
+                    onMouseEnter={() => {
                       dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
-                    }
-                    onMouseLeave={() =>
+                      dispatch({
+                        type: "CHANGE_CURSOR_TYPE",
+                        cursorType: "outline",
+                      })
+                    }}
+                    onMouseLeave={() => {
                       dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
-                    }
+                      dispatch({
+                        type: "CHANGE_CURSOR_TYPE",
+                        cursorType: "full",
+                      })
+                    }}
                   >
                     Agatha Design
                   </a>

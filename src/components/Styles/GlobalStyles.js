@@ -29,7 +29,10 @@ const Global = createGlobalStyle`
     --post-text: #333;
     --headers-color: #0d162c;
     --body-text: rgba(12, 21, 46, 0.64);
-    --gradient: linear-gradient(93.11deg, #29ABE2 0%, rgba(255, 255, 255, 0) 100%), var(--primary);
+    --cursor-full: linear-gradient(180deg, rgba(24,13,91,1) 0%, rgba(60,202,206,1) 100%);
+    --cursor-outline: #2EC5CEDD;
+    --cursor-light: #AFAFBC;
+    --gradient: linear-gradient(135deg, rgba(28,164,243,1) 0%, rgba(52,197,207,1) 100%);
     --gradient-hover: linear-gradient(180deg, rgba(45,31,132,1) 0%, rgba(43,112,151,1) 100%);
     --home-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);
     --main-gradient: linear-gradient(180deg, #18254A 0%, #111C3B 100%);
@@ -126,8 +129,8 @@ const Global = createGlobalStyle`
 
   .cursor {
     cursor: pointer;
-    height: 3rem;
-    width: 3rem;
+    height: 4.2rem;
+    width: 4.2rem;
     position: absolute;
     z-index: 10;
     top: 0;
@@ -135,16 +138,18 @@ const Global = createGlobalStyle`
     border-radius: 100%;
     pointer-events: none;
     &--full {
-    background: var(--secondary);
+      background: var(--cursor-full);
     }
 
     &--outline {
-      border: 2px solid var(--secondary);
-      background: transparent;
+      background: var(--cursor-outline);
+    }
+    &--light {
+      background: var(--cursor-light);
     }
     &--smaller {
-      width: 2rem;
-      height: 2rem;
+      width: 2.6rem;
+      height: 2.6rem;
     }
   }
 `

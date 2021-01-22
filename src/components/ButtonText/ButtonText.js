@@ -98,10 +98,18 @@ const ButtonText = ({
           type: "CHANGE_CURSOR_TYPE",
           cursorType: "outline",
         })
+        dispatch({
+          type: "CHANGE_CURSOR_SIZE",
+          cursorSize: size === "small" ? "small" : "big",
+        })
       }}
-      onMouseLeave={() =>
+      onMouseLeave={() => {
         dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
-      }
+        dispatch({
+          type: "CHANGE_CURSOR_TYPE",
+          cursorType: "full",
+        })
+      }}
     >
       <ButtonTextStyles
         whileTap={{ scale: 0.95 }}

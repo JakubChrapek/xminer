@@ -244,7 +244,11 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
             (i&nbsp;wydobywać!) z&nbsp;Xminer.
           </p>
           <ButtonsWrapper>
-            <ButtonLink whileTap={{ scale: 0.95 }} to="/dla-poczatkujacych">
+            <ButtonLink
+              type="full"
+              whileTap={{ scale: 0.95 }}
+              to="/dla-poczatkujacych"
+            >
               Dla początkujących
             </ButtonLink>
             <ButtonLink
