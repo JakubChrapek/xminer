@@ -1,9 +1,7 @@
-import { animate } from "framer-motion"
-import React, { useEffect, useRef, useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { ContainerStyles } from "../../Container/Container"
-import Wrapper, { WrapperStyles } from "../../Wrapper/Wrapper"
-import { useInView } from "react-intersection-observer"
+import { WrapperStyles } from "../../Wrapper/Wrapper"
 import { Counter } from "../../Counter/Counter"
 import { IntersectionObserver } from "../../../utils/IntersectionObserver"
 
