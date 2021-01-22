@@ -313,6 +313,13 @@ const ButtonLink = ({
       }}
       alignself={alignself}
       layout={layout ? true : false}
+      onClick={() => {
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+        dispatch({
+          type: "CHANGE_CURSOR_TYPE",
+          cursorType: "full",
+        })
+      }}
     >
       <StyledLink
         className={className}
