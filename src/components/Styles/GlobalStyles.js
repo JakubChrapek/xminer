@@ -1,5 +1,6 @@
+import { motion } from "framer-motion"
 import React from "react"
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
 const Global = createGlobalStyle`
   html {
@@ -117,6 +118,34 @@ const Global = createGlobalStyle`
   .has-scroll-dragging .c-scrollbar_thumb {
     cursor: -webkit-grabbing;
     cursor: grabbing;
+  }
+
+  .body-lock {
+  overflow-y: hidden;
+  }
+
+  .cursor {
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    opacity: 0.2;
+    border-radius: 100%;
+    pointer-events: none;
+    &--full {
+    background: var(--secondary);
+    }
+
+    &--outline {
+      border: 2px solid var(--secondary);
+      background: transparent;
+    }
+    &--smaller {
+      width: 2rem;
+      height: 2rem;
+    }
   }
 `
 

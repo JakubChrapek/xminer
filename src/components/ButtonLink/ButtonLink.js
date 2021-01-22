@@ -2,6 +2,10 @@ import React from "react"
 import styled, { css } from "styled-components"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
+import {
+  useGlobalDispatchContext,
+  useGlobalStateContext,
+} from "../../utils/cursorContext"
 
 const ButtonLinkStyles = styled(motion.span)`
   width: 100%;
@@ -63,9 +67,9 @@ const StyledLink = styled(Link)`
     background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
     box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
-  &:hover {
+  /* &:hover {
     background-position: 0 0;
-  }
+  } */
 
   &:after {
     content: none !important;
@@ -140,9 +144,9 @@ const StyledLink = styled(Link)`
           background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
           box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       }
-      &:hover:before {
+      ${"" /* &:hover:before {
         background-position: 0 0;
-      }
+      } */}
 
       &:focus-visible {
         outline: none !important;
@@ -190,9 +194,9 @@ ${({ type }) =>
           background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
           box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       }
-      &:hover:before {
+      ${"" /* &:hover:before {
         background-position: 0 0;
-      }
+      } */}
 
       &:focus-visible {
         outline: none !important;
@@ -216,9 +220,11 @@ ${({ type }) =>
         background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
         box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
-      &:hover {
+      ${
+        "" /* &:hover {
         background-color: var(--headers-color) !important;
         color: var(--white) !important;
+      } */
       }
 
       &:focus-visible {
@@ -268,46 +274,67 @@ const ButtonLink = ({
   whileFocus,
   className,
   onClick,
-}) => (
-  <SpanStyles
-    whileHover={whileHover ? whileHover : { scale: 1.02 }}
-    whileTap={whileTap ? whileTap : { scale: 0.98 }}
-    type={type}
-    alignself={alignself}
-    layout={layout ? true : false}
-  >
-    <StyledLink
-      className={className}
-      to={to}
-      cursor={cursor}
+  onMouseEnter,
+  onMouseLeave,
+}) => {
+  const dispatch = useGlobalDispatchContext()
+
+  return (
+    <SpanStyles
+      whileHover={whileHover ? whileHover : { scale: 1.02 }}
+      whileTap={whileTap ? whileTap : { scale: 0.98 }}
+      type={type}
+      onMouseEnter={() => {
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+        dispatch({
+          type: "CHANGE_CURSOR_TYPE",
+          cursorType:
+            type !== "outline" && type !== "onlyOutline" ? "outline" : "full",
+        })
+        dispatch({
+          type: "CHANGE_CURSOR_SIZE",
+          cursorSize: size === "small" ? "small" : "big",
+        })
+      }}
+      onMouseLeave={() => {
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+      }}
       alignself={alignself}
-      width={width}
-      maxwidth={maxwidth}
-      minwidth={minwidth}
-      margin={margin}
-      padding={padding}
-      type={type}
-      outlinebg={outlinebg}
-      border={border}
-      size={size}
-      fill={fill}
-      gradient={gradient}
-      bg={bg}
-      type={type}
-      color={color}
       layout={layout ? true : false}
     >
-      <ButtonLinkStyles
-        initial={initial}
-        animate={animate}
-        onClick={onClick}
-        exit={exit}
+      <StyledLink
+        className={className}
+        to={to}
+        cursor={cursor}
+        alignself={alignself}
+        width={width}
+        maxwidth={maxwidth}
+        minwidth={minwidth}
+        margin={margin}
+        padding={padding}
+        type={type}
+        outlinebg={outlinebg}
+        border={border}
+        size={size}
+        fill={fill}
+        gradient={gradient}
+        bg={bg}
+        type={type}
+        color={color}
         layout={layout ? true : false}
       >
-        {children}
-      </ButtonLinkStyles>
-    </StyledLink>
-  </SpanStyles>
-)
+        <ButtonLinkStyles
+          initial={initial}
+          animate={animate}
+          onClick={onClick}
+          exit={exit}
+          layout={layout ? true : false}
+        >
+          {children}
+        </ButtonLinkStyles>
+      </StyledLink>
+    </SpanStyles>
+  )
+}
 
 export default ButtonLink

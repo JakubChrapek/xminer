@@ -3,6 +3,7 @@ import styled, { css } from "styled-components"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
+import { useGlobalDispatchContext } from "../../utils/cursorContext"
 
 const ButtonTextStyles = styled(motion.span)`
   color: ${({ color }) => (color ? color : "var(--secondary)")};
@@ -81,31 +82,45 @@ const ButtonText = ({
   className,
   smaller,
   textTransform,
-}) => (
-  <StyledLink
-    margin={margin}
-    to={to}
-    width={width}
-    type={type}
-    outlinebg={outlinebg}
-  >
-    <ButtonTextStyles
-      whileTap={{ scale: 0.95 }}
-      whileHover={{ scale: 1 }}
-      size={size}
-      fontSize={fontSize}
-      fill={fill}
-      gradient={gradient}
+}) => {
+  const dispatch = useGlobalDispatchContext()
+
+  return (
+    <StyledLink
+      margin={margin}
+      to={to}
+      width={width}
       type={type}
-      color={color}
-      className={className}
-      smaller={smaller}
-      textTransform={textTransform}
+      outlinebg={outlinebg}
+      onMouseEnter={() => {
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+        dispatch({
+          type: "CHANGE_CURSOR_TYPE",
+          cursorType: "outline",
+        })
+      }}
+      onMouseLeave={() =>
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+      }
     >
-      {children}
-      <BsArrowRight size="26px" color={color} />
-    </ButtonTextStyles>
-  </StyledLink>
-)
+      <ButtonTextStyles
+        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1 }}
+        size={size}
+        fontSize={fontSize}
+        fill={fill}
+        gradient={gradient}
+        type={type}
+        color={color}
+        className={className}
+        smaller={smaller}
+        textTransform={textTransform}
+      >
+        {children}
+        <BsArrowRight size="26px" color={color} />
+      </ButtonTextStyles>
+    </StyledLink>
+  )
+}
 
 export default ButtonText

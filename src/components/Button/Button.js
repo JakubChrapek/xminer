@@ -1,6 +1,7 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { motion } from "framer-motion"
+import { useGlobalDispatchContext } from "../../utils/cursorContext"
 
 const ButtonStyles = styled(motion.button)`
   color: ${({ color, loading }) =>
@@ -180,41 +181,56 @@ const Button = ({
   margin,
   onClick,
   loading,
-}) => (
-  <ButtonStyles
-    initial={initial}
-    animate={animate}
-    exit={exit}
-    whileHover={whileHover ? whileHover : {}}
-    whileTap={whileTap ? whileTap : { scale: 0.98 }}
-    margin={margin}
-    whileFocus={whileFocus}
-    order={order}
-    color={color}
-    size={size}
-    fill={fill}
-    border={border}
-    outlinebg={outlinebg}
-    layout={layout ? true : false}
-    gradient={gradient}
-    bg={bg}
-    type={type}
-    width={width}
-    disabled={disabled}
-    radius={radius}
-    onClick={onClick}
-    loading={loading}
-  >
-    {children}
-    {loading && (
-      <LoaderStyles
-        initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
-        exit={{ opacity: 0, scale: 0 }}
-        transition={{ duration: 0.8, repeat: Infinity }}
-      />
-    )}
-  </ButtonStyles>
-)
+}) => {
+  const dispatch = useGlobalDispatchContext()
+
+  return (
+    <ButtonStyles
+      initial={initial}
+      animate={animate}
+      exit={exit}
+      whileHover={whileHover ? whileHover : {}}
+      whileTap={whileTap ? whileTap : { scale: 0.98 }}
+      margin={margin}
+      whileFocus={whileFocus}
+      order={order}
+      color={color}
+      size={size}
+      fill={fill}
+      border={border}
+      outlinebg={outlinebg}
+      layout={layout ? true : false}
+      gradient={gradient}
+      bg={bg}
+      type={type}
+      width={width}
+      disabled={disabled}
+      radius={radius}
+      onClick={onClick}
+      loading={loading}
+      onMouseEnter={() => {
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+        dispatch({
+          type: "CHANGE_CURSOR_TYPE",
+          cursorType:
+            type !== "outline" && type !== "onlyOutline" ? "outline" : "full",
+        })
+      }}
+      onMouseLeave={() =>
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+      }
+    >
+      {children}
+      {loading && (
+        <LoaderStyles
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          exit={{ opacity: 0, scale: 0 }}
+          transition={{ duration: 0.8, repeat: Infinity }}
+        />
+      )}
+    </ButtonStyles>
+  )
+}
 
 export default Button

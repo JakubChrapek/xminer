@@ -245,7 +245,7 @@ const MobileNavStyles = styled(motion.ul)`
   }
 `
 
-const Navigation = () => {
+const Navigation = ({ dispatch }) => {
   const [show, setShow] = useState(false)
   const [menuClosed, setMenuClosed] = useState(false)
   const [offerOpened, setOfferOpened] = useState(false)
@@ -374,6 +374,12 @@ const Navigation = () => {
                 </Link>
               </motion.li>
               <ButtonLink
+                onMouseEnter={() =>
+                  dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+                }
+                onMouseLeave={() =>
+                  dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+                }
                 size="small"
                 to="/kontakt"
                 className="no-underline without-padding-right"
@@ -433,7 +439,6 @@ const Navigation = () => {
                     whileTap={{ scale: 0.9 }}
                     layout={true}
                     className={show && "active"}
-                    onClick={() => setOfferOpened(!offerOpened)}
                     style={offerOpened && { rotate: 180, y: 2 }}
                   />
                 </motion.a>
@@ -682,7 +687,7 @@ const HeaderStyles = styled(motion.header)`
   }
 `
 
-const Header = () => {
+const Header = ({ menuState, setMenuState, dispatch }) => {
   const [bg, setBg] = useState("transparent")
   let pathname = useLocation().pathname
   useEffect(() => {
@@ -690,7 +695,11 @@ const Header = () => {
   })
   return (
     <HeaderStyles bg={bg}>
-      <Navigation />
+      <Navigation
+        menuState={menuState}
+        setMenuState={setMenuState}
+        dispatch={dispatch}
+      />
     </HeaderStyles>
   )
 }

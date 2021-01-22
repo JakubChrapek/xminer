@@ -362,7 +362,7 @@ const LinkStyles = styled(Link)`
   }
 `
 
-const Footer = () => {
+const Footer = ({ dispatch }) => {
   const width = useWindowSize()
   return (
     <Wrapper>
@@ -548,6 +548,12 @@ const Footer = () => {
                     href="https://kryptonumstudio.com"
                     target="_blank"
                     rel="noreferrer noopener"
+                    onMouseEnter={() =>
+                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+                    }
+                    onMouseLeave={() =>
+                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+                    }
                   >
                     Kryptonum Studio
                   </a>{" "}
@@ -556,6 +562,12 @@ const Footer = () => {
                     href="https://agathadesign.co.uk/"
                     target="_blank"
                     rel="noreferrer noopener"
+                    onMouseEnter={() =>
+                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+                    }
+                    onMouseLeave={() =>
+                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+                    }
                   >
                     Agatha Design
                   </a>
