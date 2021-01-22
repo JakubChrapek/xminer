@@ -315,6 +315,9 @@ export const Message = styled(motion.p)`
   color: var(--text-white);
   position: absolute;
   bottom: ${({ vertical }) => (vertical ? "12px" : "-36px")};
+  @media only screen and (max-width: 414px) {
+    bottom: ${({ vertical }) => (vertical ? "12px" : "-26px")};
+  }
 
   &.error {
     color: var(--error);

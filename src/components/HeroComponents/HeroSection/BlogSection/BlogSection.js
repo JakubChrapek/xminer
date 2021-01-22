@@ -337,10 +337,8 @@ const BlogSection = ({
               </ArticlesGrid>
             ) : (
               <DragSlider
-                leftAnchor={width < 660 ? 102 : width < 360 ? 64 : 122}
-                margin="60px 0 90px 30px"
-                bounceStiffness={200}
-                bounceDamping={30}
+                leftAnchor={width < 360 ? 64 : width < 660 ? 102 : 122}
+                margin={width < 640 ? "60px 0 70px 0px" : "60px 0 90px 0px"}
               >
                 {posts.map(article => (
                   <Article key={article.slug} article={article} />

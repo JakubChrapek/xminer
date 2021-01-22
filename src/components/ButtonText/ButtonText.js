@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
 
 const ButtonTextStyles = styled(motion.span)`
-  color: ${({ color }) => (color ? color : "var(--link)")};
+  color: ${({ color }) => (color ? color : "var(--secondary)")};
   width: 100%;
   text-align: center;
   font-size: ${({ fontSize }) => (fontSize ? fontSize : "18px")};

@@ -113,7 +113,7 @@ const Columns = styled.div`
       padding-left: 0;
     }
     @media only screen and (max-width: 640px) {
-      width: 85%;
+      /* width: 85%; */
     }
   }
 
@@ -459,7 +459,7 @@ const Footer = () => {
             <h3>Znajdź nas</h3>
             <ul>
               <motion.li
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.98 }}
                 style={{ marginLeft: -5 }}
                 className="wider-gap"
               >
@@ -467,13 +467,13 @@ const Footer = () => {
                   <img src={Email} alt="email icon" /> kontakt@xminer.pl
                 </a>
               </motion.li>
-              <motion.li whileTap={{ scale: 0.95 }} className="wider-gap">
+              <motion.li whileTap={{ scale: 0.98 }} className="wider-gap">
                 <a href="tel:+48537787240">
                   <img src={Mobile} alt="phone icon" />
                   +48 537 787 240
                 </a>
               </motion.li>
-              <motion.li whileTap={{ scale: 0.95 }} className="wider-gap">
+              <motion.li whileTap={{ scale: 0.98 }} className="wider-gap">
                 <a href="https://goo.gl/maps/jr67k2fLVoJXvsZZ8">
                   <img src={Location} alt="location icon" /> Pruszkowska 73,
                   05&#8209;090&nbsp;Raszyn

@@ -13,17 +13,22 @@ import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/Bl
 
 const HomeStyles = styled.div`
   background: var(--home-gradient);
+  overflow: hidden;
 `
 const IndexPage = ({ data }) => {
   const {
     allDatoCmsPost: { totalCount, nodes: posts },
-    datoCmsHomepage: { heroIkona: heroIcon, beforeYouStartImg: beforeIcon },
+    datoCmsHomepage: {
+      heroIkona: heroIcon,
+      heroIkonaMobile: heroMobileIcon,
+      beforeYouStartImg: beforeIcon,
+    },
   } = data
   return (
     <>
       <HomeStyles>
         <SEO title="Xminer" />
-        <HeroSection heroIcon={heroIcon} />
+        <HeroSection heroIcon={heroIcon} heroMobileIcon={heroMobileIcon} />
         <WhySection />
         <BeforeMiningSection beforeIcon={beforeIcon} />
         <InvestorsSection />
@@ -62,6 +67,12 @@ export const blogQuery = graphql`
     }
     datoCmsHomepage {
       heroIkona {
+        alt
+        fluid {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+      heroIkonaMobile {
         alt
         fluid {
           ...GatsbyDatoCmsFluid

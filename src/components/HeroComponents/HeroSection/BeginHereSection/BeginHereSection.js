@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import BeginCards from "./BeginCards"
-import BlocksIcon from "../../../../images/kolumna-ksztalt-min.png"
+import BlocksIcon from "../../../../images/kolumna-bg.png"
 import investorsIcon from "../../../../images/dla-biznesu.svg"
 import useWindowSize from "../../../../utils/UseWindowSize"
 
@@ -17,6 +17,10 @@ const WhyStyles = styled.section`
     min-height: 70vh;
     background-size: cover;
     margin-top: 60px;
+  }
+  @media only screen and (max-width: 640px) {
+    margin-top: 40px;
+    background-position-x: 8%;
   }
 `
 
@@ -50,13 +54,13 @@ const Wrapper = styled.div`
     padding: 620px 55px 160px;
   }
   @media only screen and (max-width: 640px) {
-    padding: 460px 55px 120px;
+    padding: 460px 55px 150px;
   }
   @media only screen and (max-width: 440px) {
-    padding: 520px 55px 120px;
+    padding: 520px 55px 150px;
   }
   @media only screen and (max-width: 380px) {
-    padding: 520px 30px 120px;
+    padding: 520px 30px 150px;
   }
   text-align: center;
 

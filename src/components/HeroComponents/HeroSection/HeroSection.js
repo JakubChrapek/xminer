@@ -9,10 +9,14 @@ import Img from "gatsby-image"
 const HeroStyles = styled(motion.section)`
   min-height: 80vh;
   min-height: max(80vh, 800px);
+  @media only screen and (max-width: 640px) {
+    min-height: unset;
+  }
   padding-top: 108px;
   display: flex;
   justify-content: center;
   position: relative;
+  overflow: hidden;
   /* background: url(${blob});
   background-repeat: no-repeat;
   background-size: contain;
@@ -131,6 +135,7 @@ const Wrapper = styled.div`
     }
 
     .gatsby-image-wrapper {
+      width: 100%;
       > div {
         margin-top: 0;
       }
@@ -139,12 +144,17 @@ const Wrapper = styled.div`
       img {
         object-fit: contain !important;
       }
+      @media only screen and (max-width: 640px) {
+        margin-top: 40px;
+      }
     }
 
     &:last-child {
       flex: 4;
+      z-index: -1;
       @media only screen and (max-width: 1082px) {
         flex: 2;
+        width: 100%;
       }
       img {
         width: 100%;
@@ -159,6 +169,7 @@ const ButtonsWrapper = styled.div`
   grid-template-columns: auto auto;
   max-width: 520px;
   margin: 60px 0 0;
+  z-index: 1;
   @media only screen and (max-width: 1200px) {
     grid-gap: 21px;
   }
@@ -175,9 +186,36 @@ const ButtonsWrapper = styled.div`
 const StyledImg = styled(Img)`
   width: 100%;
   margin-top: 0;
+  @media only screen and (max-width: 1082px) {
+    overflow: visible !important;
+    picture,
+    img {
+      width: 150% !important;
+      height: 150% !important;
+      right: 0%;
+      left: unset !important;
+    }
+  }
+  @media only screen and (max-width: 940px) {
+    picture,
+    img {
+      width: 210% !important;
+      height: 210% !important;
+      right: -100%;
+    }
+  }
+  @media only screen and (max-width: 802px) {
+    margin-top: 40px !important;
+    picture,
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      right: 0%;
+    }
+  }
 `
 
-const HeroSection = ({ heroIcon }) => {
+const HeroSection = ({ heroIcon, heroMobileIcon }) => {
   const width = useWindowSize()
   return (
     <HeroStyles>
@@ -222,8 +260,10 @@ const HeroSection = ({ heroIcon }) => {
           </ButtonsWrapper>
         </div>
         <div>
-          {/* <HeroIcon /> */}
-          <StyledImg fluid={heroIcon.fluid} alt={heroIcon.alt} />
+          <StyledImg
+            fluid={width > 640 ? heroIcon.fluid : heroMobileIcon.fluid}
+            alt={width > 640 ? heroIcon.alt : heroMobileIcon.alt}
+          />
         </div>
       </Wrapper>
     </HeroStyles>

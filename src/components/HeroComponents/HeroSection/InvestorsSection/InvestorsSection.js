@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import ButtonText from "../../../ButtonText/ButtonText"
 import arrowRight from "../../../../images/right-arrow.svg"
+import useWindowSize from "../../../../utils/UseWindowSize"
 const BeforeStyles = styled.section`
   display: flex;
   justify-content: center;
@@ -23,6 +24,11 @@ const Wrapper = styled.div`
   }
   @media only screen and (max-width: 801px) {
     margin: 20px 30px 32px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @media only screen and (max-width: 640px) {
+    margin: 0px 30px 32px;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -135,12 +141,19 @@ const ButtonsWrapper = styled.div`
   margin: 36px 0 0 !important;
   z-index: 3;
 
+  @media only screen and (max-width: 1140px) {
+    margin-top: 22px !important;
+  }
   @media only screen and (max-width: 801px) {
     margin-top: 12px !important;
+  }
+  @media only screen and (max-width: 640px) {
+    margin-top: 4px !important;
   }
 `
 
 const InvestorsSection = () => {
+  const width = useWindowSize()
   return (
     <BeforeStyles>
       <Wrapper>
@@ -148,7 +161,8 @@ const InvestorsSection = () => {
         <div>
           <p className="title">Dla profesjonalistów</p>
           <p className="claim">
-            Inwestycja +&nbsp;opieka? To nasza propozycja!
+            Inwestycja +&nbsp;opieka? {width < 640 && <br />}To nasza
+            propozycja!
           </p>
           <p className="description">
             Chcesz zainwestować w&nbsp;koparki. Nie wiesz tylko, jak zacząć. Do
@@ -158,11 +172,13 @@ const InvestorsSection = () => {
             na wszystkie Twoje pytania i&nbsp;pokierujemy inwestycją.
           </p>
           <p className="description">
-            Inwestycja w&nbsp;kryptowaluty? Powiemy Ci jak.
+            Inwestycja w&nbsp;kryptowaluty? {width < 640 && <br />}Powiemy Ci
+            jak.
           </p>
           <ButtonsWrapper>
             <ButtonText
               color="var(--primary)"
+              margin={width < 333 && "0 -12px 0 -8px"}
               to="/dla-poczatkujacych"
               icon={arrowRight}
             >

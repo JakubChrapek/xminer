@@ -5,6 +5,7 @@ import beforeIcon from "../../../../images/dla-poczatkujacych-icon.svg"
 import ButtonText from "../../../ButtonText/ButtonText"
 import arrowRight from "../../../../images/right-arrow.svg"
 import Img from "gatsby-image"
+import useWindowSize from "../../../../utils/UseWindowSize"
 
 const BeforeStyles = styled.section`
   display: flex;
@@ -32,7 +33,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: flex-start;
   }
-  > div {
+  div {
     @media only screen and (max-width: 801px) {
       width: 100%;
     }
@@ -90,6 +91,9 @@ const Wrapper = styled.div`
       }
     }
     .gatsby-image-wrapper {
+      @media only screen and (max-width: 801px) {
+        margin-top: 60px;
+      }
       > div {
         margin-top: 0;
       }
@@ -120,6 +124,9 @@ const ButtonsWrapper = styled.div`
   @media only screen and (max-width: 1140px) {
     margin-top: 22px !important;
   }
+  @media only screen and (max-width: 640px) {
+    margin-top: 4px !important;
+  }
 `
 const StyledImg = styled(Img)`
   width: 100%;
@@ -127,6 +134,7 @@ const StyledImg = styled(Img)`
 `
 
 const BeforeMiningSection = ({ beforeIcon }) => {
+  const width = useWindowSize()
   return (
     <BeforeStyles>
       <Wrapper>
@@ -147,7 +155,11 @@ const BeforeMiningSection = ({ beforeIcon }) => {
           </p>
           <p className="description">Zobacz, od czego zacząć.</p>
           <ButtonsWrapper>
-            <ButtonText to="/dla-poczatkujacych" icon={arrowRight}>
+            <ButtonText
+              margin={width < 333 ? "0 -12px 0 -8px" : ""}
+              to="/dla-poczatkujacych"
+              icon={arrowRight}
+            >
               Dla początkujących
             </ButtonText>
           </ButtonsWrapper>

@@ -17,14 +17,15 @@ Slider.defaultProps = {
 
 export const DragSlider = ({
   children,
-  bounceStiffness = 60, // Affects the stiffness of the bounce spring. Higher values will create more sudden movement.
-  bounceDamping = 10, // affects the damping of the bounce spring. If set to 0, spring will oscillate indefinitely.
+  bounceStiffness = 80, // Affects the stiffness of the bounce spring. Higher values will create more sudden movement.
+  bounceDamping = 25, // affects the damping of the bounce spring. If set to 0, spring will oscillate indefinitely.
   margin,
   leftAnchor,
   padding,
   bg,
   initial,
   radius,
+  width,
 }) => {
   const ref = useRef(null)
   const x = useMotionValue(0)
@@ -76,26 +77,27 @@ export const DragSlider = ({
         layout
         style={{
           overflow: "hidden",
-          maxWidth: "calc(100% + 60px)",
+          maxWidth: width ? "100%" : "calc(100% + 60px)",
           paddingLeft: "30px",
           alignself: "center",
           margin: margin,
           padding: padding,
-          width: "calc(100% + 30px)",
+          width: width ? width : "calc(100% + 60px)",
           backgroundColor: bg,
           borderRadius: radius,
+          alignSelf: "center",
         }}
       >
         <Slider
           ref={ref}
           drag="x"
           // initial={initial ? { x: 0 } : { x: 30 }}
-          initial={{ x: 0 }}
+          initial={{ x: 30 }}
           style={{ x }}
           dragConstraints={{
             left: -sliderConstraints - (leftAnchor || 75) - 30,
             // right: initial ? 0 : 30,
-            right: 0,
+            right: 30,
           }}
           dragTransition={{ bounceStiffness, bounceDamping }}
         >

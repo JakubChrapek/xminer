@@ -40,6 +40,7 @@ const CardStyles = styled.div`
     }
   }
   @media only screen and (max-width: 640px) {
+    width: 313px;
     padding: 40px 20px;
   }
 
@@ -120,12 +121,7 @@ const Cards = () => {
           ))}
         </CardsStyles>
       ) : (
-        <DragSlider
-          bounceStiffness={200}
-          bounceDamping={30}
-          margin="0 0 0 30px"
-          leftAnchor={46}
-        >
+        <DragSlider margin="0px" leftAnchor={46}>
           {CardsContent.map(({ icon, title, content, cta }) => (
             <Card
               key={title}
