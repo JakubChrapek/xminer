@@ -257,7 +257,7 @@ const ActiveStepStyles = styled(motion.div)`
     height: 100%;
     flex: 1;
     justify-content: space-between;
-    min-height: 312px;
+    /* min-height: 312px; */
   }
 
   @media only screen and (max-width: 1002px) {
@@ -268,18 +268,18 @@ const ActiveStepStyles = styled(motion.div)`
     }
     > div:last-of-type {
       padding-top: 23px;
-      min-height: 551px;
+      /* min-height: 551px; */
     }
   }
   @media only screen and (max-width: 640px) {
     > div:last-of-type {
-      min-height: 520px;
-      max-height: calc(100% - 160px);
+      /* min-height: 520px; */
+      /* max-height: calc(100% - 160px); */
     }
   }
   @media only screen and (max-height: 640px) {
     > div:last-of-type {
-      min-height: 544px;
+      /* min-height: 544px; */
       /* max-height: calc(100% - 160px); */
     }
   }
@@ -442,37 +442,42 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                   margin="54px 0 0"
                   width="100%"
                   key="flex-buttons"
+                  layout
                   justifyContent={width > 1002 ? "flex-end" : "center"}
                   alignItems={width <= 1002 ? "center" : ""}
                   direction={width <= 1002 ? "column" : ""}
                 >
                   <AnimatePresence>
                     {activeStep > 0 && (
-                      <ButtonLink
-                        color="var(--primary)"
+                      <Button
                         outlinebg="var(--nav-dark-bluse)"
-                        bg="transparent"
-                        type="outline"
+                        type="onlyOutline"
                         width="176px"
+                        layout={true}
                         margin={width > 1002 ? "0 12px 0 0" : "24px 0 0"}
-                        onClick={() => setActiveStep(activeStep - 1)}
-                        initial={{ opacity: 0 }}
+                        onClick={e => {
+                          e.preventDefault()
+                          setActiveStep(activeStep - 1)
+                        }}
+                        initial={{ opacity: 1 }}
                         animate={{ opacity: 1, transition: { duration: 0.4 } }}
                         exit={{ opacity: 0, transition: { duration: 0.4 } }}
                         key="back"
-                        whileTap={{ scale: 0.95 }}
+                        whileTap={{ scale: 0.98 }}
                         disabled={props.isSubmitting || reset || success}
                         cursor="pointer"
                       >
                         &larr; &nbsp;&nbsp;Wróć
-                      </ButtonLink>
+                      </Button>
                     )}
                     <Button
                       width="176px"
                       // border="1px solid transparent"
                       order={width <= 1002 && "-1"}
                       margin={width > 1002 ? "0 0 0 12px" : "0"}
+                      layout={true}
                       type={activeStep < steps.length - 1 ? "button" : "submit"}
+                      whileTap={{ scale: 0.98 }}
                       loading={
                         activeStep === steps.length - 1
                           ? props.isSubmitting
@@ -514,7 +519,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
 const Configurator = ({ vendors }) => {
   const [activeVendor, setActiveVendor] = useState(0)
   const [activeModel, setActiveModel] = useState(0)
-  const [activeCard, setActiveCard] = useState(0)
+  const [activeCard, setActiveCard] = useState(7)
   const [activeStep, setActiveStep] = useState(0)
 
   const models = {

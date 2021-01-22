@@ -150,7 +150,7 @@ const ContactUsSectionWithMap = ({
           />
           <LinkStyles>
             <motion.li
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.98 }}
               style={{ marginLeft: -5 }}
               className="wider-gap"
             >
@@ -158,13 +158,13 @@ const ContactUsSectionWithMap = ({
                 <img src={Email} alt="email icon" /> kontakt@xminer.pl
               </a>
             </motion.li>
-            <motion.li whileTap={{ scale: 0.95 }} className="wider-gap">
+            <motion.li whileTap={{ scale: 0.98 }} className="wider-gap">
               <a href="tel:+48537787240">
                 <img src={Mobile} alt="phone icon" />
                 +48 537 787 240
               </a>
             </motion.li>
-            <motion.li whileTap={{ scale: 0.95 }} className="wider-gap">
+            <motion.li whileTap={{ scale: 0.98 }} className="wider-gap">
               <a href="https://goo.gl/maps/jr67k2fLVoJXvsZZ8">
                 <img src={Location} alt="location icon" /> Pruszkowska 73,
                 05&#8209;090&nbsp;Raszyn

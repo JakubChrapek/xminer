@@ -154,7 +154,9 @@ const SalesHero = () => {
       <Text
         textAlign={width > 640 ? "center" : "left"}
         fontSize={width > 640 ? "36px" : "24px"}
-        margin={width <= 640 && "0 0 -16px 30px"}
+        margin={
+          width <= 640 ? "0 0 -16px 30px" : width < 1080 ? "0 0 32px" : ""
+        }
         lineHeight="normal"
         fontWeight="600"
         color="var(--headers-color)"

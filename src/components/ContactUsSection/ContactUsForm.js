@@ -338,6 +338,9 @@ const ContactUsForm = ({ vertical, bg, width }) => {
       setSubmitting(false)
       setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
       resetForm()
+      setTimeout(() => {
+        setFeedbackMsg(null)
+      }, 4000)
     }, 2000)
   }
 

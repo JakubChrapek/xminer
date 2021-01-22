@@ -13,11 +13,17 @@ const ImgWrapper = styled(motion.button)`
   align-items: center;
   padding: 36px 51px;
   width: 209px;
+  @media only screen and (max-width: 640px) {
+    padding: 22px 42px;
+    width: 60%;
+    min-width: 180px;
+  }
   background-color: var(--white);
   border-radius: 15px;
   border: none;
-  transition: box-shadow 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-    background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: box-shadow 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+    background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+    transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
   &:hover {
     background-color: var(--light-aqua);
@@ -25,6 +31,7 @@ const ImgWrapper = styled(motion.button)`
 
   &.active {
     box-shadow: inset 0 0 0 5px var(--primary);
+    transform: scale(1.05) !important;
   }
   &:focus,
   &:active {
@@ -32,7 +39,7 @@ const ImgWrapper = styled(motion.button)`
   }
   &:focus-visible {
     outline: none !important;
-    box-shadow: inset 0 0 0 3px var(--primary);
+    box-shadow: inset 0 0 0 5px var(--primary);
   }
 
   &:first-of-type {
@@ -81,8 +88,9 @@ export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
           whileHover={{
             cursor: "pointer",
           }}
-          whileTap={{ scale: 0.98, backgroundColor: "var(--light-aqua)" }}
-          onClick={() => {
+          whileTap={{ scale: 0.97 }}
+          onClick={e => {
+            e.preventDefault()
             setActiveVendor(i)
             setFieldValue("vendor", vendors[i].name)
           }}
@@ -119,18 +127,44 @@ const ModelGridStyles = styled(motion.div)`
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 32px;
 
-  span {
+  button {
     padding: 64px 12px;
+
+    @media only screen and (max-width: 640px) {
+      padding: 30px 12px;
+    }
+
     text-transform: uppercase;
     color: var(--headers-color);
     font-size: 20px;
+    @media only screen and (max-width: 380px) {
+      padding: 30px 8px;
+      font-size: 18px;
+    }
     line-height: 30px;
     font-weight: 500;
     text-align: center;
     background-color: var(--white);
     border-radius: 15px;
+    border: none;
+    transition: box-shadow 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+      background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+      transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+    &:hover {
+      background-color: var(--light-aqua);
+    }
 
     &.active {
+      box-shadow: inset 0 0 0 5px var(--primary);
+      transform: scale(1.05) !important;
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    &:focus-visible {
+      outline: none !important;
       box-shadow: inset 0 0 0 5px var(--primary);
     }
   }
@@ -178,27 +212,23 @@ export const Step2 = ({ models, activeModel, setActiveModel }) => {
     >
       <ModelGridStyles>
         {models[fieldVendor.value].map((model, i) => (
-          <motion.span
+          <motion.button
             key={model.name}
-            whileHover={{
-              cursor: "pointer",
-              backgroundColor: "var(--light-aqua)",
-              color: "var(--primary)",
-            }}
-            whileTap={{ scale: 0.98 }}
+            whileTap={{ scale: 0.97 }}
             transition={{
               type: "spring",
               stiffness: 100,
               default: { duration: 0.2 },
             }}
-            onClick={() => {
+            onClick={e => {
+              e.preventDefault()
               setActiveModel(i)
               setFieldValue("model", models[fieldVendor.value][i].name)
             }}
             className={activeModel === i ? "active" : ""}
           >
             {model.name}
-          </motion.span>
+          </motion.button>
         ))}
       </ModelGridStyles>
     </motion.div>
@@ -211,29 +241,48 @@ const GraphicsGrid = styled(motion.ul)`
   grid-gap: 14px 10px;
   width: 100%;
   list-style-type: none;
-  li {
+  button {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    border: none;
     background-color: var(--white);
     color: var(--headers-color);
     padding: 20px 17px;
     font-size: 20px;
     line-height: 30px;
+    transition: box-shadow 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+      background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+      transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+    &:hover {
+      background-color: var(--light-aqua);
+    }
 
     &.accent {
       background-color: var(--light-aqua);
       color: var(--primary);
     }
-
     &.active {
       box-shadow: inset 0 0 0 5px var(--primary);
       color: var(--primary);
+      transform: scale(1.05) !important;
+    }
+    &:focus,
+    &:active {
+      outline: none;
+    }
+    &:focus-visible {
+      outline: none !important;
+      box-shadow: inset 0 0 0 5px var(--primary);
     }
   }
 
   @media only screen and (max-width: 1002px) {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  @media only screen and (max-width: 640px) {
     grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
   }
   @media only screen and (max-width: 378px) {
@@ -264,7 +313,8 @@ export const Step3 = ({ activeCard, setActiveCard }) => {
       key="moc"
     >
       {[...Array(12).keys()].map(i => (
-        <motion.li
+        <motion.button
+          tabIndex="0"
           key={`graphic-cards-number-${i}`}
           whileHover={{
             cursor: "pointer",
@@ -277,7 +327,8 @@ export const Step3 = ({ activeCard, setActiveCard }) => {
             stiffness: 100,
             default: { duration: 0.2 },
           }}
-          onClick={() => {
+          onClick={e => {
+            e.preventDefault()
             setActiveCard(i)
             setFieldValue("number", `${i + 1}`)
           }}
@@ -286,7 +337,7 @@ export const Step3 = ({ activeCard, setActiveCard }) => {
           }
         >
           {i + 1}
-        </motion.li>
+        </motion.button>
       ))}
     </GraphicsGrid>
   )

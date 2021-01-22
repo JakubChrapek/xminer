@@ -182,6 +182,7 @@ const StyledLink = styled(Link)`
 
 const SpanStyles = styled(motion.span)`
   align-self: ${({ alignself }) => (alignself ? alignself : "")};
+  display: inline-block;
   a {
     span {
       color: ${({ type }) => !type && "var(--white) !important"};
@@ -217,7 +218,12 @@ const ButtonLink = ({
   className,
   onClick,
 }) => (
-  <SpanStyles type={type} alignself={alignself} layout={layout}>
+  <SpanStyles
+    whileTap={whileTap ? whileTap : { scale: 0.98 }}
+    type={type}
+    alignself={alignself}
+    layout={layout}
+  >
     <StyledLink
       className={className}
       to={to}
@@ -245,7 +251,6 @@ const ButtonLink = ({
         onClick={onClick}
         exit={exit}
         whileHover={whileHover}
-        whileTap={whileTap}
         whileFocus={whileFocus}
         layout={layout}
       >
