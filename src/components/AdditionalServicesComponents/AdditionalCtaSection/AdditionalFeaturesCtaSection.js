@@ -38,6 +38,7 @@ const ImageFlex = styled(StyledFlex)`
 `
 
 const AdditionalWrapperStyles = styled(MoreWrapperStyles)`
+  margin-bottom: 60px !important;
   @media only screen and (max-width: 1082px) {
     margin-bottom: 0 !important;
   }

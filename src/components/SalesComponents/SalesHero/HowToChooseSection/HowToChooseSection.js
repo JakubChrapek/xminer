@@ -1,6 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Container from "../../../Container/Container"
 import Text from "../../../Text/Text"
 import ButtonText from "../../../ButtonText/ButtonText"

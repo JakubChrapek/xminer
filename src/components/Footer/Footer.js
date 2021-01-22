@@ -82,9 +82,13 @@ const Columns = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 640px) {
+    margin-bottom: 50px;
+  }
 
   @media only screen and (max-width: 410px) {
     grid-gap: 24px 8px;
+    margin-bottom: 40px;
   }
 
   @media only screen and (max-width: 398px) {
@@ -119,6 +123,20 @@ const Columns = styled.div`
 
   .socials {
     margin-top: 24px;
+
+    a {
+      border-radius: 100%;
+      &:hover,
+      &:focus,
+      &:active {
+        outline: none;
+      }
+      &:focus-visible {
+        box-shadow: 0 0 0 2px var(--secondary);
+        outline: none;
+        transform: scale(1.2) !important;
+      }
+    }
   }
 
   h3 {
@@ -154,6 +172,7 @@ const Columns = styled.div`
       align-items: center;
       text-decoration: none;
       color: var(--gray300);
+      border-radius: 8px;
       position: relative;
       padding: 6px 10px;
       font-weight: 300;
@@ -191,10 +210,16 @@ const Columns = styled.div`
       &.active,
       &[aria-current] {
         color: var(--secondary);
+        &:after {
+          transform: scaleX(1);
+        }
       }
       &:focus-visible {
-        outline: 2px solid var(--secondary);
-        outline-offset: 6px;
+        box-shadow: 0 0 0 2px var(--secondary);
+        outline: none;
+        &:after {
+          content: none !important;
+        }
       }
 
       img {
@@ -247,6 +272,7 @@ const Copyrights = styled.div`
     text-decoration: none;
     position: relative;
     padding: 6px 5px;
+    border-radius: 8px;
 
     &:after {
       content: "";
@@ -265,23 +291,49 @@ const Copyrights = styled.div`
       content: none;
     }
     &:hover,
-    &.active,
     &:focus,
     &:active,
+    &.active,
     &[aria-current] {
       outline: none;
       &:after {
         transform: scaleX(1);
       }
     }
+    &.active,
+    &[aria-current] {
+      color: var(--secondary);
+      &:after {
+        transform: scaleX(1);
+      }
+    }
     &:focus-visible {
-      outline: 2px solid var(--secondary);
-      outline-offset: 6px;
+      box-shadow: 0 0 0 2px var(--secondary);
+      outline: none;
+      &:after {
+        content: none !important;
+      }
     }
   }
 `
 
 const LinkStyles = styled(Link)`
+  border-radius: 8px;
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--secondary);
+    outline: none;
+    &:after {
+      content: none !important;
+    }
+  }
   &:after,
   &:before {
     content: none !important;
@@ -519,9 +571,13 @@ const Footer = () => {
             </>
           ) : (
             <>
-              <p style={{ marginTop: "14px" }}>
+              <p
+                style={
+                  width > 375 ? { marginTop: "14px" } : { marginTop: "7px" }
+                }
+              >
                 &copy; {new Date().getFullYear()} Xminer. Wszelkie prawa
-                zastrzeżone. |
+                zastrzeżone. {width > 437 && "|"}
                 <Link
                   style={{ display: "inline-flex" }}
                   to="/polityka-prywatnosci"
@@ -532,7 +588,7 @@ const Footer = () => {
 
               <div>
                 <p>
-                  Stronę stworzyli{" "}
+                  {width > 375 && `Stronę stworzyli `}
                   <a
                     href="https://kryptonumstudio.com"
                     target="_blank"

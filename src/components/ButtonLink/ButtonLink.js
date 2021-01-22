@@ -152,6 +152,57 @@ const StyledLink = styled(Link)`
             : "inset 0 0 0 3px var(--primary) !important"};
       }
     `}
+${({ type }) =>
+    type === "onlyOutline" &&
+    css`
+      position: relative;
+      background: transparent;
+      border: solid 1px var(--primary);
+      color: var(--primary) !important;
+      border-radius: 8px;
+
+      transition: color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+        box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        margin: -1px; /* !importanté */
+        border-radius: inherit; /* !importanté */
+        background-image: linear-gradient(
+          0deg,
+          #2ec5ce,
+          #2ec5ce,
+          #2b7097,
+          #2d1f84
+        );
+        background-size: auto 200%;
+        background-position: 0 100%;
+
+        transition: color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+          background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+          background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+          box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+      }
+      &:hover:before {
+        background-position: 0 0;
+      }
+
+      &:focus-visible {
+        outline: none !important;
+        box-shadow: ${({ size }) =>
+          size === "small"
+            ? "inset 0 0 0 1px var(--primary) !important"
+            : "inset 0 0 0 3px var(--primary) !important"};
+      }
+    `}
+
     ${({ type }) =>
     type === "tertiary" &&
     css`
@@ -219,10 +270,11 @@ const ButtonLink = ({
   onClick,
 }) => (
   <SpanStyles
+    whileHover={whileHover ? whileHover : { scale: 1.02 }}
     whileTap={whileTap ? whileTap : { scale: 0.98 }}
     type={type}
     alignself={alignself}
-    layout={layout}
+    layout={layout ? true : false}
   >
     <StyledLink
       className={className}
@@ -243,16 +295,14 @@ const ButtonLink = ({
       bg={bg}
       type={type}
       color={color}
-      layout={layout}
+      layout={layout ? true : false}
     >
       <ButtonLinkStyles
         initial={initial}
         animate={animate}
         onClick={onClick}
         exit={exit}
-        whileHover={whileHover}
-        whileFocus={whileFocus}
-        layout={layout}
+        layout={layout ? true : false}
       >
         {children}
       </ButtonLinkStyles>

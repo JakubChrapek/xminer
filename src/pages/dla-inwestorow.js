@@ -5,7 +5,7 @@ import ForInvestorsHeroSection from "../components/ForInvestors/ForInvestorsHero
 import WhoWillTeachYouSection from "../components/ForInvestors/ForInvestorsHeroSection/WhoWillTeachYouSection/WhoWillTeachYouSection"
 import WhyInvestingWithUs from "../components/ForInvestors/ForInvestorsHeroSection/WhyInvestingWithUs/WhyInvestingWithUs"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
-
+import { graphql } from "gatsby"
 import SEO from "../components/SEO/SEO"
 import PackagesSection from "../components/ServiceComponents/PackagesSection/PackagesSection"
 
@@ -24,7 +24,7 @@ const ForInvestors = ({ data }) => {
         totalCount={totalCount}
         title=""
         subtitle=""
-        padding="15px 122px 0"
+        padding="0px 122px 0"
         smaller
       />
       <PackagesSection
@@ -32,6 +32,7 @@ const ForInvestors = ({ data }) => {
         subtitle="Zacznij inwestować w&nbsp;kryptowaluty"
         smaller
         margin="84px 0 0"
+        padding="0 0 50px"
       />
       <GradientCtaSection
         title="oferta"

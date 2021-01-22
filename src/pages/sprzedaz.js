@@ -1,7 +1,7 @@
 import React from "react"
 import ContactUsSection from "../components/ContactUsSection/ContactUsSection"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
-
+import { graphql } from "gatsby"
 import CtaSalesSection from "../components/SalesComponents/SalesHero/HowToChooseSection/CtaSalesSection/CtaSalesSection"
 import HowToChooseSection from "../components/SalesComponents/SalesHero/HowToChooseSection/HowToChooseSection"
 import MinerRigsSection from "../components/SalesComponents/SalesHero/MinerRigsSection/MinerRigsSection"

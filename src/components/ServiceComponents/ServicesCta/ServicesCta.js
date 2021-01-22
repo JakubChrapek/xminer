@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Container from "../../Container/Container"
 import { StyledFlex } from "../../Flex/Flex"
 import ButtonText from "../../ButtonText/ButtonText"
@@ -19,10 +19,16 @@ export const MoreWrapperStyles = styled(WrapperStyles)`
 
     align-self: center;
   }
+
+  &:nth-of-type(2) {
+    margin-bottom: 220px;
+  }
+
   @media only screen and (max-width: 1182px) {
     margin: 122px 60px 72px;
     &:nth-of-type(2) {
       margin-top: 82px;
+      margin-bottom: 120px;
     }
   }
 
@@ -37,6 +43,9 @@ export const MoreWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 760px) {
     width: unset;
     margin: 65px 30px;
+    &:nth-of-type(2) {
+      margin-bottom: 100px;
+    }
   }
 `
 
@@ -93,17 +102,21 @@ export const FirstFlex = styled(StyledFlex)`
 export const SecondFlex = styled(FirstFlex)`
   h2,
   h3,
-  p,
-  a {
+  p {
     margin-left: 80px;
     margin-right: 0;
+  }
+  a {
+    margin-left: 72px;
   }
   @media only screen and (max-width: 1182px) {
     h2,
     h3,
-    p,
-    a {
+    p {
       margin-left: 50px;
+    }
+    a {
+      margin-left: 8px;
     }
   }
   @media only screen and (max-width: 1080px) {
@@ -112,12 +125,11 @@ export const SecondFlex = styled(FirstFlex)`
     order: -1;
     h2,
     h3,
-    p,
-    a {
+    p {
       margin-left: 0;
     }
     a {
-      margin-top: 24px !important;
+      margin: 24px 0 0 -8px !important;
     }
   }
 

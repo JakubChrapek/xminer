@@ -43,7 +43,7 @@ const AdditionalServicesHero = () => {
           >
             Twoja koparka może mieć lepsze życie. Ty możesz więcej na niej
             zarabiać. Możesz też spać spokojnie, wiedząc, że spoczywa w dobrych
-            rękach, że czuwa nad nią ktoś, kto o koparkach może książek nie
+            rękach, że czuwa nad nią ktoś, kto o&nbsp;koparkach może książek nie
             napisał, ale to tylko kwestia czasu. Dlatego obok kolokacji koparek
             i&nbsp;taniego dostępu do zielonego prądu, oferujemy Ci znacznie
             więcej: serwis 24/h, dowóz, montaż, konfigurację, konsultacje oraz

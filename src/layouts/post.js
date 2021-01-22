@@ -135,13 +135,17 @@ const PostStyles = styled.article`
     &:active,
     &[aria-current] {
       outline: none;
+      color: var(--secondary);
       &:after {
         transform: scaleX(1);
       }
     }
     &:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 6px;
+      box-shadow: 0 0 0 2px var(--secondary);
+      outline: none;
+      &:after {
+        content: none !important;
+      }
     }
   }
 `

@@ -157,8 +157,8 @@ const WhySection = () => {
           stepText="Krok 1: Podstawy"
           titleText="Dobry start od bloga"
           ContentText="Zanim umówisz się na konsultacje czy zadasz pytania, zacznij od
-          podstaw. Na naszym blogu piszą eksperci, piszą z sensem i z konkretem,
-          bo na rzeczy się znają, bo wiedzą, o co początkujący pytają
+          podstaw. Na naszym blogu piszą eksperci, piszą z&nbsp;sensem i&nbsp;z&nbsp;konkretem,
+          bo na rzeczy się znają, bo wiedzą, o&nbsp;co początkujący pytają
           najczęściej. Zacznij więc tu."
           CtaText="Polecamy!"
           BtnText="Wpisy na blogu Xminer"
@@ -168,7 +168,7 @@ const WhySection = () => {
           width={width}
           stepText="Krok 2: Czas na maszynę"
           titleText="Wybierz koparkę"
-          ContentText="Bez tego ani rusz: jeśli uważasz, że temat jest rozwojowy i daje możliwości, czas na ten pierwszy, debiutancki występ. Chętnie pomożemy Ci wybrać koparkę (lub koparki!) idealne do Twoich potrzeb i budżetu, a po zakupie spotkasz się z ekspertem, który opowie, nauczy, doradzi."
+          ContentText="Bez tego ani rusz: jeśli uważasz, że temat jest rozwojowy i&nbsp;daje możliwości, czas na ten pierwszy, debiutancki występ. Chętnie pomożemy Ci wybrać koparkę (lub koparki!) idealne do Twoich potrzeb i&nbsp;budżetu, a&nbsp;po zakupie spotkasz się z&nbsp;ekspertem, który opowie, nauczy, doradzi."
           CtaText="I już nie możesz się doczekać, aż zaczniesz kopać!"
           BtnText="Zobacz koparki"
           BtnLink="/sprzedaz"
@@ -177,7 +177,7 @@ const WhySection = () => {
           width={width}
           stepText="Krok 3: Zarabiaj"
           titleText="Pod okiem naszych specjalistów"
-          ContentText="Lub zupełnie samodzielnie, w swoim domu. Wybór należy do Ciebie - nie wiążemy Cię przecież żadną umową czy innym cyrografem. Wiedz, że możesz zostawić u nas swoje maleństwo, że masz u nas wsparcie, ale tylko Ty decydujesz. I zawsze możesz zmienić zdanie!"
+          ContentText="Lub zupełnie samodzielnie, w&nbsp;swoim domu. Wybór należy do Ciebie&nbsp;-&nbsp;nie wiążemy Cię przecież żadną umową czy innym cyrografem. Wiedz, że możesz zostawić u&nbsp;nas swoje maleństwo, że masz u&nbsp;nas wsparcie, ale tylko Ty decydujesz. I&nbsp;zawsze możesz zmienić zdanie!"
           BtnText="Skontaktuj się z nami"
           BtnLink="/kontakt"
         />
@@ -185,7 +185,7 @@ const WhySection = () => {
           width={width}
           stepText="A może"
           titleText="Masz już koparkę i... nic?"
-          ContentText="Każdy może kupić koparkę kryptowalut. Początkujący jednak spotykają na swojej drodze wiele problemów, które stają im na drodze do finansowej satysfakcji. Skalowanie przychodów, ogromne wydatki na prąd, problem z wyborem waluty? Zapraszamy na naszego bloga!"
+          ContentText="Każdy może kupić koparkę kryptowalut. Początkujący jednak spotykają na swojej drodze wiele problemów, które stają im na drodze do finansowej satysfakcji. Skalowanie przychodów, ogromne wydatki na prąd, problem z&nbsp;wyborem waluty? Zapraszamy na naszego bloga!"
         />
       </WhyWrapperStyles>
     </Container>

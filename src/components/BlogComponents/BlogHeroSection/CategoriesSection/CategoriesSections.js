@@ -41,7 +41,7 @@ const CategoriesStyles = styled.section`
 const NavigationStyles = styled(motion.ul)`
   display: grid;
   width: 100%;
-  background-color: var(--light-blue);
+  background-color: var(--faded-aqua);
   padding: 19px 78px;
   border-radius: 5px;
   place-items: center;
@@ -76,29 +76,30 @@ const ListItemStyles = styled(motion.li)`
     box-shadow: ${({ active }) =>
       active ? "0 4px 20px 0 rgba(0, 0, 0, 0.08)" : ""};
     background-color: ${({ active }) =>
-      active ? "var(--white)" : "var(--light-blue)"};
+      active ? "var(--white)" : "var(--faded-aqua)"};
     transition: background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
       box-shadow 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     &:focus,
     &:active {
       outline: none;
-      box-shadow: ${({ active }) => (active ? "" : "0 0 0 2px var(--blue)")};
+      box-shadow: ${({ active }) =>
+        active ? "" : "0 0 0 2px var(--secondary)"};
       path {
-        fill: var(--blue);
+        fill: var(--secondary);
       }
     }
     &:hover {
       background-color: var(--white);
       box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
       path {
-        fill: var(--blue);
+        fill: var(--secondary);
       }
     }
   }
 
   svg {
     path {
-      fill: ${({ active }) => (active ? "var(--blue)" : "")};
+      fill: ${({ active }) => (active ? "var(--secondary)" : "")};
       transition: fill 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     }
   }
@@ -113,7 +114,7 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
           bounceStiffness={200}
           bounceDamping={30}
           padding="19px 32px"
-          bg="var(--light-blue)"
+          bg="var(--faded-aqua)"
           layout
           leftAnchor={150}
           radius="5px"
@@ -131,8 +132,10 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
               >
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => setActiveCategory(item.categoryName)}
-                  layout
+                  onClick={() => {
+                    console.log("KLIK")
+                    setActiveCategory(item.categoryName)
+                  }}
                 >
                   {categoryIcon}
                   <Text
@@ -143,7 +146,7 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
                     textTransform="capitalize"
                     color={
                       activeCategory === item.categoryName
-                        ? "var(--blue)"
+                        ? "var(--secondary)"
                         : "var(--black)"
                     }
                   >
@@ -181,7 +184,7 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
                     textTransform="capitalize"
                     color={
                       activeCategory === item.categoryName
-                        ? "var(--blue)"
+                        ? "var(--secondary)"
                         : "var(--black)"
                     }
                   >
@@ -226,39 +229,35 @@ const ActiveArticlesStyles = styled(motion.div)`
       text-decoration: none;
 
       &:focus-visible {
-        h3 {
-          box-shadow: 0 0 0 2px var(--secondary);
-          outline: none;
-          &:after {
-            content: none !important;
-          }
+        border-radius: 8px;
+        box-shadow: 0 0 0 2px var(--secondary);
+        outline: none;
+        &:after {
+          content: none !important;
         }
       }
 
       &:hover {
-        h3 {
-          color: var(--secondary);
-          &:after {
-            transform: scaleX(1);
-          }
+        color: var(--secondary);
+        &:after {
+          transform: scaleX(1);
         }
       }
-      h3 {
-        position: relative;
-        display: inline-block;
 
-        &:after {
-          content: "";
-          position: absolute;
-          left: 0px;
-          bottom: -2px;
-          background-color: var(--secondary);
-          height: 2px;
-          width: calc(100%);
-          transform: scaleX(0);
-          transform-origin: left center;
-          transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-        }
+      position: relative;
+      display: inline-block;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0px;
+        bottom: -2px;
+        background-color: var(--secondary);
+        height: 2px;
+        width: calc(100%);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
       }
     }
   }
@@ -308,7 +307,10 @@ const ImageWrapper = styled(motion.div)`
     align-items: center;
     transition: opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus-visible {
       opacity: 1;
     }
   }

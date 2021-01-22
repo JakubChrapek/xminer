@@ -54,7 +54,7 @@ const SubnavWrapper = styled(motion.div)`
   display: flex;
   position: absolute;
   z-index: 3;
-  top: 119px;
+  top: 127px;
   width: 100%;
   background-color: var(--white);
   justify-content: center;
@@ -261,6 +261,19 @@ const Navigation = () => {
     setShow(false)
     setOfferOpened(false)
     setMenuClosed(false)
+
+    const handleEscape = e => {
+      if (e.keyCode === 27) {
+        setShow(false)
+        setOfferOpened(false)
+        setMenuClosed(false)
+      }
+      console.log("CATCH")
+    }
+
+    document.addEventListener("keydown", handleEscape)
+
+    return () => document.removeEventListener("keydown", handleEscape)
   }, [pathname])
   return (
     <>
@@ -390,22 +403,22 @@ const Navigation = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              layout
+              layout={true}
             >
-              <motion.li layout whileTap={{ scale: 0.95 }}>
+              <motion.li layout={true} whileTap={{ scale: 0.95 }}>
                 <Link to="/" activeClassName="active">
                   Strona główna
                 </Link>
               </motion.li>
-              <motion.li layout whileTap={{ scale: 0.95 }}>
+              <motion.li layout={true} whileTap={{ scale: 0.95 }}>
                 <Link to="/o-xminer" activeClassName="active">
                   O Xminer
                 </Link>
               </motion.li>
-              <motion.li layout>
+              <motion.li layout={true}>
                 <motion.a
                   whileTap={{ scale: 0.95 }}
-                  layout
+                  layout={true}
                   href=""
                   onClick={e => {
                     e.preventDefault()
@@ -418,7 +431,7 @@ const Navigation = () => {
                   <Chevron
                     whileHover={{ scale: 1.05, y: 2 }}
                     whileTap={{ scale: 0.9 }}
-                    layout
+                    layout={true}
                     className={show && "active"}
                     onClick={() => setOfferOpened(!offerOpened)}
                     style={offerOpened && { rotate: 180, y: 2 }}
@@ -426,7 +439,7 @@ const Navigation = () => {
                 </motion.a>
                 {offerOpened && (
                   <motion.div
-                    layout
+                    layout={true}
                     style={{
                       display: "flex",
                       marginLeft: "28px",
@@ -436,26 +449,26 @@ const Navigation = () => {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <motion.p layout key="sprzedaz">
+                    <motion.p layout={true} key="sprzedaz">
                       <Link to="/sprzedaz" activeClassName="active">
                         Sprzedaż
                       </Link>
                     </motion.p>
-                    <motion.p layout key="uslugi">
+                    <motion.p layout={true} key="uslugi">
                       <Link to="/uslugi-dodatkowe" activeClassName="active">
                         Usługi dodatkowe
                       </Link>
-                      <motion.p layout key="serwis">
+                      <motion.p layout={true} key="serwis">
                         <Link to="/serwis-i-kolokacja" activeClassName="active">
                           Serwis i kolokacja
                         </Link>
                       </motion.p>
-                      <motion.p layout key="Dla początkujących">
+                      <motion.p layout={true} key="Dla początkujących">
                         <Link to="/dla-poczatkujacych" activeClassName="active">
                           Dla początkujących
                         </Link>
                       </motion.p>
-                      <motion.p layout key="Dla inwestorów">
+                      <motion.p layout={true} key="Dla inwestorów">
                         <Link to="/dla-inwestorow" activeClassName="active">
                           Dla inwestorów
                         </Link>
@@ -464,8 +477,8 @@ const Navigation = () => {
                   </motion.div>
                 )}
               </motion.li>
-              <motion.li layout whileTap={{ scale: 0.95 }}>
-                <Link layout to="/blog" activeClassName="active">
+              <motion.li layout={true} whileTap={{ scale: 0.95 }}>
+                <Link layout={true} to="/blog" activeClassName="active">
                   Blog
                 </Link>
               </motion.li>
@@ -477,12 +490,12 @@ const Navigation = () => {
                 size="small"
                 padding="8px 20px"
                 margin="24px 0"
-                layout
+                layout={true}
               >
                 Kontakt
               </ButtonLink>
               <motion.div
-                layout
+                layout={true}
                 style={{
                   width: "100%",
                   display: "flex",
@@ -672,10 +685,11 @@ const HeaderStyles = styled(motion.header)`
 const Header = () => {
   const [bg, setBg] = useState("transparent")
   let pathname = useLocation().pathname
+  useEffect(() => {
+    pathname === "/" ? setBg("transparent") : setBg("var(--nav-dark-bluse)")
+  })
   return (
-    <HeaderStyles
-      bg={pathname === "/" ? "transparent" : "var(--nav-dark-bluse)"}
-    >
+    <HeaderStyles bg={bg}>
       <Navigation />
     </HeaderStyles>
   )

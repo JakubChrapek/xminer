@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Text from "../../../Text/Text"
 import Img from "gatsby-image"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import useWindowSize from "../../../../utils/UseWindowSize"
 

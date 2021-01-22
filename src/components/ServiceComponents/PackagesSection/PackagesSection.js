@@ -39,6 +39,9 @@ const PackageWrapperStyles = styled(WrapperStyles)`
       font-size: 24px;
     }
   }
+  @media only screen and (max-width: 540px) {
+    margin: 0;
+  }
 `
 
 const CardWrapperStyles = styled.div`
@@ -416,9 +419,9 @@ const Package = ({
   </PackageStyles>
 )
 
-const PackagesSection = ({ margin, title, subtitle, smaller }) => {
+const PackagesSection = ({ margin, padding, title, subtitle, smaller }) => {
   return (
-    <Container>
+    <Container padding={padding}>
       <PackageWrapperStyles
         margin={margin}
         padding="40px 122px 0"

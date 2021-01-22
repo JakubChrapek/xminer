@@ -22,6 +22,7 @@ const ImgStyles = styled.img``
 
 const ImgWrapper = styled.div`
   display: inline-flex;
+  align-self: flex-start;
   justify-content: center;
   align-items: center;
   width: 55px;

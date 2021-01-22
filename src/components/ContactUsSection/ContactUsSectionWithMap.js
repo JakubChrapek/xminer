@@ -65,6 +65,7 @@ const LinkStyles = styled.ul`
       align-items: center;
       text-decoration: none;
       color: var(--body-text);
+      border-radius: 8px;
       position: relative;
       padding: 6px 10px;
       font-weight: 300;
@@ -99,10 +100,16 @@ const LinkStyles = styled.ul`
       &.active,
       &[aria-current] {
         color: var(--secondary);
+        &:after {
+          transform: scaleX(1);
+        }
       }
       &:focus-visible {
-        outline: 2px solid var(--secondary);
-        outline-offset: 6px;
+        box-shadow: 0 0 0 2px var(--secondary);
+        outline: none;
+        &:after {
+          content: none !important;
+        }
       }
 
       img {

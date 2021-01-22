@@ -67,6 +67,7 @@ const WhoWillTeachYouSection = () => {
           </Text>
           <Flex
             margin="50px 0 0"
+            padding="0 0 20px"
             width="100%"
             justifyContent="center"
             alignItems={width > 640 ? "" : "center"}

@@ -178,7 +178,7 @@ const InvestorsSection = () => {
           <ButtonsWrapper>
             <ButtonText
               color="var(--primary)"
-              margin={width < 333 && "0 -12px 0 -8px"}
+              margin={width < 333 ? "0 -12px 0 -8px" : ""}
               to="/dla-poczatkujacych"
               icon={arrowRight}
             >

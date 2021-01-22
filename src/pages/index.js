@@ -1,5 +1,5 @@
 import React from "react"
-
+import { graphql } from "gatsby"
 import SEO from "../components/SEO/SEO"
 import styled from "styled-components"
 import HeroSection from "../components/HeroComponents/HeroSection/HeroSection"

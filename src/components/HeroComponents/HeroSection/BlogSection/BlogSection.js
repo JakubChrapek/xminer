@@ -182,20 +182,22 @@ const ArticleStyles = styled(motion.article)`
     }
     &:hover {
       a {
-        color: var(--primary);
+        color: var(--secondary);
       }
     }
     a {
+      display: inline-block;
       text-decoration: none;
       color: var(--black);
       transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
       position: relative;
+      border-radius: 8px;
       &:after {
         content: "";
         position: absolute;
         left: 0px;
         bottom: -2px;
-        background-color: var(--primary);
+        background-color: var(--secondary);
         height: 2px;
         width: 100%;
         transform: scaleX(0);
@@ -203,20 +205,32 @@ const ArticleStyles = styled(motion.article)`
         transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
       }
 
+      &.without-underline:after {
+        content: none;
+      }
       &:hover,
-      &.active,
       &:focus,
       &:active,
+      &.active,
       &[aria-current] {
         outline: none;
-        color: var(--primary);
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+      &.active,
+      &[aria-current] {
+        color: var(--secondary);
         &:after {
           transform: scaleX(1);
         }
       }
       &:focus-visible {
-        outline: 2px solid var(--primary);
-        outline-offset: 6px;
+        box-shadow: 0 0 0 2px var(--secondary);
+        outline: none;
+        &:after {
+          content: none !important;
+        }
       }
     }
   }
@@ -271,7 +285,10 @@ const ImageWrapper = styled(motion.div)`
     align-items: center;
     transition: opacity 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active,
+    &:focus-visible {
       opacity: 1;
     }
   }

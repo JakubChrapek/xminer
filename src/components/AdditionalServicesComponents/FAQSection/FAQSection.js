@@ -34,8 +34,12 @@ const FaqStyles = styled.ul`
   padding: 0;
   flex-direction: column;
   margin: 96px auto 0;
-  max-width: 665px;
+  max-width: 993px;
   list-style-type: none;
+
+  @media only screen and (max-width: 1053px) {
+    max-width: 665px;
+  }
   @media only screen and (max-width: 640px) {
     max-width: unset;
     margin-top: 110px;
@@ -66,7 +70,7 @@ const FaqStyles = styled.ul`
     justify-content: center;
     align-items: center;
     opacity: 1;
-    transition: box-shadow 0.2 cubic-bezier(0.04, 0.62, 0.23, 0.98),
+    transition: box-shadow 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98),
       transform 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     align-self: flex-start;
     margin: 8px 3px 0 0;
@@ -98,7 +102,7 @@ const FaqStyles = styled.ul`
 
     &:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 2px var(--primary);
+      box-shadow: 0 0 0 2px transparent, 0 0 0 5px var(--primary);
     }
   }
 

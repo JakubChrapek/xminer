@@ -46,7 +46,8 @@ const DetailsStyles = styled(motion.div)`
     text-transform: capitalize;
     position: relative;
     margin: 0 0 0 ${({ featuredArticles }) => (featuredArticles ? "0" : "5px")};
-    transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: color 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+    border-radius: 8px;
     &:after {
       content: "";
       position: absolute;
@@ -107,7 +108,8 @@ const DetailsStyles = styled(motion.div)`
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: transform 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+      color 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     &:after {
       content: none;
     }
