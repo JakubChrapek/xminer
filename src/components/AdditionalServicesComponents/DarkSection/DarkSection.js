@@ -4,22 +4,9 @@ import useWindowSize from "../../../utils/UseWindowSize"
 import ButtonText from "../../ButtonText/ButtonText"
 import Container from "../../Container/Container"
 import { StyledFlex } from "../../Flex/Flex"
+import { Checkmark } from "../../ServiceComponents/PackagesSection/Checkmark"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
-
-const CheckMarkIconStyles = styled.svg`
-  fill: none;
-  margin: 0;
-  width: 100%;
-  max-width: 32px;
-  #bg {
-    fill: var(--light-aqua);
-  }
-
-  #mark {
-    stroke: var(--primary);
-  }
-`
 
 const WideStyledFlex = styled(StyledFlex)`
   @media only screen and (max-width: 740px) {
@@ -27,51 +14,6 @@ const WideStyledFlex = styled(StyledFlex)`
     text-align: center;
   }
 `
-
-const CheckMarkIcon = () => (
-  <CheckMarkIconStyles
-    width="32"
-    height="32"
-    viewBox="0 0 32 32"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g filter="url(#filter0_b)">
-      <rect id="bg" width="32" height="32" rx="16" />
-    </g>
-    <path
-      id="mark"
-      d="M20.48 12.6396L14.32 18.7996L11.52 15.9996"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <filter
-        id="filter0_b"
-        x="-48"
-        y="-48"
-        width="128"
-        height="128"
-        filterUnits="userSpaceOnUse"
-        colorInterpolationFilters="sRGB"
-      >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feGaussianBlur in="BackgroundImage" stdDeviation="24" />
-        <feComposite
-          in2="SourceAlpha"
-          operator="in"
-          result="effect1_backgroundBlur"
-        />
-        <feBlend
-          mode="normal"
-          in="SourceGraphic"
-          in2="effect1_backgroundBlur"
-          result="shape"
-        />
-      </filter>
-    </defs>
-  </CheckMarkIconStyles>
-)
 
 const Grid = styled.div`
   display: grid;
@@ -107,6 +49,9 @@ const DarkWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 640px) {
     margin: 50px 30px 140px;
   }
+  ${Checkmark} {
+    margin: 0;
+  }
 `
 
 const DarkSection = () => {
@@ -116,7 +61,7 @@ const DarkSection = () => {
       <DarkWrapperStyles direction="column" margin="133px 122px 69px">
         <Grid>
           <StyledFlex>
-            <CheckMarkIcon />
+            <Checkmark focus />
             <Text
               fontSize="16px"
               lineHeight="1.63em"
@@ -131,7 +76,7 @@ const DarkSection = () => {
             </Text>
           </StyledFlex>
           <StyledFlex justifyContent="flex-end">
-            <CheckMarkIcon />
+            <Checkmark focus />
             <Text
               fontSize="16px"
               lineHeight="1.63em"
@@ -146,7 +91,7 @@ const DarkSection = () => {
             </Text>
           </StyledFlex>
           <StyledFlex>
-            <CheckMarkIcon />
+            <Checkmark focus />
             <Text
               fontSize="16px"
               lineHeight="1.63em"
@@ -161,7 +106,7 @@ const DarkSection = () => {
             </Text>
           </StyledFlex>
           <StyledFlex justifyContent="flex-end">
-            <CheckMarkIcon />
+            <Checkmark focus />
             <Text
               fontSize="16px"
               lineHeight="1.63em"

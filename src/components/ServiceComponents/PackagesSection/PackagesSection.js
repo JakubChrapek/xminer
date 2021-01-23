@@ -7,6 +7,7 @@ import Text from "../../Text/Text"
 import Flex from "../../Flex/Flex"
 import useWindowSize from "../../../utils/UseWindowSize"
 import { AnimatePresence, motion } from "framer-motion"
+import { Checkmark } from "./Checkmark"
 
 const PackageWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 1056px) {
@@ -356,7 +357,8 @@ const Package = ({
     <ul>
       {features.map((feature, i) => (
         <li className={focus ? "focus" : ""} key={i}>
-          <svg
+          <Checkmark focus={focus} />
+          {/* <svg
             width="32"
             height="32"
             viewBox="0 0 32 32"
@@ -397,7 +399,7 @@ const Package = ({
                 />
               </filter>
             </defs>
-          </svg>
+          </svg> */}
 
           <span dangerouslySetInnerHTML={{ __html: feature }} />
         </li>

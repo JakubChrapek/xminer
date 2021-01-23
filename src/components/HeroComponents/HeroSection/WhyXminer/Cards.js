@@ -109,7 +109,7 @@ const Cards = () => {
   return (
     <>
       {width > 1140 ? (
-        <CardsStyles data-scroll-section>
+        <CardsStyles>
           {CardsContent.map(({ icon, title, content, cta }) => (
             <Card
               key={title}

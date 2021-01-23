@@ -258,7 +258,7 @@ const ActiveStepStyles = styled(motion.div)`
     height: 100%;
     flex: 1;
     justify-content: space-between;
-    /* min-height: 312px; */
+    min-height: 309px;
   }
 
   @media only screen and (max-width: 1002px) {
@@ -269,19 +269,7 @@ const ActiveStepStyles = styled(motion.div)`
     }
     > div:last-of-type {
       padding-top: 23px;
-      /* min-height: 551px; */
-    }
-  }
-  @media only screen and (max-width: 640px) {
-    > div:last-of-type {
-      /* min-height: 520px; */
-      /* max-height: calc(100% - 160px); */
-    }
-  }
-  @media only screen and (max-height: 640px) {
-    > div:last-of-type {
-      /* min-height: 544px; */
-      /* max-height: calc(100% - 160px); */
+      min-height: unset;
     }
   }
 `

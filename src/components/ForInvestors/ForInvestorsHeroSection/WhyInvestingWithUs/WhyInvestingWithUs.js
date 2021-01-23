@@ -4,9 +4,9 @@ import Container from "../../../Container/Container"
 import Flex, { StyledFlex } from "../../../Flex/Flex"
 import Text from "../../../Text/Text"
 import { WrapperStyles } from "../../../Wrapper/Wrapper"
-import RocketIcon from "../../../../images/ico-rocket.svg"
-import SupportIcon from "../../../../images/ico-support.svg"
-import LifecycleIcon from "../../../../images/ico-lifecycle.svg"
+import RocketIcon from "../../../../images/ico-optimize-min.png"
+import SupportIcon from "../../../../images/ico-support-min.png"
+import LifecycleIcon from "../../../../images/ico-lifecycle-min.png"
 import useWindowSize from "../../../../utils/UseWindowSize"
 
 const FeatureStyles = styled(StyledFlex)`
