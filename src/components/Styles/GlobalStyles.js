@@ -1,6 +1,5 @@
-import { motion } from "framer-motion"
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
 const Global = createGlobalStyle`
   html {

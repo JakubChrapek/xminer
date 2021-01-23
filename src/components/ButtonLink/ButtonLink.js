@@ -2,10 +2,7 @@ import React from "react"
 import styled, { css } from "styled-components"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
-import {
-  useGlobalDispatchContext,
-  useGlobalStateContext,
-} from "../../utils/cursorContext"
+import { useGlobalDispatchContext } from "../../utils/cursorContext"
 
 const ButtonLinkStyles = styled(motion.span)`
   width: 100%;
@@ -22,24 +19,6 @@ const ButtonLinkStyles = styled(motion.span)`
   &:focus-visible {
     outline: none;
   }
-
-  /* ${({ type }) =>
-    type === "outline" &&
-    css`
-      background: transparent;
-      background-image: linear-gradient(
-          to right,
-          #29abe2,
-          rgba(255, 255, 255, 0)
-        ),
-        linear-gradient(to left, var(--primary), var(--primary));
-      color: var(--primary);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    `}
-
-    ${({ type }) => type === "tertiary" && css``} */
 `
 
 const StyledLink = styled(Link)`
@@ -67,16 +46,9 @@ const StyledLink = styled(Link)`
     background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
     box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
 
-  /* &:hover {
-    background-position: 0 0;
-  } */
-
   &:after {
     content: none !important;
   }
-  /* &.without-padding-right {
-    padding: 8px 0 8px 20px !important;
-  } */
   border-radius: 8px;
   &:focus,
   &:active {
@@ -127,8 +99,8 @@ const StyledLink = styled(Link)`
         bottom: 0;
         left: 0;
         z-index: -1;
-        margin: -1px; /* !importanté */
-        border-radius: inherit; /* !importanté */
+        margin: -1px;
+        border-radius: inherit;
         background-image: linear-gradient(
           0deg,
           #2ec5ce,
@@ -144,9 +116,6 @@ const StyledLink = styled(Link)`
           background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
           box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       }
-      ${"" /* &:hover:before {
-        background-position: 0 0;
-      } */}
 
       &:focus-visible {
         outline: none !important;
@@ -177,8 +146,8 @@ ${({ type }) =>
         bottom: 0;
         left: 0;
         z-index: -1;
-        margin: -1px; /* !importanté */
-        border-radius: inherit; /* !importanté */
+        margin: -1px;
+        border-radius: inherit;
         background-image: linear-gradient(
           0deg,
           #2ec5ce,
@@ -194,9 +163,6 @@ ${({ type }) =>
           background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
           box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
       }
-      ${"" /* &:hover:before {
-        background-position: 0 0;
-      } */}
 
       &:focus-visible {
         outline: none !important;
@@ -219,13 +185,6 @@ ${({ type }) =>
         background-color 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
         background-position 0.3s cubic-bezier(0.04, 0.62, 0.23, 0.98),
         box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
-
-      ${
-        "" /* &:hover {
-        background-color: var(--headers-color) !important;
-        color: var(--white) !important;
-      } */
-      }
 
       &:focus-visible {
         outline: none !important;
@@ -306,10 +265,6 @@ const ButtonLink = ({
       }}
       onMouseLeave={() => {
         dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
-        dispatch({
-          type: "CHANGE_CURSOR_TYPE",
-          cursorType: "full",
-        })
       }}
       alignself={alignself}
       layout={layout ? true : false}

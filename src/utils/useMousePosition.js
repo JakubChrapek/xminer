@@ -5,7 +5,10 @@ export default function useMousePosition() {
 
   useEffect(() => {
     function handlePosition(e) {
-      setMousePosition({ x: e.pageX, y: e.pageY })
+      setMousePosition({
+        x: e.pageX,
+        y: e.pageY + window.scroll.scroll.instance.scroll.y,
+      })
     }
 
     window.addEventListener("mousemove", handlePosition)

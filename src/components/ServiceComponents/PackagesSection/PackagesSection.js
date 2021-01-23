@@ -2,11 +2,10 @@ import React, { useRef, useState } from "react"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
 import Container from "../../Container/Container"
-import Wrapper, { WrapperStyles } from "../../Wrapper/Wrapper"
+import { WrapperStyles } from "../../Wrapper/Wrapper"
 import Text from "../../Text/Text"
 import Flex from "../../Flex/Flex"
 import useWindowSize from "../../../utils/UseWindowSize"
-import { DragSlider } from "../../DragSlider/DragSlider"
 import { AnimatePresence, motion } from "framer-motion"
 
 const PackageWrapperStyles = styled(WrapperStyles)`

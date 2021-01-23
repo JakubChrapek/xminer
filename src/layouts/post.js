@@ -5,7 +5,6 @@ import Img from "gatsby-image"
 import { formatDate } from "../utils/DateUtils"
 import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/BlogSection"
 import ArticleDetails from "../components/BlogComponents/BlogHeroSection/ArticleDetails"
-import { motion } from "framer-motion"
 import SEO from "../components/SEO"
 import useWindowSize from "../utils/UseWindowSize"
 

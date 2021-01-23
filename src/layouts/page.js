@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {/* <Scroll callbacks={location} /> */}
+      <Scroll />
       {width > 1024 && (
         <motion.div
           animate={{

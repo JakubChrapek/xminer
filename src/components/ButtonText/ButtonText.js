@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { motion } from "framer-motion"
 import { Link } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
@@ -104,6 +104,9 @@ const ButtonText = ({
         })
       }}
       onMouseLeave={() => {
+        dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+      }}
+      onClick={() => {
         dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
         dispatch({
           type: "CHANGE_CURSOR_TYPE",
