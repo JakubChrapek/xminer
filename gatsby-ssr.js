@@ -11,3 +11,9 @@ exports.wrapPageElement = ({ element, props }) => {
     </GlobalProvider>
   )
 }
+
+exports.onRenderBody = ({ setBodyAttributes }) => {
+  setBodyAttributes({
+    className: "no-js",
+  })
+}

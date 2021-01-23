@@ -58,6 +58,8 @@ module.exports = {
 
       /* Plugin options */
       options: {
+        mode: "async",
+        scope: "html",
         enableListener: true,
         /* Preconnect URL-s. This example is for Google Fonts */
         preconnect: ["https://fonts.gstatic.com"],

@@ -47,6 +47,9 @@ const Global = createGlobalStyle`
   body {
     font-size: 1.6rem;
     font-family: "Poppins";
+    &.no-js {
+      visibility: hidden;
+    }
   }
   button {
     cursor: pointer;
