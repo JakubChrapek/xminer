@@ -252,7 +252,7 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
               Dla początkujących
             </ButtonLink>
             <ButtonLink
-              outlinebg="var(--nav-dark-bluse)"
+              outlinebg={width > 1024 ? "var(--nav-dark-bluse)" : "#182549"}
               bg="transparent"
               type="outline"
               width="204px"

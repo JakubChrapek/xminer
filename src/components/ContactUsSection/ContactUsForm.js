@@ -333,6 +333,12 @@ const ContactUsForm = ({ vertical, bg, width }) => {
   const currentWidth = useWindowSize()
   const dispatch = useGlobalDispatchContext()
 
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
+
   const handleClick = (e, values, setSubmitting, resetForm) => {
     e.preventDefault()
     setSubmitting(true)
@@ -340,14 +346,27 @@ const ContactUsForm = ({ vertical, bg, width }) => {
       type: "TOGGLE_CURSOR",
       cursorShow: false,
     })
-    setTimeout(() => {
-      setSubmitting(false)
-      setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
-      resetForm()
-      setTimeout(() => {
-        setFeedbackMsg(null)
-      }, 4000)
-    }, 2000)
+
+    console.log(values)
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact-form", ...values }),
+    })
+      .then(() => {
+        setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
+        resetForm()
+      })
+      .catch(() => {
+        setFeedbackMsg("Coś poszło nie tak, spróbuj jeszcze raz.")
+      })
+      .finally(() => {
+        setSubmitting(false)
+        setTimeout(() => {
+          setFeedbackMsg(null)
+        }, 4000)
+      })
   }
 
   return (
@@ -410,7 +429,11 @@ const ContactUsForm = ({ vertical, bg, width }) => {
           dirty,
           setFieldTouched,
         }) => (
-          <FormStyles vertical={vertical}>
+          <FormStyles
+            name="contact-form"
+            data-netlify={true}
+            vertical={vertical}
+          >
             <Flex
               direction={currentWidth < 640 ? "column" : ""}
               width="100%"

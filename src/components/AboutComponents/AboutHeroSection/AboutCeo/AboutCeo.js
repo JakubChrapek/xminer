@@ -29,6 +29,7 @@ const Wrapper = styled.div`
     max-width: 540px;
     margin-left: 50px;
     margin-top: -217px;
+    border-radius: 12px;
   }
   @media only screen and (max-width: 1600px) {
     width: 90%;

@@ -268,7 +268,6 @@ const Navigation = ({ dispatch }) => {
         setOfferOpened(false)
         setMenuClosed(false)
       }
-      console.log("CATCH")
     }
 
     document.addEventListener("keydown", handleEscape)
@@ -617,6 +616,11 @@ const HeaderStyles = styled(motion.header)`
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    span {
+      a {
+        color: var(--white) !important;
+      }
+    }
   }
   li {
     margin-right: 20px;
