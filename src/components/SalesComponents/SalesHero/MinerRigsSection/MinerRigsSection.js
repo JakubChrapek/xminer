@@ -23,13 +23,13 @@ const RocketStyles = styled(motion.svg)`
   position: absolute;
 `
 
-const RocketIcon = ({ setReset, handleReset }) => (
+const RocketIcon = ({ handleReset, disableSending }) => (
   <RocketStyles
     initial={{ opacity: 0, x: -120, y: 260 }}
     animate={{ opacity: [0, 1, 0], x: [-120, 120, 360], y: [500, 100, -300] }}
     exit={{ opacity: 0, x: 320, y: -60 }}
     transition={{ duration: 2.6, ease: [0.6, 0.01, -0.05, 0.9] }}
-    onAnimationComplete={() => setTimeout(() => handleReset(), 2000)}
+    onAnimationComplete={disableSending ? null : () => setTimeout(() => handleReset(), 20000)}
     width="36"
     height="37"
     viewBox="0 0 36 37"
@@ -276,29 +276,69 @@ const ActiveStepStyles = styled(motion.div)`
 
 const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
   const width = useWindowSize()
-  const [success, setSuccess] = useState(false)
-  const [reset, setReset] = useState(false)
+  const [sent, setSent] = useState(false)
   const formRef = useRef()
   const dispatch = useGlobalDispatchContext()
+  const [formSendCounter, setFormSendCounter] = useState(0)
+  const [disableSending, setDisableSending] = useState(false)
+  const [feedbackMsg, setFeedbackMsg] = useState(null)
+
+  const encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
 
   const handleSubmit = (e, props) => {
     e.preventDefault()
+    props.setSubmitting(true)
     dispatch({
       type: "TOGGLE_CURSOR",
       cursorShow: false,
     })
-    props.setSubmitting(true)
-    setTimeout(() => {
+
+    if (formSendCounter < 2) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          subject: `[xminer.pl|konfiguracja] ${props.values.email} wysłał wiadomość`,
+          "form-name": "configure-form",
+          ...props.values,
+        }),
+      })
+        .then(() => {
+          setFeedbackMsg("Pewnie zastanawiasz się, dlaczego jeszcze nie znasz ceny swojej koparki? W związku z brakiem dostępu do kart graficznych funkcjonujemy w oparciu o pre-order. Niezwłocznie po otrzymaniu Twojej wiadomości skontaktujemy się z Tobą i przedstawimy ofertę! Dziękujemy za kontakt!")
+          setFormSendCounter(formSendCounter + 1)
+        })
+        .catch(() => {
+          setFeedbackMsg("Coś poszło nie tak, spróbuj jeszcze raz.")
+          setFormSendCounter(formSendCounter + 1)
+        })
+        .finally(() => {
+          setSent(true);
+          props.setSubmitting(false)
+          setTimeout(() => {
+            setFeedbackMsg(null)
+            props.resetForm()
+            handleReset()
+            setSent(false);
+          }, 20000)
+        })
+    } else {
+      setDisableSending(true)
+      setSent(true)
       props.setSubmitting(false)
-      setSuccess(true)
-      props.resetForm()
-    }, 1000)
+      setFeedbackMsg(`Przesłałeś już ${formSendCounter} konfiguracje, już przygotowujemy dla Ciebie ofertę.`)
+      props.resetForm();
+      console.log("COUNTER > 2 LAUNCHED")
+    }
   }
 
   const handleReset = () => {
     setActiveStep(0)
-    setSuccess(false)
-    setReset(false)
+    // setSent(false)
+    console.log("RESET LAUNCHED")
   }
 
   return (
@@ -313,7 +353,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       }}
       validationSchema={Yup.object({
         configuratorName: Yup.string()
-          .max(15, "Must be 15 characters or less")
+          .max(15, "Maksymalnie 15 znaków")
           .required("Wymagane"),
         vendor: Yup.string()
           .oneOf(["amd", "nvidia"], "Nieprawidłowy producent kart")
@@ -333,18 +373,16 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
             "Musisz zaakceptować politykę prywatności Xminer, aby wysłać zamówienie"
           ),
       })}
-      onSubmit={async (e, values, { setSubmitting }) => {
-        // await new Promise(r => setTimeout(r, 500))
-        e.preventDefault()
-        setSubmitting(true)
-        setTimeout(() => {
-          setSubmitting(false)
-        }, 2500)
-      }}
     >
       {props => (
         <AnimateSharedLayout>
-          <motion.form layout ref={formRef} onReset={handleReset}>
+          <motion.form
+            name="configure-form"
+            data-netlify={true}
+            layout
+            ref={formRef}
+            onReset={handleReset}
+          >
             <ActiveStepStyles layout>
               <StyledFlex layout key="flex-1" direction="column">
                 <AnimatePresence exitBeforeEnter>
@@ -394,7 +432,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
               </StyledFlex>
               <StyledFlex layout key="flex-2" direction="column">
                 <AnimatePresence exitBeforeEnter>
-                  {!success && (
+                  {!sent && (
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -408,17 +446,16 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    exit={reset && { opacity: 0 }}
+                    exit={{ opacity: 0 }}
                     key={`content-success-rocket`}
                     layout
                   >
-                    {success && !reset && (
+                    {sent && (
                       <RocketIcon
-                        setReset={setReset}
                         handleReset={handleReset}
                       />
                     )}
-                    {success && !reset && (
+                    {feedbackMsg && sent && (
                       <Text
                         variants={textFadeInUp}
                         initial="initial"
@@ -426,8 +463,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                         exit="exit"
                         color="var(--white)"
                       >
-                        Dziękujemy za wysłanie wiadomości. Skontaktujemy się
-                        z&nbsp;Tobą możliwie szybko!
+                        {feedbackMsg}
                       </Text>
                     )}
                   </motion.div>
@@ -443,7 +479,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                   direction={width <= 1002 ? "column" : ""}
                 >
                   <AnimatePresence>
-                    {activeStep > 0 && (
+                    {!disableSending && activeStep > 0 && (
                       <Button
                         outlinebg="var(--nav-dark-bluse)"
                         type="onlyOutline"
@@ -463,12 +499,13 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                         exit={{ opacity: 0, transition: { duration: 0.4 } }}
                         key="back"
                         whileTap={{ scale: 0.98 }}
-                        disabled={props.isSubmitting || reset || success}
+                        disabled={props.isSubmitting || sent || disableSending}
                         cursor="pointer"
                       >
                         &larr; &nbsp;&nbsp;Wróć
                       </Button>
                     )}
+                    {!disableSending && (
                     <Button
                       width="176px"
                       // border="1px solid transparent"
@@ -502,12 +539,12 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                       disabled={
                         (activeStep === steps.length - 1 && !props.isValid) ||
                         props.isSubmitting ||
-                        reset ||
-                        success
+                        sent || disableSending
                       }
                     >
                       {activeStep < steps.length - 1 ? "Dalej" : "Wyślij"}
                     </Button>
+                    )}
                   </AnimatePresence>
                 </StyledFlex>
               </StyledFlex>
