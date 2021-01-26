@@ -123,6 +123,7 @@ const Global = createGlobalStyle`
         content: none !important;
       }
     }
+  }
 
   .has-scroll-smooth body {
     overflow: hidden;
