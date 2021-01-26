@@ -79,6 +79,51 @@ const Global = createGlobalStyle`
     user-select: none;
   }
 
+  .link {
+    @media only screen and (max-width: 820px) {
+      display: inline-flex;
+    }
+    color: var(--secondary);
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+      background-position 0.2s cubic-bezier(0.04, 0.62, 0.23, 0.98),
+      box-shadow 0.1s cubic-bezier(0.04, 0.62, 0.23, 0.98);
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0px;
+      bottom: -1px;
+      background-color: var(--secondary);
+      height: 2px;
+      width: calc(100%);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    &.without-underline:after {
+      content: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--secondary);
+      outline: none;
+      &:after {
+        content: none !important;
+      }
+    }
+
   .has-scroll-smooth body {
     overflow: hidden;
   }

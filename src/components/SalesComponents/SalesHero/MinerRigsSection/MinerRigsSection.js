@@ -278,10 +278,31 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
   const width = useWindowSize()
   const [sent, setSent] = useState(false)
   const formRef = useRef()
+  const nextBtnRef= useRef(null);
   const dispatch = useGlobalDispatchContext()
   const [formSendCounter, setFormSendCounter] = useState(0)
   const [disableSending, setDisableSending] = useState(false)
   const [feedbackMsg, setFeedbackMsg] = useState(null)
+
+  useEffect(() => {
+    const handleEnter = e => {
+      if(e.keyCode === 13) {
+      e.preventDefault();
+      const nodes = nextBtnRef.current.children
+      const btnNext = nodes.namedItem("nextBtn");
+      Array.from(nodes).forEach(element => {
+        if(document.activeElement === element) {
+          element.click();
+        } else {
+          btnNext.click();
+        }
+      });
+      }
+    }
+    document.addEventListener("keydown", handleEnter)
+
+    return () => document.removeEventListener("keydown", handleEnter)
+  }, [])
 
   const encode = data => {
     return Object.keys(data)
@@ -331,14 +352,11 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       props.setSubmitting(false)
       setFeedbackMsg(`Przesłałeś już ${formSendCounter} konfiguracje, już przygotowujemy dla Ciebie ofertę.`)
       props.resetForm();
-      console.log("COUNTER > 2 LAUNCHED")
     }
   }
 
   const handleReset = () => {
     setActiveStep(0)
-    // setSent(false)
-    console.log("RESET LAUNCHED")
   }
 
   return (
@@ -470,6 +488,8 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                 </AnimatePresence>
 
                 <StyledFlex
+
+                  ref={nextBtnRef}
                   margin="54px 0 0"
                   width="100%"
                   key="flex-buttons"
@@ -505,8 +525,9 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                         &larr; &nbsp;&nbsp;Wróć
                       </Button>
                     )}
-                    {!disableSending && (
+                    {!disableSending && 
                     <Button
+                    id="nextBtn"
                       width="176px"
                       // border="1px solid transparent"
                       order={width <= 1002 && "-1"}
@@ -544,7 +565,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                     >
                       {activeStep < steps.length - 1 ? "Dalej" : "Wyślij"}
                     </Button>
-                    )}
+                    }
                   </AnimatePresence>
                 </StyledFlex>
               </StyledFlex>

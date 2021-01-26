@@ -1517,8 +1517,8 @@ const FourOFourPage = () => {
               to="/"
               maxwidth="244px"
               margin="45px 0 0"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.98 }}
+              whileHover={{}}
             >
               Strona Główna
             </ButtonLink>

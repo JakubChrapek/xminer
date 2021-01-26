@@ -5,7 +5,7 @@ import { useInterval } from "../../utils/UseInterval"
 export const Counter = ({
   valueFrom = 0,
   valueTo = 100,
-  totalDuration = 3.5,
+  totalDuration = 2,
 }) => {
   const { inView } = useContext(IntersectionContext)
   const [count, setCount] = useState(valueFrom)

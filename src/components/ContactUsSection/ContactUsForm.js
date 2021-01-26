@@ -420,18 +420,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
           }
           return errors
         }}
-        onSubmit={(values, errors, setSubmitting) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            // TODO: setSubmitting or own state
-            // setSubmitting(false)
-            errors.name && setNameError(true)
-            errors.email && setEmailError(true)
-            errors.message && setMessageError(true)
-            errors.privacy && setMessageError(true)
-            setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
-          }, 400)
-        }}
+        onSubmit={() => {}}
       >
         {({
           isSubmitting,

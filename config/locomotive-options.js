@@ -5,6 +5,6 @@ export const scroll = {
   options: {
     smooth: true,
     touchMultiplier: 2,
-    lerp: 0.05,
+    lerp: 0.12,
   },
 }

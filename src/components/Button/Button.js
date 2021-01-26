@@ -167,6 +167,7 @@ const Button = ({
   type,
   order,
   initial,
+  id,
   animate,
   exit,
   whileHover,
@@ -181,12 +182,15 @@ const Button = ({
   margin,
   onClick,
   loading,
+  ref
 }) => {
   const dispatch = useGlobalDispatchContext()
 
   return (
     <ButtonStyles
       initial={initial}
+      ref={ref}
+      id={id}
       animate={animate}
       exit={exit}
       whileHover={whileHover ? whileHover : {}}
