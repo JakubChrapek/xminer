@@ -122,7 +122,8 @@ const Global = createGlobalStyle`
       &:after {
         content: none !important;
       }
-    }}
+    }
+  }
 
   .has-scroll-smooth body {
     overflow: hidden;
