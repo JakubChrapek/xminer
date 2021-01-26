@@ -214,11 +214,11 @@ const CardsSlider = () => {
       typeDescription: "Koparka typu Antminer",
       price: "90",
       features: [
-        "0,32 zł za kWh",
+        "0,35 zł za kWh",
         "Wymiary Riga: nie dotyczy",
         "Jednorazowa opłata instalacyjna:&nbsp;99&nbsp;PLN*",
       ],
-      btnText: "Na start",
+      btnText: "ASIC",
       btnLink: "/kontakt",
     },
     {
@@ -227,11 +227,11 @@ const CardsSlider = () => {
       typeDescription: "Koparka kryptowalut do 7 kart GPU",
       price: "140",
       features: [
-        "0,32 zł za kWh",
+        "0,35 zł za kWh",
         "Wymiary Riga: 70&nbsp;cm&nbsp;x&nbsp;50&nbsp;cm&nbsp;x&nbsp;40&nbsp;cm",
-        "Jednorazowa opłata instalacyjna:&nbsp;249&nbsp;PLN*",
+        "Jednorazowa opłata instalacyjna:&nbsp;349&nbsp;PLN*",
       ],
-      btnText: "Najpopularniejszy",
+      btnText: "Single Rig",
       btnLink: "/kontakt",
     },
     {
@@ -240,11 +240,11 @@ const CardsSlider = () => {
       typeDescription: "Koparka kryptowalut do 13 kart GPU",
       price: "180",
       features: [
-        "0,32 zł za kWh",
+        "0,35 zł za kWh",
         "Wymiary Riga: 70&nbsp;cm&nbsp;x&nbsp;50&nbsp;cm&nbsp;x&nbsp;40&nbsp;cm",
-        "Jednorazowa opłata instalacyjna:&nbsp;249&nbsp;PLN*",
+        "Jednorazowa opłata instalacyjna:&nbsp;349&nbsp;PLN*",
       ],
-      btnText: "Dla inwestorów",
+      btnText: "Double rig",
       btnLink: "/kontakt",
     },
   ]

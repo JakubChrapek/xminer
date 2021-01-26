@@ -332,6 +332,8 @@ const ContactUsForm = ({ vertical, bg, width }) => {
   const [feedbackMsg, setFeedbackMsg] = useState(null)
   const currentWidth = useWindowSize()
   const dispatch = useGlobalDispatchContext()
+  const [formSendCounter, setFormSendCounter] = useState(0)
+  const [disableSending, setDisableSending] = useState(false)
 
   const encode = data => {
     return Object.keys(data)
@@ -346,27 +348,40 @@ const ContactUsForm = ({ vertical, bg, width }) => {
       type: "TOGGLE_CURSOR",
       cursorShow: false,
     })
-
-    console.log(values)
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact-form", ...values }),
-    })
-      .then(() => {
-        setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
-        resetForm()
+    if (formSendCounter < 2) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          subject: `[xminer.pl] ${values.email} wysłał wiadomość`,
+          "form-name": "contact-form",
+          ...values,
+        }),
       })
-      .catch(() => {
-        setFeedbackMsg("Coś poszło nie tak, spróbuj jeszcze raz.")
-      })
-      .finally(() => {
-        setSubmitting(false)
-        setTimeout(() => {
-          setFeedbackMsg(null)
-        }, 4000)
-      })
+        .then(() => {
+          setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
+          resetForm()
+          setFormSendCounter(formSendCounter + 1)
+        })
+        .catch(() => {
+          setFeedbackMsg("Coś poszło nie tak, spróbuj jeszcze raz.")
+          setFormSendCounter(formSendCounter + 1)
+        })
+        .finally(() => {
+          setSubmitting(false)
+          setTimeout(() => {
+            setFeedbackMsg(null)
+          }, 4000)
+        })
+    } else {
+      setFeedbackMsg("Spróbuj ponownie później.")
+      setTimeout(() => {
+        setFeedbackMsg(null)
+      }, 4000)
+      setSubmitting(false)
+      setDisableSending(true)
+      resetForm()
+    }
   }
 
   return (
@@ -405,18 +420,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
           }
           return errors
         }}
-        onSubmit={(values, errors, setSubmitting) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            // TODO: setSubmitting or own state
-            // setSubmitting(false)
-            errors.name && setNameError(true)
-            errors.email && setEmailError(true)
-            errors.message && setMessageError(true)
-            errors.privacy && setMessageError(true)
-            setFeedbackMsg("Poprawnie wysłano wiadomość. Dzięki!")
-          }, 400)
-        }}
+        onSubmit={() => {}}
       >
         {({
           isSubmitting,
@@ -488,7 +492,7 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                 }
                 flex={vertical && "unset"}
               >
-                <label htmlFor="email">Imię</label>
+                <label htmlFor="email">Email</label>
                 <Field
                   id="email"
                   type="email"
@@ -625,7 +629,12 @@ const ContactUsForm = ({ vertical, bg, width }) => {
                   whileTap={{ scale: 0.95 }}
                   color="var(--white)"
                   type="submit"
-                  disabled={!isValid || isSubmitting || (!dirty && isValid)}
+                  disabled={
+                    !isValid ||
+                    disableSending ||
+                    isSubmitting ||
+                    (!dirty && isValid)
+                  }
                   onClick={e => {
                     handleClick(e, values, setSubmitting, resetForm)
                     dispatch({

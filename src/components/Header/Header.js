@@ -367,11 +367,11 @@ const Navigation = ({ dispatch }) => {
                   />
                 </motion.a>
               </motion.li>
-              <motion.li whileTap={{ scale: 0.95 }}>
+              {/* <motion.li whileTap={{ scale: 0.95 }}>
                 <Link to="/blog" activeClassName="active">
                   Blog
                 </Link>
-              </motion.li>
+              </motion.li> */}
               <ButtonLink
                 onMouseEnter={() =>
                   dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
@@ -481,11 +481,11 @@ const Navigation = ({ dispatch }) => {
                   </motion.div>
                 )}
               </motion.li>
-              <motion.li layout={true} whileTap={{ scale: 0.95 }}>
+              {/* <motion.li layout={true} whileTap={{ scale: 0.95 }}>
                 <Link layout={true} to="/blog" activeClassName="active">
                   Blog
                 </Link>
-              </motion.li>
+              </motion.li> */}
               <ButtonLink
                 alignself="center"
                 to="/kontakt"

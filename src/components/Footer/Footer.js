@@ -430,9 +430,7 @@ const Footer = ({ dispatch }) => {
               </Text>
             </LinkStyles>
             <p>
-              Lorem ipsum dolor amet, consectetur adipiscing elit. Eget nisl
-              nunc quam ac sed turpis volutpat. Cursus sed massa non nisi,
-              placerat.
+              NIP: 1132956948<br/>KRS: 0000706780
             </p>
             <div className="socials">
               <motion.a
@@ -448,26 +446,7 @@ const Footer = ({ dispatch }) => {
               >
                 <FaFacebookF size="14px" color="var(--white)" />
               </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.95 }}
-                className="icon"
-                href=""
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <FaInstagram size="14px" color="var(--white)" />
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.95 }}
-                className="icon"
-                href=""
-                target="_blank"
-                rel="noreferrer noopener"
-              >
-                <FaYoutube size="14px" color="var(--white)" />
-              </motion.a>
+    
             </div>
           </div>
           <div>
@@ -479,9 +458,9 @@ const Footer = ({ dispatch }) => {
               <li>
                 <Link to="/o-xminer">O Xminer</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/blog">Blog</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/kontakt">Kontakt</Link>
               </li>

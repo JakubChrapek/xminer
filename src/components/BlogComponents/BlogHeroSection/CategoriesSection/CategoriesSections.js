@@ -133,7 +133,6 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
                 <motion.button
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
-                    console.log("KLIK")
                     setActiveCategory(item.categoryName)
                   }}
                 >
