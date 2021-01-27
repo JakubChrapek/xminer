@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useEffect,useRef} from "react"
 import styled from "styled-components"
 import Text from "../../Text/Text"
 import AboutCeo from "./AboutCeo/AboutCeo"
+import {gsap} from 'gsap';
 
 const AboutHero = styled.section`
   padding-top: 108px;
@@ -102,12 +103,54 @@ const Wrapper = styled.div`
   }
 `
 
+const AnimationWrapper = styled.div`
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  span {
+    position: absolute;
+  }
+`
+
+export const LineAnimationWrapper = ({children}) => {
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.from(".line span", 1.6, {
+      y: 80,
+      ease: "power4.out",
+      skewY: 4,
+      stagger: {
+        amount: 0.3
+      }})
+  },[])
+
+  return (
+    <>
+      {children.map(child => <AnimationWrapper className="line"><span>{child}</span></AnimationWrapper>)}
+    </>
+  )
+}
+
 const AboutHeroSection = () => {
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.from(".content", 1.2, {
+      y: 32,
+      opacity: 0,
+      delay: 1,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3
+      }
+    })
+  }, [])
+  
   return (
     <>
       <AboutHero>
         <Wrapper>
           <div>
+            <LineAnimationWrapper>
             <Text
               as="h1"
               fontSize="60px"
@@ -120,18 +163,20 @@ const AboutHeroSection = () => {
             <Text
               fontSize="48px"
               fontWeight="500"
-              margin="20px 0 0"
+              margin="0px 0 0"
               color="var(--headers-color)"
             >
               To lubimy!
             </Text>
+
+            </LineAnimationWrapper>
           </div>
           <div>
             <Text
               color="var(--body-text)"
-              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
+              className="content"
             >
               Chyba śmiało możemy powiedzieć, że jesteśmy jedną z&nbsp;firm,
               której się udało. Udało zarobić na kryptowalutach, udało wytrwać
@@ -141,9 +186,9 @@ const AboutHeroSection = () => {
             <br />
             <Text
               color="var(--body-text)"
-              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
+              className="content"
             >
               Nasza kopalnia to dowód na to, że gorączka kryptowalutowego złota
               jest w&nbsp;zasięgu ręki, jest namacalna i&nbsp;jest realna.
@@ -156,9 +201,9 @@ const AboutHeroSection = () => {
           <div>
             <Text
               color="var(--body-text)"
-              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
+              className="content"
             >
               Oprócz wiedzy dajemy też możliwości. Lokalizacja naszej kopalni
               w&nbsp;bezpośrednim sąsiedztwie biogazowni sprawia, że możemy
@@ -171,18 +216,18 @@ const AboutHeroSection = () => {
             <br />
             <Text
               color="var(--body-text)"
-              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
+              className="content"
             >
               I to są rzeczy, za które klienci nas uwielbiają.
             </Text>
             <br />
             <Text
               color="var(--body-text)"
-              // maxwidth="588px"
               fontSize="18px"
               lineHeight="1.67"
+              className="content"
             >
               W naszej pracy codziennie udowadniamy, że kryptowaluty to jest
               sektor, w&nbsp;który warto zainwestować. Czujesz, że inwestycja
@@ -194,6 +239,7 @@ const AboutHeroSection = () => {
               fontSize="18px"
               lineHeight="1.67"
               margin="0 0 80px"
+              className="content"
             >
               Dobrze trafiłeś!
             </Text>

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect,useRef} from "react"
 import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
@@ -82,6 +82,9 @@ const Wrapper = styled.div`
         flex-direction: column;
         align-items: center;
       }
+      @media only screen and (max-width: 640px) {
+        margin-top: 0px;
+      }
       .claim {
         font-size: 60px;
         font-weight: bold;
@@ -103,7 +106,7 @@ const Wrapper = styled.div`
         }
 
         .line {
-          height: 70px;
+          height: 66px;
           position: relative;
           overflow: hidden;
           @media only screen and (max-width: 1364px) {
@@ -114,6 +117,9 @@ const Wrapper = styled.div`
           }
           @media only screen and (max-width: 801px) {
             height: 28px;
+          }
+          @media only screen and (max-width: 640px) {
+            height: 150px;
           }
           span {
             position: absolute;
@@ -235,41 +241,64 @@ const StyledImg = styled(Img)`
 
 const HeroSection = ({ heroIcon, heroMobileIcon }) => {
   const width = useWindowSize()
+  const claimMobileRef = useRef();
+  const whatForMobileRef = useRef();
 
   useEffect(() => {
     const tl = gsap.timeline();
 
-    if(width <= 801) {
+    if(width > 801) {
       tl.from(".claim", 1.6, {
         opacity: 0,
-        delay: 0.4
-      })
-    }
-
-    tl.from(".line span", 1.6, {
+      }, "start")
+      .from(".line span", 1.6, {
       y: 72,
       ease: "power4.out",
-      skeyY: 11,
+      skewY: 4,
       stagger: {
         amount: 0.3
       }
-    }, "< 0.8")
-    if(width > 801) {
-      tl.from(".whatfor", 2, {
+    }, "start+=0.4")
+      .from(".whatfor", 2, {
       ease: "power4.out",
       opacity: 0
     }, "-=0.8")
-    }
     
-    tl.from(".description", 2, {
+    .from(".description", 2, {
       ease: "power4.out",
       opacity: 0
-    }, width <= 801 ? "< 1.2" : "< 0.8")
+    }, "< 0.8")
     .from(".btns", 2.2, {
       ease: "power4.out",
       opacity: 0,
     }, "< 0.8")
-  })
+    .from(".home-img", 3, {
+      ease: "power4.out",
+      scale: 0.99,
+    }, "start+=1")
+    } else {
+      tl.from(claimMobileRef.current, 1.6, {
+      y: 42,
+      opacity: 0,
+      ease: "power4.out",
+      skewY: 2,
+    }, "startMobile") 
+    .from(".description", 2, {
+      ease: "power4.out",
+      opacity: 0
+    }, "< 0.8")
+    .from(".btns", 2.2, {
+      ease: "power4.out",
+      opacity: 0,
+    }, "< 0.8")
+
+    .from(".home-img", 3, {
+      ease: "power4.out",
+      scale: 0.99,
+    }, "startMobile+=1")
+    }
+    },[])   
+  
 
   return (
     <HeroStyles>
@@ -282,7 +311,7 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
               <div className="line"><span>czego potrzebujesz.</span></div>
             </p>
           ) : (
-            <p className="claim">
+            <p ref={claimMobileRef} className="claim">
               Wszystko, czego potrzebujesz, żeby zacząć wydobywać kryptowaluty.
             </p>
           )}
@@ -320,6 +349,7 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
           <StyledImg
             fluid={width > 640 ? heroIcon.fluid : heroMobileIcon.fluid}
             alt={width > 640 ? heroIcon.alt : heroMobileIcon.alt}
+            className="home-img"
           />
         </div>
       </Wrapper>

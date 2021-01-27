@@ -144,6 +144,7 @@ const Text = ({
       animate={animate}
       exit={exit}
       variants={variants}
+      className={className}
     >
       {children}
     </StyledText>
