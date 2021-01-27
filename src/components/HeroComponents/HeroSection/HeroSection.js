@@ -239,23 +239,32 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
   useEffect(() => {
     const tl = gsap.timeline();
 
+    if(width <= 801) {
+      tl.from(".claim", 1.6, {
+        opacity: 0,
+        delay: 0.4
+      })
+    }
+
     tl.from(".line span", 1.6, {
       y: 72,
       ease: "power4.out",
-      delay: 0.8,
       skeyY: 11,
       stagger: {
         amount: 0.3
       }
-    })
-    .from(".whatfor", 2, {
+    }, "< 0.8")
+    if(width > 801) {
+      tl.from(".whatfor", 2, {
       ease: "power4.out",
       opacity: 0
     }, "-=0.8")
-    .from(".description", 2, {
+    }
+    
+    tl.from(".description", 2, {
       ease: "power4.out",
       opacity: 0
-    }, "< 0.8")
+    }, width <= 801 ? "< 1.2" : "< 0.8")
     .from(".btns", 2.2, {
       ease: "power4.out",
       opacity: 0,

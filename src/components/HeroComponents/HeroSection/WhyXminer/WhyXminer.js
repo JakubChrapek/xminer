@@ -1,8 +1,9 @@
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import useWindowSize from "../../../../utils/UseWindowSize"
 import ButtonLink from "../../../ButtonLink/ButtonLink"
 import Cards from "./Cards"
+import {gsap} from 'gsap';
 
 const WhyStyles = styled.section`
   display: flex;
@@ -30,6 +31,18 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 600px) {
     text-align: left;
     align-items: flex-start;
+  }
+
+  .line {
+    height: 13px;
+    position: relative;
+    overflow: hidden;
+    &-h1 {
+      height: 13px;
+    }
+    &-h2 {
+      height: 80px;
+    }
   }
 
   h1 {
@@ -77,11 +90,12 @@ const Wrapper = styled.div`
 
 const WhySection = () => {
   const width = useWindowSize()
+
   return (
     <WhyStyles>
-      <Wrapper>
-        <h1>Xminer</h1>
-        <h2>Dlaczego Xminer?</h2>
+      <Wrapper className="container">
+        <div className="line line-h1"><h1>Xminer</h1></div>
+        <div className="line line-h2"><h2>Dlaczego Xminer?</h2></div>
         <p>
           Wiemy, jak zarabiać na koparkach kryptowalut. Skąd? Sami kopiemy od
           lat. Więcej! Tworzymy koparki, serwisujemy koparki, hostingujemy
