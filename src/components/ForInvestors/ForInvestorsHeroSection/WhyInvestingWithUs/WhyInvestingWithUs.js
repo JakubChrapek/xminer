@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import Container from "../../../Container/Container"
 import Flex, { StyledFlex } from "../../../Flex/Flex"
@@ -8,6 +8,7 @@ import RocketIcon from "../../../../images/ico-optimize-min.png"
 import SupportIcon from "../../../../images/ico-support-min.png"
 import LifecycleIcon from "../../../../images/ico-lifecycle-min.png"
 import useWindowSize from "../../../../utils/UseWindowSize"
+import {gsap} from 'gsap'
 
 const FeatureStyles = styled(StyledFlex)`
   @media only screen and (max-width: 1000px) {
@@ -110,9 +111,33 @@ const WhyWrapperStyles = styled(WrapperStyles)`
 
 const WhyInvestingWithUs = () => {
   const width = useWindowSize()
+    useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to('.wrapper', {
+      autoAlpha: 1,
+      delay: 1.8
+    })
+    .from(['.why--header', '.why--subheader'], 1.6, {
+      opacity: 0,
+      y: 12,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    })
+    .from('.why--content', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3
+      }
+    }, "-=0.5")
+  }, [])
+
   return (
     <Container>
-      <WhyWrapperStyles margin="43px 122px 0" direction="column">
+      <WhyWrapperStyles className="wrapper" margin="43px 122px 0" direction="column">
         <Flex width="100%" direction="column" alignItems="center">
           <Text
             as="h3"
@@ -121,6 +146,7 @@ const WhyInvestingWithUs = () => {
             fontWeight="600"
             lineHeight="normal"
             color="var(--headers-color)"
+            className="why--header"
           >
             Dlaczego warto inwestować razem z&nbsp;nami?
           </Text>
@@ -130,18 +156,21 @@ const WhyInvestingWithUs = () => {
               iconBg="rgba(197, 242, 220, 0.6)"
               title="Tworzymy i&nbsp;serwisujemy koparki"
               content="Jesteśmy partnerem, u&nbsp;którego możesz kupić polskie koparki kryptowalut&nbsp;-&nbsp;z&nbsp;gwarancją, serwisem i&nbsp;szkoleniem z&nbsp;obsługi. Możesz wybrać zarówno gotowy produkt, jak i&nbsp;zamówić u&nbsp;nas koparkę o&nbsp;niemal dowolnych parametrach. Doradzimy najlepszy wybór do Twojego budżetu."
+              className="why--content"
             />
             <Feature
               icon={SupportIcon}
               iconBg="rgba(241, 193, 201, 0.6)"
               title="Pełna obsługa"
               content="Nasza oferta to nie wyłącznie sprzedaż produktu, który ma zarabiać. Oferujemy przechowywanie w&nbsp;najlepszych warunkach, tani prąd, ubezpieczenie, serwis 24/h, zdalny dostęp i&nbsp;wiele innych. Nie musisz przetrzymywać kilkunastu koparek w&nbsp;siedzibie swojej firmy. Zostaw to profesjonalistom."
+              className="why--content"
             />
             <Feature
               icon={RocketIcon}
               iconBg="rgba(197, 215, 242, 0.6)"
               title="Szkolenia dla firm"
               content="Oferujemy indywidualne szkolenia wprowadzające dla firm, z&nbsp;indywidualnym programem i&nbsp;dojazdem w&nbsp;cenie. Szkolenie obejmuje nie tylko obsługę zakupionych u&nbsp;nas koparek, ale i&nbsp;unikalną wiedzę biznesową w&nbsp;zakresie kryptowalut. Wykorzystaj ją na swoją korzyść."
+              className="why--content"
             />
           </FeatureWrapper>
         </Flex>

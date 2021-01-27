@@ -14,6 +14,7 @@ import { motion } from "framer-motion"
 import {LineAnimationWrapper} from "../Styles/Animations"
 
 const ContactWrapperStyles = styled(WrapperStyles)`
+  visibility: hidden;
   padding-top: 108px;
   margin: 127px 123px 90px;
   @media only screen and (max-width: 1282px) {
@@ -137,8 +138,8 @@ const ContactUsSectionWithMap = ({
 }) => {
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.from('.wrapper', 0.2, {
-      opacity: 0,
+    tl.to('.wrapper', {
+      autoAlpha: 1,
     })
     .from(['.contact--header', '.contact--subheader'], 2, {
       opacity: 0,

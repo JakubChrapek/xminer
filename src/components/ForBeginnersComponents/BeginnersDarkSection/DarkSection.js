@@ -1,10 +1,10 @@
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
-
+import {gsap} from 'gsap'
 const DarkWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 1080px) {
     width: 100%;
@@ -51,12 +51,30 @@ const DarkWrapperStyles = styled(WrapperStyles)`
 
 const DarkSection = () => {
   const width = useWindowSize()
+  
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to('.wrapper', {
+      autoAlpha: 1,
+      delay: 1.8
+    })
+    .from('.dark-beginners--content', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    }, "-=0.5")
+  }, [])
+  
   return (
     <Container bg="var(--nav-dark-bluse)">
       <DarkWrapperStyles
         margin="99px 60px 72px"
         direction="column"
         maxwidth="710px"
+        className="wrapper"
       >
         <Text
           as="span"
@@ -64,6 +82,7 @@ const DarkSection = () => {
           fontWeight="600"
           lineHeight="normal"
           color="var(--white)"
+          className="dark-beginners--content"
         >
           W Xminer o&nbsp;kryptowalutach {width > 640 && <br />}
           mówimy głośno i&nbsp;w&nbsp;helvetice.
@@ -73,6 +92,7 @@ const DarkSection = () => {
           color="var(--white)"
           lineHeight="1.67em"
           fontWeight="400"
+          className="dark-beginners--content"
           margin={
             width > 1081 ? "52px 0 0" : width > 761 ? "32px 0 0" : "18px 0 0"
           }
@@ -86,6 +106,7 @@ const DarkSection = () => {
           color="var(--white)"
           lineHeight="1.67em"
           fontWeight="400"
+          className="dark-beginners--content"
           fontSize={width > 640 ? "18px" : "16px"}
         >
           Jeśli jesteś początkujący, dopiero chcesz zacząć kopać lub kopiesz od
@@ -100,6 +121,7 @@ const DarkSection = () => {
           color="var(--white)"
           lineHeight="1.67em"
           fontWeight="400"
+          className="dark-beginners--content"
         >
           Szukasz rzetelnej wiedzy, popartej doświadczeniem? Lubisz wiedzieć,
           w&nbsp;co inwestujesz, zanim zainwestujesz?
@@ -110,6 +132,7 @@ const DarkSection = () => {
           color="var(--white)"
           lineHeight="1.67em"
           fontWeight="400"
+          className="dark-beginners--content"
         >
           W&nbsp;takim razie zaczynamy!
         </Text>

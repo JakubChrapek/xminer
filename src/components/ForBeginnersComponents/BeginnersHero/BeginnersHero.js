@@ -1,14 +1,38 @@
-import React from "react"
+import React, {useEffect} from "react"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Text from "../../Text/Text"
 import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSection"
-
+import {gsap} from 'gsap'
 const BeginnersHero = () => {
+  
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to('.wrapper', {
+      autoAlpha: 1,
+    })
+    .from(['.beginners--header', '.beginners--subheader'], 1.6, {
+      opacity: 0,
+      y: 12,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    })
+    .from('.beginners--content', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    }, "-=0.5")
+  }, [])
+  
   const width = useWindowSize()
   return (
     <Container padding="108px 0 0">
-      <HeroWrapperStyles margin="127px 122px" equal>
+      <HeroWrapperStyles className="wrapper" margin="127px 122px" equal>
         <div>
           <Text
             as="h1"
@@ -18,6 +42,7 @@ const BeginnersHero = () => {
             letterSpacing="1px"
             lineHeight="normal"
             color="var(--headers-color)"
+            className="beginners--header"
           >
             Koparki kryptowalut
           </Text>
@@ -28,6 +53,7 @@ const BeginnersHero = () => {
             fontWeight="600"
             lineHeight="normal"
             color="var(--headers-color)"
+            className="beginners--subheader"
           >
             Zacznij swoją przygodę z&nbsp;Xminer
           </Text>
@@ -41,6 +67,7 @@ const BeginnersHero = () => {
             fontSize="18px !important"
             lineHeight="1.67em"
             fontWeight="400"
+            className="beginners--content"
           >
             O&nbsp;kryptowalutach ostatnio głośno i&nbsp;głośniej. Może nie tak
             dużo, jak o&nbsp;najnowszych promocjach w sklepie żółto-niebieskim,

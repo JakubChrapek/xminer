@@ -1,15 +1,40 @@
-import React from "react"
+import React, {useEffect} from "react"
 import Container from "../../Container/Container"
 import Text from "../../Text/Text"
 import Wrapper from "../../Wrapper/Wrapper"
 import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSection"
 import useWindowSize from "../../../utils/UseWindowSize"
+import {gsap} from 'gsap'
 
 const ForInvestorsHeroSection = () => {
   const width = useWindowSize()
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to('.wrapper', {
+      autoAlpha: 1,
+    })
+    .from(['.investors--header', '.investors--subheader'], 1.6, {
+      opacity: 0,
+      y: 12,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    })
+    .from('.investors--content', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    }, "-=0.5")
+  }, [])
+
   return (
     <Container padding="108px 0 0">
-      <HeroWrapperStyles margin="127px 122px" equal>
+      <HeroWrapperStyles className="wrapper" margin="127px 122px" equal>
         <div>
           <Text
             as="h1"
@@ -18,6 +43,7 @@ const ForInvestorsHeroSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
+            className="investors--header"
           >
             Zainwestuj w koparki
           </Text>
@@ -28,6 +54,7 @@ const ForInvestorsHeroSection = () => {
             fontWeight="600"
             lineHeight="normal"
             color="var(--headers-color)"
+            className="investors--subheader"
           >
             Wspieramy
             <br />
@@ -45,6 +72,7 @@ const ForInvestorsHeroSection = () => {
             lineHeight="1.67em"
             color="var(--body-text)"
             fontWeight="400"
+            className="investors--content"
           >
             Inwestując firmowe środki w&nbsp;kryptowaluty, nie musisz być zdany
             tylko na siebie lub wiedzę zdobytą z&nbsp;czeluści internetów.
@@ -61,6 +89,7 @@ const ForInvestorsHeroSection = () => {
             fontSize="18px"
             fontWeight="400"
             lineHeight="1.67em"
+            className="investors--content"
           >
             Wybierz rzetelną wiedzę, wybierz doświadczenie biznesowe.
           </Text>
@@ -72,6 +101,7 @@ const ForInvestorsHeroSection = () => {
             lineHeight="1.67em"
             fontWeight="400"
             color="var(--body-text)"
+            className="investors--content"
           >
             Wybierz Xminer.
           </Text>

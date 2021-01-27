@@ -1,12 +1,13 @@
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
-
+import {gsap} from 'gsap'
 export const HeroWrapperStyles = styled(WrapperStyles)`
+visibility: hidden;
   > div {
     &:nth-of-type(2) {
       margin-left: 60px;
@@ -76,10 +77,32 @@ export const HeroWrapperStyles = styled(WrapperStyles)`
 `
 
 const HeroSection = () => {
+    useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to('.wrapper', {
+      autoAlpha: 1,
+    })
+    .from(['.services--header', '.services--subheader'], 1.6, {
+      opacity: 0,
+      y: 12,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    })
+    .from('.services--content', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3
+      }
+    }, "-=0.5")
+  }, [])
   const width = useWindowSize()
   return (
     <Container padding="108px 0 0">
-      <HeroWrapperStyles margin="127px 122px 95px" equal>
+      <HeroWrapperStyles className="wrapper" margin="127px 122px 95px" equal>
         <div>
           <Text
             as="h1"
@@ -89,6 +112,7 @@ const HeroSection = () => {
             letterSpacing="1px"
             fontWeight="normal"
             lineHeight="normal"
+            className="services--header"
           >
             Nasza propozycja?
           </Text>
@@ -99,6 +123,7 @@ const HeroSection = () => {
             fontWeight="600"
             lineHeight="normal"
             color="var(--headers-color)"
+            className="services--subheader"
           >
             Najlepszy apartament {width < 1080 && <br />}dla Twoich koparek
           </Text>
@@ -113,6 +138,7 @@ const HeroSection = () => {
             lineHeight="1.67em"
             fontWeight="400"
             color="var(--body-text)"
+            className="services--content"
           >
             Jako pierwsza firma w Polsce oferujemy kolokację komputerów do
             wydobycia kryptowalut zasilaną w&nbsp;100% energią pochodzącą

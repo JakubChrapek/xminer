@@ -1,10 +1,11 @@
-import React from "react"
+import React, {useEffect} from "react"
 import styled from "styled-components"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
+import {gsap} from 'gsap'
 
 const ParagraphWrapperStyles = styled(WrapperStyles)`
   > div {
@@ -61,10 +62,35 @@ const ParagraphWrapperStyles = styled(WrapperStyles)`
 `
 
 const ParagraphSection = () => {
+
+    useEffect(() => {
+    const tl = gsap.timeline();
+    tl.to('.wrapper', {
+      autoAlpha: 1,
+      delay: 2
+    })
+    .from(['.paragraph--header', '.paragraph--subheader'], 1.6, {
+      opacity: 0,
+      y: 12,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    })
+    .from('.paragraph--content', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    }, "-=0.5")
+  }, [])
+
   const width = useWindowSize()
   return (
     <Container>
-      <ParagraphWrapperStyles margin="0 122px 93px">
+      <ParagraphWrapperStyles className="wrapper" margin="0 122px 93px">
         <Flex flex="3" direction="column" margin="0 146px 0 0">
           <Text
             as="span"
@@ -74,6 +100,7 @@ const ParagraphSection = () => {
             lineHeight="normal"
             fontWeight="normal"
             color="var(--headers-color)"
+            className="paragraph--header"
           >
             Nasza propozycja to:
           </Text>
@@ -84,6 +111,7 @@ const ParagraphSection = () => {
             fontWeight="600"
             margin="12px 0 0"
             color="var(--headers-color)"
+            className="paragraph--subheader"
           >
             Najlepsze warunki
           </Text>
@@ -93,6 +121,7 @@ const ParagraphSection = () => {
             fontWeight="400"
             margin={width > 640 ? "12px 0 0" : "8px 0 0"}
             color="var(--body-text)"
+            className="paragraph--content"
           >
             Szum, pole magnetyczne, nadmiar ciepła, wysoki koszt energii
             elektrycznej, problemy z&nbsp;przyłączami -&nbsp;to jedne
@@ -106,6 +135,7 @@ const ParagraphSection = () => {
             fontWeight="400"
             margin="24px 0 0"
             color="var(--body-text)"
+            className="paragraph--content"
           >
             Nasza propozycja to rozwiązanie tych problemów -&nbsp;koparki
             umieszczane są w&nbsp;specjalnym, zaprojektowanym przez nas
@@ -130,6 +160,7 @@ const ParagraphSection = () => {
             maxwidth="286px"
             color="var(--headers-color)"
             fontWeight="normal"
+            className="paragraph--content"
           >
             Co zyskujesz?
           </Text>
@@ -140,6 +171,7 @@ const ParagraphSection = () => {
             margin="12px 0 0"
             maxwidth={width > 640 ? "286px" : "unset"}
             color="var(--body-text)"
+            className="paragraph--content"
           >
             Wolne miejsce w&nbsp;domu lub w&nbsp;firmie, całodobowy monitoring
             samopoczucia Twojej koparki i&nbsp;mniejszą awaryjność sprzętu,
