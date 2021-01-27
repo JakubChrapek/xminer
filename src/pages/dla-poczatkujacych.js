@@ -16,13 +16,13 @@ const ForBeginners = ({ data }) => {
       <BeginnersHero />
       <DarkSection />
       <WhySection />
-      <BlogSection
+      {/* <BlogSection
         posts={posts}
         totalCount={totalCount}
         title="Blog"
         subtitle="Więcej znajdziesz tutaj"
         padding="0 122px 65px"
-      />
+      /> */}
     </>
   )
 }

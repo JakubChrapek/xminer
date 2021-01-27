@@ -19,14 +19,14 @@ const ForInvestors = ({ data }) => {
       <ForInvestorsHeroSection />
       <WhyInvestingWithUs />
       <WhoWillTeachYouSection />
-      <BlogSection
+      {/* <BlogSection
         posts={posts}
         totalCount={totalCount}
         title=""
         subtitle=""
         padding="0px 122px 0"
         smaller
-      />
+      /> */}
       <PackagesSection
         title="Od czego zacząć"
         subtitle="Zacznij inwestować w&nbsp;kryptowaluty"

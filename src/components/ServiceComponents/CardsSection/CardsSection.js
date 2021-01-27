@@ -63,7 +63,7 @@ const Card = ({ number, textAfterNumber, content }) => {
     <CardStyles>
       <IntersectionObserver reset={true} threshold={0.4}>
         <p className="number">
-          <Counter valueTo={number} totalDuration={1.8} /> {textAfterNumber}
+          <Counter valueTo={number} totalDuration={1.8} />{textAfterNumber}
         </p>
       </IntersectionObserver>
       <p className="content">{content}</p>
@@ -95,8 +95,8 @@ const CardsSection = () => {
       <InnerWrapperStyles margin="40px 0 60px">
         <CardWrapperStyles>
           <Card
-            number="320"
-            textAfterNumber="zł/MWh"
+            number="350"
+            textAfterNumber=" zł/MWh"
             content="Bez dodatkowych opłat i&nbsp;ukrytych kosztów"
           />
           <Card
@@ -106,7 +106,7 @@ const CardsSection = () => {
           />
           <Card
             number="500 "
-            textAfterNumber="miejsc"
+            textAfterNumber=" miejsc"
             content="Dla koparek kryptowalut naszych Klientów (GPU i&nbsp;ANTMINER!)"
           />
         </CardWrapperStyles>

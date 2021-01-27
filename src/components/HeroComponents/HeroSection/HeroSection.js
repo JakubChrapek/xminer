@@ -1,10 +1,11 @@
-import React from "react"
+import React, {useEffect} from "react"
 import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
 import { motion } from "framer-motion"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Img from "gatsby-image"
+import {gsap} from 'gsap';
 
 const HeroStyles = styled(motion.section)`
   min-height: 80vh;
@@ -71,7 +72,7 @@ const Wrapper = styled.div`
     &:first-child {
       flex: 4;
       margin-top: 70px;
-      @media only screen and (max-width: 1440px) {
+      @media only screen and (max-width: 1680px) {
         margin-top: 30px;
       }
       @media only screen and (max-width: 801px) {
@@ -87,10 +88,8 @@ const Wrapper = styled.div`
         font-stretch: normal;
         font-style: normal;
         line-height: 1.03;
+        position: relative;
         color: var(--white);
-        @media only screen and (max-width: 1364px) {
-          font-size: 46px;
-        }
         @media only screen and (max-width: 1364px) {
           font-size: 46px;
         }
@@ -101,6 +100,24 @@ const Wrapper = styled.div`
           font-size: 24px;
           max-width: 450px;
           line-height: normal;
+        }
+
+        .line {
+          height: 70px;
+          position: relative;
+          overflow: hidden;
+          @media only screen and (max-width: 1364px) {
+            height: 52px;
+          }
+          @media only screen and (max-width: 912px) {
+            height: 40px;
+          }
+          @media only screen and (max-width: 801px) {
+            height: 28px;
+          }
+          span {
+            position: absolute;
+          }
         }
       }
 
@@ -170,6 +187,7 @@ const ButtonsWrapper = styled.div`
   max-width: 520px;
   margin: 60px 0 0;
   z-index: 1;
+  /* overflow: hidden; */
   @media only screen and (max-width: 1200px) {
     grid-gap: 21px;
   }
@@ -217,6 +235,33 @@ const StyledImg = styled(Img)`
 
 const HeroSection = ({ heroIcon, heroMobileIcon }) => {
   const width = useWindowSize()
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.from(".line span", 1.6, {
+      y: 72,
+      ease: "power4.out",
+      delay: 0.8,
+      skeyY: 11,
+      stagger: {
+        amount: 0.3
+      }
+    })
+    .from(".whatfor", 2, {
+      ease: "power4.out",
+      opacity: 0
+    }, "-=0.8")
+    .from(".description", 2, {
+      ease: "power4.out",
+      opacity: 0
+    }, "< 0.8")
+    .from(".btns", 2.2, {
+      ease: "power4.out",
+      opacity: 0,
+    }, "< 0.8")
+  })
+
   return (
     <HeroStyles>
       {width > 1082 && <BlobStyles src={blob} alt="" />}
@@ -224,9 +269,8 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
         <div>
           {width > 801 ? (
             <p className="claim">
-              Wszystko,
-              <br />
-              czego potrzebujesz.
+              <div className="line"><span>Wszystko,</span></div>
+              <div className="line"><span>czego potrzebujesz.</span></div>
             </p>
           ) : (
             <p className="claim">
@@ -243,7 +287,7 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
             i&nbsp;więcej -&nbsp;sprawdź i&nbsp;zacznij kopać
             (i&nbsp;wydobywać!) z&nbsp;Xminer.
           </p>
-          <ButtonsWrapper>
+          <ButtonsWrapper className="btns">
             <ButtonLink
               type="full"
               whileTap={{ scale: 0.95 }}

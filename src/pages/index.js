@@ -35,12 +35,12 @@ const IndexPage = ({ data }) => {
         <BeginHereSection />
         <TestimonialsSection />
         <CtaSection />
-        <BlogSection
+        {/* <BlogSection
           posts={posts}
           totalCount={totalCount}
           title="Wiedza z Xminer"
           subtitle="Blog o krypto"
-        />
+        /> */}
       </HomeStyles>
     </>
   )

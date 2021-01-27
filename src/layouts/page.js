@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Header from "../components/Header/Header"
 import SEO from "../components/SEO"
 import GlobalStyles from "../components/Styles/GlobalStyles"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useLocation } from "@reach/router"
 import styled from "styled-components"
 import Footer from "../components/Footer/Footer"
@@ -67,7 +67,10 @@ const Layout = ({ children }) => {
         setMenuState={setMenuState}
         dispatch={dispatch}
       />
-      <StyledMain key={location.pathname}>{children}</StyledMain>
+      <AnimatePresence exitBeforeEnter>
+
+      <StyledMain initial={{opacity: 1}} animate={{}} exit={{opacity: 0}} key={location.pathname}>{children}</StyledMain>
+      </AnimatePresence>
       <Footer dispatch={dispatch} key="footer" />
     </>
   )

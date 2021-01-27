@@ -19,14 +19,14 @@ const Sales = ({ data }) => {
       <MinerRigsSection />
       <HowToChooseSection />
       <CtaSalesSection />
-      <BlogSection
+      {/* <BlogSection
         posts={posts}
         totalCount={totalCount}
         title="Blog"
         subtitle="Poczytaj i wybierz koparkę dla siebie"
         lowercase="normal"
         margin="0 0 60px"
-      />
+      /> */}
       <ContactUsSection
         title="Już dziś"
         subtitle="Skontaktuj się z&nbsp;nami!"
