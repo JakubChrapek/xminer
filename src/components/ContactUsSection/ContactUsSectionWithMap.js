@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import {gsap} from 'gsap'
 import Container from "../Container/Container"
 import { WrapperStyles } from "../Wrapper/Wrapper"
 import Flex from "../Flex/Flex"
@@ -10,6 +11,7 @@ import Email from "../../images/email-icon.svg"
 import Mobile from "../../images/mobile.svg"
 import Location from "../../images/location.svg"
 import { motion } from "framer-motion"
+import {LineAnimationWrapper} from "../Styles/Animations"
 
 const ContactWrapperStyles = styled(WrapperStyles)`
   padding-top: 108px;
@@ -133,17 +135,46 @@ const ContactUsSectionWithMap = ({
   bgForm,
   verticalForm,
 }) => {
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.from('.wrapper', 0.2, {
+      opacity: 0,
+    })
+    .from(['.contact--header', '.contact--subheader'], 2, {
+      opacity: 0,
+      y: 12,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.5
+      }
+    })
+    .from('.contact--item', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.5
+      }
+    }, "-=1.2")
+    .from('.map', 1.6, {
+      opacity: 0,
+      scale: 0.95,
+      ease: "power4.out"
+    }, "<0.4")
+  }, [])
+
   return (
-    <Container bg={bg ? bg : "var(--nav-dark-bluse)"}>
-      <ContactWrapperStyles equal margin={margin ? margin : "96px 122px 129px"}>
+    <Container>
+      <ContactWrapperStyles className="wrapper" equal margin={margin ? margin : "96px 122px 129px"}>
         <Flex direction="column">
           <Text
             fontSize="10px"
             lineHeight="normal"
             fontWeight="normal"
             textTransform="uppercase"
-            color={bg ? "var(--headers-color)" : "var(--white)"}
+            color="var(--headers-color)"
             letterSpacing="1px"
+            className="contact--header"
           >
             {title}
           </Text>
@@ -152,26 +183,27 @@ const ContactUsSectionWithMap = ({
             fontSize="48px"
             fontWeight="500"
             lineHeight="normal"
-            color={bg ? "var(--black)" : "var(--white)"}
+            color="var(--headers-color)"
             dangerously={subtitle}
+            className="contact--subheader"
           />
           <LinkStyles>
-            <motion.li
+            <motion.li 
               whileTap={{ scale: 0.98 }}
               style={{ marginLeft: -5 }}
-              className="wider-gap"
+              className="wider-gap contact--item"
             >
               <a href="mailto:kontakt@xminer.pl">
                 <img src={Email} alt="email icon" /> kontakt@xminer.pl
               </a>
             </motion.li>
-            <motion.li whileTap={{ scale: 0.98 }} className="wider-gap">
+            <motion.li  whileTap={{ scale: 0.98 }} className="wider-gap contact--item">
               <a href="tel:+48537787240">
                 <img src={Mobile} alt="phone icon" />
                 +48 537 787 240
               </a>
             </motion.li>
-            <motion.li whileTap={{ scale: 0.98 }} className="wider-gap">
+            <motion.li  whileTap={{ scale: 0.98 }} className="wider-gap contact--item">
               <a href="https://goo.gl/maps/jr67k2fLVoJXvsZZ8">
                 <img src={Location} alt="location icon" /> Pruszkowska 73,
                 05&#8209;090&nbsp;Raszyn
@@ -184,6 +216,7 @@ const ContactUsSectionWithMap = ({
           position={[52, -0.5]}
           zoom={8}
           markerText={"Hello, this is a marker"}
+          className="map"
         />
       </ContactWrapperStyles>
     </Container>

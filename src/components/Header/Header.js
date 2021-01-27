@@ -53,7 +53,7 @@ const Chevron = styled(motion.span)`
 const SubnavWrapper = styled(motion.div)`
   display: flex;
   position: absolute;
-  z-index: 3;
+  z-index: 6;
   top: 127px;
   width: 100%;
   background-color: var(--white);
@@ -582,14 +582,14 @@ const Navigation = ({ dispatch }) => {
 }
 
 const HeaderStyles = styled(motion.header)`
-  background: ${({ bg }) => (bg ? bg : "transparent")};
+  background: ${({ bg }) => (bg ? bg : "#192549")};
   position: absolute;
   top: 0;
   left: 0;
   display: flex;
   justify-content: center;
   width: 100%;
-  z-index: 3;
+  /* z-index: 4; */
   /* transition: background 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19); */
   h1 {
     font-size: 20px;
@@ -600,7 +600,7 @@ const HeaderStyles = styled(motion.header)`
     display: flex;
     width: 100%;
     max-width: 1440px;
-    z-index: 3;
+    z-index: 5;
     justify-content: space-between;
     align-items: center;
     margin: 30px 158px 30px 103px;
@@ -695,7 +695,7 @@ const Header = ({ menuState, setMenuState, dispatch }) => {
   const [bg, setBg] = useState("transparent")
   let pathname = useLocation().pathname
   useEffect(() => {
-    pathname === "/" ? setBg("transparent") : setBg("var(--nav-dark-bluse)")
+    pathname === "/" ? setBg("#192549") : setBg("var(--nav-dark-bluse)")
   })
   return (
     <HeaderStyles bg={bg}>

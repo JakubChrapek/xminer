@@ -3,6 +3,8 @@ import styled from "styled-components"
 import Text from "../../Text/Text"
 import AboutCeo from "./AboutCeo/AboutCeo"
 import {gsap} from 'gsap';
+import {LineAnimationWrapper} from '../../Styles/Animations'
+
 
 const AboutHero = styled.section`
   padding-top: 108px;
@@ -103,33 +105,6 @@ const Wrapper = styled.div`
   }
 `
 
-const AnimationWrapper = styled.div`
-  height: 80px;
-  position: relative;
-  overflow: hidden;
-  span {
-    position: absolute;
-  }
-`
-
-export const LineAnimationWrapper = ({children}) => {
-  useEffect(() => {
-    const tl = gsap.timeline();
-    tl.from(".line span", 1.6, {
-      y: 80,
-      ease: "power4.out",
-      skewY: 4,
-      stagger: {
-        amount: 0.3
-      }})
-  },[])
-
-  return (
-    <>
-      {children.map(child => <AnimationWrapper className="line"><span>{child}</span></AnimationWrapper>)}
-    </>
-  )
-}
 
 const AboutHeroSection = () => {
   useEffect(() => {

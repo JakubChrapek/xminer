@@ -32,6 +32,7 @@ const BlobStyles = styled.img`
   left: 0;
   top: -40%;
   width: 73%;
+  z-index: 4;
   @media only screen and (max-width: 2200px) {
     top: -50%;
     width: 80%;
@@ -55,7 +56,7 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1440px;
   position: relative;
-  z-index: 1;
+  z-index: 4;
   margin: 98px 30px 50px 193px;
   @media only screen and (max-width: 1453px) {
     margin: 80px 30px 50px 103px;
@@ -276,6 +277,10 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
       ease: "power4.out",
       scale: 0.99,
     }, "start+=1")
+    .from(".blob", 1.2, {
+      opacity: 0,
+      ease: "power4.out",
+    }, "start")
     } else {
       tl.from(claimMobileRef.current, 1.6, {
       y: 42,
@@ -296,13 +301,16 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
       ease: "power4.out",
       scale: 0.99,
     }, "startMobile+=1")
+    .from(".blob", 1.6, {
+      scale: 0.5,
+    }, "startMobile+=2")
     }
     },[])   
   
 
   return (
     <HeroStyles>
-      {width > 1082 && <BlobStyles src={blob} alt="" />}
+      {width > 1082 && <BlobStyles className="blob" src={blob} alt="" />}
       <Wrapper>
         <div>
           {width > 801 ? (

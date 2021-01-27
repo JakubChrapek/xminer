@@ -5,7 +5,6 @@ import ContactUsSectionWithMap from "../components/ContactUsSection/ContactUsSec
 const ContactPage = () => (
   <>
     <ContactUsSectionWithMap
-      bg="var(--white)"
       bgForm="var(--headers-color)"
       title="Kontakt"
       subtitle="Kupujesz, kolokujesz, serwisujesz?"

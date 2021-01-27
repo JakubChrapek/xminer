@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
+import {gsap} from 'gsap'
 import styled from "styled-components"
 import { ContainerStyles } from "../../Container/Container"
 import Flex from "../../Flex/Flex"
@@ -97,6 +98,27 @@ const SalesHero = () => {
       }
     }
   `)
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.from(['.sales--header', '.sales--subheader'], 1.6, {
+      opacity: 0,
+      y: 12,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.4
+      }
+    })
+    .from('.sales--content', 1.6, {
+      opacity: 0,
+      y: 10,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3
+      }
+    }, "-=0.5")
+  }, [])
+
   return (
     <StyledContainer padding="108px 0 0">
       <SalesWrapper margin="127px 122px" equal>
@@ -108,6 +130,7 @@ const SalesHero = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
+            className="sales--header"
           >
             Twoja inwestycja zaczyna się tutaj
           </Text>
@@ -118,6 +141,7 @@ const SalesHero = () => {
             fontWeight="600"
             lineHeight="normal"
             color="var(--headers-color)"
+            className="sales--subheader"
           >
             Wybierz koparkę
             <br />z metką Xminer
@@ -130,6 +154,7 @@ const SalesHero = () => {
             fontSize="18px"
             lineHeight="1.67em"
             fontWeight="400"
+            className="sales--content"
           >
             Dla naszych Klientów tworzymy koparki, którymi sami kopiemy na co
             dzień. Do wyboru masz setki konfiguracji, ale przedstawiamy Ci też
@@ -146,6 +171,7 @@ const SalesHero = () => {
             fontSize="18px"
             lineHeight="1.67em"
             fontWeight="400"
+            className="sales--content"
           >
             Prawda, że fajnie?
           </Text>
@@ -160,6 +186,7 @@ const SalesHero = () => {
         lineHeight="normal"
         fontWeight="600"
         color="var(--headers-color)"
+        className="sales--content"
       >
         Dlaczego warto?
       </Text>

@@ -1,3 +1,7 @@
+import React, {useEffect} from 'react'
+import {gsap} from 'gsap'
+import styled from 'styled-components'
+
 export const containerTransition = {
   initial: {
     opacity: 0,
@@ -82,3 +86,32 @@ export const textFadeInUp = {
 }
 
 export const transition = { duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }
+
+
+const AnimationWrapper = styled.div`
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+  span {
+    position: absolute;
+  }
+`
+
+export const LineAnimationWrapper = ({children}) => {
+  useEffect(() => {
+    const tl = gsap.timeline();
+    tl.from(".line span", 1.6, {
+      y: 80,
+      ease: "power4.out",
+      skewY: 4,
+      stagger: {
+        amount: 0.3
+      }})
+  },[])
+
+  return (
+    <>
+      {children.map(child => <AnimationWrapper className="line"><span>{child}</span></AnimationWrapper>)}
+    </>
+  )
+}

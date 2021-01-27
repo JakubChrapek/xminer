@@ -41,10 +41,10 @@ const MapStyles = styled.div`
   }
 `
 
-const LeafletMap = ({ markerText }) => (
+const LeafletMap = ({ markerText, className }) => (
   <>
     {typeof window !== "undefined" ? (
-      <MapStyles>
+      <MapStyles className={className}>
         <MapContainer
           center={[52.1649978, 20.9079765]}
           zoom={13}
