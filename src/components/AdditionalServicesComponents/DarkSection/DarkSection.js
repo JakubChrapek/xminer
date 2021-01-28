@@ -84,8 +84,8 @@ const DarkSection = () => {
 
 
   return (
-    <Container bg="var(--nav-dark-bluse)" padding="0">
-      <DarkWrapperStyles className="wrapper" direction="column" margin="133px 122px 69px">
+    <Container className="wrapper" bg="var(--nav-dark-bluse)" padding="0">
+      <DarkWrapperStyles direction="column" margin="133px 122px 69px">
         <Grid>
           <StyledFlex className="dark--content">
             <Checkmark focus />

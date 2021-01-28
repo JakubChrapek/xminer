@@ -591,7 +591,7 @@ const HeaderStyles = styled(motion.header)`
   justify-content: center;
   width: 100%;
   /* z-index: 4; */
-  /* transition: background 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19); */
+  transition: background 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   h1 {
     font-size: 20px;
     line-height: 1em;

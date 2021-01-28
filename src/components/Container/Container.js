@@ -10,15 +10,19 @@ export const ContainerStyles = styled.section`
   margin: ${({ margin }) => (margin ? margin : "")};
   min-height: ${({ minHeight }) => (minHeight ? minHeight : "")};
   overflow: hidden;
+  &.wrapper {
+    visibility: hidden;
+  }
 `
 
-const Container = ({ bg, margin, padding, minHeight, children }) => {
+const Container = ({ bg, margin, padding, minHeight, children, className }) => {
   return (
     <ContainerStyles
       bg={bg}
       margin={margin}
       padding={padding}
       minHeight={minHeight}
+      className={className}
     >
       {children}
     </ContainerStyles>

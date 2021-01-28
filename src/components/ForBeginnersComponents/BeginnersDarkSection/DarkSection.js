@@ -69,12 +69,12 @@ const DarkSection = () => {
   }, [])
   
   return (
-    <Container bg="var(--nav-dark-bluse)">
+    <Container bg="var(--nav-dark-bluse)" 
+        className="wrapper">
       <DarkWrapperStyles
         margin="99px 60px 72px"
         direction="column"
         maxwidth="710px"
-        className="wrapper"
       >
         <Text
           as="span"

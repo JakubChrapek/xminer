@@ -136,8 +136,8 @@ const WhyInvestingWithUs = () => {
   }, [])
 
   return (
-    <Container>
-      <WhyWrapperStyles className="wrapper" margin="43px 122px 0" direction="column">
+    <Container className="wrapper">
+      <WhyWrapperStyles margin="43px 122px 0" direction="column">
         <Flex width="100%" direction="column" alignItems="center">
           <Text
             as="h3"
