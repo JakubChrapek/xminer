@@ -152,7 +152,7 @@ const WhySection = () => {
           ludzie, którzy uważają, że kryptowaluty to przyszłość.
           I&nbsp;to&nbsp;całkiem niedaleka.
         </Text>
-        <StepSection
+        {/* <StepSection
           width={width}
           stepText="Krok 1: Podstawy"
           titleText="Dobry start od bloga"
@@ -163,10 +163,10 @@ const WhySection = () => {
           CtaText="Polecamy!"
           BtnText="Wpisy na blogu Xminer"
           BtnLink="/blog"
-        />
+        /> */}
         <StepSection
           width={width}
-          stepText="Krok 2: Czas na maszynę"
+          stepText="Krok 1: Czas na maszynę"
           titleText="Wybierz koparkę"
           ContentText="Bez tego ani rusz: jeśli uważasz, że temat jest rozwojowy i&nbsp;daje możliwości, czas na ten pierwszy, debiutancki występ. Chętnie pomożemy Ci wybrać koparkę (lub koparki!) idealne do Twoich potrzeb i&nbsp;budżetu, a&nbsp;po zakupie spotkasz się z&nbsp;ekspertem, który opowie, nauczy, doradzi."
           CtaText="I już nie możesz się doczekać, aż zaczniesz kopać!"
@@ -175,7 +175,7 @@ const WhySection = () => {
         />
         <StepSection
           width={width}
-          stepText="Krok 3: Zarabiaj"
+          stepText="Krok 2: Zarabiaj"
           titleText="Pod okiem naszych specjalistów"
           ContentText="Lub zupełnie samodzielnie, w&nbsp;swoim domu. Wybór należy do Ciebie&nbsp;-&nbsp;nie wiążemy Cię przecież żadną umową czy innym cyrografem. Wiedz, że możesz zostawić u&nbsp;nas swoje maleństwo, że masz u&nbsp;nas wsparcie, ale tylko Ty decydujesz. I&nbsp;zawsze możesz zmienić zdanie!"
           BtnText="Skontaktuj się z nami"

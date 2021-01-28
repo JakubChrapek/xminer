@@ -22,6 +22,11 @@ visibility: hidden;
       font-size: 36px;
     }
   }
+  @media only screen and (max-width: 440px) {
+    h3 {
+      font-size: 24px;
+    }
+  }
 `
 
 const MinedImgFlex = styled(ImageFlex)`

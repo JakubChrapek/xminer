@@ -73,7 +73,7 @@ const WhoWillTeachYouSection = () => {
             alignItems={width > 640 ? "" : "center"}
             direction={width > 640 ? "row" : "column"}
           >
-            <ButtonLink
+            {/* <ButtonLink
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               bg="var(--primary)"
@@ -82,14 +82,15 @@ const WhoWillTeachYouSection = () => {
               width="200px"
             >
               Blog Xminer
-            </ButtonLink>
+            </ButtonLink> */}
             <ButtonLink
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               outlinebg="var(--white)"
               bg="transparent"
               type="outline"
-              margin={width > 640 ? "0 0px 0 10px" : "30px 0 0"}
+              // margin={width > 640 ? "0 0px 0 10px" : "30px 0 0"}
+              margin={width > 640 ? "0" : "30px 0 0"}
               to="/o-xminer"
               width="200px"
             >

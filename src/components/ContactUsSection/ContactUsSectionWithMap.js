@@ -40,6 +40,9 @@ const ContactWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 740px) {
     width: unset;
     margin: 80px 30px 76px;
+    h2 {
+      font-size: 24px;
+    }
   }
 `
 

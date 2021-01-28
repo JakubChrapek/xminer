@@ -193,6 +193,7 @@ const MobileNavStyles = styled(motion.ul)`
   padding: 37px 58px;
   background-color: var(--white);
   width: 100%;
+  z-index: 6;
   @media only screen and (max-width: 560px) {
     min-height: 100vh;
     padding: 37px 38px;

@@ -89,7 +89,7 @@ export const transition = { duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }
 
 
 const AnimationWrapper = styled.div`
-  height: 80px;
+  height: ${({height}) => height ? `${height}px` : "80px"};
   position: relative;
   overflow: hidden;
   span {
@@ -97,11 +97,11 @@ const AnimationWrapper = styled.div`
   }
 `
 
-export const LineAnimationWrapper = ({children}) => {
+export const LineAnimationWrapper = ({children, height}) => {
   useEffect(() => {
     const tl = gsap.timeline();
     tl.from(".line span", 1.6, {
-      y: 80,
+      y: height ? height : 80,
       ease: "power4.out",
       skewY: 4,
       stagger: {
@@ -111,7 +111,7 @@ export const LineAnimationWrapper = ({children}) => {
 
   return (
     <>
-      {children.map(child => <AnimationWrapper className="line"><span>{child}</span></AnimationWrapper>)}
+      {children.map(child => <AnimationWrapper height={height} className="line"><span>{child}</span></AnimationWrapper>)}
     </>
   )
 }

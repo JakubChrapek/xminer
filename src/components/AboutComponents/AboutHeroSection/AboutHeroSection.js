@@ -4,7 +4,7 @@ import Text from "../../Text/Text"
 import AboutCeo from "./AboutCeo/AboutCeo"
 import {gsap} from 'gsap';
 import {LineAnimationWrapper} from '../../Styles/Animations'
-
+import useWindowSize from '../../../utils/UseWindowSize'
 
 const AboutHero = styled.section`
   padding-top: 108px;
@@ -107,6 +107,7 @@ const Wrapper = styled.div`
 
 
 const AboutHeroSection = () => {
+  const width = useWindowSize();
   useEffect(() => {
     const tl = gsap.timeline();
     tl.from(".content", 1.2, {
@@ -125,7 +126,7 @@ const AboutHeroSection = () => {
       <AboutHero>
         <Wrapper>
           <div>
-            <LineAnimationWrapper>
+            <LineAnimationWrapper height={width < 640 && 50}>
             <Text
               as="h1"
               fontSize="60px"
