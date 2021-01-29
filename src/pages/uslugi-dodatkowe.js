@@ -16,7 +16,7 @@ const AdditionalServices = () => {
       <DarkSection />
       <AdditionalCTASection />
       <PackagesSection title="pełna oferta" subtitle="Zobacz pakiety" />
-      <FAQSection />
+      {/* <FAQSection /> */}
       <GradientCtaSection
         title="koparki kryptowalut"
         subtitle="Postaw na świadomą inwestycję"
