@@ -208,7 +208,8 @@ const ContactUsSectionWithMap = ({
               </a>
             </motion.li>
             <motion.li  whileTap={{ scale: 0.98 }} className="wider-gap contact--item">
-              <a href="https://goo.gl/maps/jr67k2fLVoJXvsZZ8">
+              <a
+                  target="_blank" href="https://goo.gl/maps/VWsFu3rN3ut5Smtv5">
                 <img src={Location} alt="location icon" /> Pruszkowska 73,
                 05&#8209;090&nbsp;Raszyn
               </a>

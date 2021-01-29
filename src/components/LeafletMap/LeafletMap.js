@@ -1,6 +1,8 @@
-import React from "react"
+import React, {useEffect} from "react"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import styled from "styled-components"
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 const MapStyles = styled.div`
   width: 100%;
@@ -41,7 +43,19 @@ const MapStyles = styled.div`
   }
 `
 
-const LeafletMap = ({ markerText, className }) => (
+const LeafletMap = ({ markerText, className }) => {
+  
+  useEffect(() => {
+    delete L.Icon.Default.prototype._getIconUrl;
+
+    L.Icon.Default.mergeOptions({
+        iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+        iconUrl: require('leaflet/dist/images/marker-icon.png'),
+        shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+    });
+  }, [])
+  
+  return (
   <>
     {typeof window !== "undefined" ? (
       <MapStyles className={className}>
@@ -61,7 +75,7 @@ const LeafletMap = ({ markerText, className }) => (
                 <a
                   rel="noopener noreferrer"
                   target="_blank"
-                  href="https://goo.gl/maps/uyGjs4NNDXmKnkjq5"
+                  href="https://goo.gl/maps/VWsFu3rN3ut5Smtv5"
                 >
                   Xminer sp. z o.o.
                   <br />
@@ -74,6 +88,6 @@ const LeafletMap = ({ markerText, className }) => (
       </MapStyles>
     ) : null}
   </>
-)
+)}
 
 export default LeafletMap

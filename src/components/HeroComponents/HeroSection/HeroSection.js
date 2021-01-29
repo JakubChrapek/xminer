@@ -69,7 +69,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
   }
-  div {
+  > div {
     &:first-child {
       flex: 4;
       margin-top: 70px;
@@ -240,7 +240,14 @@ const StyledImg = styled(Img)`
   }
 `
 
-const HeroSection = ({ heroIcon, heroMobileIcon }) => {
+const HeroSection = ({ heroIcon, heroMobileIcon,
+firstLine,
+secondLine,
+titleMobile,
+claimUnderTitle,
+descriptionUnderTitle,
+firstBtnText,
+secondBtnText }) => {
   const width = useWindowSize()
   const claimMobileRef = useRef();
   const whatForMobileRef = useRef();
@@ -309,37 +316,32 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
   
 
   return (
-    <HeroStyles>
+    <HeroStyles
+    >
       {width > 1082 && <BlobStyles className="blob" src={blob} alt="" />}
       <Wrapper>
         <div>
           {width > 801 ? (
             <p className="claim">
-              <div className="line"><span>Wszystko,</span></div>
-              <div className="line"><span>czego potrzebujesz.</span></div>
+              <div className="line"><span>{firstLine}</span></div>
+              <div className="line"><span>{secondLine}</span></div>
             </p>
           ) : (
             <p ref={claimMobileRef} className="claim">
-              Wszystko, czego potrzebujesz, żeby zacząć wydobywać kryptowaluty.
+              {titleMobile}
             </p>
           )}
           {width > 801 && (
-            <h3 className="whatfor">
-              Żeby zacząć wydobywać <span>kryptowaluty</span>
-            </h3>
+            <h3 className="whatfor" dangerouslySetInnerHTML={{__html: claimUnderTitle}}/>
           )}
-          <p className="description">
-            Gotowe koparki w różnych konfiguracjach, hosting, serwis, know-how
-            i&nbsp;więcej -&nbsp;sprawdź i&nbsp;zacznij kopać
-            (i&nbsp;wydobywać!) z&nbsp;Xminer.
-          </p>
+          <p className="description" dangerouslySetInnerHTML={{__html: descriptionUnderTitle}} />
           <ButtonsWrapper className="btns">
             <ButtonLink
               type="full"
               whileTap={{ scale: 0.95 }}
               to="/dla-poczatkujacych"
             >
-              Dla początkujących
+              {firstBtnText}
             </ButtonLink>
             <ButtonLink
               outlinebg={width > 1024 ? "var(--nav-dark-bluse)" : "#182549"}
@@ -349,7 +351,7 @@ const HeroSection = ({ heroIcon, heroMobileIcon }) => {
               to="/dla-inwestorow"
               whileTap={{ scale: 0.95 }}
             >
-              Dla inwestorów
+              {secondBtnText}
             </ButtonLink>
           </ButtonsWrapper>
         </div>

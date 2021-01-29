@@ -22,18 +22,35 @@ const IndexPage = ({ data }) => {
       heroIkona: heroIcon,
       heroIkonaMobile: heroMobileIcon,
       beforeYouStartImg: beforeIcon,
+      titleFirstLine: firstLine,
+      titleSecondLine: secondLine,
+      titleMobile: titleMobile,
+      claimUnderTitle: claimUnderTitle,
+      descriptionUnderTitle: descriptionUnderTitle,
+      firstBtnText,
+      secondBtnText
     },
   } = data
   return (
     <>
       <HomeStyles>
         <SEO title="Xminer" />
-        <HeroSection heroIcon={heroIcon} heroMobileIcon={heroMobileIcon} />
+        <HeroSection 
+          heroIcon={heroIcon} 
+          heroMobileIcon={heroMobileIcon} 
+          firstLine={firstLine} 
+          secondLine={secondLine} 
+          titleMobile={titleMobile} 
+          claimUnderTitle={claimUnderTitle} 
+          descriptionUnderTitle={descriptionUnderTitle}
+          firstBtnText={firstBtnText}
+          secondBtnText={secondBtnText}
+        />
         <WhySection />
         <BeforeMiningSection beforeIcon={beforeIcon} />
         <InvestorsSection />
         <BeginHereSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <CtaSection />
         {/* <BlogSection
           posts={posts}
@@ -84,6 +101,13 @@ export const blogQuery = graphql`
           ...GatsbyDatoCmsFluid
         }
       }
+      titleFirstLine
+      titleSecondLine
+      titleMobile
+    	claimUnderTitle
+      descriptionUnderTitle
+      firstBtnText
+      secondBtnText
     }
   }
 `
