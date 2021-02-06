@@ -8,6 +8,7 @@ import BlogSection from "../components/HeroComponents/HeroSection/BlogSection/Bl
 import { graphql } from "gatsby"
 import SEO from "../components/SEO/SEO"
 import PackagesSection from "../components/ServiceComponents/PackagesSection/PackagesSection"
+import PricingConfiguratorSection from "../components/ServiceComponents/PricingConfigurator/PricingConfiguratorSection"
 
 const ForInvestors = ({ data }) => {
   const {
@@ -27,13 +28,14 @@ const ForInvestors = ({ data }) => {
         padding="0px 122px 0"
         smaller
       /> */}
-      <PackagesSection
+      {/* <PackagesSection
         title="Od czego zacząć"
         subtitle="Zacznij inwestować w&nbsp;kryptowaluty"
         smaller
         margin="84px 0 0"
         padding="0 0 50px"
-      />
+      /> */}
+      <PricingConfiguratorSection />
       <GradientCtaSection
         title="oferta"
         subtitle="Koparka + pełna obsługa już&nbsp;od&nbsp;XXX&nbsp;zł&nbsp;netto."

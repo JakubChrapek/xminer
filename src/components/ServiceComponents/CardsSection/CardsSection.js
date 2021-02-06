@@ -9,7 +9,7 @@ const CardWrapperStyles = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 5px;
   @media only screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
     grid-gap: 46px;
@@ -63,7 +63,8 @@ const Card = ({ number, textAfterNumber, content }) => {
     <CardStyles>
       <IntersectionObserver reset={true} threshold={0.4}>
         <p className="number">
-          <Counter valueTo={number} totalDuration={1.8} />{textAfterNumber}
+          <Counter valueTo={number} totalDuration={1.8} />
+          {textAfterNumber}
         </p>
       </IntersectionObserver>
       <p className="content">{content}</p>

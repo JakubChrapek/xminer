@@ -4,7 +4,7 @@ import AdditionalCTASection from "../components/AdditionalServicesComponents/Add
 import DarkSection from "../components/AdditionalServicesComponents/DarkSection/DarkSection"
 import FAQSection from "../components/AdditionalServicesComponents/FAQSection/FAQSection"
 import GradientCtaSection from "../components/AdditionalServicesComponents/GradientCtaSection/GradientCtaSection"
-
+import PricingConfiguratorSection from "../components/ServiceComponents/PricingConfigurator/PricingConfiguratorSection"
 import SEO from "../components/SEO/SEO"
 import PackagesSection from "../components/ServiceComponents/PackagesSection/PackagesSection"
 
@@ -15,7 +15,8 @@ const AdditionalServices = () => {
       <AdditionalServicesHero />
       <DarkSection />
       <AdditionalCTASection />
-      <PackagesSection title="pełna oferta" subtitle="Zobacz pakiety" />
+      {/* <PackagesSection title="pełna oferta" subtitle="Zobacz pakiety" /> */}
+      <PricingConfiguratorSection />
       {/* <FAQSection /> */}
       <GradientCtaSection
         title="koparki kryptowalut"

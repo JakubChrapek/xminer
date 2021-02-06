@@ -1,11 +1,11 @@
-import React, {useEffect,useRef} from "react"
+import React, { useEffect, useRef } from "react"
 import blob from "../../../images/dark-blob.svg"
 import styled from "styled-components"
 import ButtonLink from "../../ButtonLink/ButtonLink"
 import { motion } from "framer-motion"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Img from "gatsby-image"
-import {gsap} from 'gsap';
+import { gsap } from "gsap"
 
 const HeroStyles = styled(motion.section)`
   min-height: 80vh;
@@ -240,91 +240,156 @@ const StyledImg = styled(Img)`
   }
 `
 
-const HeroSection = ({ heroIcon, heroMobileIcon,
-firstLine,
-secondLine,
-titleMobile,
-claimUnderTitle,
-descriptionUnderTitle,
-firstBtnText,
-secondBtnText }) => {
+const HeroSection = ({
+  heroIcon,
+  heroMobileIcon,
+  firstLine,
+  secondLine,
+  titleMobile,
+  claimUnderTitle,
+  descriptionUnderTitle,
+  firstBtnText,
+  secondBtnText,
+}) => {
   const width = useWindowSize()
-  const claimMobileRef = useRef();
-  const whatForMobileRef = useRef();
+  const claimMobileRef = useRef()
+  const whatForMobileRef = useRef()
 
   useEffect(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline()
 
-    if(width > 801) {
-      tl.from(".claim", 1.6, {
-        opacity: 0,
-      }, "start")
-      .from(".line span", 1.6, {
-      y: 72,
-      ease: "power4.out",
-      skewY: 4,
-      stagger: {
-        amount: 0.3
-      }
-    }, "start+=0.4")
-      .from(".whatfor", 2, {
-      ease: "power4.out",
-      opacity: 0
-    }, "-=0.8")
-    
-    .from(".description", 2, {
-      ease: "power4.out",
-      opacity: 0
-    }, "< 0.8")
-    .from(".btns", 2.2, {
-      ease: "power4.out",
-      opacity: 0,
-    }, "< 0.8")
-    .from(".home-img", 3, {
-      ease: "power4.out",
-      scale: 0.99,
-    }, "start+=1")
-    .from(".blob", 1.2, {
-      opacity: 0,
-      ease: "power4.out",
-    }, "start")
+    if (width > 801) {
+      tl.from(
+        ".claim",
+        1.6,
+        {
+          opacity: 0,
+        },
+        "start"
+      )
+        .from(
+          ".line span",
+          1.6,
+          {
+            y: 72,
+            ease: "power4.out",
+            skewY: 4,
+            stagger: {
+              amount: 0.3,
+            },
+          },
+          "start+=0.4"
+        )
+        .from(
+          ".whatfor",
+          2,
+          {
+            ease: "power4.out",
+            opacity: 0,
+          },
+          "-=0.8"
+        )
+
+        .from(
+          ".description",
+          2,
+          {
+            ease: "power4.out",
+            opacity: 0,
+          },
+          "< 0.8"
+        )
+        .from(
+          ".btns",
+          2.2,
+          {
+            ease: "power4.out",
+            opacity: 0,
+          },
+          "< 0.8"
+        )
+        .from(
+          ".home-img",
+          3,
+          {
+            ease: "power4.out",
+            scale: 0.99,
+          },
+          "start+=1"
+        )
+        .from(
+          ".blob",
+          1.2,
+          {
+            opacity: 0,
+            ease: "power4.out",
+          },
+          "start"
+        )
     } else {
-      tl.from(claimMobileRef.current, 1.6, {
-      y: 42,
-      opacity: 0,
-      ease: "power4.out",
-      skewY: 2,
-    }, "startMobile") 
-    .from(".description", 2, {
-      ease: "power4.out",
-      opacity: 0
-    }, "< 0.8")
-    .from(".btns", 2.2, {
-      ease: "power4.out",
-      opacity: 0,
-    }, "< 0.8")
+      tl.from(
+        claimMobileRef.current,
+        1.6,
+        {
+          y: 42,
+          opacity: 0,
+          ease: "power4.out",
+          skewY: 2,
+        },
+        "startMobile"
+      )
+        .from(
+          ".description",
+          2,
+          {
+            ease: "power4.out",
+            opacity: 0,
+          },
+          "< 0.8"
+        )
+        .from(
+          ".btns",
+          2.2,
+          {
+            ease: "power4.out",
+            opacity: 0,
+          },
+          "< 0.8"
+        )
 
-    .from(".home-img", 3, {
-      ease: "power4.out",
-      scale: 0.99,
-    }, "startMobile+=1")
-    .from(".blob", 1.6, {
-      scale: 0.5,
-    }, "startMobile+=2")
+        .from(
+          ".home-img",
+          3,
+          {
+            ease: "power4.out",
+            scale: 0.99,
+          },
+          "startMobile+=1"
+        )
+        .from(
+          ".blob",
+          1.6,
+          {
+            scale: 0.5,
+          },
+          "startMobile+=2"
+        )
     }
-    },[])   
-  
+  }, [])
 
   return (
-    <HeroStyles
-    >
+    <HeroStyles>
       {width > 1082 && <BlobStyles className="blob" src={blob} alt="" />}
       <Wrapper>
         <div>
           {width > 801 ? (
             <p className="claim">
-              <div className="line"><span>{firstLine}</span></div>
-              <div className="line"><span>{secondLine}</span></div>
+              <div className="line">
+                <span>{firstLine}</span>
+              </div>
+              <div className="line">
+                <span>{secondLine}</span>
+              </div>
             </p>
           ) : (
             <p ref={claimMobileRef} className="claim">
@@ -332,9 +397,15 @@ secondBtnText }) => {
             </p>
           )}
           {width > 801 && (
-            <h3 className="whatfor" dangerouslySetInnerHTML={{__html: claimUnderTitle}}/>
+            <h3
+              className="whatfor"
+              dangerouslySetInnerHTML={{ __html: claimUnderTitle }}
+            />
           )}
-          <p className="description" dangerouslySetInnerHTML={{__html: descriptionUnderTitle}} />
+          <p
+            className="description"
+            dangerouslySetInnerHTML={{ __html: descriptionUnderTitle }}
+          />
           <ButtonsWrapper className="btns">
             <ButtonLink
               type="full"

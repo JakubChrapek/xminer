@@ -1,4 +1,11 @@
 import React from "react"
+import kryptowaluty from '../../../../images/kryptowaluty.png'
+import blockchain from '../../../../images/blockchain.png'
+import bitcoin from '../../../../images/bitcoin.png'
+import ethereum from '../../../../images/ethereum.png'
+import mining from '../../../../images/mining.png'
+import koparki from '../../../../images/koparki.png'
+import wszystkie from '../../../../images/wszystkie.png'
 
 const wrench = (
   <svg
@@ -16,11 +23,11 @@ const wrench = (
 )
 
 export const icons = {
-  kryptowaluty: wrench,
-  "koparki kryptowalut": wrench,
-  bitcoin: wrench,
-  mining: wrench,
-  kategoria: wrench,
-  blockchain: wrench,
-  // ethereum: wrench,
+  kryptowaluty: kryptowaluty,
+  "koparki kryptowalut": koparki,
+  bitcoin: bitcoin,
+  mining: mining,
+  wszystkie: wszystkie,
+  blockchain: blockchain,
+  ethereum: ethereum,
 }

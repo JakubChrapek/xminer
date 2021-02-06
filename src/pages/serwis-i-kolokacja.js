@@ -8,6 +8,7 @@ import HeroSection from "../components/ServiceComponents/HeroSection/HeroSection
 import PackagesSection from "../components/ServiceComponents/PackagesSection/PackagesSection"
 import ParagraphSection from "../components/ServiceComponents/ParagraphSection/ParagraphSection"
 import ServicesDarkSection from "../components/ServiceComponents/ServicesDarkSection/ServicesDarkSection"
+import PricingConfiguratorSection from "../components/ServiceComponents/PricingConfigurator/PricingConfiguratorSection"
 
 const ServicesAndColocation = () => {
   return (
@@ -18,7 +19,8 @@ const ServicesAndColocation = () => {
       <ServicesDarkSection />
       <BetOnSection />
       <CardsSection />
-      <PackagesSection title="Kolokacja koparek" subtitle="Zobacz pakiety" />
+      {/* <PackagesSection title="Kolokacja koparek" subtitle="Zobacz pakiety" /> */}
+      <PricingConfiguratorSection />
       <ServicesCta />
     </>
   )

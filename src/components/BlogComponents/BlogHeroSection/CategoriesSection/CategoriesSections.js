@@ -103,6 +103,11 @@ const ListItemStyles = styled(motion.li)`
       transition: fill 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     }
   }
+  img {
+    width: 36px;
+    height: 36px;
+  }
+  
 `
 
 const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
@@ -136,7 +141,7 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
                     setActiveCategory(item.categoryName)
                   }}
                 >
-                  {categoryIcon}
+                  <img src={categoryIcon} alt={item.categoryName} />
                   <Text
                     fontSize="16px"
                     fontWeight="bold"
@@ -174,7 +179,7 @@ const CategoriesNavigation = ({ items, activeCategory, setActiveCategory }) => {
                   onClick={() => setActiveCategory(item.categoryName)}
                   layout
                 >
-                  {categoryIcon}
+                  <img src={categoryIcon} alt={item.categoryName} />
                   <Text
                     fontSize="16px"
                     fontWeight="bold"
@@ -427,7 +432,7 @@ const CategoriesSections = ({
   }, [])
   return (
     <CategoriesStyles margin={margin}>
-      <AnimateSharedLayout type="crossfade">
+      <AnimateSharedLayout  type="crossfade">
         <Flex layout="true" width="100%" direction="column">
           <CategoriesNavigation
             items={filteredCategories}

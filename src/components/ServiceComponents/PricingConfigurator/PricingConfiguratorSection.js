@@ -1,39 +1,39 @@
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
-import Container from "../../../Container/Container"
-import { StyledFlex } from "../../../Flex/Flex"
-import Text from "../../../Text/Text"
+import Container from "../../Container/Container"
+import { StyledFlex } from "../../Flex/Flex"
+import Text from "../../Text/Text"
 import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion"
 import * as Yup from "yup"
 import { Formik } from "formik"
 
-import Button from "../../../Button/Button"
-import { Step1, Step2, Step3, Step4 } from "./Steps"
-import { textFadeInUp } from "../../../Styles/Animations"
+import Button from "../../Button/Button"
+import { Step1, Step2, Step3, Step4 } from "./PricingConfiguratorSteps"
+import { textFadeInUp } from "../../Styles/Animations"
 import { graphql, useStaticQuery } from "gatsby"
-import useWindowSize from "../../../../utils/UseWindowSize"
-import { useGlobalDispatchContext } from "../../../../utils/cursorContext"
-import RocketIcon from "../../../RocketIcon/RocketIcon"
+import useWindowSize from "../../../utils/UseWindowSize"
+import { useGlobalDispatchContext } from "../../../utils/cursorContext"
+import RocketIcon from "../../RocketIcon/RocketIcon"
 import {
   BookIcon,
   RoocketIconSmall,
   SearchIcon,
   TapIcon,
-} from "../../../SvgIcons/XminerIcons"
+} from "../../SvgIcons/XminerIcons"
 import {
   ActiveStepStyles,
   ImgWrapper,
   StepsStyles,
-} from "../../../ConfiguratorStyles/StepsStyles"
+} from "../../ConfiguratorStyles/StepsStyles"
 import {
   ConfiguratorFlexStyles,
   ConfiguratorWrapperStyles,
-} from "../../../ConfiguratorStyles/ConfiguratorStyles"
+} from "../../ConfiguratorStyles/ConfiguratorStyles"
 
 const StepsColumn = ({ items, activeStep }) => {
   const width = useWindowSize()
   return (
-    <StepsStyles>
+    <StepsStyles variant="light">
       {items.map((item, i) => (
         <li className={activeStep === i ? "active" : ""}>
           {width > 1002 && (
@@ -195,7 +195,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                     textTransform="uppercase"
                     fontWeight="400"
                     letterSpacing="1px"
-                    color="var(--white)"
+                    color="var(--nav-dark-bluse)"
                     variants={textFadeInUp}
                     initial="initial"
                     animate="animate"
@@ -210,7 +210,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                     fontSize={width > 640 ? "24px" : "18"}
                     lineHeight="1.25em"
                     fontWeight={width > 1002 ? "600" : "500"}
-                    color="var(--white)"
+                    color="var(--nav-dark-bluse)"
                     variants={textFadeInUp}
                     initial="initial"
                     animate="animate"
@@ -223,7 +223,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                     fontSize="13px"
                     lineHeight="normal"
                     fontWeight="300"
-                    color="var(--white)"
+                    color="var(--nav-dark-bluse)"
                     variants={textFadeInUp}
                     initial="initial"
                     animate="animate"
@@ -260,7 +260,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                         initial="initial"
                         animate="animate"
                         exit="exit"
-                        color="var(--white)"
+                        color="var(--nav-dark-bluse)"
                       >
                         {feedbackMsg}
                       </Text>
@@ -446,29 +446,29 @@ const Configurator = ({ vendors }) => {
 const MinerRigsSection = () => {
   const dispatch = useGlobalDispatchContext()
   const data = useStaticQuery(graphql`
-    query minerConfiguratorQuery {
+    query configuratorQuery {
       datoCmsPageSale {
-        amdLogoImg {
+        fullPackageImg {
           alt
-          fluid(maxWidth: 220) {
-            ...GatsbyDatoCmsFluid
+          fluid {
+            src
           }
         }
-        nvidiaLogoImg {
+        minerForYouImg {
           alt
-          fluid(maxWidth: 220) {
-            ...GatsbyDatoCmsFluid
+          fluid {
+            src
           }
         }
       }
     }
   `)
   const {
-    datoCmsPageSale: { amdLogoImg, nvidiaLogoImg },
+    datoCmsPageSale: { fullPackageImg, minerForYouImg },
   } = data
   const width = useWindowSize()
   return (
-    <Container bg="var(--nav-dark-bluse)">
+    <Container>
       <ConfiguratorWrapperStyles direction="column">
         <ConfiguratorFlexStyles
           width="100%"
@@ -481,12 +481,12 @@ const MinerRigsSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            color="var(--white)"
+            color="var(--nav-dark-bluse)"
           >
             Maszyny Xminer
           </Text>
           <Text
-            color="var(--white)"
+            color="var(--nav-dark-bluse)"
             as="h3"
             fontSize={width > 640 ? "48px" : "24px"}
             lineHeight="normal"
@@ -497,8 +497,8 @@ const MinerRigsSection = () => {
           <span className="top-line" />
           <Configurator
             vendors={[
-              { ...amdLogoImg, name: "amd" },
-              { ...nvidiaLogoImg, name: "nvidia" },
+              { ...fullPackageImg, name: "asic" },
+              { ...minerForYouImg, name: "gpu" },
             ]}
           />
         </ConfiguratorFlexStyles>
