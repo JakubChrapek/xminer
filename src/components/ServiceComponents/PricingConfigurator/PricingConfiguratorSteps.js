@@ -1,37 +1,54 @@
 import { AnimatePresence, motion } from "framer-motion"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { Message } from "../../ContactUsSection/ContactUsForm"
 import { fadeInUp, textFadeInUp } from "../../Styles/Animations"
 import { useField, useFormikContext } from "formik"
 import { Link } from "gatsby"
+import Text from "../../Text/Text"
+import InputRange from "react-input-range"
 
 const ImgWrapper = styled(motion.button)`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 36px 51px;
+  padding: 0;
   width: 209px;
+  height: 132px;
+  position: relative;
+  box-shadow: 0 16px 24px 0 rgba(38, 50, 56, 0.08),
+    0 8px 8px 0 rgba(38, 50, 56, 0.12);
   @media only screen and (max-width: 640px) {
-    padding: 22px 42px;
     width: 60%;
     min-width: 180px;
   }
   background-color: var(--white);
   border-radius: 15px;
   border: none;
-  transition: box-shadow 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-    background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  transition: background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
     transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
-  &:hover {
-    background-color: var(--light-aqua);
+  &:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 15px;
+    z-index: 1;
+  }
+
+  &:hover:after {
+    box-shadow: inset 0 0 0 3px var(--primary);
   }
 
   &.active {
-    box-shadow: inset 0 0 0 5px var(--primary);
     transform: scale(1.05) !important;
+    &:after {
+      box-shadow: inset 0 0 0 5px var(--primary);
+    }
   }
   &:focus,
   &:active {
@@ -39,7 +56,9 @@ const ImgWrapper = styled(motion.button)`
   }
   &:focus-visible {
     outline: none !important;
-    box-shadow: inset 0 0 0 5px var(--primary);
+    &:after {
+      box-shadow: inset 0 0 0 5px var(--primary);
+    }
   }
 
   &:first-of-type {
@@ -57,12 +76,14 @@ const ImgWrapper = styled(motion.button)`
   .gatsby-image-wrapper {
     width: 100% !important;
     height: 100% !important;
+    border-radius: 15px;
 
     img,
     picture {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      border-radius: 15px;
     }
   }
 `
@@ -75,28 +96,44 @@ const Grid = styled(motion.div)`
   }
 `
 
-export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
+const Step1TextStyles = styled(Text)`
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+`
+
+export const Step1 = ({ types, activeType, setActiveType }) => {
   const { setFieldValue } = useFormikContext()
   useEffect(() => {
-    setFieldValue("vendor", "amd")
+    setFieldValue("type", "asic")
   }, [])
   const VendorGrid = () => (
     <Grid>
-      {vendors.map((vendor, i) => (
+      {types.map((type, i) => (
         <ImgWrapper
-          key={vendor.name}
+          key={type.name}
           whileHover={{
             cursor: "pointer",
           }}
           whileTap={{ scale: 0.97 }}
           onClick={e => {
             e.preventDefault()
-            setActiveVendor(i)
-            setFieldValue("vendor", vendors[i].name)
+            setActiveType(i)
+            setFieldValue("type", types[i].name)
           }}
-          className={activeVendor === i ? "active" : ""}
+          className={activeType === i ? "active" : ""}
         >
-          <Img fluid={vendor.fluid} alt={vendor.alt} />
+          <Img fluid={type.fluid} alt={type.alt} />
+          <Step1TextStyles
+            textTransform="uppercase"
+            color="var(--nav-dark-bluse)"
+            fontSize="20px"
+            lineHeight="1.5"
+            fontWeight="400"
+          >
+            {type.name}
+          </Step1TextStyles>
         </ImgWrapper>
       ))}
     </Grid>
@@ -115,7 +152,7 @@ export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
         y: -16,
         transition: { duration: 0.4, delay: 0.15 },
       }}
-      key="producent"
+      key="type"
     >
       <VendorGrid />
     </motion.div>
@@ -124,12 +161,13 @@ export const Step1 = ({ vendors, activeVendor, setActiveVendor }) => {
 
 const ModelGridStyles = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-gap: 52px;
 
   button {
     padding: 64px 12px;
-
+    box-shadow: 0 16px 24px 0 rgba(38, 50, 56, 0.08),
+      0 8px 8px 0 rgba(38, 50, 56, 0.12);
     @media only screen and (max-width: 640px) {
       padding: 30px 12px;
     }
@@ -188,11 +226,12 @@ const ModelGridStyles = styled(motion.div)`
   }
 `
 
-export const Step2 = ({ models, activeModel, setActiveModel }) => {
-  const [fieldVendor, metaVendor] = useField({ name: "vendor" })
+export const Step2 = () => {
+  const [fieldFan, metaFan] = useField({ name: "fan" })
   const { setFieldValue } = useFormikContext()
   useEffect(() => {
-    setFieldValue("model", models[fieldVendor.value][0].name)
+    setFieldValue("fan", 1)
+    console.log(fieldFan, metaFan)
   }, [])
 
   return (
@@ -208,12 +247,12 @@ export const Step2 = ({ models, activeModel, setActiveModel }) => {
         y: -16,
         transition: { duration: 0.4, delay: 0.15 },
       }}
-      key="model-karty"
+      key="fan"
     >
       <ModelGridStyles>
-        {models[fieldVendor.value].map((model, i) => (
+        {Array.from({ length: 2 }, (_, i) => (
           <motion.button
-            key={model.name}
+            key={`cryptominder-fan-${i}`}
             whileTap={{ scale: 0.97 }}
             transition={{
               type: "spring",
@@ -222,12 +261,19 @@ export const Step2 = ({ models, activeModel, setActiveModel }) => {
             }}
             onClick={e => {
               e.preventDefault()
-              setActiveModel(i)
-              setFieldValue("model", models[fieldVendor.value][i].name)
+              setFieldValue("fan", i + 1)
             }}
-            className={activeModel === i ? "active" : ""}
+            className={fieldFan.value === i ? "active" : ""}
           >
-            {model.name}
+            <Text
+              textTransform="uppercase"
+              color="var(--nav-dark-bluse)"
+              fontSize="20px"
+              lineHeight="1.5"
+              fontWeight="400"
+            >
+              {`${i + 1} fan`}
+            </Text>
           </motion.button>
         ))}
       </ModelGridStyles>
@@ -235,70 +281,53 @@ export const Step2 = ({ models, activeModel, setActiveModel }) => {
   )
 }
 
-const GraphicsGrid = styled(motion.ul)`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(121px, 1fr));
-  grid-gap: 14px 10px;
+const PowerContainer = styled(motion.ul)`
   width: 100%;
-  list-style-type: none;
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    border: none;
-    background-color: var(--white);
-    color: var(--headers-color);
-    padding: 20px 17px;
-    font-size: 20px;
-    line-height: 30px;
-    transition: box-shadow 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-      background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
-      transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
-    &:hover {
-      background-color: var(--light-aqua);
-    }
+  .input-range__slider {
+    appearance: none;
+    background: red;
+    border: 2px solid black;
+    border-radius: 100%;
+    cursor: pointer;
+    display: block;
+    height: 4px;
+    margin-left: 2rem / -2;
+    margin-top: 2rem / -2 + 0.6rem / -2;
+    outline: none;
+    position: absolute;
+    top: 50%;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    width: 1rem;
 
-    &.accent {
-      background-color: var(--light-aqua);
-      color: var(--primary);
-    }
-    &.active {
-      box-shadow: inset 0 0 0 5px var(--primary);
-      color: var(--primary);
-      transform: scale(1.05) !important;
-    }
-    &:focus,
     &:active {
-      outline: none;
+      transform: scale(1.3);
     }
-    &:focus-visible {
-      outline: none !important;
-      box-shadow: inset 0 0 0 5px var(--primary);
-    }
-  }
 
-  @media only screen and (max-width: 1002px) {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-  @media only screen and (max-width: 640px) {
-    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
-  }
-  @media only screen and (max-width: 378px) {
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    &:focus {
+      box-shadow: 0 0 0 5px tranparentize(orange, 0.8);
+    }
+
+    .input-range--disabled & {
+      background: gray;
+      border: 2px solid lightgray;
+      box-shadow: none;
+      transform: none;
+    }
   }
 `
 
-export const Step3 = ({ activeCard, setActiveCard }) => {
+export const Step3 = () => {
+  const [fieldPower, metaPower] = useField({ name: "power" })
   const { setFieldValue } = useFormikContext()
+  const [StateValue, setStateValue] = useState(500)
 
   useEffect(() => {
-    setFieldValue("number", "1")
+    setFieldValue("power", 600)
   }, [])
 
   return (
-    <GraphicsGrid
+    <PowerContainer
       initial={{ opacity: 0, y: 16 }}
       animate={{
         opacity: 1,
@@ -310,36 +339,20 @@ export const Step3 = ({ activeCard, setActiveCard }) => {
         y: -16,
         transition: { duration: 0.4, delay: 0.15 },
       }}
-      key="moc"
+      key="power"
     >
-      {[...Array(12).keys()].map(i => (
-        <motion.button
-          tabIndex="0"
-          key={`graphic-cards-number-${i}`}
-          whileHover={{
-            cursor: "pointer",
-            backgroundColor: "var(--light-aqua)",
-            color: "var(--primary)",
-          }}
-          whileTap={{ scale: 0.98 }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            default: { duration: 0.2 },
-          }}
-          onClick={e => {
-            e.preventDefault()
-            setActiveCard(i)
-            setFieldValue("number", `${i + 1}`)
-          }}
-          className={
-            activeCard === i ? "active" : [5, 7, 11].includes(i) ? "accent" : ""
-          }
-        >
-          {i + 1}
-        </motion.button>
-      ))}
-    </GraphicsGrid>
+      <InputRange
+        minValue={500}
+        maxValue={5000}
+        value={StateValue}
+        onChange={value => {
+          setStateValue(value)
+        }}
+        onChangeComplete={value => {
+          setFieldValue("power", value)
+        }}
+      />
+    </PowerContainer>
   )
 }
 

@@ -21,7 +21,7 @@ export const ConfiguratorWrapperStyles = styled(WrapperStyles)`
     width: calc(100% - 7px);
     height: 1px;
     margin: 36px 0 0 7px;
-    opacity: 0.2;
+    opacity: ${({ variant }) => (variant === "light" ? "0.8" : "0.2")};
     @media only screen and (max-width: 1002px) {
       width: calc(100% + 60px);
       position: relative;

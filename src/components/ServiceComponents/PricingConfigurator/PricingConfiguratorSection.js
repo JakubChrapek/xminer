@@ -150,21 +150,26 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
         configuratorName: "",
         configuratorEmail: "",
         acceptedTerms: false,
-        vendor: "",
-        model: "",
-        number: "",
+        type: "",
+        fan: "",
+        power: "",
       }}
       validationSchema={Yup.object({
         configuratorName: Yup.string()
           .max(15, "Maksymalnie 15 znaków")
           .required("Wymagane"),
-        vendor: Yup.string()
-          .oneOf(["amd", "nvidia"], "Nieprawidłowy producent kart")
+        type: Yup.string()
+          .oneOf(["asic", "gpu"], "Nieprawidłowy typ koparki")
           .required("Wymagane"),
-        model: Yup.string().required("Wymagane"),
-        number: Yup.string()
-          .min(1)
-          .max(12, "Wybierz liczbę kart z przedziału 1-12")
+        fan: Yup.string()
+          .oneOf(["1", "2"], "Do wyboru 1 lub 2")
+          .required("Wymagane"),
+        power: Yup.string()
+          .min(500)
+          .max(
+            5000,
+            "Jeśli moc spoza przedziału 500-5000W, przygotujemy dla Ciebie specjalną ofertę."
+          )
           .required("Wymagane"),
         configuratorEmail: Yup.string()
           .email("Nieprawidłowy adres email`")
@@ -186,7 +191,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
             ref={formRef}
             onReset={handleReset}
           >
-            <ActiveStepStyles layout>
+            <ActiveStepStyles variant="light" layout>
               <StyledFlex layout key="flex-1" direction="column">
                 <AnimatePresence exitBeforeEnter>
                   <Text
@@ -359,54 +364,35 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
   )
 }
 
-const Configurator = ({ vendors }) => {
-  const [activeVendor, setActiveVendor] = useState(0)
+const Configurator = ({ types }) => {
+  const [activeType, setActiveType] = useState(0)
   const [activeModel, setActiveModel] = useState(0)
   const [activeCard, setActiveCard] = useState(7)
   const [activeStep, setActiveStep] = useState(0)
 
-  const models = {
-    amd: [
-      { name: "RX 5700" },
-      { name: "RX 6700" },
-      { name: "RX 6800" },
-      { name: "RX 6900" },
-    ],
-    nvidia: [
-      { name: "RTX 3060ti" },
-      { name: "RTX 3070" },
-      { name: "RTX 3080" },
-      { name: "RTX 3090" },
-    ],
-  }
   const steps = [
     {
-      stepTitle: "Producent kart",
+      stepTitle: "Rodzaj koparki",
       stepSubtitle: "Przeglądaj i wybierz",
       stepIcon: <SearchIcon />,
-      firstLine: "Wybierz producenta karty",
-      helperText: "Tekst pomocniczy na temat karty",
+      firstLine: "Wybierz rodzaj koparki",
+      helperText:
+        "Dedykowane rozwiązanie ASIC czy równoległe obliczenia z wykorzystaniem kart graficznych?",
       content: (
         <Step1
-          vendors={vendors}
-          activeVendor={activeVendor}
-          setActiveVendor={setActiveVendor}
+          types={types}
+          activeType={activeType}
+          setActiveType={setActiveType}
         />
       ),
     },
     {
-      stepTitle: "Model kart",
+      stepTitle: "Liczba wiatraków",
       stepSubtitle: "Przeglądaj i wybierz",
       stepIcon: <TapIcon />,
-      firstLine: "Wybierz model karty graficznej",
-      helperText: "Tutaj pomocniczy tekst do wyboru",
-      content: (
-        <Step2
-          models={models}
-          activeModel={activeModel}
-          setActiveModel={setActiveModel}
-        />
-      ),
+      firstLine: "Wybierz liczbę wiatraków",
+      helperText: "Chłodzenie to podstawa długiego życia Twojej koparki",
+      content: <Step2 />,
     },
     {
       stepTitle: "Liczba kart",
@@ -469,7 +455,7 @@ const MinerRigsSection = () => {
   const width = useWindowSize()
   return (
     <Container>
-      <ConfiguratorWrapperStyles direction="column">
+      <ConfiguratorWrapperStyles variant="light" direction="column">
         <ConfiguratorFlexStyles
           width="100%"
           alignItems="flex-start"
@@ -496,7 +482,7 @@ const MinerRigsSection = () => {
           </Text>
           <span className="top-line" />
           <Configurator
-            vendors={[
+            types={[
               { ...fullPackageImg, name: "asic" },
               { ...minerForYouImg, name: "gpu" },
             ]}

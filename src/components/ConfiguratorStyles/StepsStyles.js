@@ -5,7 +5,10 @@ export const StepsStyles = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   padding-top: 9px;
-  border-right: 1px solid rgba(205, 239, 241, 0.2);
+  border-right: 1px solid
+    ${({ variant }) =>
+      variant === "light" ? "var(--light-aqua)" : "rgba(205, 239, 241, 0.2)"};
+  opacity: ${({ variant }) => variant === "light" && "0.8"};
 
   li {
     display: flex;
@@ -77,7 +80,11 @@ export const ActiveStepStyles = styled(motion.div)`
 
   > div:first-of-type {
     padding-bottom: 42px;
-    border-bottom: 1px solid rgba(205, 239, 241, 0.2);
+    border-bottom: ${({ variant }) =>
+      variant === "light"
+        ? "1px solid var(--light-aqua)"
+        : "1px solid rgba(205, 239, 241, 0.2)"};
+    opacity: ${({ variant }) => variant === "light" && "0.8"};
   }
   > div:last-of-type {
     padding-top: 33px;
