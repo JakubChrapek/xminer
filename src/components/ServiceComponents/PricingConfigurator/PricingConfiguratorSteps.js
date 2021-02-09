@@ -8,6 +8,7 @@ import { useField, useFormikContext } from "formik"
 import { Link } from "gatsby"
 import Text from "../../Text/Text"
 import InputRange from "react-input-range"
+import "react-input-range/lib/css/index.css"
 
 const ImgWrapper = styled(motion.button)`
   display: flex;
@@ -283,36 +284,60 @@ export const Step2 = () => {
 
 const PowerContainer = styled(motion.ul)`
   width: 100%;
+  margin-top: 32px;
+  .input-range {
+    &__label {
+      font-family: "Poppins";
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+      color: var(--white);
+      &--value {
+        background-color: var(--primary);
+        padding: 0.5em 1.3em;
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        position: relative;
+        left: -50%;
+        top: -32px;
 
-  .input-range__slider {
-    appearance: none;
-    background: red;
-    border: 2px solid black;
-    border-radius: 100%;
-    cursor: pointer;
-    display: block;
-    height: 4px;
-    margin-left: 2rem / -2;
-    margin-top: 2rem / -2 + 0.6rem / -2;
-    outline: none;
-    position: absolute;
-    top: 50%;
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    width: 1rem;
-
-    &:active {
-      transform: scale(1.3);
+        &:after {
+          content: "W";
+        }
+      }
+      &--min,
+      &--max {
+        &:after {
+          content: "W";
+        }
+      }
+      &--min {
+        color: #29abe2;
+      }
+      &--max {
+        color: #6ed7dd;
+        .input-rage__label-container {
+          left: 0;
+        }
+      }
     }
-
-    &:focus {
-      box-shadow: 0 0 0 5px tranparentize(orange, 0.8);
+    &__slider {
+      width: 16px;
+      height: 16px;
+      margin-left: -8px;
+      margin-top: -10px;
+      background-color: var(--white);
+      border: 0;
+      box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31),
+        0 3px 5px 0 rgba(9, 30, 66, 0.2);
     }
-
-    .input-range--disabled & {
-      background: gray;
-      border: 2px solid lightgray;
-      box-shadow: none;
-      transform: none;
+    &__track {
+      &--active {
+      }
     }
   }
 `
