@@ -105,14 +105,12 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           subject: `[xminer.pl|konfiguracja] ${props.values.email} wysłał wiadomość`,
-          "form-name": "configure-form",
+          "form-name": "miner-pricing-form",
           ...props.values,
         }),
       })
         .then(() => {
-          setFeedbackMsg(
-            "Pewnie zastanawiasz się, dlaczego jeszcze nie znasz ceny swojej koparki? W związku z brakiem dostępu do kart graficznych funkcjonujemy w oparciu o pre-order. Niezwłocznie po otrzymaniu Twojej wiadomości skontaktujemy się z Tobą i przedstawimy ofertę! Dziękujemy za kontakt!"
-          )
+          setFeedbackMsg("Dziękujemy za kontakt! Wkrótce się odezwiemy.")
           setFormSendCounter(formSendCounter + 1)
         })
         .catch(() => {
@@ -153,6 +151,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
         type: "",
         fan: "",
         power: "",
+        price: "",
       }}
       validationSchema={Yup.object({
         configuratorName: Yup.string()
@@ -164,12 +163,9 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
         fan: Yup.string()
           .oneOf(["1", "2"], "Do wyboru 1 lub 2")
           .required("Wymagane"),
-        power: Yup.string()
-          .min(500)
-          .max(
-            5000,
-            "Jeśli moc spoza przedziału 500-5000W, przygotujemy dla Ciebie specjalną ofertę."
-          )
+        power: Yup.number()
+          .min(500, "Minimalna moc to 200W.")
+          .max(25000, "Maksymalna moc to 1.5MW.")
           .required("Wymagane"),
         configuratorEmail: Yup.string()
           .email("Nieprawidłowy adres email`")
@@ -180,12 +176,15 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
             [true],
             "Musisz zaakceptować politykę prywatności Xminer, aby wysłać zamówienie"
           ),
+        price: Yup.number()
+          .required("Wymagane")
+          .min(70, "Cena minimalna za utrzymanie koparki to 70zł"),
       })}
     >
       {props => (
         <AnimateSharedLayout>
           <motion.form
-            name="configure-form"
+            name="miner-pricing-form"
             data-netlify={true}
             layout
             ref={formRef}
@@ -347,7 +346,10 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                           (activeStep === steps.length - 1 && !props.isValid) ||
                           props.isSubmitting ||
                           sent ||
-                          disableSending
+                          disableSending ||
+                          (activeStep === 2 &&
+                            (props.values.power < 200 ||
+                              props.values.power > 1500000))
                         }
                       >
                         {activeStep < steps.length - 1 ? "Dalej" : "Wyślij"}

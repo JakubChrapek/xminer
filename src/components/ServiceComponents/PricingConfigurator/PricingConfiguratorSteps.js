@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion"
 import React, { useEffect, useState } from "react"
 import Img from "gatsby-image"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Message } from "../../ContactUsSection/ContactUsForm"
 import { fadeInUp, textFadeInUp } from "../../Styles/Animations"
 import { useField, useFormikContext } from "formik"
@@ -232,7 +232,6 @@ export const Step2 = () => {
   const { setFieldValue } = useFormikContext()
   useEffect(() => {
     setFieldValue("fan", 1)
-    console.log(fieldFan, metaFan)
   }, [])
 
   return (
@@ -264,7 +263,7 @@ export const Step2 = () => {
               e.preventDefault()
               setFieldValue("fan", i + 1)
             }}
-            className={fieldFan.value === i ? "active" : ""}
+            className={fieldFan.value === i + 1 ? "active" : ""}
           >
             <Text
               textTransform="uppercase"
@@ -293,21 +292,28 @@ const PowerContainer = styled(motion.ul)`
       line-height: 1;
       font-weight: 400;
       color: var(--white);
+      &--min,
+      &--max {
+        bottom: -2.4em;
+      }
       &--value {
         background-color: var(--primary);
-        padding: 0.5em 1.3em;
+        padding: 0.6em 1.2em;
         text-align: center;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         border-radius: 5px;
         position: relative;
-        left: -50%;
-        top: -32px;
+        left: 3px;
+        top: -2em;
 
         &:after {
           content: "W";
         }
+      }
+      &-container {
+        left: 0;
       }
       &--min,
       &--max {
@@ -328,15 +334,36 @@ const PowerContainer = styled(motion.ul)`
     &__slider {
       width: 16px;
       height: 16px;
-      margin-left: -8px;
-      margin-top: -10px;
+      margin-left: 33px;
+      margin-top: -1px;
+      pointer-events: all;
       background-color: var(--white);
       border: 0;
       box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31),
         0 3px 5px 0 rgba(9, 30, 66, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background-color 0.2s ease;
+      &:hover {
+        transform: scale(1.2);
+        background-color: var(--primary);
+      }
+      &:active {
+        transform: scale(1.3);
+        background-color: var(--primary);
+      }
+
+      &-container {
+        margin-top: -1.5em;
+        margin-left: -36px;
+        pointer-events: none;
+      }
     }
     &__track {
+      height: 0.4rem;
+      background-color: #ebecf0;
       &--active {
+        background: var(--gradient);
       }
     }
   }
@@ -345,10 +372,13 @@ const PowerContainer = styled(motion.ul)`
 export const Step3 = () => {
   const [fieldPower, metaPower] = useField({ name: "power" })
   const { setFieldValue } = useFormikContext()
-  const [StateValue, setStateValue] = useState(500)
+  const minValue = 500
+  const maxValue = 5000
 
   useEffect(() => {
-    setFieldValue("power", 600)
+    if (!fieldPower.value) {
+      setFieldValue("power", minValue)
+    }
   }, [])
 
   return (
@@ -367,15 +397,33 @@ export const Step3 = () => {
       key="power"
     >
       <InputRange
-        minValue={500}
-        maxValue={5000}
-        value={StateValue}
-        onChange={value => {
-          setStateValue(value)
-        }}
+        minValue={minValue}
+        maxValue={maxValue}
+        value={fieldPower.value}
+        onChange={value => setFieldValue("power", value)}
         onChangeComplete={value => {
           setFieldValue("power", value)
         }}
+      />
+      <Text
+        fontSize="13px"
+        fontWeight="400"
+        color="var(--nav-dark-bluse)"
+        margin="56px 0 0"
+      >
+        Potrzebujesz innej mocy? Proszę wpisz wartość w poniższe pole.
+      </Text>
+      <MyTextInput
+        label=""
+        name="power"
+        type="number"
+        placeholder={fieldPower.value}
+        onChange={e => {
+          setFieldValue("power", e.target.value)
+        }}
+        min={200}
+        max={1500000}
+        variant="power"
       />
     </PowerContainer>
   )
@@ -384,35 +432,27 @@ export const Step3 = () => {
 const LastStyles = styled(motion.div)`
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  @media only screen and (max-width: 1002px) {
-    flex-direction: column;
-  }
-  svg {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
+  flex-basis: 55%;
+  flex-direction: column;
 
   input {
     border-radius: 16px;
     width: 100%;
-    background-color: rgba(242, 242, 242, 0.24);
-    border: rgba(242, 242, 242, 0.24);
-    padding: 8px 44px 8px 16px;
+    background-color: var(--faded-aqua);
+    border: 0;
+    color: var(--nav-dark-bluse);
+    padding: 8px 16px;
     @media only screen and (max-width: 1002px) {
-      padding: 20px 44px 20px 16px;
+      padding: 20px 16px;
     }
     transition: box-shadow 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98),
       color 0.15s cubic-bezier(0.04, 0.62, 0.23, 0.98);
     font-size: 18px;
     line-height: 1.76em;
-    color: var(--text-white);
     font-family: "Poppins";
     font-weight: 300;
     &::placeholder {
-      color: var(--text-privacy);
+      color: var(--gray3);
       font-family: "Poppins";
       font-weight: 300;
       opacity: 1;
@@ -421,7 +461,7 @@ const LastStyles = styled(motion.div)`
       line-height: 1.76em;
     }
     @media only screen and (max-width: 740px) {
-      padding: 16px 44px 16px 16px;
+      padding: 16px;
       font-size: 16px;
       &::placeholder {
         font-size: 16px;
@@ -430,44 +470,28 @@ const LastStyles = styled(motion.div)`
 
     :hover {
       outline: none;
-      box-shadow: inset 0 0 0 1px var(--primary);
-      color: var(--primary);
+      box-shadow: inset 0 0 0 1px var(--nav-dark-bluse);
+      color: var(--nav-dark-bluse);
     }
     &:focus {
       outline: none;
-      box-shadow: inset 0 0 0 2px var(--primary);
-      color: var(--primary);
-
-      ~ svg {
-        stroke: var(--primary);
-      }
-    }
-    &:-webkit-autofill,
-    &:-webkit-autofill {
-      -webkit-text-fill-color: var(--text-white);
-      -webkit-box-shadow: inset 0 0 0px 1000px #465067;
-      background-color: #465067;
-
-      &:hover {
-        -webkit-box-shadow: inset 0 0 0 1px var(--primary),
-          inset 0 0 0 1000px #465067;
-      }
-      &:focus {
-        -webkit-box-shadow: inset 0 0 0 2px var(--primary),
-          inset 0 0 0 1000px #465067;
-      }
+      box-shadow: inset 0 0 0 2px var(--nav-dark-bluse);
+      color: var(--nav-dark-bluse);
     }
   }
 `
 
 const NameWrapper = styled.div`
   display: flex;
-  flex: 2;
   align-items: center;
-  margin-right: 34px;
+  margin: 36px 0 0;
   position: relative;
   label {
     position: absolute;
+  }
+
+  &:nth-of-type(1) {
+    margin-top: 0;
   }
 
   @media only screen and (max-width: 1002px) {
@@ -493,13 +517,19 @@ const NameWrapper = styled.div`
     height: 0;
 
     &:focus + label:after {
-      box-shadow: 0 0 0 2px var(--nav-dark-bluse), 0 0 0 4px var(--primary);
+      box-shadow: 0 0 0 2px var(--primary);
     }
 
     &:checked {
       + label:before {
         opacity: 1;
       }
+      + label:after {
+        border-color: var(--primary);
+      }
+    }
+
+    &:focus {
       + label:after {
         border-color: var(--primary);
       }
@@ -516,7 +546,7 @@ const NameWrapper = styled.div`
       left: unset;
       opacity: 1;
       display: inline;
-      color: var(--text-privacy);
+      color: var(--nav-dark-bluse);
       margin-left: 26px;
       align-items: center;
       letter-spacing: 0.25px;
@@ -552,7 +582,7 @@ const NameWrapper = styled.div`
         height: 16px;
         transform: translateY(-50%);
         background-color: transparent;
-        border: 2px solid #b2b3b5;
+        border: 2px solid var(--nav-dark-bluse);
         border-radius: 3px;
       }
 
@@ -568,14 +598,14 @@ const NameWrapper = styled.div`
 
       a {
         font-weight: 500;
-        color: #f0f0f0;
+        color: var(--secondary);
         text-decoration: none;
         position: relative;
         padding: 6px 10px 6px 2px;
 
         &:focus {
           outline: none;
-          box-shadow: 0 0 0 1px var(--nav-dark-bluse), 0 0 0 3px var(--primary);
+          box-shadow: 0 0 0 3px var(--secondary);
           border-radius: 4px;
         }
 
@@ -584,7 +614,7 @@ const NameWrapper = styled.div`
           position: absolute;
           left: 2px;
           bottom: 0px;
-          background-color: var(--primary);
+          background-color: var(--secondary);
           height: 2px;
           width: calc(100% - 12px);
           transform: scaleX(0);
@@ -606,14 +636,37 @@ const NameWrapper = styled.div`
       bottom: -20px;
     }
   }
+
+  ${({ variant }) =>
+    variant === "power" &&
+    css`
+      margin: 12px 0 0;
+
+      input {
+        padding: 0.6em 1em;
+        border: 1px solid var(--nav-dark-bluse);
+        border-radius: 5px;
+        color: var(--nav-dark-bluse);
+        font-weight: 500;
+        font-size: 16px;
+      }
+
+      .error {
+        position: absolute;
+        left: 0px;
+        color: var(--primary);
+        font-size: 12px;
+        line-height: 1.3em;
+      }
+    `}
 `
 
-const MyTextInput = ({ label, ...props }) => {
+const MyTextInput = ({ label, variant, ...props }) => {
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input> and alse replace ErrorMessage entirely.
   const [field, meta] = useField(props)
   return (
-    <NameWrapper>
+    <NameWrapper variant={variant}>
       <label htmlFor={props.id || props.name}>{label}</label>
       <input className="text-input" {...field} {...props} />
       <AnimatePresence>
@@ -639,6 +692,7 @@ const CheckboxWrapper = styled(NameWrapper)`
   margin-top: 12px;
 
   .error {
+    bottom: -36px;
     left: 26px;
   }
 `
@@ -671,10 +725,45 @@ const MyCheckbox = ({ children, ...props }) => {
   )
 }
 
+const LastWrapper = styled(motion.div)`
+  display: flex;
+  gap: 36px;
+`
+
+const SummaryWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 22px 26px;
+  border-radius: 10px;
+  background-color: var(--primary);
+  flex-basis: 45%;
+`
+
 export const Step4 = () => {
-  const {} = useFormikContext()
+  const { setFieldValue } = useFormikContext()
+  const { values } = useFormikContext()
+
+  const roundToNearest = (number, jump = 5) => {
+    return Math.floor(number / jump) * jump
+  }
+
+  const getPriceFromConfiguration = values => {
+    const { fan, power } = values
+    const costPerWattPerHour = 0.35
+    let normalizedPower = (power / 1000) * 24 * 31
+    let price = 0
+
+    fan === 1 ? (price += 70) : (price += 90)
+    price += normalizedPower * costPerWattPerHour
+    return roundToNearest(price, 2)
+  }
+
+  useEffect(() => {
+    setFieldValue("price", getPriceFromConfiguration(values))
+  }, [])
+
   return (
-    <LastStyles
+    <LastWrapper
       initial={{ opacity: 0, y: 16 }}
       animate={{
         opacity: 1,
@@ -688,20 +777,93 @@ export const Step4 = () => {
       }}
       key="kontakt"
     >
-      <MyTextInput
-        label="Imię"
-        name="configuratorName"
-        type="text"
-        placeholder="Imię"
-      />
-      <MyTextInput
-        label="Email"
-        name="configuratorEmail"
-        type="email"
-        placeholder="jan_nowak@gmail.com"
-      />
-      <MyCheckbox name="acceptedTerms" />
-      {/* {<RocketIcon />} */}
-    </LastStyles>
+      <SummaryWrapper>
+        <Text fontSize="16px" color="var(--white)">
+          Cena pakietu
+        </Text>
+        <Text
+          fontSize="24px"
+          lineHeight="1.25"
+          fontWeight="600"
+          margin="10px 0 0"
+          color="var(--white)"
+        >
+          {getPriceFromConfiguration(values)}zł / msc
+        </Text>
+        <Text
+          fontSize="13px"
+          lineHeight="1"
+          fontWeight="400"
+          margin="30px 0 0"
+          color="var(--light-aqua)"
+        >
+          Rodzaj koparki
+        </Text>
+        <Text
+          fontSize="14px"
+          lineHeight="2.14"
+          fontWeight="600"
+          color="var(--white)"
+          margin="8px 0 0"
+          textTransform="uppercase"
+        >
+          {values.type}
+        </Text>
+        <Text
+          fontSize="13px"
+          lineHeight="1"
+          fontWeight="400"
+          margin="10px 0 0"
+          color="var(--light-aqua)"
+        >
+          Liczba wiatraków
+        </Text>
+        <Text
+          fontSize="14px"
+          lineHeight="2.14"
+          fontWeight="600"
+          color="var(--white)"
+          margin="8px 0 0"
+          textTransform="uppercase"
+        >
+          {values.fan} FAN
+        </Text>
+        <Text
+          fontSize="13px"
+          lineHeight="1"
+          fontWeight="400"
+          margin="10px 0 0"
+          color="var(--light-aqua)"
+        >
+          Moc
+        </Text>
+        <Text
+          fontSize="14px"
+          lineHeight="2.14"
+          fontWeight="600"
+          color="var(--white)"
+          margin="8px 0 0"
+          textTransform="uppercase"
+        >
+          {values.power}W
+        </Text>
+      </SummaryWrapper>
+      <LastStyles>
+        <MyTextInput
+          label="Imię"
+          name="configuratorName"
+          type="text"
+          placeholder="Imię"
+        />
+        <MyTextInput
+          label="Email"
+          name="configuratorEmail"
+          type="email"
+          placeholder="jan_nowak@gmail.com"
+        />
+        <MyCheckbox name="acceptedTerms" />
+        {/* {<RocketIcon />} */}
+      </LastStyles>
+    </LastWrapper>
   )
 }

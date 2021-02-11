@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Scroll />
+      {/* <Scroll /> */}
       {width > 1024 && (
         <motion.div
           animate={{
@@ -68,8 +68,14 @@ const Layout = ({ children }) => {
         dispatch={dispatch}
       />
       <AnimatePresence exitBeforeEnter>
-
-      <StyledMain initial={{opacity: 1}} animate={{}} exit={{opacity: 0}} key={location.pathname}>{children}</StyledMain>
+        <StyledMain
+          initial={{ opacity: 1 }}
+          animate={{}}
+          exit={{ opacity: 0 }}
+          key={location.pathname}
+        >
+          {children}
+        </StyledMain>
       </AnimatePresence>
       <Footer dispatch={dispatch} key="footer" />
     </>

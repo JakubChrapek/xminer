@@ -79,11 +79,9 @@ export const ActiveStepStyles = styled(motion.div)`
   flex-direction: column;
 
   > div:first-of-type {
-    padding-bottom: 42px;
+    padding-bottom: ${({ variant }) => (variant === "light" ? "0" : "42px")};
     border-bottom: ${({ variant }) =>
-      variant === "light"
-        ? "1px solid var(--light-aqua)"
-        : "1px solid rgba(205, 239, 241, 0.2)"};
+      variant === "light" ? "0" : "1px solid rgba(205, 239, 241, 0.2)"};
     opacity: ${({ variant }) => variant === "light" && "0.8"};
   }
   > div:last-of-type {

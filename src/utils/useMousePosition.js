@@ -7,7 +7,8 @@ export default function useMousePosition() {
     function handlePosition(e) {
       setMousePosition({
         x: e.pageX,
-        y: e.pageY + window.scroll.scroll.instance.scroll.y,
+        // y: e.pageY + window.scroll.scroll.instance.scroll.y,
+        y: e.pageY,
       })
     }
 
