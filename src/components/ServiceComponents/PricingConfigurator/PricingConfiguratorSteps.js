@@ -315,6 +315,9 @@ const PowerContainer = styled(motion.ul)`
       &--min,
       &--max {
         bottom: -2.4em;
+        .input-range__label-container {
+          left: 0;
+        }
       }
       &--value {
         background-color: var(--primary);

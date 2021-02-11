@@ -172,7 +172,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
           .required("Wymagane"),
         power: Yup.number()
           .min(500, "Minimalna moc to 200W.")
-          .max(25000, "Maksymalna moc to 1.5MW.")
+          .max(1500000, "Maksymalna moc to 1.5MW.")
           .required("Wymagane"),
         configuratorEmail: Yup.string()
           .email("Nieprawidłowy adres email`")
