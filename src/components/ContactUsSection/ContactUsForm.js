@@ -348,6 +348,14 @@ const ContactUsForm = ({ vertical, bg, width }) => {
       type: "TOGGLE_CURSOR",
       cursorShow: false,
     })
+    console.log("CONTACT: ", values)
+    console.log(
+      encode({
+        subject: `[xminer.pl] ${values.email} wysłał wiadomość`,
+        "form-name": "contact-form",
+        ...values,
+      })
+    )
     if (formSendCounter < 2) {
       fetch("/", {
         method: "POST",

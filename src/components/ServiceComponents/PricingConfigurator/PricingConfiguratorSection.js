@@ -98,13 +98,20 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       type: "TOGGLE_CURSOR",
       cursorShow: false,
     })
-
+    console.log("PRICING: ", props.values)
+    console.log(
+      encode({
+        subject: `[xminer.pl|konfiguracja] ${props.values.configuratorEmail} wysłał wiadomość`,
+        "form-name": "miner-pricing-form",
+        ...props.values,
+      })
+    )
     if (formSendCounter < 2) {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          subject: `[xminer.pl|konfiguracja] ${props.values.email} wysłał wiadomość`,
+          subject: `[xminer.pl|konfiguracja] ${props.values.configuratorEmail} wysłał wiadomość`,
           "form-name": "miner-pricing-form",
           ...props.values,
         }),

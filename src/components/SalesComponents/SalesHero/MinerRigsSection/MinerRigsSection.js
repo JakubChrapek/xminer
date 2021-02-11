@@ -98,13 +98,20 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       type: "TOGGLE_CURSOR",
       cursorShow: false,
     })
-
+    console.log("CONFIG: ", props.values)
+    console.log(
+      encode({
+        subject: `[xminer.pl|konfiguracja] ${props.values.configuratorEmail} wysłał wiadomość`,
+        "form-name": "configure-form",
+        ...props.values,
+      })
+    )
     if (formSendCounter < 2) {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          subject: `[xminer.pl|konfiguracja] ${props.values.email} wysłał wiadomość`,
+          subject: `[xminer.pl|konfiguracja] ${props.values.configuratorEmail} wysłał wiadomość`,
           "form-name": "configure-form",
           ...props.values,
         }),
@@ -186,6 +193,13 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
             ref={formRef}
             onReset={handleReset}
           >
+            <input type="hidden" name="form-name" value="configure-form" />
+            <input type="hidden" name="vendor" />
+            <input type="hidden" name="model" />
+            <input type="hidden" name="number" />
+            <input type="hidden" name="configuratorEmail" />
+            <input type="hidden" name="configuratorName" />
+            <input type="hidden" name="acceptedTerms" />
             <ActiveStepStyles layout>
               <StyledFlex layout key="flex-1" direction="column">
                 <AnimatePresence exitBeforeEnter>
