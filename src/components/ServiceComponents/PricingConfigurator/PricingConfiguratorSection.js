@@ -197,6 +197,14 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
             ref={formRef}
             onReset={handleReset}
           >
+            <input type="hidden" name="form-name" value="miner-pricing-form" />
+            <input type="hidden" name="type" />
+            <input type="hidden" name="fan" />
+            <input type="hidden" name="power" />
+            <input type="hidden" name="price" />
+            <input type="hidden" name="configuratorEmail" />
+            <input type="hidden" name="configuratorName" />
+            <input type="hidden" name="acceptedTerms" />
             <ActiveStepStyles variant="light" layout>
               <StyledFlex layout key="flex-1" direction="column">
                 <AnimatePresence exitBeforeEnter>
