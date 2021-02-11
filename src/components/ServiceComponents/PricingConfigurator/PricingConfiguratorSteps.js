@@ -24,6 +24,9 @@ const ImgWrapper = styled(motion.button)`
     width: 60%;
     min-width: 180px;
   }
+  @media only screen and (max-width: 440px) {
+    width: 75%;
+  }
   background-color: var(--white);
   border-radius: 15px;
   border: none;
@@ -95,6 +98,9 @@ const Grid = styled(motion.div)`
     flex-direction: column;
     align-items: center;
   }
+  @media only screen and (max-width: 640px) {
+    align-items: flex-start;
+  }
 `
 
 const Step1TextStyles = styled(Text)`
@@ -102,6 +108,12 @@ const Step1TextStyles = styled(Text)`
   left: 50%;
   bottom: -50px;
   transform: translateX(-50%);
+  @media only screen and (max-width: 1002px) {
+    left: unset;
+    right: 0;
+    bottom: 50%;
+    transform: translate(60px, 50%);
+  }
 `
 
 export const Step1 = ({ types, activeType, setActiveType }) => {
@@ -169,15 +181,25 @@ const ModelGridStyles = styled(motion.div)`
     padding: 64px 12px;
     box-shadow: 0 16px 24px 0 rgba(38, 50, 56, 0.08),
       0 8px 8px 0 rgba(38, 50, 56, 0.12);
+    @media only screen and (max-width: 1002px) {
+      padding: 40px 12px;
+      width: 70%;
+      max-width: 360px;
+      margin: 0 auto;
+    }
     @media only screen and (max-width: 640px) {
-      padding: 30px 12px;
+      max-width: 280px;
+    }
+    @media only screen and (max-width: 440px) {
+      width: 100%;
+      max-width: 176px;
     }
 
     text-transform: uppercase;
     color: var(--headers-color);
     font-size: 20px;
     @media only screen and (max-width: 380px) {
-      padding: 30px 8px;
+      padding: 40px 8px;
       font-size: 18px;
     }
     line-height: 30px;
@@ -216,14 +238,8 @@ const ModelGridStyles = styled(motion.div)`
     }
   }
   @media only screen and (max-width: 1002px) {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 32px;
-  }
-  @media only screen and (max-width: 368px) {
-    grid-gap: 20px;
-    span {
-      padding: 34px 8px;
-    }
+    grid-template-columns: 1fr;
+    grid-gap: 37px;
   }
 `
 
@@ -284,6 +300,10 @@ export const Step2 = () => {
 const PowerContainer = styled(motion.ul)`
   width: 100%;
   margin-top: 32px;
+  @media only screen and (max-width: 640px) {
+    width: 95%;
+    margin: 32px auto 0;
+  }
   .input-range {
     &__label {
       font-family: "Poppins";
@@ -307,6 +327,9 @@ const PowerContainer = styled(motion.ul)`
         position: relative;
         left: 3px;
         top: -2em;
+        @media only screen and (max-width: 640px) {
+          padding: 0.6em 0.8em;
+        }
 
         &:after {
           content: "W";
@@ -434,6 +457,10 @@ const LastStyles = styled(motion.div)`
   display: flex;
   flex-basis: 55%;
   flex-direction: column;
+
+  @media only screen and (max-width: 640px) {
+    flex-basis: 100%;
+  }
 
   input {
     border-radius: 16px;
@@ -695,6 +722,11 @@ const CheckboxWrapper = styled(NameWrapper)`
     bottom: -36px;
     left: 26px;
   }
+  @media (max-width: 640px) {
+    .error {
+      bottom: -50px;
+    }
+  }
 `
 
 const MyCheckbox = ({ children, ...props }) => {
@@ -728,6 +760,10 @@ const MyCheckbox = ({ children, ...props }) => {
 const LastWrapper = styled(motion.div)`
   display: flex;
   gap: 36px;
+  @media only screen and (max-width: 640px) {
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
 `
 
 const SummaryWrapper = styled.div`
@@ -737,6 +773,10 @@ const SummaryWrapper = styled.div`
   border-radius: 10px;
   background-color: var(--primary);
   flex-basis: 45%;
+
+  @media only screen and (max-width: 640px) {
+    flex-basis: 100%;
+  }
 `
 
 export const Step4 = () => {

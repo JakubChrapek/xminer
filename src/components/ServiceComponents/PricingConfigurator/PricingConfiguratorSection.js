@@ -375,7 +375,7 @@ const Configurator = ({ types }) => {
   const steps = [
     {
       stepTitle: "Rodzaj koparki",
-      stepSubtitle: "Przeglądaj i wybierz",
+      stepSubtitle: "GPU / ASIC",
       stepIcon: <SearchIcon />,
       firstLine: "Wybierz rodzaj koparki",
       helperText:
@@ -390,24 +390,24 @@ const Configurator = ({ types }) => {
     },
     {
       stepTitle: "Liczba wiatraków",
-      stepSubtitle: "Przeglądaj i wybierz",
+      stepSubtitle: "Chłodzenie koparki",
       stepIcon: <TapIcon />,
       firstLine: "Wybierz liczbę wiatraków",
       helperText: "Chłodzenie to podstawa długiego życia Twojej koparki",
       content: <Step2 />,
     },
     {
-      stepTitle: "Liczba kart",
-      stepSubtitle: "Wybierz liczbę kart",
+      stepTitle: "Moc koparki",
+      stepSubtitle: "Moc koparki",
       stepIcon: <BookIcon />,
-      firstLine: "Wybierz liczbę kart w&nbsp;Twojej koparce",
+      firstLine: "Ile mocy potrzebuje Twoja koparka?",
       helperText:
-        "Sprawdzone przez nas i&nbsp;sugerowane liczby to&nbsp;6,&nbsp;8,&nbsp;12",
+        "Na podstawie wprowadzonej mocy oszacujemy koszty utrzymania Twojej koparki.",
       content: <Step3 activeCard={activeCard} setActiveCard={setActiveCard} />,
     },
     {
-      stepTitle: "Gotowe",
-      stepSubtitle: "Potwierdzenie",
+      stepTitle: "Podsumowanie",
+      stepSubtitle: "Wycena",
       stepIcon: <RoocketIconSmall />,
       firstLine: "Potwierdź konfigurację",
       helperText:
