@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import Container from "../../../Container/Container"
 import Flex, { StyledFlex } from "../../../Flex/Flex"
@@ -8,7 +8,7 @@ import RocketIcon from "../../../../images/ico-optimize-min.png"
 import SupportIcon from "../../../../images/ico-support-min.png"
 import LifecycleIcon from "../../../../images/ico-lifecycle-min.png"
 import useWindowSize from "../../../../utils/UseWindowSize"
-import {gsap} from 'gsap'
+import { gsap } from "gsap"
 
 const FeatureStyles = styled(StyledFlex)`
   @media only screen and (max-width: 1000px) {
@@ -111,28 +111,33 @@ const WhyWrapperStyles = styled(WrapperStyles)`
 
 const WhyInvestingWithUs = () => {
   const width = useWindowSize()
-    useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.wrapper', {
+  useEffect(() => {
+    const tl = gsap.timeline()
+    tl.to(".wrapper", {
       autoAlpha: 1,
-      delay: 1.8
+      delay: 1.8,
     })
-    .from(['.why--header', '.why--subheader'], 1.6, {
-      opacity: 0,
-      y: 12,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    })
-    .from('.why--content', 1.6, {
-      opacity: 0,
-      y: 10,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.3
-      }
-    }, "-=0.5")
+      .from([".why--header", ".why--subheader"], 1.6, {
+        opacity: 0,
+        y: 12,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.4,
+        },
+      })
+      .from(
+        ".why--content",
+        1.6,
+        {
+          opacity: 0,
+          y: 10,
+          ease: "power3.out",
+          stagger: {
+            amount: 0.3,
+          },
+        },
+        "-=0.5"
+      )
   }, [])
 
   return (

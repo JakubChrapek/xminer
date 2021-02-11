@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import useWindowSize from "../../../utils/UseWindowSize"
 import ButtonText from "../../ButtonText/ButtonText"
@@ -7,7 +7,7 @@ import { StyledFlex } from "../../Flex/Flex"
 import { Checkmark } from "../../ServiceComponents/PackagesSection/Checkmark"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
-import {gsap} from 'gsap'
+import { gsap } from "gsap"
 
 const WideStyledFlex = styled(StyledFlex)`
   @media only screen and (max-width: 740px) {
@@ -58,30 +58,34 @@ const DarkWrapperStyles = styled(WrapperStyles)`
 const DarkSection = () => {
   const width = useWindowSize()
 
-    useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.wrapper', {
+  useEffect(() => {
+    const tl = gsap.timeline()
+    tl.to(".wrapper", {
       autoAlpha: 1,
       delay: 1.8,
     })
-    .from(['.dark--header', '.dark--subheader'], 1.6, {
-      opacity: 0,
-      y: 12,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    })
-    .from('.dark--content', 1.6, {
-      opacity: 0,
-      y: 10,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    }, "-=0.5")
+      .from([".dark--header", ".dark--subheader"], 1.6, {
+        opacity: 0,
+        y: 12,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.4,
+        },
+      })
+      .from(
+        ".dark--content",
+        1.6,
+        {
+          opacity: 0,
+          y: 10,
+          ease: "power3.out",
+          stagger: {
+            amount: 0.4,
+          },
+        },
+        "-=0.5"
+      )
   }, [])
-
 
   return (
     <Container className="wrapper" bg="var(--nav-dark-bluse)" padding="0">

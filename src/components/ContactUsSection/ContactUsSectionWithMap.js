@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import {gsap} from 'gsap'
+import { gsap } from "gsap"
 import Container from "../Container/Container"
 import { WrapperStyles } from "../Wrapper/Wrapper"
 import Flex from "../Flex/Flex"
@@ -11,7 +11,7 @@ import Email from "../../images/email-icon.svg"
 import Mobile from "../../images/mobile.svg"
 import Location from "../../images/location.svg"
 import { motion } from "framer-motion"
-import {LineAnimationWrapper} from "../Styles/Animations"
+import { LineAnimationWrapper } from "../Styles/Animations"
 
 const ContactWrapperStyles = styled(WrapperStyles)`
   visibility: hidden;
@@ -140,36 +140,50 @@ const ContactUsSectionWithMap = ({
   verticalForm,
 }) => {
   useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.wrapper', {
+    const tl = gsap.timeline()
+    tl.to(".wrapper", {
       autoAlpha: 1,
     })
-    .from(['.contact--header', '.contact--subheader'], 2, {
-      opacity: 0,
-      y: 12,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.5
-      }
-    })
-    .from('.contact--item', 1.6, {
-      opacity: 0,
-      y: 10,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.5
-      }
-    }, "-=1.2")
-    .from('.map', 1.6, {
-      opacity: 0,
-      scale: 0.95,
-      ease: "power4.out"
-    }, "<0.4")
+      .from([".contact--header", ".contact--subheader"], 2, {
+        opacity: 0,
+        y: 12,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.5,
+        },
+      })
+      .from(
+        ".contact--item",
+        1.6,
+        {
+          opacity: 0,
+          y: 10,
+          ease: "power3.out",
+          stagger: {
+            amount: 0.5,
+          },
+        },
+        "-=1.2"
+      )
+      .from(
+        ".map",
+        1.6,
+        {
+          opacity: 0,
+          scale: 0.95,
+          ease: "power3.out",
+        },
+        "<0.4"
+      )
   }, [])
 
   return (
     <Container>
-      <ContactWrapperStyles className="wrapper" equal margin={margin ? margin : "96px 122px 129px"}>
+      <ContactWrapperStyles
+        className="wrapper"
+        equal
+        margin={margin ? margin : "96px 122px 129px"}
+      >
         <Flex direction="column">
           <Text
             fontSize="10px"
@@ -192,7 +206,7 @@ const ContactUsSectionWithMap = ({
             className="contact--subheader"
           />
           <LinkStyles>
-            <motion.li 
+            <motion.li
               whileTap={{ scale: 0.98 }}
               style={{ marginLeft: -5 }}
               className="wider-gap contact--item"
@@ -201,15 +215,20 @@ const ContactUsSectionWithMap = ({
                 <img src={Email} alt="email icon" /> kontakt@xminer.pl
               </a>
             </motion.li>
-            <motion.li  whileTap={{ scale: 0.98 }} className="wider-gap contact--item">
+            <motion.li
+              whileTap={{ scale: 0.98 }}
+              className="wider-gap contact--item"
+            >
               <a href="tel:+48537787240">
                 <img src={Mobile} alt="phone icon" />
                 +48 537 787 240
               </a>
             </motion.li>
-            <motion.li  whileTap={{ scale: 0.98 }} className="wider-gap contact--item">
-              <a
-                  target="_blank" href="https://goo.gl/maps/VWsFu3rN3ut5Smtv5">
+            <motion.li
+              whileTap={{ scale: 0.98 }}
+              className="wider-gap contact--item"
+            >
+              <a target="_blank" href="https://goo.gl/maps/VWsFu3rN3ut5Smtv5">
                 <img src={Location} alt="location icon" /> Pruszkowska 73,
                 05&#8209;090&nbsp;Raszyn
               </a>

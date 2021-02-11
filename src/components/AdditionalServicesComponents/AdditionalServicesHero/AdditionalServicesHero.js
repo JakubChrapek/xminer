@@ -1,33 +1,38 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Text from "../../Text/Text"
 import Wrapper from "../../Wrapper/Wrapper"
 import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSection"
-import {gsap} from 'gsap'
+import { gsap } from "gsap"
 
 const AdditionalServicesHero = () => {
-   useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.wrapper', {
+  useEffect(() => {
+    const tl = gsap.timeline()
+    tl.to(".wrapper", {
       autoAlpha: 1,
     })
-    .from(['.additional--header', '.additional--subheader'], 1.6, {
-      opacity: 0,
-      y: 12,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    })
-    .from('.additional--content', 1.6, {
-      opacity: 0,
-      y: 10,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    }, "-=0.5")
+      .from([".additional--header", ".additional--subheader"], 1.6, {
+        opacity: 0,
+        y: 12,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.4,
+        },
+      })
+      .from(
+        ".additional--content",
+        1.6,
+        {
+          opacity: 0,
+          y: 10,
+          ease: "power3.out",
+          stagger: {
+            amount: 0.4,
+          },
+        },
+        "-=0.5"
+      )
   }, [])
 
   const width = useWindowSize()

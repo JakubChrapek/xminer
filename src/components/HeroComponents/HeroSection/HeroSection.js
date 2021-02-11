@@ -294,7 +294,7 @@ const HeroSection = ({
           ".description",
           2,
           {
-            ease: "power4.out",
+            ease: "power3.out",
             opacity: 0,
           },
           "< 0.8"
@@ -303,7 +303,7 @@ const HeroSection = ({
           ".btns",
           2.2,
           {
-            ease: "power4.out",
+            ease: "power3.out",
             opacity: 0,
           },
           "< 0.8"
@@ -312,7 +312,7 @@ const HeroSection = ({
           ".home-img",
           3,
           {
-            ease: "power4.out",
+            ease: "power3.out",
             scale: 0.99,
           },
           "start+=1"
@@ -322,7 +322,7 @@ const HeroSection = ({
           1.2,
           {
             opacity: 0,
-            ease: "power4.out",
+            ease: "power3.out",
           },
           "start"
         )
@@ -333,7 +333,7 @@ const HeroSection = ({
         {
           y: 42,
           opacity: 0,
-          ease: "power4.out",
+          ease: "power3.out",
           skewY: 2,
         },
         "startMobile"
@@ -342,7 +342,7 @@ const HeroSection = ({
           ".description",
           2,
           {
-            ease: "power4.out",
+            ease: "power3.out",
             opacity: 0,
           },
           "< 0.8"
@@ -351,7 +351,7 @@ const HeroSection = ({
           ".btns",
           2.2,
           {
-            ease: "power4.out",
+            ease: "power3.out",
             opacity: 0,
           },
           "< 0.8"
@@ -361,7 +361,7 @@ const HeroSection = ({
           ".home-img",
           3,
           {
-            ease: "power4.out",
+            ease: "power3.out",
             scale: 0.99,
           },
           "startMobile+=1"

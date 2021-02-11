@@ -1,10 +1,10 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
-import {gsap} from 'gsap'
+import { gsap } from "gsap"
 const DarkWrapperStyles = styled(WrapperStyles)`
   @media only screen and (max-width: 1080px) {
     width: 100%;
@@ -51,26 +51,29 @@ const DarkWrapperStyles = styled(WrapperStyles)`
 
 const DarkSection = () => {
   const width = useWindowSize()
-  
+
   useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.wrapper', {
+    const tl = gsap.timeline()
+    tl.to(".wrapper", {
       autoAlpha: 1,
-      delay: 1.8
-    })
-    .from('.dark-beginners--content', 1.6, {
-      opacity: 0,
-      y: 10,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    }, "-=0.5")
+      delay: 1.8,
+    }).from(
+      ".dark-beginners--content",
+      1.6,
+      {
+        opacity: 0,
+        y: 10,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.4,
+        },
+      },
+      "-=0.5"
+    )
   }, [])
-  
+
   return (
-    <Container bg="var(--nav-dark-bluse)" 
-        className="wrapper">
+    <Container bg="var(--nav-dark-bluse)" className="wrapper">
       <DarkWrapperStyles
         margin="99px 60px 72px"
         direction="column"

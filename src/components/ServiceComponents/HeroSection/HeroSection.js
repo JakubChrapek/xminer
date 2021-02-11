@@ -1,13 +1,13 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import useWindowSize from "../../../utils/UseWindowSize"
 import Container from "../../Container/Container"
 import Flex from "../../Flex/Flex"
 import Text from "../../Text/Text"
 import { WrapperStyles } from "../../Wrapper/Wrapper"
-import {gsap} from 'gsap'
+import { gsap } from "gsap"
 export const HeroWrapperStyles = styled(WrapperStyles)`
-visibility: hidden;
+  visibility: hidden;
   > div {
     &:nth-of-type(2) {
       margin-left: 60px;
@@ -77,27 +77,32 @@ visibility: hidden;
 `
 
 const HeroSection = () => {
-    useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.wrapper', {
+  useEffect(() => {
+    const tl = gsap.timeline()
+    tl.to(".wrapper", {
       autoAlpha: 1,
     })
-    .from(['.services--header', '.services--subheader'], 1.6, {
-      opacity: 0,
-      y: 12,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    })
-    .from('.services--content', 1.6, {
-      opacity: 0,
-      y: 10,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.3
-      }
-    }, "-=0.5")
+      .from([".services--header", ".services--subheader"], 1.6, {
+        opacity: 0,
+        y: 12,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.4,
+        },
+      })
+      .from(
+        ".services--content",
+        1.6,
+        {
+          opacity: 0,
+          y: 10,
+          ease: "power3.out",
+          stagger: {
+            amount: 0.3,
+          },
+        },
+        "-=0.5"
+      )
   }, [])
   const width = useWindowSize()
   return (

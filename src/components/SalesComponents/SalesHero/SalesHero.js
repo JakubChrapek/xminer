@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import {gsap} from 'gsap'
+import { gsap } from "gsap"
 import styled from "styled-components"
 import { ContainerStyles } from "../../Container/Container"
 import Flex from "../../Flex/Flex"
@@ -16,7 +16,7 @@ import useWindowSize from "../../../utils/UseWindowSize"
 import Img from "gatsby-image"
 
 const SalesWrapper = styled(HeroWrapperStyles)`
-visibility: hidden;
+  visibility: hidden;
   @media only screen and (max-width: 640px) {
     h3 {
       font-size: 36px;
@@ -106,26 +106,31 @@ const SalesHero = () => {
   `)
 
   useEffect(() => {
-    const tl = gsap.timeline();
-    tl.to('.wrapper', {
+    const tl = gsap.timeline()
+    tl.to(".wrapper", {
       autoAlpha: 1,
     })
-    .from(['.sales--header', '.sales--subheader'], 1.6, {
-      opacity: 0,
-      y: 12,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.4
-      }
-    })
-    .from('.sales--content', 1.6, {
-      opacity: 0,
-      y: 10,
-      ease: "power4.out",
-      stagger: {
-        amount: 0.3
-      }
-    }, "-=0.5")
+      .from([".sales--header", ".sales--subheader"], 1.6, {
+        opacity: 0,
+        y: 12,
+        ease: "power3.out",
+        stagger: {
+          amount: 0.4,
+        },
+      })
+      .from(
+        ".sales--content",
+        1.6,
+        {
+          opacity: 0,
+          y: 10,
+          ease: "power3.out",
+          stagger: {
+            amount: 0.3,
+          },
+        },
+        "-=0.5"
+      )
   }, [])
 
   return (
