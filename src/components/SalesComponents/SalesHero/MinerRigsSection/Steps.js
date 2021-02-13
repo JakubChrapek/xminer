@@ -702,7 +702,7 @@ export const Step4 = () => {
       <MyTextArea
         label="Wiadomość"
         name="configuratorMessage"
-        type="textarea"
+        type="text"
         placeholder="Dodatkowo chciałbym..."
       />
       <MyCheckbox name="acceptedTerms" />

@@ -105,20 +105,13 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       type: "TOGGLE_CURSOR",
       cursorShow: false,
     })
-    console.log("PRICING: ", props.values)
-    console.log(
-      encode({
-        subject: `[xminer.pl|konfiguracja] ${props.values.configuratorEmail} wysłał wiadomość`,
-        "form-name": "miner-pricing-form",
-        ...props.values,
-      })
-    )
+
     if (formSendCounter < 2) {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          subject: `[xminer.pl|konfiguracja] ${props.values.configuratorEmail} wysłał wiadomość`,
+          subject: `[xminer.pl|wycena kolokacji koparek] ${props.values.configuratorEmail} wysłał wiadomość`,
           "form-name": "miner-pricing-form",
           ...props.values,
         }),
@@ -222,7 +215,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
             <input type="hidden" name="price" />
             <input type="hidden" name="configuratorEmail" />
             <input type="hidden" name="configuratorName" />
-            <input type="hidden" name="configuratorMessage" />
+            <textarea type="hidden" name="configuratorMessage" />
             <input type="hidden" name="acceptedTerms" />
             <ActiveStepStyles variant="light" layout>
               <StyledFlex layout key="flex-1" direction="column">

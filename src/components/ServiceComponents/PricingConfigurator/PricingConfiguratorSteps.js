@@ -983,12 +983,18 @@ export const Step4 = () => {
           margin="8px 0 0"
           textTransform="uppercase"
         >
-          {values.fan}{" "}
-          {values.type === "gpu"
-            ? `${
-                values.fan == 1 ? "karta" : values.fan <= 4 ? "karty" : "kart"
-              }`
-            : "FAN"}
+          {values.fan.toLowerCase() === "inna"
+            ? values.fan
+            : `${values.fan}
+          ${
+            values.type === "gpu"
+              ? values.fan == 1
+                ? "karta"
+                : values.fan <= 4
+                ? "karty"
+                : "kart"
+              : "FAN"
+          }`}
         </Text>
         <Text
           fontSize="13px"
@@ -1026,11 +1032,10 @@ export const Step4 = () => {
         <MyTextArea
           label="Wiadomość"
           name="configuratorMessage"
-          type="textarea"
+          type="text"
           placeholder="Dodatkowo chciałbym..."
         />
         <MyCheckbox name="acceptedTerms" />
-        {/* {<RocketIcon />} */}
       </LastStyles>
     </LastWrapper>
   )
