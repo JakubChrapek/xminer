@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion"
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { Message } from "../../../ContactUsSection/ContactUsForm"
@@ -252,12 +252,17 @@ const GraphicsGrid = styled(motion.ul)`
     padding: 20px 17px;
     font-size: 20px;
     line-height: 30px;
+    box-shadow: ${({ buttonWithShadow }) =>
+      buttonWithShadow &&
+      `0 16px 24px 0 rgba(38, 50, 56, 0.08),
+      0 8px 8px 0 rgba(38, 50, 56, 0.12)`};
     transition: box-shadow 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53),
       background-color 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53),
       transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 
     &:hover {
       background-color: var(--light-aqua);
+      color: var(--primary);
     }
 
     &.accent {
@@ -290,11 +295,13 @@ const GraphicsGrid = styled(motion.ul)`
   }
 `
 
-export const Step3 = ({ activeCard, setActiveCard }) => {
+export const Step3 = ({ activeCard, setActiveCard, pricingConfigurator }) => {
   const { setFieldValue } = useFormikContext()
+  const [fieldName, setFieldName] = useState("number")
 
   useEffect(() => {
-    setFieldValue("number", "1")
+    pricingConfigurator ? setFieldName("fan") : setFieldName("number")
+    setFieldValue(fieldName, "1")
   }, [])
 
   return (
@@ -311,6 +318,7 @@ export const Step3 = ({ activeCard, setActiveCard }) => {
         transition: { duration: 0.4, delay: 0.15 },
       }}
       key="moc"
+      buttonWithShadow={pricingConfigurator}
     >
       {[...Array(12).keys()].map(i => (
         <motion.button
@@ -318,8 +326,6 @@ export const Step3 = ({ activeCard, setActiveCard }) => {
           key={`graphic-cards-number-${i}`}
           whileHover={{
             cursor: "pointer",
-            backgroundColor: "var(--light-aqua)",
-            color: "var(--primary)",
           }}
           whileTap={{ scale: 0.98 }}
           transition={{
@@ -330,7 +336,7 @@ export const Step3 = ({ activeCard, setActiveCard }) => {
           onClick={e => {
             e.preventDefault()
             setActiveCard(i)
-            setFieldValue("number", `${i + 1}`)
+            setFieldValue(fieldName, `${i + 1}`)
           }}
           className={
             activeCard === i ? "active" : [5, 7, 11].includes(i) ? "accent" : ""
@@ -357,7 +363,8 @@ const LastStyles = styled(motion.div)`
     transform: translate(-50%, -50%);
   }
 
-  input {
+  input,
+  textarea {
     border-radius: 16px;
     width: 100%;
     background-color: rgba(242, 242, 242, 0.24);
@@ -424,9 +431,12 @@ const LastStyles = styled(motion.div)`
 
 const NameWrapper = styled.div`
   display: flex;
-  flex: 2;
+  flex: ${({ flex }) => (flex ? flex : "2")};
   align-items: center;
-  margin-right: 34px;
+  &:first-of-type {
+    margin-right: 34px;
+  }
+  margin: ${({ margin }) => margin && margin};
   position: relative;
   label {
     position: absolute;
@@ -595,6 +605,29 @@ const MyTextInput = ({ label, ...props }) => {
   )
 }
 
+const MyTextArea = ({ label, ...props }) => {
+  const [field, meta] = useField(props)
+  return (
+    <NameWrapper margin="32px 0 0" flex="100%">
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <textarea rows="2" className="text-area" {...field} {...props} />
+      <AnimatePresence>
+        {meta.touched && meta.error ? (
+          <motion.p
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="error"
+          >
+            {meta.error}
+          </motion.p>
+        ) : null}
+      </AnimatePresence>
+    </NameWrapper>
+  )
+}
+
 const CheckboxWrapper = styled(NameWrapper)`
   width: 100%;
   flex: unset;
@@ -661,6 +694,12 @@ export const Step4 = () => {
         name="configuratorEmail"
         type="email"
         placeholder="jan_nowak@gmail.com"
+      />
+      <MyTextArea
+        label="Wiadomość"
+        name="configuratorMessage"
+        type="textarea"
+        placeholder="Dodatkowo chciałbym..."
       />
       <MyCheckbox name="acceptedTerms" />
       {/* {<RocketIcon />} */}

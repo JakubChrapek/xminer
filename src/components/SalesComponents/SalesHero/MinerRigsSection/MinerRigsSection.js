@@ -156,6 +156,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       initialValues={{
         configuratorName: "",
         configuratorEmail: "",
+        configuratorMessage: "",
         acceptedTerms: false,
         vendor: "",
         model: "",
@@ -163,24 +164,25 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       }}
       validationSchema={Yup.object({
         configuratorName: Yup.string()
-          .max(15, "Maksymalnie 15 znaków")
-          .required("Wymagane"),
+          .max(15, "Maksymalnie 15 znaków.")
+          .required("Wymagane."),
         vendor: Yup.string()
-          .oneOf(["amd", "nvidia"], "Nieprawidłowy producent kart")
-          .required("Wymagane"),
-        model: Yup.string().required("Wymagane"),
+          .oneOf(["amd", "nvidia"], "Nieprawidłowy producent kart.")
+          .required("Wymagane."),
+        model: Yup.string().required("Wymagane."),
         number: Yup.string()
           .min(1)
-          .max(12, "Wybierz liczbę kart z przedziału 1-12")
-          .required("Wymagane"),
+          .max(12, "Wybierz liczbę kart z przedziału 1-12.")
+          .required("Wymagane."),
         configuratorEmail: Yup.string()
-          .email("Nieprawidłowy adres email`")
-          .required("Wymagane"),
+          .email("Nieprawidłowy adres email.")
+          .required("Wymagane."),
+        configuratorMessage: Yup.string(),
         acceptedTerms: Yup.boolean()
-          .required("Wymagane")
+          .required("Wymagane.")
           .oneOf(
             [true],
-            "Musisz zaakceptować politykę prywatności Xminer, aby wysłać zamówienie"
+            "Musisz zaakceptować politykę prywatności Xminer, aby wysłać zamówienie."
           ),
       })}
     >

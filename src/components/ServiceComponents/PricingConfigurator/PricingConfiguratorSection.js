@@ -8,7 +8,13 @@ import * as Yup from "yup"
 import { Formik } from "formik"
 
 import Button from "../../Button/Button"
-import { Step1, Step2, Step3, Step4 } from "./PricingConfiguratorSteps"
+import {
+  Step1,
+  Step2,
+  Step3,
+  Step4,
+  NumberOfMinersStep,
+} from "./PricingConfiguratorSteps"
 import { textFadeInUp } from "../../Styles/Animations"
 import { graphql, useStaticQuery } from "gatsby"
 import useWindowSize from "../../../utils/UseWindowSize"
@@ -19,6 +25,7 @@ import {
   RoocketIconSmall,
   SearchIcon,
   TapIcon,
+  IdeaIcon,
 } from "../../SvgIcons/XminerIcons"
 import {
   ActiveStepStyles,
@@ -154,38 +161,48 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
       initialValues={{
         configuratorName: "",
         configuratorEmail: "",
+        configuratorMessage: "",
         acceptedTerms: false,
-        type: "",
-        fan: "",
-        power: "",
+        type: "asic",
+        fan: "1",
+        power: "600",
         price: "",
+        miners: 1,
       }}
       validationSchema={Yup.object({
         configuratorName: Yup.string()
-          .max(15, "Maksymalnie 15 znaków")
-          .required("Wymagane"),
+          .max(15, "Maksymalnie 15 znaków.")
+          .required("Wymagane."),
         type: Yup.string()
-          .oneOf(["asic", "gpu"], "Nieprawidłowy typ koparki")
-          .required("Wymagane"),
+          .oneOf(["asic", "gpu"], "Nieprawidłowy typ koparki.")
+          .required("Wymagane."),
         fan: Yup.string()
-          .oneOf(["1", "2"], "Do wyboru 1 lub 2")
-          .required("Wymagane"),
+          .min(1)
+          .max(12, "Wybierz liczbę kart z przedziału 1-12.")
+          .required("Wymagane."),
         power: Yup.number()
+          .integer("Tylko liczby całkowite.")
           .min(500, "Minimalna moc to 200W.")
           .max(1500000, "Maksymalna moc to 1.5MW.")
-          .required("Wymagane"),
+          .required("Wymagane."),
         configuratorEmail: Yup.string()
-          .email("Nieprawidłowy adres email`")
-          .required("Wymagane"),
+          .email("Nieprawidłowy adres email.")
+          .required("Wymagane."),
+        configuratorMessage: Yup.string(),
         acceptedTerms: Yup.boolean()
-          .required("Wymagane")
+          .required("Wymagane.")
           .oneOf(
             [true],
-            "Musisz zaakceptować politykę prywatności Xminer, aby wysłać zamówienie"
+            "Musisz zaakceptować politykę prywatności Xminer, aby wysłać zamówienie."
           ),
         price: Yup.number()
-          .required("Wymagane")
-          .min(70, "Cena minimalna za utrzymanie koparki to 70zł"),
+          .required("Wymagane.")
+          .min(70, "Cena minimalna za utrzymanie koparki to 70zł."),
+        miners: Yup.number()
+          .integer("Tylko liczby całkowite.")
+          .required("Wymagane.")
+          .min(1, "Kolokujemy minimum 1 koparkę.")
+          .max(1000, "Zadzwoń do nas bezpośrednio: +48 537 787 240."),
       })}
     >
       {props => (
@@ -200,10 +217,12 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
             <input type="hidden" name="form-name" value="miner-pricing-form" />
             <input type="hidden" name="type" />
             <input type="hidden" name="fan" />
+            <input type="hidden" name="number" />
             <input type="hidden" name="power" />
             <input type="hidden" name="price" />
             <input type="hidden" name="configuratorEmail" />
             <input type="hidden" name="configuratorName" />
+            <input type="hidden" name="configuratorMessage" />
             <input type="hidden" name="acceptedTerms" />
             <ActiveStepStyles variant="light" layout>
               <StyledFlex layout key="flex-1" direction="column">
@@ -362,7 +381,10 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                           props.isSubmitting ||
                           sent ||
                           disableSending ||
-                          (activeStep === 2 &&
+                          (activeStep === 1 &&
+                            (props.values.miners < 1 ||
+                              props.values.miners > 1000)) ||
+                          (activeStep === 3 &&
                             (props.values.power < 200 ||
                               props.values.power > 1500000))
                         }
@@ -389,10 +411,10 @@ const Configurator = ({ types }) => {
 
   const steps = [
     {
-      stepTitle: "Rodzaj koparki",
+      stepTitle: "Rodzaj koparek",
       stepSubtitle: "GPU / ASIC",
       stepIcon: <SearchIcon />,
-      firstLine: "Wybierz rodzaj koparki",
+      firstLine: "Wybierz rodzaj koparek",
       helperText:
         "Dedykowane rozwiązanie ASIC czy równoległe obliczenia z wykorzystaniem kart graficznych?",
       content: (
@@ -404,21 +426,35 @@ const Configurator = ({ types }) => {
       ),
     },
     {
-      stepTitle: "Liczba wiatraków",
-      stepSubtitle: "Chłodzenie koparki",
-      stepIcon: <TapIcon />,
-      firstLine: "Wybierz liczbę wiatraków",
-      helperText: "Chłodzenie to podstawa długiego życia Twojej koparki",
-      content: <Step2 />,
+      stepTitle: "Liczba koparek",
+      stepSubtitle: "Podaj liczbę",
+      stepIcon: <IdeaIcon />,
+      firstLine: "Ile koparek kolokujesz?",
+      helperText: "Podaj liczbę koparek, którą chciałbyś, abyśmy się zajęli",
+      content: <NumberOfMinersStep />,
     },
     {
-      stepTitle: "Moc koparki",
-      stepSubtitle: "Moc koparki",
+      stepTitle: "Rozmiar koparek",
+      stepSubtitle: "Wybierz",
+      stepIcon: <TapIcon />,
+      firstLine: `Wybierz liczbę ${
+        activeType === 0 ? "wiatraków" : "kart graficznych"
+      }`,
+      helperText: `${
+        activeType === 0
+          ? "Chłodzenie to podstawa długiej żywotności Twoich koparek."
+          : "Wydajne karty graficzne to podstawa zysków z Twoich koparek."
+      }`,
+      content: <Step2 activeCard={activeCard} setActiveCard={setActiveCard} />,
+    },
+    {
+      stepTitle: "Moc koparek",
+      stepSubtitle: "Moc koparek",
       stepIcon: <BookIcon />,
-      firstLine: "Ile mocy potrzebuje Twoja koparka?",
+      firstLine: "Ile mocy łącznie potrzebują Twoje koparki?",
       helperText:
-        "Na podstawie wprowadzonej mocy oszacujemy koszty utrzymania Twojej koparki.",
-      content: <Step3 activeCard={activeCard} setActiveCard={setActiveCard} />,
+        "Na podstawie wprowadzonej mocy oszacujemy koszty utrzymania Twoich koparek.",
+      content: <Step3 />,
     },
     {
       stepTitle: "Podsumowanie",
@@ -495,7 +531,7 @@ const MinerRigsSection = () => {
             lineHeight="normal"
             fontWeight="600"
           >
-            Stwórz koparkę
+            Wyceń kolokację koparek
           </Text>
           <span className="top-line" />
           <Configurator

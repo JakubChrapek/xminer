@@ -8,6 +8,7 @@ import { useField, useFormikContext } from "formik"
 import { Link } from "gatsby"
 import Text from "../../Text/Text"
 import InputRange from "react-input-range"
+import { Step3 as GpuStep2Choices } from "../../SalesComponents/SalesHero/MinerRigsSection/Steps"
 import "react-input-range/lib/css/index.css"
 
 const ImgWrapper = styled(motion.button)`
@@ -243,13 +244,86 @@ const ModelGridStyles = styled(motion.div)`
   }
 `
 
-export const Step2 = () => {
+const AsicStep2Choices = () => {
+  const [activeChoice, setActiveChoice] = useState(0)
   const [fieldFan, metaFan] = useField({ name: "fan" })
   const { setFieldValue } = useFormikContext()
   useEffect(() => {
     setFieldValue("fan", 1)
   }, [])
 
+  return (
+    <ModelGridStyles>
+      {Array.from({ length: 3 }, (_, i) => (
+        <motion.button
+          key={`cryptominder-fan-${i}`}
+          whileTap={{ scale: 0.97 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            default: { duration: 0.2 },
+          }}
+          onClick={e => {
+            e.preventDefault()
+            setActiveChoice(i)
+            i === 2 ? setFieldValue("fan", "inna") : setFieldValue("fan", i + 1)
+          }}
+          className={activeChoice === i ? "active" : ""}
+        >
+          <Text
+            textTransform="uppercase"
+            color="var(--nav-dark-bluse)"
+            fontSize="20px"
+            lineHeight="1.5"
+            fontWeight="400"
+          >
+            {i === 2 ? "inna" : `${i + 1} fan`}
+          </Text>
+        </motion.button>
+      ))}
+    </ModelGridStyles>
+  )
+}
+
+export const NumberOfMinersStep = () => {
+  const [typeField, metaTypeField] = useField({ name: "miners" })
+  const { setFieldValue } = useFormikContext()
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.4, delay: 0.15 },
+      }}
+      exit={{
+        opacity: 0,
+        y: -16,
+        transition: { duration: 0.4, delay: 0.15 },
+      }}
+      key="numberOfMiners"
+    >
+      <MyTextInput
+        label="Liczba koparek"
+        name="miners"
+        type="number"
+        step="1"
+        min="1"
+        max="1000"
+        variant="miners"
+        placeholder={+typeField.value}
+        pattern="[0-9]"
+        // onChange={e => {
+        //   e.preventDefault()
+        //   setFieldValue("miners", e.target.value)
+        // }}
+      />
+    </motion.div>
+  )
+}
+
+export const Step2 = ({ activeCard, setActiveCard }) => {
+  const [typeField, metaTypeField] = useField({ name: "type" })
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -265,34 +339,15 @@ export const Step2 = () => {
       }}
       key="fan"
     >
-      <ModelGridStyles>
-        {Array.from({ length: 2 }, (_, i) => (
-          <motion.button
-            key={`cryptominder-fan-${i}`}
-            whileTap={{ scale: 0.97 }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              default: { duration: 0.2 },
-            }}
-            onClick={e => {
-              e.preventDefault()
-              setFieldValue("fan", i + 1)
-            }}
-            className={fieldFan.value === i + 1 ? "active" : ""}
-          >
-            <Text
-              textTransform="uppercase"
-              color="var(--nav-dark-bluse)"
-              fontSize="20px"
-              lineHeight="1.5"
-              fontWeight="400"
-            >
-              {`${i + 1} fan`}
-            </Text>
-          </motion.button>
-        ))}
-      </ModelGridStyles>
+      {typeField.value === "asic" ? (
+        <AsicStep2Choices />
+      ) : (
+        <GpuStep2Choices
+          activeCard={activeCard}
+          setActiveCard={setActiveCard}
+          pricingConfigurator
+        />
+      )}
     </motion.div>
   )
 }
@@ -426,6 +481,7 @@ export const Step3 = () => {
         minValue={minValue}
         maxValue={maxValue}
         value={fieldPower.value}
+        step={10}
         onChange={value => setFieldValue("power", value)}
         onChangeComplete={value => {
           setFieldValue("power", value)
@@ -465,7 +521,8 @@ const LastStyles = styled(motion.div)`
     flex-basis: 100%;
   }
 
-  input {
+  input,
+  textarea {
     border-radius: 16px;
     width: 100%;
     background-color: var(--faded-aqua);
@@ -516,6 +573,9 @@ const NameWrapper = styled.div`
   align-items: center;
   margin: 36px 0 0;
   position: relative;
+  display: flex;
+  flex: ${({ flex }) => flex && flex};
+  margin: ${({ margin }) => margin && margin};
   label {
     position: absolute;
   }
@@ -526,6 +586,7 @@ const NameWrapper = styled.div`
 
   @media only screen and (max-width: 1002px) {
     margin: 0;
+    margin: ${({ margin }) => margin && margin};
 
     &:nth-of-type(2) {
       margin-top: 40px;
@@ -668,27 +729,45 @@ const NameWrapper = styled.div`
   }
 
   ${({ variant }) =>
-    variant === "power" &&
-    css`
-      margin: 12px 0 0;
+    variant === "power"
+      ? css`
+          margin: 12px 0 0;
 
-      input {
-        padding: 0.6em 1em;
-        border: 1px solid var(--nav-dark-bluse);
-        border-radius: 5px;
-        color: var(--nav-dark-bluse);
-        font-weight: 500;
-        font-size: 16px;
-      }
+          input {
+            padding: 0.6em 1em;
+            border: 1px solid var(--nav-dark-bluse);
+            border-radius: 5px;
+            color: var(--nav-dark-bluse);
+            font-weight: 500;
+            font-size: 16px;
+          }
 
-      .error {
-        position: absolute;
-        left: 0px;
-        color: var(--primary);
-        font-size: 12px;
-        line-height: 1.3em;
-      }
-    `}
+          .error {
+            position: absolute;
+            left: 0px;
+            color: var(--primary);
+            font-size: 12px;
+            line-height: 1.3em;
+          }
+        `
+      : variant === "miners" &&
+        css`
+          input {
+            padding: 0.4em 1em;
+            border: 2px solid var(--nav-dark-bluse);
+            border-radius: 5px;
+            color: var(--nav-dark-bluse);
+            font-weight: 500;
+            font-size: 22px;
+            transition: border 0.15s ease;
+
+            &:focus,
+            &:active {
+              outline: none;
+              border: 2px solid var(--primary);
+            }
+          }
+        `}
 `
 
 const MyTextInput = ({ label, variant, ...props }) => {
@@ -699,6 +778,29 @@ const MyTextInput = ({ label, variant, ...props }) => {
     <NameWrapper variant={variant}>
       <label htmlFor={props.id || props.name}>{label}</label>
       <input className="text-input" {...field} {...props} />
+      <AnimatePresence>
+        {meta.touched && meta.error ? (
+          <motion.p
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="error"
+          >
+            {meta.error}
+          </motion.p>
+        ) : null}
+      </AnimatePresence>
+    </NameWrapper>
+  )
+}
+
+const MyTextArea = ({ label, ...props }) => {
+  const [field, meta] = useField(props)
+  return (
+    <NameWrapper margin="32px 0 0" flex="100%">
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <textarea rows="2" className="text-area" {...field} {...props} />
       <AnimatePresence>
         {meta.touched && meta.error ? (
           <motion.p
@@ -791,14 +893,26 @@ export const Step4 = () => {
   }
 
   const getPriceFromConfiguration = values => {
-    const { fan, power } = values
+    const { type, fan, power, miners } = values
     const costPerWattPerHour = 0.35
     let normalizedPower = (power / 1000) * 24 * 31
     let price = 0
 
-    fan === 1 ? (price += 70) : (price += 90)
+    if (type === "asic") {
+      const fanPrice = fan === 1 ? 90 : 120
+      price += fanPrice
+    } else {
+      if (type === "gpu") {
+        const cardsNumber = fan
+        // For 1-4 graphic cards price equals 120PLN
+        // Over 4 graphic cards each one costs 30PLN
+        const graphicCardsPrice = fan <= 4 ? 120 : 120 + (cardsNumber - 4) * 30
+        price += graphicCardsPrice
+      }
+    }
+
     price += normalizedPower * costPerWattPerHour
-    return roundToNearest(price, 2)
+    return miners * roundToNearest(price, 2)
   }
 
   useEffect(() => {
@@ -831,7 +945,7 @@ export const Step4 = () => {
           margin="10px 0 0"
           color="var(--white)"
         >
-          {getPriceFromConfiguration(values)}zł / msc
+          {getPriceFromConfiguration(values)}zł / msc (netto)
         </Text>
         <Text
           fontSize="13px"
@@ -840,7 +954,7 @@ export const Step4 = () => {
           margin="30px 0 0"
           color="var(--light-aqua)"
         >
-          Rodzaj koparki
+          Rodzaj koparki (liczba koparek)
         </Text>
         <Text
           fontSize="14px"
@@ -850,7 +964,7 @@ export const Step4 = () => {
           margin="8px 0 0"
           textTransform="uppercase"
         >
-          {values.type}
+          {values.type} ({values.miners})
         </Text>
         <Text
           fontSize="13px"
@@ -859,7 +973,7 @@ export const Step4 = () => {
           margin="10px 0 0"
           color="var(--light-aqua)"
         >
-          Liczba wiatraków
+          Liczba {values.type === "gpu" ? "kart graficznych" : "wiatraków"}
         </Text>
         <Text
           fontSize="14px"
@@ -869,7 +983,12 @@ export const Step4 = () => {
           margin="8px 0 0"
           textTransform="uppercase"
         >
-          {values.fan} FAN
+          {values.fan}{" "}
+          {values.type === "gpu"
+            ? `${
+                values.fan == 1 ? "karta" : values.fan <= 4 ? "karty" : "kart"
+              }`
+            : "FAN"}
         </Text>
         <Text
           fontSize="13px"
@@ -878,7 +997,7 @@ export const Step4 = () => {
           margin="10px 0 0"
           color="var(--light-aqua)"
         >
-          Moc
+          Łączna moc koparek
         </Text>
         <Text
           fontSize="14px"
@@ -903,6 +1022,12 @@ export const Step4 = () => {
           name="configuratorEmail"
           type="email"
           placeholder="jan_nowak@gmail.com"
+        />
+        <MyTextArea
+          label="Wiadomość"
+          name="configuratorMessage"
+          type="textarea"
+          placeholder="Dodatkowo chciałbym..."
         />
         <MyCheckbox name="acceptedTerms" />
         {/* {<RocketIcon />} */}
