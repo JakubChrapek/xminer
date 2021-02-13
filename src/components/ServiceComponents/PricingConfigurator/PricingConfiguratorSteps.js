@@ -587,8 +587,8 @@ const NameWrapper = styled.div`
   @media only screen and (max-width: 1002px) {
     margin: 0;
     margin: ${({ margin }) => margin && margin};
-
-    &:nth-of-type(2) {
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
       margin-top: 40px;
     }
   }

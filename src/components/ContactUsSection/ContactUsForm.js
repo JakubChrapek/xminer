@@ -101,7 +101,7 @@ const FormStyles = styled(Form)`
       line-height: 1.76em;
     }
     @media only screen and (max-width: 740px) {
-      padding: 16px 44px 16px 16px;
+      padding: 16px;
       font-size: 16px;
       &::placeholder {
         font-size: 16px;

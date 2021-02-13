@@ -390,7 +390,7 @@ const LastStyles = styled(motion.div)`
       line-height: 1.76em;
     }
     @media only screen and (max-width: 740px) {
-      padding: 16px 44px 16px 16px;
+      padding: 16px;
       font-size: 16px;
       &::placeholder {
         font-size: 16px;
@@ -445,7 +445,11 @@ const NameWrapper = styled.div`
   @media only screen and (max-width: 1002px) {
     margin: 0;
 
-    &:nth-of-type(2) {
+    &:first-of-type {
+      margin-right: 0px;
+    }
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
       margin-top: 40px;
     }
   }

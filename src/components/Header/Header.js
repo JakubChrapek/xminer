@@ -625,6 +625,9 @@ const HeaderStyles = styled(motion.header)`
   }
   li {
     margin-right: 20px;
+    @media only screen and (max-width: 520px) {
+      margin-right: 0;
+    }
     &:last-child {
       padding: 0;
       margin-right: 0;
