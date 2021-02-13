@@ -54,6 +54,9 @@ const Global = createGlobalStyle`
   button {
     cursor: pointer;
   }
+  input[type="hidden"], textarea[type="hidden"] {
+    display: none;
+  }
   ul {
     padding: 0;
     margin: 0;

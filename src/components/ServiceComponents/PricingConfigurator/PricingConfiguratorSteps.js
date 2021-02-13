@@ -983,7 +983,7 @@ export const Step4 = () => {
           margin="8px 0 0"
           textTransform="uppercase"
         >
-          {values.fan.toLowerCase() === "inna"
+          {values.fan === "inna"
             ? values.fan
             : `${values.fan}
           ${
