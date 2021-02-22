@@ -430,7 +430,9 @@ const Footer = ({ dispatch }) => {
               </Text>
             </LinkStyles>
             <p>
-              NIP: 1132956948<br/>KRS: 0000706780
+              NIP: 1132956948
+              <br />
+              KRS: 0000706780
             </p>
             <div className="socials">
               <motion.a
@@ -446,7 +448,6 @@ const Footer = ({ dispatch }) => {
               >
                 <FaFacebookF size="14px" color="var(--white)" />
               </motion.a>
-    
             </div>
           </div>
           <div>
@@ -505,8 +506,7 @@ const Footer = ({ dispatch }) => {
                 </a>
               </motion.li>
               <motion.li whileTap={{ scale: 0.98 }} className="wider-gap">
-                <a 
-                  target="_blank" href="https://goo.gl/maps/VWsFu3rN3ut5Smtv5">
+                <a target="_blank" href="https://goo.gl/maps/VWsFu3rN3ut5Smtv5">
                   <img src={Location} alt="location icon" /> Pruszkowska 73,
                   05&#8209;090&nbsp;Raszyn
                 </a>

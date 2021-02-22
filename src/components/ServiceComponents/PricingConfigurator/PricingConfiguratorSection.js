@@ -430,14 +430,10 @@ const Configurator = ({ types }) => {
       stepTitle: "Rozmiar koparek",
       stepSubtitle: "Wybierz",
       stepIcon: <TapIcon />,
-      firstLine: `Wybierz liczbę ${
+      firstLine: `Liczba ${
         activeType === 0 ? "wiatraków" : "kart graficznych"
       }`,
-      helperText: `${
-        activeType === 0
-          ? "Chłodzenie to podstawa długiej żywotności Twoich koparek."
-          : "Wydajne karty graficzne to podstawa zysków z Twoich koparek."
-      }`,
+      helperText: `${activeType === 0 ? "" : "Z ilu kart składa się koparka?"}`,
       content: <Step2 activeCard={activeCard} setActiveCard={setActiveCard} />,
     },
     {
