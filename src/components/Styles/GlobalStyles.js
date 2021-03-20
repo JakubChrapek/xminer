@@ -70,17 +70,7 @@ const Global = createGlobalStyle`
     }
   }
 
-  /*! locomotive-scroll v3.5.4 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
-  html.has-scroll-smooth {
-    overflow: hidden;
-  }
-
-  html.has-scroll-dragging {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+  
 
   .link {
     @media only screen and (max-width: 820px) {
@@ -126,6 +116,18 @@ const Global = createGlobalStyle`
         content: none !important;
       }
     }
+  }
+
+  /*! locomotive-scroll v3.5.4 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+  html.has-scroll-smooth {
+    overflow: hidden;
+  }
+
+  html.has-scroll-dragging {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   .has-scroll-smooth body {

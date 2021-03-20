@@ -28,20 +28,20 @@ const IndexPage = ({ data }) => {
       claimUnderTitle: claimUnderTitle,
       descriptionUnderTitle: descriptionUnderTitle,
       firstBtnText,
-      secondBtnText
+      secondBtnText,
     },
   } = data
   return (
     <>
       <HomeStyles>
         <SEO title="Xminer" />
-        <HeroSection 
-          heroIcon={heroIcon} 
-          heroMobileIcon={heroMobileIcon} 
-          firstLine={firstLine} 
-          secondLine={secondLine} 
-          titleMobile={titleMobile} 
-          claimUnderTitle={claimUnderTitle} 
+        <HeroSection
+          heroIcon={heroIcon}
+          heroMobileIcon={heroMobileIcon}
+          firstLine={firstLine}
+          secondLine={secondLine}
+          titleMobile={titleMobile}
+          claimUnderTitle={claimUnderTitle}
           descriptionUnderTitle={descriptionUnderTitle}
           firstBtnText={firstBtnText}
           secondBtnText={secondBtnText}
@@ -50,7 +50,7 @@ const IndexPage = ({ data }) => {
         <BeforeMiningSection beforeIcon={beforeIcon} />
         <InvestorsSection />
         <BeginHereSection />
-        {/* <TestimonialsSection /> */}
+        <TestimonialsSection testimonials={data.testimonials} />
         <CtaSection />
         {/* <BlogSection
           posts={posts}
@@ -64,6 +64,13 @@ const IndexPage = ({ data }) => {
 }
 export const blogQuery = graphql`
   query blogQuery {
+    testimonials: allDatoCmsTestimonial {
+      nodes {
+        nameSurname
+        businessName
+        testimonialContent
+      }
+    }
     allDatoCmsPost(limit: 3, sort: { fields: date, order: DESC }) {
       totalCount
       nodes {
@@ -104,7 +111,7 @@ export const blogQuery = graphql`
       titleFirstLine
       titleSecondLine
       titleMobile
-    	claimUnderTitle
+      claimUnderTitle
       descriptionUnderTitle
       firstBtnText
       secondBtnText

@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   }
 `
 
-const TestimonialsSection = () => {
+const TestimonialsSection = ({ testimonials }) => {
   const slides = [
     {
       name: "Jan Kowalski",
@@ -55,7 +55,11 @@ const TestimonialsSection = () => {
   return (
     <BeforeStyles>
       <Wrapper>
-        <Slider slides={slides} title="Referencje" header="Co o nas mówią" />
+        <Slider
+          slides={testimonials.nodes}
+          title="Referencje"
+          header="Co o nas mówią"
+        />
       </Wrapper>
     </BeforeStyles>
   )

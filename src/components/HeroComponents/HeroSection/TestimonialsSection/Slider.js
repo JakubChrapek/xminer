@@ -278,10 +278,10 @@ const Slider = ({ slides, title, header }) => {
             .filter((_, i) => i + 1 === activeSlide)
             .map((slide, iterator) => (
               <Slide
-                key={slide.name}
-                name={slide.name}
+                key={slide.nameSurname}
+                name={slide.nameSurname}
                 businessName={slide.businessName}
-                recommendation={slide.recommendation}
+                recommendation={slide.testimonialContent}
               />
             ))}
         </AnimatePresence>
