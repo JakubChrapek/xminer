@@ -110,13 +110,13 @@ const AboutHeroSection = () => {
   const width = useWindowSize();
   useEffect(() => {
     const tl = gsap.timeline();
-    tl.from(".content", 1.2, {
-      y: 32,
+    tl.from(".content", {
+      duration: 2.1,
       opacity: 0,
-      delay: 1,
+      delay: 0.9,
       ease: "power4.out",
       stagger: {
-        amount: 0.3
+        amount: 0.4
       }
     })
   }, [])

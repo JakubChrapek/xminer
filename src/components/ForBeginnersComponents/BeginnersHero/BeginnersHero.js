@@ -5,33 +5,33 @@ import Text from "../../Text/Text"
 import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSection"
 import { gsap } from "gsap"
 const BeginnersHero = () => {
-  useEffect(() => {
-    const tl = gsap.timeline()
-    tl.to(".wrapper", {
-      autoAlpha: 1,
-    })
-      .from([".beginners--header", ".beginners--subheader"], 1.6, {
-        opacity: 0,
-        y: 12,
-        ease: "power3.out",
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .from(
-        ".beginners--content",
-        1.6,
-        {
-          opacity: 0,
-          y: 10,
-          ease: "power3.out",
-          stagger: {
-            amount: 0.4,
-          },
-        },
-        "-=0.5"
-      )
-  }, [])
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //   tl.to(".wrapper", {
+  //     autoAlpha: 1,
+  //   })
+  //     .from([".beginners--header", ".beginners--subheader"], 1.6, {
+  //       opacity: 0,
+  //       y: 12,
+  //       ease: "power3.out",
+  //       stagger: {
+  //         amount: 0.4,
+  //       },
+  //     })
+  //     .from(
+  //       ".beginners--content",
+  //       1.6,
+  //       {
+  //         opacity: 0,
+  //         y: 10,
+  //         ease: "power3.out",
+  //         stagger: {
+  //           amount: 0.4,
+  //         },
+  //       },
+  //       "-=0.5"
+  //     )
+  // }, [])
 
   const width = useWindowSize()
   return (

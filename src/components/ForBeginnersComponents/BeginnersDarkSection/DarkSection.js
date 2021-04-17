@@ -52,25 +52,25 @@ const DarkWrapperStyles = styled(WrapperStyles)`
 const DarkSection = () => {
   const width = useWindowSize()
 
-  useEffect(() => {
-    const tl = gsap.timeline()
-    tl.to(".wrapper", {
-      autoAlpha: 1,
-      delay: 1.8,
-    }).from(
-      ".dark-beginners--content",
-      1.6,
-      {
-        opacity: 0,
-        y: 10,
-        ease: "power3.out",
-        stagger: {
-          amount: 0.4,
-        },
-      },
-      "-=0.5"
-    )
-  }, [])
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //   tl.to(".wrapper", {
+  //     autoAlpha: 1,
+  //     delay: 1.8,
+  //   }).from(
+  //     ".dark-beginners--content",
+  //     1.6,
+  //     {
+  //       opacity: 0,
+  //       y: 10,
+  //       ease: "power3.out",
+  //       stagger: {
+  //         amount: 0.4,
+  //       },
+  //     },
+  //     "-=0.5"
+  //   )
+  // }, [])
 
   return (
     <Container bg="var(--nav-dark-bluse)" className="wrapper">

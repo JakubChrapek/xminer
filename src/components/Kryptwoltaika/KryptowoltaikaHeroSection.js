@@ -1,12 +1,12 @@
 import React, { useEffect } from "react"
-import Container from "../../Container/Container"
-import Text from "../../Text/Text"
-import Wrapper from "../../Wrapper/Wrapper"
-import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSection"
-import useWindowSize from "../../../utils/UseWindowSize"
+import Container from "../Container/Container"
+import Text from "../Text/Text"
+import Wrapper from "../Wrapper/Wrapper"
+import { HeroWrapperStyles } from "../ServiceComponents/HeroSection/HeroSection"
+import useWindowSize from '../../utils/UseWindowSize'
 import { gsap } from "gsap"
 
-const ForInvestorsHeroSection = () => {
+const KryptowoltaikaHeroSection = () => {
   const width = useWindowSize()
 
   // useEffect(() => {
@@ -14,9 +14,9 @@ const ForInvestorsHeroSection = () => {
   //   tl.to(".wrapper", {
   //     autoAlpha: 1,
   //   })
-  //     .from([".investors--header", ".investors--subheader"], {
+  //     .from([".kryptowoltaika--header", ".kryptowoltaika--subheader"], {
   //       opacity: 0,
-  //       duration: 1.6,
+  //       duration: 1.2,
   //       y: 12,
   //       ease: "power3.out",
   //       stagger: {
@@ -24,11 +24,11 @@ const ForInvestorsHeroSection = () => {
   //       },
   //     })
   //     .from(
-  //       ".investors--content",
+  //       ".kryptowoltaika--content",
   //       {
-  //         duration: 1.6,
   //         opacity: 0,
   //         y: 10,
+  //         duration: 1.6,
   //         ease: "power3.out",
   //         stagger: {
   //           amount: 0.4,
@@ -49,9 +49,9 @@ const ForInvestorsHeroSection = () => {
             textTransform="uppercase"
             letterSpacing="1px"
             lineHeight="normal"
-            className="investors--header"
+            className="kryptowoltaika--header"
           >
-            Zainwestuj w koparki
+            Kryptowoltaika
           </Text>
           <Text
             as="h2"
@@ -60,13 +60,11 @@ const ForInvestorsHeroSection = () => {
             fontWeight="600"
             lineHeight="normal"
             color="var(--headers-color)"
-            className="investors--subheader"
+            className="kryptowoltaika--subheader"
           >
-            Wspieramy
+            Niski koszt
             <br />
-            przedsiębiorców.
-            <br />
-            Od A do Z!
+            prądu do koparek.
           </Text>
         </div>
         <div>
@@ -78,14 +76,9 @@ const ForInvestorsHeroSection = () => {
             lineHeight="1.67em"
             color="var(--body-text)"
             fontWeight="400"
-            className="investors--content"
+            className="kryptowoltaika--content"
           >
-            Inwestując firmowe środki w&nbsp;kryptowaluty, nie musisz być zdany
-            tylko na siebie lub wiedzę zdobytą z&nbsp;czeluści internetów.
-            W&nbsp;Xminer wspieramy przedsiębiorców na każdym etapie inwestycji
-            -&nbsp;od zakupu koparek, przez pełną obsługę, aż po szkolenia dla
-            firm. Wybierając Xminer, wybierasz firmę na solidnych podstawach,
-            która wprowadzi Twoją firmę w&nbsp;świat kryptowalut.
+            Największym bieżącym problemem osób, które chcą kopać kryptowaluty jest koszt prądu. <strong>Oczywiście, w&nbsp;czasie hossy nikt się tym nie przejmuje, wszystkie inwestycje i&nbsp;tak będą opłacalne. Ale co potem?</strong>​
           </Text>
           <Text
             color="var(--body-text)"
@@ -95,21 +88,20 @@ const ForInvestorsHeroSection = () => {
             fontSize="18px"
             fontWeight="400"
             lineHeight="1.67em"
-            className="investors--content"
+            className="kryptowoltaika--content"
           >
-            Wybierz rzetelną wiedzę, wybierz doświadczenie biznesowe.
-          </Text>
-          <Text
+            Firma Xminer myśli terminowo i&nbsp;dlatego zdecydowaliśmy się połączyć siły z&nbsp;firmą RBS Energia, aby obniżyć koszt prądu do koparek do kryptowalut.
+          </Text><Text
+            color="var(--body-text)"
             margin={
               width > 1081 ? "26px 0 0" : width > 761 ? "22px 0 0" : "18px 0 0"
             }
             fontSize="18px"
-            lineHeight="1.67em"
             fontWeight="400"
-            color="var(--body-text)"
-            className="investors--content"
+            lineHeight="1.67em"
+            className="kryptowoltaika--content"
           >
-            Wybierz Xminer.
+            RBS zajmuje się OZE, czyli redukowaniem kosztów prądu od 18 lat. Według rankingu Gazety Wyborczej jest najlepszą  fotowoltaiczną firmą warszawską.​
           </Text>
         </div>
       </HeroWrapperStyles>
@@ -117,4 +109,4 @@ const ForInvestorsHeroSection = () => {
   )
 }
 
-export default ForInvestorsHeroSection
+export default KryptowoltaikaHeroSection

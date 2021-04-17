@@ -137,11 +137,16 @@ const ToggleMenuButton = styled(motion.button)`
   height: 23px;
   background-color: transparent;
   border: none;
+  border-radius: 2px;
   position: relative;
 
   &:active,
   &:focus {
     outline: none;
+  }
+  &:focus-visible {
+    outline: 2px solid var(--secondary);
+    outline-offset: 8px;
   }
   span {
     width: 100%;
@@ -463,6 +468,7 @@ const Navigation = ({ dispatch }) => {
                       <Link to="/uslugi-dodatkowe" activeClassName="active">
                         Usługi dodatkowe
                       </Link>
+                      </motion.p>
                       <motion.p layout={true} key="serwis">
                         <Link to="/serwis-i-kolokacja" activeClassName="active">
                           Serwis i kolokacja
@@ -478,7 +484,11 @@ const Navigation = ({ dispatch }) => {
                           Dla inwestorów
                         </Link>
                       </motion.p>
-                    </motion.p>
+                      <motion.p layout={true} key="Kryptowoltaika">
+                        <Link to="/kryptowoltaika" activeClassName="active">
+                          Kryptowoltaika
+                        </Link>
+                      </motion.p>
                   </motion.div>
                 )}
               </motion.li>
@@ -571,6 +581,9 @@ const Navigation = ({ dispatch }) => {
                 <StyledColumn>
                   <motion.li>
                     <Link to="/dla-inwestorow">Oferta</Link>
+                  </motion.li>
+                  <motion.li>
+                    <Link to="/kryptowoltaika">Kryptowoltaika</Link>
                   </motion.li>
                 </StyledColumn>
               </motion.li>

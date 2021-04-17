@@ -14,7 +14,7 @@ import { motion } from "framer-motion"
 import { LineAnimationWrapper } from "../Styles/Animations"
 
 const ContactWrapperStyles = styled(WrapperStyles)`
-  visibility: hidden;
+  /* visibility: hidden; */
   padding-top: 108px;
   margin: 127px 123px 90px;
   @media only screen and (max-width: 1282px) {
@@ -139,43 +139,43 @@ const ContactUsSectionWithMap = ({
   bgForm,
   verticalForm,
 }) => {
-  useEffect(() => {
-    const tl = gsap.timeline()
-    tl.to(".wrapper", {
-      autoAlpha: 1,
-    })
-      .from([".contact--header", ".contact--subheader"], 2, {
-        opacity: 0,
-        y: 12,
-        ease: "power3.out",
-        stagger: {
-          amount: 0.5,
-        },
-      })
-      .from(
-        ".contact--item",
-        1.6,
-        {
-          opacity: 0,
-          y: 10,
-          ease: "power3.out",
-          stagger: {
-            amount: 0.5,
-          },
-        },
-        "-=1.2"
-      )
-      .from(
-        ".map",
-        1.6,
-        {
-          opacity: 0,
-          scale: 0.95,
-          ease: "power3.out",
-        },
-        "<0.4"
-      )
-  }, [])
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //   tl.to(".wrapper", {
+  //     autoAlpha: 1,
+  //   })
+  //     .from([".contact--header", ".contact--subheader"], 2, {
+  //       opacity: 0,
+  //       y: 12,
+  //       ease: "power3.out",
+  //       stagger: {
+  //         amount: 0.5,
+  //       },
+  //     })
+  //     .from(
+  //       ".contact--item",
+  //       1.6,
+  //       {
+  //         opacity: 0,
+  //         y: 10,
+  //         ease: "power3.out",
+  //         stagger: {
+  //           amount: 0.5,
+  //         },
+  //       },
+  //       "-=1.2"
+  //     )
+  //     .from(
+  //       ".map",
+  //       1.6,
+  //       {
+  //         opacity: 0,
+  //         scale: 0.95,
+  //         ease: "power3.out",
+  //       },
+  //       "<0.4"
+  //     )
+  // }, [])
 
   return (
     <Container>

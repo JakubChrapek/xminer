@@ -442,7 +442,7 @@ const Footer = ({ dispatch }) => {
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
                 className="icon"
-                href=""
+                href="https://www.xminer.pl/"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -484,6 +484,9 @@ const Footer = ({ dispatch }) => {
               </li>
               <li>
                 <Link to="/dla-inwestorow">Dla inwestorów</Link>
+              </li>
+              <li>
+                <Link to="/kryptowoltaika">Kryptowoltaika</Link>
               </li>
             </ul>
           </div>

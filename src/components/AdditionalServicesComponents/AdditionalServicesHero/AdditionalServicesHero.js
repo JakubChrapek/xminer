@@ -7,33 +7,33 @@ import { HeroWrapperStyles } from "../../ServiceComponents/HeroSection/HeroSecti
 import { gsap } from "gsap"
 
 const AdditionalServicesHero = () => {
-  useEffect(() => {
-    const tl = gsap.timeline()
-    tl.to(".wrapper", {
-      autoAlpha: 1,
-    })
-      .from([".additional--header", ".additional--subheader"], 1.6, {
-        opacity: 0,
-        y: 12,
-        ease: "power3.out",
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .from(
-        ".additional--content",
-        1.6,
-        {
-          opacity: 0,
-          y: 10,
-          ease: "power3.out",
-          stagger: {
-            amount: 0.4,
-          },
-        },
-        "-=0.5"
-      )
-  }, [])
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //   tl.to(".wrapper", {
+  //     autoAlpha: 1,
+  //   })
+  //     .from([".additional--header", ".additional--subheader"], 1.6, {
+  //       opacity: 0,
+  //       y: 12,
+  //       ease: "power3.out",
+  //       stagger: {
+  //         amount: 0.4,
+  //       },
+  //     })
+  //     .from(
+  //       ".additional--content",
+  //       1.6,
+  //       {
+  //         opacity: 0,
+  //         y: 10,
+  //         ease: "power3.out",
+  //         stagger: {
+  //           amount: 0.4,
+  //         },
+  //       },
+  //       "-=0.5"
+  //     )
+  // }, [])
 
   const width = useWindowSize()
   return (

@@ -58,34 +58,34 @@ const DarkWrapperStyles = styled(WrapperStyles)`
 const DarkSection = () => {
   const width = useWindowSize()
 
-  useEffect(() => {
-    const tl = gsap.timeline()
-    tl.to(".wrapper", {
-      autoAlpha: 1,
-      delay: 1.8,
-    })
-      .from([".dark--header", ".dark--subheader"], 1.6, {
-        opacity: 0,
-        y: 12,
-        ease: "power3.out",
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .from(
-        ".dark--content",
-        1.6,
-        {
-          opacity: 0,
-          y: 10,
-          ease: "power3.out",
-          stagger: {
-            amount: 0.4,
-          },
-        },
-        "-=0.5"
-      )
-  }, [])
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //   tl.to(".wrapper", {
+  //     autoAlpha: 1,
+  //     delay: 1.8,
+  //   })
+  //     .from([".dark--header", ".dark--subheader"], 1.6, {
+  //       opacity: 0,
+  //       y: 12,
+  //       ease: "power3.out",
+  //       stagger: {
+  //         amount: 0.4,
+  //       },
+  //     })
+  //     .from(
+  //       ".dark--content",
+  //       1.6,
+  //       {
+  //         opacity: 0,
+  //         y: 10,
+  //         ease: "power3.out",
+  //         stagger: {
+  //           amount: 0.4,
+  //         },
+  //       },
+  //       "-=0.5"
+  //     )
+  // }, [])
 
   return (
     <Container className="wrapper" bg="var(--nav-dark-bluse)" padding="0">

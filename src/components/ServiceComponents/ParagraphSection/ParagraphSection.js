@@ -62,34 +62,34 @@ const ParagraphWrapperStyles = styled(WrapperStyles)`
 `
 
 const ParagraphSection = () => {
-  useEffect(() => {
-    const tl = gsap.timeline()
-    tl.to(".wrapper", {
-      autoAlpha: 1,
-      delay: 2,
-    })
-      .from([".paragraph--header", ".paragraph--subheader"], 1.6, {
-        opacity: 0,
-        y: 12,
-        ease: "power3.out",
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .from(
-        ".paragraph--content",
-        1.6,
-        {
-          opacity: 0,
-          y: 10,
-          ease: "power3.out",
-          stagger: {
-            amount: 0.4,
-          },
-        },
-        "-=0.5"
-      )
-  }, [])
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //   tl.to(".wrapper", {
+  //     autoAlpha: 1,
+  //     delay: 2,
+  //   })
+  //     .from([".paragraph--header", ".paragraph--subheader"], 1.6, {
+  //       opacity: 0,
+  //       y: 12,
+  //       ease: "power3.out",
+  //       stagger: {
+  //         amount: 0.4,
+  //       },
+  //     })
+  //     .from(
+  //       ".paragraph--content",
+  //       1.6,
+  //       {
+  //         opacity: 0,
+  //         y: 10,
+  //         ease: "power3.out",
+  //         stagger: {
+  //           amount: 0.4,
+  //         },
+  //       },
+  //       "-=0.5"
+  //     )
+  // }, [])
 
   const width = useWindowSize()
   return (

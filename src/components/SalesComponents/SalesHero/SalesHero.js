@@ -16,7 +16,7 @@ import useWindowSize from "../../../utils/UseWindowSize"
 import Img from "gatsby-image"
 
 const SalesWrapper = styled(HeroWrapperStyles)`
-  visibility: hidden;
+  /* visibility: hidden; */
   @media only screen and (max-width: 640px) {
     h3 {
       font-size: 36px;
@@ -105,33 +105,32 @@ const SalesHero = () => {
     }
   `)
 
-  useEffect(() => {
-    const tl = gsap.timeline()
-    tl.to(".wrapper", {
-      autoAlpha: 1,
-    })
-      .from([".sales--header", ".sales--subheader"], 1.6, {
-        opacity: 0,
-        y: 12,
-        ease: "power3.out",
-        stagger: {
-          amount: 0.4,
-        },
-      })
-      .from(
-        ".sales--content",
-        1.6,
-        {
-          opacity: 0,
-          y: 10,
-          ease: "power3.out",
-          stagger: {
-            amount: 0.3,
-          },
-        },
-        "-=0.5"
-      )
-  }, [])
+  // useEffect(() => {
+  //   const tl = gsap.timeline()
+  //   tl.to(".wrapper", {
+  //     autoAlpha: 1,
+  //   })
+  //     .from([".sales--header", ".sales--subheader"], {
+  //       opacity: 0,
+  //       duration: 1.4,
+  //       ease: "power3.out",
+  //       stagger: {
+  //         amount: 0.4,
+  //       },
+  //     })
+  //     .from(
+  //       ".sales--content",
+  //       {
+  //         opacity: 0,
+  //         duration: 1.6,
+  //         ease: "power3.out",
+  //         stagger: {
+  //           amount: 0.4,
+  //         },
+  //       },
+  //       "-=0.5"
+  //     )
+  // }, [])
 
   return (
     <StyledContainer padding="108px 0 0">
