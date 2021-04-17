@@ -64,7 +64,7 @@ const KryptowoltaikaHeroSection = () => {
           >
             Niski koszt
             <br />
-            prądu do koparek.
+            prądu do koparek
           </Text>
         </div>
         <div>

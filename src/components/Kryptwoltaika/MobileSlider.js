@@ -54,7 +54,7 @@ const Bar = styled(motion.span)`
     border-radius: 6px;
     background-color: var(--primary);
     transform-origin: left center;
-    transform: scaleX(${({currentPage, pagesLength}) => `${(currentPage % pagesLength) / (pagesLength - 1)}`});
+    transform: scaleX(${({currentPage, pagesLength}) => `${Math.abs((currentPage % pagesLength) / (pagesLength - 1))}`});
     transition: transform .2s .1s cubic-bezier(0.215, 0.610, 0.355, 1);
   }
 `
