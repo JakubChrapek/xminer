@@ -74,14 +74,13 @@ const StepWrapper = styled.div`
     padding-left: 0;
     display: flex;
     flex-wrap: wrap;
-  > p:first-of-type {
-    padding-left: 71px;
-    min-height: 64px;
-    font-size: 18px;
-    line-height: 1.68;
-    font-weight: 500;
-  }
-  
+    > p:first-of-type {
+      padding-left: 71px;
+      min-height: 64px;
+      font-size: 18px;
+      line-height: 1.68;
+      font-weight: 500;
+    }
   }
 `
 
@@ -134,7 +133,7 @@ const KryptowoltaikaHowTo = () => {
           width={width}
           stepText="1"
           titleText="Ustalamy przewidywany pobór prądu przez Twoje koparki."
-          ContentText="Wiadomo, że zużycie prądu będzie się różnić dla poszczególnych algorytmów. Później możecie się wspomóc kalkulatorem <a class='link' href='www.whattomine.com'>whattomine</a>, ale na tym etapie bierzemy pod uwagę sumaryczną moc Twojej koparki.​"
+          ContentText="Wiadomo, że zużycie prądu będzie się różnić dla poszczególnych algorytmów. Później możecie się wspomóc kalkulatorem <a class='link' rel='noreferrer noopener' target='_blank' href='https://www.whattomine.com'>whattomine</a>, ale na tym etapie bierzemy pod uwagę sumaryczną moc Twojej koparki.​"
         />
         <StepSection
           width={width}
