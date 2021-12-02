@@ -528,7 +528,7 @@ const Footer = ({ dispatch }) => {
                 <p>
                   Stronę stworzyli{" "}
                   <a
-                    href="https://kryptonumstudio.com"
+                    href="https://kryptonum.eu"
                     target="_blank"
                     rel="noreferrer noopener"
                     onMouseEnter={() => {
@@ -546,7 +546,7 @@ const Footer = ({ dispatch }) => {
                       })
                     }}
                   >
-                    Kryptonum Studio
+                    Kryptonum
                   </a>{" "}
                   &
                   <a
@@ -601,11 +601,11 @@ const Footer = ({ dispatch }) => {
                 <p>
                   {width > 375 && `Stronę stworzyli `}
                   <a
-                    href="https://kryptonumstudio.com"
+                    href="https://kryptonum.eu"
                     target="_blank"
                     rel="noreferrer noopener"
                   >
-                    Kryptonum Studio
+                    Kryptonum
                   </a>{" "}
                   &
                   <a
