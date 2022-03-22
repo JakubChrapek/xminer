@@ -7,6 +7,7 @@ import HowToChooseSection from "../components/SalesComponents/SalesHero/HowToCho
 import MinerRigsSection from "../components/SalesComponents/SalesHero/MinerRigsSection/MinerRigsSection"
 import SalesHero from "../components/SalesComponents/SalesHero/SalesHero"
 import SEO from "../components/SEO/SEO"
+import PricingConfiguratorSection from "../components/ServiceComponents/PricingConfigurator/PricingConfiguratorSection"
 
 const Sales = ({ data }) => {
   const {
@@ -16,7 +17,8 @@ const Sales = ({ data }) => {
     <>
       <SEO title="Sprzedaż" />
       <SalesHero />
-      <MinerRigsSection />
+      {/* <MinerRigsSection /> */}
+      <PricingConfiguratorSection />
       <HowToChooseSection />
       <CtaSalesSection />
       {/* <BlogSection
