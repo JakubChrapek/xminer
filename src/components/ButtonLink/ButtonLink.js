@@ -293,7 +293,6 @@ const ButtonLink = ({
         fill={fill}
         gradient={gradient}
         bg={bg}
-        type={type}
         color={color}
         layout={layout ? true : false}
       >

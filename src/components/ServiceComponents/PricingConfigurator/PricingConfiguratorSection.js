@@ -99,7 +99,9 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
   }
 
   const handleSubmit = (e, props) => {
+    debugger
     e.preventDefault()
+    e.stopPropagation()
     props.setSubmitting(true)
     dispatch({
       type: "TOGGLE_CURSOR",
@@ -343,9 +345,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                         order={width <= 1002 && "-1"}
                         margin={width > 1002 ? "0 0 0 12px" : "0"}
                         layout={true}
-                        type={
-                          activeStep < steps.length - 1 ? "button" : "submit"
-                        }
+                        type={"button"}
                         whileTap={{ scale: 0.98 }}
                         loading={
                           activeStep === steps.length - 1
@@ -355,19 +355,19 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                         onClick={
                           activeStep < steps.length - 1
                             ? () => {
-                                setActiveStep(activeStep + 1)
-                                props.setSubmitting(true)
-                                setTimeout(() => {
-                                  props.setSubmitting(false)
-                                }, 50)
-                                dispatch({
-                                  type: "TOGGLE_CURSOR",
-                                  cursorShow: false,
-                                })
-                              }
+                              setActiveStep(activeStep + 1)
+                              props.setSubmitting(true)
+                              setTimeout(() => {
+                                props.setSubmitting(false)
+                              }, 50)
+                              dispatch({
+                                type: "TOGGLE_CURSOR",
+                                cursorShow: false,
+                              })
+                            }
                             : e => {
-                                handleSubmit(e, props)
-                              }
+                              handleSubmit(e, props)
+                            }
                         }
                         disabled={
                           (activeStep === steps.length - 1 && !props.isValid) ||
@@ -377,7 +377,7 @@ const ActiveStep = ({ steps, activeStep, setActiveStep }) => {
                           (activeStep === 1 &&
                             (props.values.miners < 1 ||
                               props.values.miners > 1000)) ||
-                          (activeStep === 3 &&
+                          (activeStep === 2 &&
                             (props.values.power < 200 ||
                               props.values.power > 1500000))
                         }
@@ -426,16 +426,16 @@ const Configurator = ({ types }) => {
       helperText: "Podaj liczbę koparek, którą chciałbyś, abyśmy się zajęli",
       content: <NumberOfMinersStep />,
     },
-    {
-      stepTitle: "Rozmiar koparek",
-      stepSubtitle: "Wybierz",
-      stepIcon: <TapIcon />,
-      firstLine: `Liczba ${
-        activeType === 0 ? "wiatraków" : "kart graficznych"
-      }`,
-      helperText: `${activeType === 0 ? "" : "Z ilu kart składa się koparka?"}`,
-      content: <Step2 activeCard={activeCard} setActiveCard={setActiveCard} />,
-    },
+    // {
+    //   stepTitle: "Rozmiar koparek",
+    //   stepSubtitle: "Wybierz",
+    //   stepIcon: <TapIcon />,
+    //   firstLine: `Liczba ${
+    //     activeType === 0 ? "wiatraków" : "kart graficznych"
+    //   }`,
+    //   helperText: `${activeType === 0 ? "" : "Z ilu kart składa się koparka?"}`,
+    //   content: <Step2 activeCard={activeCard} setActiveCard={setActiveCard} />,
+    // },
     {
       stepTitle: "Moc koparek",
       stepSubtitle: "Moc koparek",

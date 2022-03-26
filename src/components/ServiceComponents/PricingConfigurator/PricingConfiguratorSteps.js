@@ -244,46 +244,46 @@ const ModelGridStyles = styled(motion.div)`
   }
 `
 
-const AsicStep2Choices = () => {
-  const [activeChoice, setActiveChoice] = useState(0)
-  const [fieldFan, metaFan] = useField({ name: "fan" })
-  const { setFieldValue } = useFormikContext()
-  useEffect(() => {
-    setFieldValue("fan", 1)
-  }, [])
+// const AsicStep2Choices = () => {
+//   const [activeChoice, setActiveChoice] = useState(0)
+//   const [fieldFan, metaFan] = useField({ name: "fan" })
+//   const { setFieldValue } = useFormikContext()
+//   useEffect(() => {
+//     setFieldValue("fan", 1)
+//   }, [])
 
-  return (
-    <ModelGridStyles>
-      {Array.from({ length: 3 }, (_, i) => (
-        <motion.button
-          key={`cryptominder-fan-${i}`}
-          whileTap={{ scale: 0.97 }}
-          transition={{
-            type: "spring",
-            stiffness: 100,
-            default: { duration: 0.2 },
-          }}
-          onClick={e => {
-            e.preventDefault()
-            setActiveChoice(i)
-            i === 2 ? setFieldValue("fan", "inna") : setFieldValue("fan", i + 1)
-          }}
-          className={activeChoice === i ? "active" : ""}
-        >
-          <Text
-            textTransform="uppercase"
-            color="var(--nav-dark-bluse)"
-            fontSize="20px"
-            lineHeight="1.5"
-            fontWeight="400"
-          >
-            {i === 2 ? "inna" : `${i + 1} fan`}
-          </Text>
-        </motion.button>
-      ))}
-    </ModelGridStyles>
-  )
-}
+//   return (
+//     <ModelGridStyles>
+//       {Array.from({ length: 3 }, (_, i) => (
+//         <motion.button
+//           key={`cryptominder-fan-${i}`}
+//           whileTap={{ scale: 0.97 }}
+//           transition={{
+//             type: "spring",
+//             stiffness: 100,
+//             default: { duration: 0.2 },
+//           }}
+//           onClick={e => {
+//             e.preventDefault()
+//             setActiveChoice(i)
+//             i === 2 ? setFieldValue("fan", "inna") : setFieldValue("fan", i + 1)
+//           }}
+//           className={activeChoice === i ? "active" : ""}
+//         >
+//           <Text
+//             textTransform="uppercase"
+//             color="var(--nav-dark-bluse)"
+//             fontSize="20px"
+//             lineHeight="1.5"
+//             fontWeight="400"
+//           >
+//             {i === 2 ? "inna" : `${i + 1} fan`}
+//           </Text>
+//         </motion.button>
+//       ))}
+//     </ModelGridStyles>
+//   )
+// }
 
 export const NumberOfMinersStep = () => {
   const [typeField, metaTypeField] = useField({ name: "miners" })
@@ -313,44 +313,44 @@ export const NumberOfMinersStep = () => {
         variant="miners"
         placeholder={+typeField.value}
         pattern="[0-9]"
-        // onChange={e => {
-        //   e.preventDefault()
-        //   setFieldValue("miners", e.target.value)
-        // }}
+      // onChange={e => {
+      //   e.preventDefault()
+      //   setFieldValue("miners", e.target.value)
+      // }}
       />
     </motion.div>
   )
 }
 
-export const Step2 = ({ activeCard, setActiveCard }) => {
-  const [typeField, metaTypeField] = useField({ name: "type" })
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.4, delay: 0.15 },
-      }}
-      exit={{
-        opacity: 0,
-        y: -16,
-        transition: { duration: 0.4, delay: 0.15 },
-      }}
-      key="fan"
-    >
-      {typeField.value === "asic" ? (
-        <AsicStep2Choices />
-      ) : (
-        <GpuStep2Choices
-          activeCard={activeCard}
-          setActiveCard={setActiveCard}
-          pricingConfigurator
-        />
-      )}
-    </motion.div>
-  )
-}
+// export const Step2 = ({ activeCard, setActiveCard }) => {
+//   const [typeField, metaTypeField] = useField({ name: "type" })
+//   return (
+//     <motion.div
+//       initial={{ opacity: 0, y: 16 }}
+//       animate={{
+//         opacity: 1,
+//         y: 0,
+//         transition: { duration: 0.4, delay: 0.15 },
+//       }}
+//       exit={{
+//         opacity: 0,
+//         y: -16,
+//         transition: { duration: 0.4, delay: 0.15 },
+//       }}
+//       key="fan"
+//     >
+//       {typeField.value === "asic" ? (
+//         <AsicStep2Choices />
+//       ) : (
+//         <GpuStep2Choices
+//           activeCard={activeCard}
+//           setActiveCard={setActiveCard}
+//           pricingConfigurator
+//         />
+//       )}
+//     </motion.div>
+//   )
+// }
 
 const PowerContainer = styled(motion.ul)`
   width: 100%;
@@ -751,7 +751,7 @@ const NameWrapper = styled.div`
           }
         `
       : variant === "miners" &&
-        css`
+      css`
           input {
             padding: 0.4em 1em;
             border: 2px solid var(--nav-dark-bluse);
@@ -894,24 +894,24 @@ export const Step4 = () => {
 
   const getPriceFromConfiguration = values => {
     const { type, fan, power, miners } = values
-    const costPerWattPerHour = 0.35
+    const costPerKiloWattPerHour = 0.8
     let normalizedPower = (power / 1000) * 24 * 31
     let price = 0
 
-    if (type === "asic") {
-      const fanPrice = fan === 1 ? 90 : 120
-      price += fanPrice
-    } else {
-      if (type === "gpu") {
-        const cardsNumber = fan
-        // For 1-4 graphic cards price equals 120PLN
-        // Over 4 graphic cards each one costs 30PLN
-        const graphicCardsPrice = fan <= 4 ? 120 : 120 + (cardsNumber - 4) * 30
-        price += graphicCardsPrice
-      }
-    }
+    // if (type === "asic") {
+    //   const fanPrice = fan === 1 ? 90 : 120
+    //   price += fanPrice
+    // } else {
+    //   if (type === "gpu") {
+    //     const cardsNumber = fan
+    //     // For 1-4 graphic cards price equals 120PLN
+    //     // Over 4 graphic cards each one costs 30PLN
+    //     const graphicCardsPrice = fan <= 4 ? 120 : 120 + (cardsNumber - 4) * 30
+    //     price += graphicCardsPrice
+    //   }
+    // }
 
-    price += normalizedPower * costPerWattPerHour
+    price += normalizedPower * costPerKiloWattPerHour
     return miners * roundToNearest(price, 2)
   }
 
@@ -966,7 +966,7 @@ export const Step4 = () => {
         >
           {values.type} ({values.miners})
         </Text>
-        <Text
+        {/* <Text
           fontSize="13px"
           lineHeight="1"
           fontWeight="400"
@@ -995,7 +995,7 @@ export const Step4 = () => {
                 : "kart"
               : "FAN"
           }`}
-        </Text>
+        </Text> */}
         <Text
           fontSize="13px"
           lineHeight="1"
@@ -1013,7 +1013,7 @@ export const Step4 = () => {
           margin="8px 0 0"
           textTransform="uppercase"
         >
-          {values.power}W
+          {(values.power / 1000).toFixed(1)}kW
         </Text>
       </SummaryWrapper>
       <LastStyles>
