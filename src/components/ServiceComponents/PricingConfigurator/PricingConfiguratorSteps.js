@@ -954,7 +954,7 @@ export const Step4 = () => {
           margin="30px 0 0"
           color="var(--light-aqua)"
         >
-          liczba koparek
+          Liczba koparek
         </Text>
         <Text
           fontSize="14px"
