@@ -912,7 +912,7 @@ export const Step4 = () => {
     // }
 
     price += normalizedPower * costPerKiloWattPerHour
-    return miners * roundToNearest(price, 2)
+    return roundToNearest(price, 2)
   }
 
   useEffect(() => {
@@ -936,7 +936,7 @@ export const Step4 = () => {
     >
       <SummaryWrapper>
         <Text fontSize="16px" color="var(--white)">
-          Cena pakietu
+          Cena za jedną koparkę
         </Text>
         <Text
           fontSize="24px"
@@ -954,7 +954,7 @@ export const Step4 = () => {
           margin="30px 0 0"
           color="var(--light-aqua)"
         >
-          Rodzaj koparki (liczba koparek)
+          liczba koparek
         </Text>
         <Text
           fontSize="14px"
@@ -964,7 +964,7 @@ export const Step4 = () => {
           margin="8px 0 0"
           textTransform="uppercase"
         >
-          {values.type} ({values.miners})
+          {values.miners}
         </Text>
         {/* <Text
           fontSize="13px"
@@ -1003,7 +1003,7 @@ export const Step4 = () => {
           margin="10px 0 0"
           color="var(--light-aqua)"
         >
-          Łączna moc koparek
+          Moc jednej koparki
         </Text>
         <Text
           fontSize="14px"
@@ -1013,7 +1013,7 @@ export const Step4 = () => {
           margin="8px 0 0"
           textTransform="uppercase"
         >
-          {(values.power / 1000).toFixed(1)}kW
+          {values.power < 1000 ? values.power + 'W' : (values.power / 1000).toFixed(1) + "kW"}
         </Text>
       </SummaryWrapper>
       <LastStyles>

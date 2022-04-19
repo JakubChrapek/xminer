@@ -403,21 +403,21 @@ const Configurator = ({ types }) => {
   const [activeStep, setActiveStep] = useState(0)
 
   const steps = [
-    {
-      stepTitle: "Rodzaj koparek",
-      stepSubtitle: "GPU / ASIC",
-      stepIcon: <SearchIcon />,
-      firstLine: "Wybierz rodzaj koparek",
-      helperText:
-        "Dedykowane rozwiązanie ASIC czy równoległe obliczenia z wykorzystaniem kart graficznych?",
-      content: (
-        <Step1
-          types={types}
-          activeType={activeType}
-          setActiveType={setActiveType}
-        />
-      ),
-    },
+    // {
+    //   stepTitle: "Rodzaj koparek",
+    //   stepSubtitle: "GPU / ASIC",
+    //   stepIcon: <SearchIcon />,
+    //   firstLine: "Wybierz rodzaj koparek",
+    //   helperText:
+    //     "Dedykowane rozwiązanie ASIC czy równoległe obliczenia z wykorzystaniem kart graficznych?",
+    //   content: (
+    //     <Step1
+    //       types={types}
+    //       activeType={activeType}
+    //       setActiveType={setActiveType}
+    //     />
+    //   ),
+    // },
     {
       stepTitle: "Liczba koparek",
       stepSubtitle: "Podaj liczbę",
