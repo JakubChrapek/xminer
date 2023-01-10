@@ -528,7 +528,7 @@ const Footer = ({ dispatch }) => {
                 <p>
                   Stronę stworzyli{" "}
                   <a
-                    href="https://kryptonum.eu"
+                    href="https://kryptonum.eu/"
                     target="_blank"
                     rel="noreferrer noopener"
                     onMouseEnter={() => {
@@ -601,7 +601,7 @@ const Footer = ({ dispatch }) => {
                 <p>
                   {width > 375 && `Stronę stworzyli `}
                   <a
-                    href="https://kryptonum.eu"
+                    href="https://kryptonum.eu/"
                     target="_blank"
                     rel="noreferrer noopener"
                   >
