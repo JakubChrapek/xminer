@@ -8,7 +8,6 @@ import Email from "../../images/email-icon.svg"
 import Mobile from "../../images/mobile.svg"
 import Location from "../../images/location.svg"
 import Text from "../Text/Text"
-import useWindowSize from "../../utils/UseWindowSize"
 
 const Wrapper = styled.div`
   display: flex;
@@ -371,7 +370,6 @@ const LinkStyles = styled(Link)`
 `
 
 const Footer = ({ dispatch }) => {
-  const width = useWindowSize()
   return (
     <Wrapper>
       <FooterStyles>
