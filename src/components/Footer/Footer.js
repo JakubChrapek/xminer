@@ -599,7 +599,7 @@ const Footer = ({ dispatch }) => {
 
               <div>
                 <p>
-                  {width > 375 && `Stronę stworzyli `}
+                  Stronę stworzyli
                   <a
                     href="https://kryptonum.eu/"
                     target="_blank"
