@@ -8,7 +8,6 @@ import Email from "../../images/email-icon.svg"
 import Mobile from "../../images/mobile.svg"
 import Location from "../../images/location.svg"
 import Text from "../Text/Text"
-import useWindowSize from "../../utils/UseWindowSize"
 
 const Wrapper = styled.div`
   display: flex;
@@ -234,6 +233,14 @@ const Columns = styled.div`
 `
 
 const Copyrights = styled.div`
+    .copyParagraph {
+        margin-top: 7px;
+    }
+    @media only screen and (min-width: 376px){
+        .copyParagraph {
+            margin-top: 14px;
+        }
+    }
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -363,7 +370,6 @@ const LinkStyles = styled(Link)`
 `
 
 const Footer = ({ dispatch }) => {
-  const width = useWindowSize()
   return (
     <Wrapper>
       <FooterStyles>
@@ -518,107 +524,61 @@ const Footer = ({ dispatch }) => {
           </div>
         </Columns>
         <Copyrights>
-          {width > 801 ? (
-            <>
-              <p>
-                &copy; {new Date().getFullYear()} Xminer. Wszelkie prawa
-                zastrzeżone.
-              </p>
-              <div>
-                <p>
-                  Stronę stworzyli{" "}
-                  <a
+            <p>&copy; {new Date().getFullYear()} Xminer. Wszelkie prawa zastrzeżone.</p>
+            <div>
+                <p>Stronę stworzyli{" "}
+                    <a
                     href="https://kryptonum.eu/"
                     target="_blank"
                     rel="noreferrer noopener"
                     onMouseEnter={() => {
-                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
-                      dispatch({
+                        dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+                        dispatch({
                         type: "CHANGE_CURSOR_TYPE",
                         cursorType: "outline",
-                      })
+                        })
                     }}
                     onMouseLeave={() => {
-                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
-                      dispatch({
+                        dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+                        dispatch({
                         type: "CHANGE_CURSOR_TYPE",
                         cursorType: "full",
-                      })
+                        })
                     }}
-                  >
+                    >
                     Kryptonum
-                  </a>{" "}
-                  &
-                  <a
+                    </a>{" "}
+                    &
+                    <a
                     href="https://agathadesign.co.uk/"
                     target="_blank"
                     rel="noreferrer noopener"
                     onMouseEnter={() => {
-                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
-                      dispatch({
+                        dispatch({ type: "TOGGLE_CURSOR", cursorShow: true })
+                        dispatch({
                         type: "CHANGE_CURSOR_TYPE",
                         cursorType: "outline",
-                      })
+                        })
                     }}
                     onMouseLeave={() => {
-                      dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
-                      dispatch({
+                        dispatch({ type: "TOGGLE_CURSOR", cursorShow: false })
+                        dispatch({
                         type: "CHANGE_CURSOR_TYPE",
                         cursorType: "full",
-                      })
+                        })
                     }}
-                  >
+                    >
                     Agatha Design
-                  </a>
-                  |
+                    </a>
+                    |
                 </p>
                 <Link
-                  style={{ display: "inline-flex" }}
-                  to="/polityka-prywatnosci"
+                    style={{ display: "inline-flex" }}
+                    to="/polityka-prywatnosci"
                 >
-                  Polityka prywatności
+                    Polityka prywatności
                 </Link>
-              </div>
-            </>
-          ) : (
-            <>
-              <p
-                style={
-                  width > 375 ? { marginTop: "14px" } : { marginTop: "7px" }
-                }
-              >
-                &copy; {new Date().getFullYear()} Xminer. Wszelkie prawa
-                zastrzeżone. {width > 437 && "|"}
-                <Link
-                  style={{ display: "inline-flex" }}
-                  to="/polityka-prywatnosci"
-                >
-                  Polityka prywatności
-                </Link>
-              </p>
-
-              <div>
-                <p>
-                  Stronę stworzyli
-                  <a
-                    href="https://kryptonum.eu/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    Kryptonum
-                  </a>{" "}
-                  &
-                  <a
-                    href="https://agathadesign.co.uk/"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    Agatha Design
-                  </a>
-                </p>
-              </div>
-            </>
-          )}
+            </div>
         </Copyrights>
       </FooterStyles>
     </Wrapper>
